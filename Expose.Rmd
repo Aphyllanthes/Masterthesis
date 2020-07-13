@@ -7,7 +7,7 @@ output:
     toc: true
     number_sections: true
 lang: de
-bibliography: ../ref/references.bib  
+bibliography: Masterarbeit.bib 
 biblio-style: apalike
 link-citations: true
 ---
@@ -56,10 +56,12 @@ Durch die Spezialisierung der Bienen auf Baumaterial, Nistplatz und Nahrungsraum
 In Deutschland kommen etwa 566 Wildbienenarten vor, wovon einige Hohlraumbewohner Nisthilfen besiedeln. 
 Neben den Bienen und Wespen, die ihre Nester in den Nisthilfen anlegen, werden diese auch von Parasiten besiedelt. Parasiten sind teils hochspezialisiert auf ihren Wirt und haben einen regulierenden Einfluss auf dessen Population. Es kommen verschiedene Formen des Parasitismus vor (echte Parasiten (z.B. Milben) die ihren Wirt nicht töten, Parasitoide, welche ihren Wirt töten (z.B. Goldwespen) oder Futterparasiten wie Kuckucksbienen und -wespen), wobei es sogar zur Parasitierung 2. und 3. Grades kommen kann [@westrich2020].
 
+Die Abundanz (Häufigkeit) einzelner Wildbienenarten ist, bedingt durch die natürliche Dynamik der Populationen, zeitlich und räumlich sehr variabel [@williams2001]. Die Artenzusammensetzung der Wildbienenfauna ist zeitlich weniger variabel und zeigt im Verlauf mehrerer Jahre Artenverschiebungen [@williams2001]. 
+
 ### Nisthilfen (Trap-Nests)
 <!-- sampling-method trap-nest -->
-Einige Wildbienenarten Nisten in Hohlräumen und können daher durch Nisthilfen (Trap-nest) gefördert werden. Trapnester sind Nisthilfen die durch waagerecht orientierte Schilfhalme und Bambusröhrchen einen Hohlraum als Nistmöglichkeit bieten. Das Monitoring von Wildbienen, Wespen und deren Parasiten mittels Trapnestern ist eine etablierte Methode, die die Möglichkeit bietet den Lebenszyklus vom Ei bis zum adulten Individuum zu erforschen. Neben ursprünglich rein biologischen Fragestellungen werden Trapnester auch für Fragestellungen zur Artenzusammensetzung entlang von Gradienten und im Bezug zum Umweltwandel behandelt [@staab2018]. 
-Dennoch eignen sich Trapnester nicht um die gesamte Artendiversität von Bienen oder Wespen zu erfassen, da Trapnester nur für eine limitierte Anzahl an Arten einen geeigneten Nistplatz bieten [@staab2018]<!-- (Kessler et al., 2011; Tscharntke et al., 1998) -->. In Trapnestern wird nur ein Bruchteil der jeweiligen localen Fauna erfasst, und selbst nur einen Bruchteil der potentiellen Hohlraumbesiedler. Auch die relative Häufigkeit der Arten unterscheidet sich von mit Netzen im Feld gefangenen Arten  [@krombein; @prendergast2020].
+Einige Wildbienenarten Nisten in Hohlräumen und können daher durch Nisthilfen (Trap-nest) gefördert werden. Trapnester sind Nisthilfen die durch waagerecht orientierte Schilfhalme und Bambusröhrchen einen Hohlraum als Nistmöglichkeit bieten. Das Monitoring von Wildbienen, Wespen und deren Parasiten mittels Trapnestern ist eine etablierte Methode, die die Möglichkeit bietet den Lebenszyklus vom Ei bis zum adulten Individuum zu erforschen. Neben ursprünglich rein biologischen Fragestellungen werden Trapnester auch für Fragestellungen zur Artenzusammensetzung entlang von Gradienten und im Bezug zum Umweltwandel behandelt [@staab2018a]. 
+Dennoch eignen sich Trapnester nicht um die gesamte Artendiversität von Bienen oder Wespen zu erfassen, da Trapnester nur für eine limitierte Anzahl an Arten einen geeigneten Nistplatz bieten [@staab2018a]<!-- (Kessler et al., 2011; Tscharntke et al., 1998) -->. In Trapnestern wird nur ein Bruchteil der jeweiligen localen Fauna erfasst, und selbst nur einen Bruchteil der potentiellen Hohlraumbesiedler. Auch die relative Häufigkeit der Arten unterscheidet sich von mit Netzen im Feld gefangenen Arten  [@krombein; @prendergast2020].
 Laut @tscharntke1998 können die in Trapnestern nistenen Bienen und Wespen jedoch durchaus als Bioindikatoren und zur Habitatevaluation genutzt werden.
 Ein Vorteil von der Erfassung von Wildbienen in Nisthilfen im Vergleich zum Fangen der fliegenden Wildbienen, ist, dass auch die Anzahl der toten Bienen, das Geschlechterverhätnis, sowie die Parasitierungsrate und die Parasitenarten bestimmt werden können. 
 
@@ -162,6 +164,7 @@ Oligolektische Arten kommen hauptsächlich bei geringem Versiegelungsgrad vor.
 
 # Methoden
 ## Laborarbeit
+Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden aufbewahrt, sodass sich die Arten zum Adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
 
 - Mitarbeit beim Öffnen der Nester: Vorsortierung der Nester nach Morphospezies anhand von Kokon/Larve, Nestverschluss und Nahrunsquelle sowie Vermessen des Nestes (Durchmesser, Länge, Anzahl der Zellen, Puppen/Larven und sichtbarer Parasiten).
 - Mitarbeit beim Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen.
@@ -220,15 +223,32 @@ ggplot(data = mypoint_avg, aes(avg500)) + geom_histogram(binwidth = 5) +
 
     
 - Bereinigen des Datensatz der Informationen zu den bearbeiteten Trapnestern, also den Wildbienen und Parasiten.
+
+In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial desselben Trapnestes. Falls keine Art mit gleichem Nestcharacteristika im gleichen Trapnest vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. 
+<!-- wie geht man damit in der NMDS vor? -->
+Zunächst werden folgende Parameter berechnet:
+
+| Parameter | Beschreibung |
+| --------- | ------------ |
+| Artenanzahl | Anzahl der Arten pro Trapnest |
+| Abundanz | Anzahl lebender Puppen bzw. Larven pro Trapnest |
+| Überlebensrate | Anzahl der lebenden Puppen dividiert durch die Gesamtanzahl der Zellen |
+| Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen |
+
+<!-- Random forest mit Metadaten um zu sehen ob Standorteigenschaften die Landnutzungseffekte überwiegen. -->
+
 - Methodeneffekte ausschließen: Position und Ausrichtung der Nester können einen Einfluss haben [@martins2012], ebenso nahegelegene alte Insektenhotels.
 
 - Modellierung der Artenzusammensetzung: 
-  - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. 
-  Anzahl und Abundanz der polylektischen Arten bzw. oligolektischen Arten. 
-  - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan".
-  - gegebenenfalls Analyse der spezifischen Arten, auf auffällig verschiedene Standortansprüche.
+  - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen.
 
-<!-- andere geostatistische ansätze: variogramm, autocorrelation -->
+- Separate Analyse des Vorkommens von Teilgruppen: Polylektische bzw. oligolektische Arte sowie gefährdete Arten. 
+  - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan" (Ordination NMDS) für verschiedene Landnutzungskategorieen (z.B.: 1. hoher Versiegelungsgrad - geringer Versiegelungsgrad, 2. Anteil natürlicher Habitaten im Radius 500m > bzw. < 10 %).
+  - Analyse der spezifischen Arten, auf auffällig verschiedene Standortansprüche.
+
+<!-- Landscape mosaics - Spearmans rank correlation to test correlations between landscape parameters. Anteil von non-crop habitat war positiv correlated mit Habitat-typ-diversität, Anteil an grassland, anteil an Wald, aber nicht mit der edge density [@holzschuh2010] -->
+
+<!-- fixed factor - random factor -->
 
 <!-- Analyse der Varianzen (z.B.: Adonis) , -->
     
@@ -238,7 +258,7 @@ ggplot(data = mypoint_avg, aes(avg500)) + geom_histogram(binwidth = 5) +
 
 <!-- - Analysis of uncertainty -->
 
-
+<!-- andere geostatistische ansätze: variogramm, autocorrelation ? -->
 ## Zeitplan
 April, Mai: Nester Öffnen
 Juni: Exposé schreiben, restliche Nester Öffnen und mit dem Bestimmen der Bienen beginnen
@@ -272,7 +292,10 @@ September-Dezember: Arbeit schreiben.
 <!-- invasive arten? -->
 
 
-<!-- # Diskussion -->
+# Diskussion
+
+- Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig
+
 <!-- Artenvorkommen kann auch von einer ehemalige Landnutzung kommen [@do2014]. -->
 
 <!-- @pickett2001 claimed that urban gradients offer a very effective framework for studying impacts of urbanisation on invertebrates because they can capture a wide variety of urban effects. @new2015 s. 36 -->
