@@ -1,5 +1,5 @@
 ---
-title: "Der Einfluss der Landnutzung auf die Wildbienenzusammensetzung in Trapnestern"
+title: "Der Einfluss der Landnutzung auf die Wildbienenzusammensetzung in Nisthilfen"
 author: "Nele Stackelberg"
 date: "8 6 2020"
 output:
@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 # Einleitung
 Im Rahmen des Schulinsektenhausprojektes werde ich die in den Nisthilfen vorkommenden Bienenarten mit ihren Parasiten analysieren. Dabei werde ich den Effekt der Landnutzung  auf die Artenzusammensetzung der kapp 300 über Deutschland verteilten Nisthilfen (siehe Abbildung \ref{standorte}) untersuchen.
 
-```{r standorte, fig.cap="Standorte der Trapnester 2019 in Deutschland \\label{standorte}", cache=TRUE}
+```{r standorte, fig.cap="Standorte der Nisthilfen 2019 in Deutschland \\label{standorte}", cache=TRUE}
 library(dplyr)
 library("sf")
 library(ggplot2)
@@ -60,9 +60,9 @@ Die Abundanz (Häufigkeit) einzelner Wildbienenarten ist, bedingt durch die nat�
 
 ### Nisthilfen (Trap-Nests)
 <!-- sampling-method trap-nest -->
-Einige Wildbienenarten Nisten in Hohlräumen und können daher durch Nisthilfen (Trap-nest) gefördert werden. Trapnester sind Nisthilfen die durch waagerecht orientierte Schilfhalme und Bambusröhrchen einen Hohlraum als Nistmöglichkeit bieten. Das Monitoring von Wildbienen, Wespen und deren Parasiten mittels Trapnestern ist eine etablierte Methode, die die Möglichkeit bietet den Lebenszyklus vom Ei bis zum adulten Individuum zu erforschen. Neben ursprünglich rein biologischen Fragestellungen werden Trapnester auch für Fragestellungen zur Artenzusammensetzung entlang von Gradienten und im Bezug zum Umweltwandel behandelt [@staab2018a]. 
-Dennoch eignen sich Trapnester nicht um die gesamte Artendiversität von Bienen oder Wespen zu erfassen, da Trapnester nur für eine limitierte Anzahl an Arten einen geeigneten Nistplatz bieten [@staab2018a]<!-- (Kessler et al., 2011; Tscharntke et al., 1998) -->. In Trapnestern wird nur ein Bruchteil der jeweiligen localen Fauna erfasst, und selbst nur einen Bruchteil der potentiellen Hohlraumbesiedler. Auch die relative Häufigkeit der Arten unterscheidet sich von mit Netzen im Feld gefangenen Arten  [@krombein; @prendergast2020].
-Laut @tscharntke1998 können die in Trapnestern nistenen Bienen und Wespen jedoch durchaus als Bioindikatoren und zur Habitatevaluation genutzt werden.
+Einige Wildbienenarten Nisten in Hohlräumen und können daher durch Nisthilfen (Trap-nest) gefördert werden. Trapnester sind Nisthilfen die durch waagerecht orientierte Schilfhalme und Bambusröhrchen einen Hohlraum als Nistmöglichkeit bieten. Das Monitoring von Wildbienen, Wespen und deren Parasiten mittels Nisthilfen ist eine etablierte Methode, die die Möglichkeit bietet den Lebenszyklus vom Ei bis zum adulten Individuum zu erforschen. Neben ursprünglich rein biologischen Fragestellungen werden Nisthilfen auch für Fragestellungen zur Artenzusammensetzung entlang von Gradienten und im Bezug zum Umweltwandel behandelt [@staab2018a]. 
+Dennoch eignen sich Nisthilfen nicht um die gesamte Artendiversität von Bienen oder Wespen zu erfassen, da Nisthilfen nur für eine limitierte Anzahl an Arten einen geeigneten Nistplatz bieten [@staab2018a]<!-- (Kessler et al., 2011; Tscharntke et al., 1998) -->. In Nisthilfen wird nur ein Bruchteil der jeweiligen localen Fauna erfasst, und selbst nur einen Bruchteil der potentiellen Hohlraumbesiedler. Auch die relative Häufigkeit der Arten unterscheidet sich von mit Netzen im Feld gefangenen Arten  [@krombein; @prendergast2020].
+Laut @tscharntke1998 können die in Nisthilfen nistenen Bienen und Wespen jedoch durchaus als Bioindikatoren und zur Habitatevaluation genutzt werden.
 Ein Vorteil von der Erfassung von Wildbienen in Nisthilfen im Vergleich zum Fangen der fliegenden Wildbienen, ist, dass auch die Anzahl der toten Bienen, das Geschlechterverhätnis, sowie die Parasitierungsrate und die Parasitenarten bestimmt werden können. 
 
 <!-- (Silveira, F. A. and L. M. GodÌnez, L.M. (1996) Systematic surveys of local bee faunas.Melissa, 9:1-4.) -->
@@ -141,9 +141,16 @@ In diesem heterogenen Mosaik im städischen Bereich gibt es viele "ökologische 
 # Fragestellung
 In dieser Arbeit soll folgenden Fragestellungen nachgegangen werden.
 
-- Was ist der aktuelle Status der Nisthilfen-besiedelnden Wildbienenarten sowie ihrer Parasiten in Deutschland? 
-- Welche Landnutzungsform und welcher Versiegelungsgrad zeigt besonders geringe Artenvorkommen bzw besonders hohe Vorkommen der polylektischen und welche der oligolektischen Wildbienenarten? 
-- Unterscheidet sich die Artenzusammensetzung in den Trapnestern je nach Komplexität der Landschaft und dem Urbanisierungsgrad?
+- Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind xx Studien zu Nisthilfen bekannt [@gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014]. Die Artenlisten zusammengefasst ergeben xx bienen, ect. (). Für ein Monitoring das sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue arten zu erfassen. Gerade weil für Stadtrandbereiche eine hohe Bienen und Insektendiversität beschrieben ist, Anthropogene Bereiche verhältnismäßig wärmer als das Umland sind und durch hohen Strukturanteil verschiedene Lebensräume bieten können. <!-- Quellen -->
+<!-- Hier wären drei Sätze die dies erklären gut: Aus DE sind xx Studien zu Nisthilfen bekannt (). Die Artenlisten zusammengefasst ergeben xx bienen, ect. (). Für ein Monitoring das sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue arten zu erfassen. Gerade weil für Stadtrandbereiche eine hohe Bienen und Insektendiversität beschrieben ist, Anthropogene bereiche verhältnismäßig wärmer als das umland sind und durch hohen Strukturanteil verschiedene Lebensräume bieten können. ... -->
+- Der Anteil oligolektischer Arten ist abhängig vom Versiegelungsgrad in der Umgebung (200m, 500m, 1000m & 2000m)
+- Der Anteil oligolektischer Arten ist abhängig von der Landschaftskomplexität, also der Anzahl verschiedener Landnutzungsformen, sowie dem Anteil natürlicher Habitate und dem Anteil landwirtschaftlicher Flächen in der Umgebung (200m, 500m & 1000m).
+- Die Artengemeinschaft (Artenzusammensetzung in den Nisthilfen - Gemeinschaftsanalysen) ist abhängig vom Versiegelungsgrad
+- Die Artengemeinschaft ist abhängig von der Landschaftskomplexität.
+- Die Parasitierungsrate und Wirt-Parasit-Beziehungen (Netzwerke) sind abhängig vom Versiegelungsgrad
+- Die Parasitierungsrate und Wirt-Parasit-Beziehungen (Netzwerke) sind abhängig von der Landschaftskomplexität
+<!-- Parasitierung evtl nur für bestimmte Artengruppen? -->
+
 - Gibt es Arten, welche mit Landnutzungsdaten gut vorhersagbar sind (evtl. unter Einbezug zum Wandel in der Landschaft, also mit historischen Landnutzungsdaten)?
 
 
@@ -152,9 +159,9 @@ In dieser Arbeit soll folgenden Fragestellungen nachgegangen werden.
 <!-- Stadt-Land-Gradient: Durch die Erforschung des Vorkommen von Arten entlang eines Gradienten können Rückschlüsse gezogen werden über die Resilienz der Arten sowie die Reaktion der untersuchten Arten auf Veränderungen entlang des Gradienten [@new2019]. -->
 
 ## Hypothesen:
-Je komplexer die Landnutzungsformen in direkter Umgebung zum Trapnest-Standort, desto vielfältiger ist auch die Artenzusammensetzung der Wildbienen
+Je komplexer die Landnutzungsformen in direkter Umgebung zum Nisthilfen-Standort, desto vielfältiger ist auch die Artenzusammensetzung der Wildbienen
 
-Mit zunemendem Versiegelungsgrad verändert sich die Artenzusammensetzung der Wildbienen in den Trapnestern und es kommen mehr polylektische Arten vor. 
+Mit zunemendem Versiegelungsgrad verändert sich die Artenzusammensetzung der Wildbienen in den Nisthilfen und es kommen mehr polylektische Arten vor. 
 Bei mittlerem Versiegelungsgrad ist die Artenzusammensetzung am vielfältigsten. 
 Oligolektische Arten kommen hauptsächlich bei geringem Versiegelungsgrad vor.
 
@@ -173,9 +180,10 @@ Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als pote
 
 ## Auswertung
 - Erstellen einer postgreSQL-Datenbank mit frei Verfügbaren Landnutzungsdaten (copernicus, open-street-map (OSM)) sowie Versiegelungsdaten (copernicus), sowie dem Datensatz des Schulinsektenhaus-Projektes. Das Erstellen der Datenbank halte ich aufgrund der großen Datenmenge für sinnvoll um schnelle Abfragen zur Landnutzung möglich zu machen. Die Datenbank kann dann auch von R aus abgerufen werden.
+<!-- zur nutzung von osm landnutzungsdaten: zetero mit Tag "osm" -->
 
-- Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Trapnest-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]: 
-    - Index für Komplexität der Landschaft (z.B Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius). Hierbei zum einen Verwendung von OSM-Daten, deren Landnutzungskategorieen [@osm] ich zu einigen wenigen relevanten Kategorieen zusammenfassen möchte. Des weiteren die Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten.
+- Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]: 
+    - Index für Komplexität der Landschaft (z.B Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius). Hierbei zum einen Verwendung von OSM-Daten, deren Landnutzungskategorieen [@osm] ich zu einigen wenigen relevanten Kategorieen zusammenfassen möchte. Des weiteren die Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten. 
     - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}), (sowie minimaler Versiegelungsgrad?)
     -  Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
     
@@ -210,7 +218,7 @@ avg_imp <- left_join(avg_imp1, avg_imp2, by = "ID") %>%
 
     
 
-```{r versiegelung_hist, fig.cap="Histogram des durchschnittlichen Versiegelungsgrad im 500m-Radius um die Trapnest-Standorte, - berechnet aus 20m-Rasterdaten (Imperviousness Copernicus) \\label{hist_imp500}", cache=TRUE}
+```{r versiegelung_hist, fig.cap="Histogram des durchschnittlichen Versiegelungsgrad im 500m-Radius um die Nisthilfen-Standorte, - berechnet aus 20m-Rasterdaten (Imperviousness Copernicus) \\label{hist_imp500}", cache=TRUE}
 
 mypoint_avg <- mypoint %>% 
   bind_cols(avg_imp) %>% 
@@ -222,16 +230,17 @@ ggplot(data = mypoint_avg, aes(avg500)) + geom_histogram(binwidth = 5) +
 ```
 
     
-- Bereinigen des Datensatz der Informationen zu den bearbeiteten Trapnestern, also den Wildbienen und Parasiten.
+- Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasiten.
 
-In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial desselben Trapnestes. Falls keine Art mit gleichem Nestcharacteristika im gleichen Trapnest vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. 
+
+In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. 
 <!-- wie geht man damit in der NMDS vor? -->
-Zunächst werden folgende Parameter berechnet:
+Zunächst werden folgende Parameter deskriptiv beschrieben:
 
 | Parameter | Beschreibung |
 | --------- | ------------ |
-| Artenanzahl | Anzahl der Arten pro Trapnest |
-| Abundanz | Anzahl lebender Puppen bzw. Larven pro Trapnest |
+| Artenreichtum | Anzahl der Arten pro Nisthilfe |
+| Abundanz | Anzahl lebender Puppen bzw. Larven pro Nisthilfe |
 | Überlebensrate | Anzahl der lebenden Puppen dividiert durch die Gesamtanzahl der Zellen |
 | Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen |
 
@@ -285,7 +294,7 @@ September-Dezember: Arbeit schreiben.
 <!-- Hervorheben von Unterschieden der Artzusammensetzung welche durch die umliegenden Landschaftselemene beeinflusst sind. z.B welche Arten kommen nur im Ländlichen Raum vor, welche nur bei Wasser oder der Kombination von Wasser und Gärten,... also estmal überhaupt herauszuarbeiten welche Landschaften oder Nesteigenschaften die voneinander gegensätzlichsten Artzusammensetzugen bedingt. -->
 
 <!-- landscape dependant patterns of wild bees species composition in trap nests  --> 
-<!-- also: Landschaftsabhängige Muster der Wildbienenartenzusammensetzung in trapnestern inklusive der Parasiten -->
+<!-- also: Landschaftsabhängige Muster der Wildbienenartenzusammensetzung in Nisthilfen inklusive der Parasiten -->
 
 <!-- cornuta bicornis konkurrieren andere Arten aus nach einigen jahren da sie sehr früh die Nester belegen. Also vielleicht vor allem in den Häusern wo viele Nester sind weil in der nähe altes Bienenhaus.   -->
 
@@ -304,7 +313,7 @@ September-Dezember: Arbeit schreiben.
 
 <!-- They may result from (1) localised direct habitat degradation or loss or from (2) wider changes in regional land use, together imposing two rather different scales for evaluation. Both may be infl uenced further by progressive influences of alien species as conditions continue to change [@new2015]. -->
 
-<!-- Durch Trapnester kann das Vorkommen von Hohlraumbesiedlern, also Bienen und Wespen, welche Trapnester besiedeln, erhöht werden (Gathmann und Tscharntke 1997 - Bees and wasps in the agricultural landscape: colonization and augmentation in trap nests. Mitteilungen der Deutschen Gesellschaft für Allgemeine und Angewandte Entomologie). Hauptsächlich Osmia bicorns und Osmia cornuta werden gefördert. -->
+<!-- Durch Nisthilfen kann das Vorkommen von Hohlraumbesiedlern, also Bienen und Wespen, welche Nisthilfen besiedeln, erhöht werden (Gathmann und Tscharntke 1997 - Bees and wasps in the agricultural landscape: colonization and augmentation in trap nests. Mitteilungen der Deutschen Gesellschaft für Allgemeine und Angewandte Entomologie). Hauptsächlich Osmia bicorns und Osmia cornuta werden gefördert. -->
 
 # Literatur
 
