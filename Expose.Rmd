@@ -21,6 +21,7 @@ Im Rahmen des Schulinsektenhausprojektes werde ich die in den Nisthilfen vorkomm
 
 ```{r standorte, fig.cap="Standorte der Nisthilfen 2019 in Deutschland \\label{standorte}", cache=TRUE}
 library(dplyr)
+library(tidyr)
 library("sf")
 library(ggplot2)
 # standorte
@@ -138,32 +139,26 @@ In diesem heterogenen Mosaik im städischen Bereich gibt es viele "ökologische 
 <!-- ### Modellierung: -->
 <!-- A model that includes nesting resources and foraging landscapes as predictors of local bee densities suggests that wild bee abundance is high in resource-rich areas of the USA such as chaparral and desert shrublands, whereas intermediate densities are typical in temperate forests and grasslands, and low densities in agricultural crops [@koh2016]. -->
 
-# Fragestellung
+# Fragestellung und Hypothesen:
 In dieser Arbeit soll folgenden Fragestellungen nachgegangen werden.
 
 - Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind xx Studien zu Nisthilfen bekannt [@gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014]. Die Artenlisten zusammengefasst ergeben xx bienen, ect. (). Für ein Monitoring das sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue arten zu erfassen. Gerade weil für Stadtrandbereiche eine hohe Bienen und Insektendiversität beschrieben ist, Anthropogene Bereiche verhältnismäßig wärmer als das Umland sind und durch hohen Strukturanteil verschiedene Lebensräume bieten können. <!-- Quellen -->
 <!-- Hier wären drei Sätze die dies erklären gut: Aus DE sind xx Studien zu Nisthilfen bekannt (). Die Artenlisten zusammengefasst ergeben xx bienen, ect. (). Für ein Monitoring das sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue arten zu erfassen. Gerade weil für Stadtrandbereiche eine hohe Bienen und Insektendiversität beschrieben ist, Anthropogene bereiche verhältnismäßig wärmer als das umland sind und durch hohen Strukturanteil verschiedene Lebensräume bieten können. ... -->
-- Der Anteil oligolektischer Arten ist abhängig vom Versiegelungsgrad in der Umgebung (200m, 500m, 1000m & 2000m)
+- Der Anteil oligolektischer Arten ist abhängig vom Versiegelungsgrad in der Umgebung (200m, 500m, 1000m & 2000m): Mit zunemendem Versiegelungsgrad kommen mehr polylektische Arten vor, oligolektische Arten kommen hauptsächlich bei geringem Versiegelungsgrad vor.
 - Der Anteil oligolektischer Arten ist abhängig von der Landschaftskomplexität, also der Anzahl verschiedener Landnutzungsformen, sowie dem Anteil natürlicher Habitate und dem Anteil landwirtschaftlicher Flächen in der Umgebung (200m, 500m & 1000m).
-- Die Artengemeinschaft (Artenzusammensetzung in den Nisthilfen - Gemeinschaftsanalysen) ist abhängig vom Versiegelungsgrad
-- Die Artengemeinschaft ist abhängig von der Landschaftskomplexität.
+- Die Artengemeinschaft (Artenzusammensetzung in den Nisthilfen - Gemeinschaftsanalysen) ist abhängig vom Versiegelungsgrad: Bei mittlerem Versiegelungsgrad ist die Artenzusammensetzung am vielfältigsten.
+- Die Artengemeinschaft ist abhängig von der Landschaftskomplexität. Je komplexer die Landnutzungsformen in direkter Umgebung zum Nisthilfen-Standort, desto vielfältiger ist auch die Artenzusammensetzung der Wildbienen.
 - Die Parasitierungsrate und Wirt-Parasit-Beziehungen (Netzwerke) sind abhängig vom Versiegelungsgrad
 - Die Parasitierungsrate und Wirt-Parasit-Beziehungen (Netzwerke) sind abhängig von der Landschaftskomplexität
 <!-- Parasitierung evtl nur für bestimmte Artengruppen? -->
 
-- Gibt es Arten, welche mit Landnutzungsdaten gut vorhersagbar sind (evtl. unter Einbezug zum Wandel in der Landschaft, also mit historischen Landnutzungsdaten)?
+- Gibt es Arten, welche mit Landnutzungsdaten (siehe Abbildung \ref{bar_clc500_landuse}) gut vorhersagbar sind (evtl. unter Einbezug zum Wandel in der Landschaft, also mit historischen Landnutzungsdaten)?
 
 
 <!-- Zwar haben @schuepp2011 keinen Effekt von Waldhabitaten auf die Artenvielfalt von Wildbienen aufzeigen können, in dieser Arbeit möchte ich jedoch untersuchen ob es einen Effekt auf die Artenzusammensetzung und das Verhältnis von Spezialisierten und Generalistischen Arten gibt. -->
 
 <!-- Stadt-Land-Gradient: Durch die Erforschung des Vorkommen von Arten entlang eines Gradienten können Rückschlüsse gezogen werden über die Resilienz der Arten sowie die Reaktion der untersuchten Arten auf Veränderungen entlang des Gradienten [@new2019]. -->
 
-## Hypothesen:
-Je komplexer die Landnutzungsformen in direkter Umgebung zum Nisthilfen-Standort, desto vielfältiger ist auch die Artenzusammensetzung der Wildbienen
-
-Mit zunemendem Versiegelungsgrad verändert sich die Artenzusammensetzung der Wildbienen in den Nisthilfen und es kommen mehr polylektische Arten vor. 
-Bei mittlerem Versiegelungsgrad ist die Artenzusammensetzung am vielfältigsten. 
-Oligolektische Arten kommen hauptsächlich bei geringem Versiegelungsgrad vor.
 
 <!-- ### measuring urban-rural gradients -->
 <!-- Three distributional hypotheses are invoked commonly to ‘explain’ assemblage differences along environmental gradients: (1) the ‘ synanthropic species hypothesis’, that the number of truly synanthropic species increases from rural to urban areas; (2) ‘the intermediate disturbance hypothesis ’, suggesting that species numbers are highest in the (suburban) areas between rural and urban extremes, where resource variety may be greatest; and (3) ‘the habitat specialist hypothesis ’, arguing that the number of ecologically specialised (rural) species decreases with urbanisation, as conditions become more generalised [@new2015]. -->
@@ -179,6 +174,8 @@ Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als pote
 <!-- trap nests: (Gathmann and Tscharntke 1999 Landschaftsbewertung mit Bienen und Wespen in Nisthilfen: Artenspektrum, Interaktionen und Bestimmungsschlüssel ;  --> 
 
 ## Auswertung
+
+### Landnutzungs- und Versiegelunsdaten
 - Erstellen einer postgreSQL-Datenbank mit frei Verfügbaren Landnutzungsdaten (copernicus, open-street-map (OSM)) sowie Versiegelungsdaten (copernicus), sowie dem Datensatz des Schulinsektenhaus-Projektes. Das Erstellen der Datenbank halte ich aufgrund der großen Datenmenge für sinnvoll um schnelle Abfragen zur Landnutzung möglich zu machen. Die Datenbank kann dann auch von R aus abgerufen werden.
 <!-- zur nutzung von osm landnutzungsdaten: zetero mit Tag "osm" -->
 
@@ -227,6 +224,41 @@ mypoint_avg <- mypoint %>%
 ggplot(data = mypoint_avg, aes(avg500)) + geom_histogram(binwidth = 5) +
   xlab("mittlerer Versiegelungsgrad in %") +
   ylab("Anzahl")
+```
+
+```{r clc500, cache=TRUE, include=FALSE}
+## clc 500 m radius
+clc500 <- read.csv2("../Daten/summary_clc500.csv")
+
+library(readxl)
+clc2000legend <- read_excel("../Daten/clc2000legend.xls") %>% 
+  unite("group_18", LEVEL1:LEVEL2, sep = "") %>% 
+  select(group_18, LABEL1, LABEL2) %>% 
+  mutate(group_18 = as.numeric(group_18))
+
+clc500 <- clc500 %>% 
+  left_join(clc2000legend)
+
+clc500_Level1 <- clc500 %>% 
+  group_by(schulid, LABEL1) %>% 
+  summarise(area = sum(area, na.rm = T)) %>% 
+  mutate(Anteil = area / sum(area, na.rm = T)) %>% 
+  pivot_wider(id_cols = c(schulid), names_from = LABEL1, values_from = Anteil, values_fill = 0)
+
+```
+
+```{r landuseplot, fig.cap="Die Anzahl der Nisthilfenstandorte, in deren 500m-Radius die Landnutzungsformen (landuse - Copernicus) vorkommen. Die Farbe stellt die gesamtfläche der Landnutzungsform in allen 500m-Radien (eine 500m-Radius-Fläche sind ca. 78ha) der Nisthilfen in ha dar.  \\label{bar_clc500_landuse}", cache=TRUE}
+## clc Darstellung flächenanteile Landnutzung
+clcLABEL2 <- clc500 %>% group_by(LABEL2) %>% 
+  summarise(Flaeche_ha = sum(area, na.rm = F)/10000, # hektar (jeder 500m-radius-Kreis sind 78.5 ha)
+            Anzahl_Standorte = length(unique(schulid)))
+ggplot(clcLABEL2, aes(reorder(LABEL2, -Anzahl_Standorte), Anzahl_Standorte, fill = Flaeche_ha)) + 
+  geom_bar(stat = "identity") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  xlab("Landnutzungsform") +
+  scale_fill_viridis_c(breaks=seq(0,30000,5000)) +
+  guides(fill = guide_colourbar(barwidth = 0.5, barheight = 10, nbin= 5))
+
 ```
 
     
