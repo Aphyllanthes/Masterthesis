@@ -8,8 +8,10 @@ output:
     number_sections: true
 lang: de
 bibliography: Masterarbeit.bib 
-biblio-style: apalike
+csl: biological-conservation.csl
 link-citations: true
+header-includes:
+  \usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 # Einleitung
-Im Rahmen des Schulinsektenhausprojektes werde ich die in den Nisthilfen vorkommenden Bienenarten mit ihren Parasiten analysieren. Dabei werde ich den Effekt der Landnutzung  auf die Artenzusammensetzung der kapp 300 über Deutschland verteilten Nisthilfen (siehe Abbildung \ref{standorte}) untersuchen.
+Im Rahmen des Schulinsektenhausprojektes werde ich die in den Nisthilfen vorkommenden Bienenarten mit ihren Parasiten analysieren. Dabei werde ich den Effekt der Landnutzung, insbesondere in Siedlungsgebieten, auf die Artenzusammensetzung der kapp 300 über Deutschland verteilten Nisthilfen (siehe Abbildung \ref{standorte}) untersuchen.
 
 ```{r standorte, fig.cap="Standorte der Nisthilfen 2019 in Deutschland \\label{standorte}", cache=TRUE}
 library(dplyr)
@@ -50,26 +52,29 @@ Von den Schulen wird am Jahresende je eine Nisthilfe zurückgesendet an die Uni 
 Das Projekt beinhaltet so zum einen den Bildunsaspekt, um bei Schüler\*innen und Lehrer\*innen in ganz Deutschland das Interesse an der Ökologie der Insekten und dem Naturschutz zu wecken, zum anderen ermöglicht das Projekt Erkenntnisse über den deutschlandweiten Status der vorkommenden Wespen- und Bienenarten.
 
 ## Wildbienen und ihre Nistweise
-Wildbienen sind solitär lebende Bienen verschiedener Familien, die in der Überfamilie *Apoidea* zusammengefasst werden, in der Teilordnung Stechimmen (*Aculeata*),  Unterordung Taillenwespen (*Apocrita*) und Insektenordnung der Hautflügler (*Hymenoptera*). Wildbienen faszinieren durch ihre Vielfalt in Aussehen und Lebensweise und ihre Anpassungen an die Umwelt. Die Metamorphose vom Ei zur Larve zur adulten Biene, manchmal mit einer Verupuppung im Kokon, verläuft versteckt im vom Bienenweibchen angelegten Nest. Die meisten Arten sind hochspezialisiert in Bezug auf ihren Nistplatz, so zum Beispiel einige Osmia-Arten die nur in leeren Schneckenhäusern nisten. Die Nestanlage erfolgt je nach Art mit verschiedensten Materialien mit denen das Nest verschlossen wird und Brutzellen unterteilt werden, so z.B. Lehm, Steinchen, Blätter oder ein selbstproduziertes seidiges Sekret. Im Nest wird Pollen eingelagert, von dem sich später die Larven ernähren werden.  
+Wildbienen sind solitär lebende Bienen verschiedener Familien, die in der Überfamilie *Apoidea* zusammengefasst werden, in der Teilordnung Stechimmen (*Aculeata*),  Unterordung Taillenwespen (*Apocrita*) und Insektenordnung der Hautflügler (*Hymenoptera*). In Bezug auf Aussehen, Lebensweise und Anpassungen an die Umwelt sind Wildbienen vielfältig. Die Metamorphose vom Ei zur Larve zur adulten Biene, manchmal mit einer Verupuppung im Kokon, verläuft versteckt im vom Bienenweibchen angelegten Nest. Die meisten Arten sind hochspezialisiert in Bezug auf ihren Nistplatz, so zum Beispiel einige Osmia-Arten die nur in leeren Schneckenhäusern nisten. <!-- Zitat: so z.B. die 50% die irgendwo im Erdreich nisten. --> Die Nestanlage erfolgt je nach Art mit verschiedensten Materialien mit denen das Nest verschlossen wird und Brutzellen unterteilt werden, so z.B. Lehm, Steinchen, Blätter oder ein selbstproduziertes seidiges Sekret. Im Nest wird Pollen eingelagert, von dem sich später die Larven ernähren werden.  
 Dabei gibt es Bienen die den Pollen nur von einer bestimmten Pflanzenart bzw. Pflanzenfamilie sammeln, was als oligolektisches Pflanzensammelverhalten bezeichnet wird. Neben diesen Pollenspezialisten werden Bienen, welche ein vielfältigeres Blütenspektrum zum Pollensammeln nutzen, also die Pollengeneralisten, als polylektischen Bienen bezeichnet [@westrich2019].
-Durch die Spezialisierung der Bienen auf Baumaterial, Nistplatz und Nahrungsraum [@westrich2019] ist der Anspruch jeder einzelnen Bienenart an den Lebensraum hoch und geeignete Bedinungen in der Landschaft sind knapp. 
+Durch die Spezialisierung der Bienen auf Baumaterial, Nistplatz und Nahrungsraum [@westrich2019] ist der Anspruch jeder einzelnen Bienenart an den Lebensraum hoch und geeignete Bedinungen in der Landschaft sind knapp. <!-- mehr Quellen aus Wissenschaftlichen Artikeln, nicht so oft westrich2019 zitieren -->
  
-In Deutschland kommen etwa 566 Wildbienenarten vor, wovon einige Hohlraumbewohner Nisthilfen besiedeln. 
+In Deutschland kommen etwa 566 Wildbienenarten vor, wovon einige Hohlraumbewohner Nisthilfen besiedeln. <!-- einige = 4% ? Zitat -->
 Neben den Bienen und Wespen, die ihre Nester in den Nisthilfen anlegen, werden diese auch von Parasiten besiedelt. Parasiten sind teils hochspezialisiert auf ihren Wirt und haben einen regulierenden Einfluss auf dessen Population. Es kommen verschiedene Formen des Parasitismus vor (echte Parasiten (z.B. Milben) die ihren Wirt nicht töten, Parasitoide, welche ihren Wirt töten (z.B. Goldwespen) oder Futterparasiten wie Kuckucksbienen und -wespen), wobei es sogar zur Parasitierung 2. und 3. Grades kommen kann [@westrich2020].
+<!-- @fortel2014: Indeed, several studies suggest that parasitic species are good indicators of ecosystem health and stability [70–75]. Parasitic bees play a stabilizing role in bee communities [69,70]-->
 
 Die Abundanz (Häufigkeit) einzelner Wildbienenarten ist, bedingt durch die natürliche Dynamik der Populationen, zeitlich und räumlich sehr variabel [@williams2001]. Die Artenzusammensetzung der Wildbienenfauna ist zeitlich weniger variabel und zeigt im Verlauf mehrerer Jahre Artenverschiebungen [@williams2001]. 
 
 ### Nisthilfen (Trap-Nests)
 <!-- sampling-method trap-nest -->
-Einige Wildbienenarten Nisten in Hohlräumen und können daher durch Nisthilfen (Trap-nest) gefördert werden. Trapnester sind Nisthilfen die durch waagerecht orientierte Schilfhalme und Bambusröhrchen einen Hohlraum als Nistmöglichkeit bieten. Das Monitoring von Wildbienen, Wespen und deren Parasiten mittels Nisthilfen ist eine etablierte Methode, die die Möglichkeit bietet den Lebenszyklus vom Ei bis zum adulten Individuum zu erforschen. Neben ursprünglich rein biologischen Fragestellungen werden Nisthilfen auch für Fragestellungen zur Artenzusammensetzung entlang von Gradienten und im Bezug zum Umweltwandel behandelt [@staab2018a]. 
-Dennoch eignen sich Nisthilfen nicht um die gesamte Artendiversität von Bienen oder Wespen zu erfassen, da Nisthilfen nur für eine limitierte Anzahl an Arten einen geeigneten Nistplatz bieten [@staab2018a]<!-- (Kessler et al., 2011; Tscharntke et al., 1998) -->. In Nisthilfen wird nur ein Bruchteil der jeweiligen localen Fauna erfasst, und selbst nur einen Bruchteil der potentiellen Hohlraumbesiedler. Auch die relative Häufigkeit der Arten unterscheidet sich von mit Netzen im Feld gefangenen Arten  [@krombein; @prendergast2020].
+Einige Wildbienenarten Nisten in Hohlräumen und können daher durch Nisthilfen (Trap-nest) gefördert werden. Trapnester sind Nisthilfen die durch waagerecht orientierte Schilfhalme und Bambusröhrchen einen Hohlraum als Nistmöglichkeit bieten. Das Monitoring von Wildbienen, Wespen und deren Parasiten mittels Nisthilfen ist eine etablierte Methode, die die Möglichkeit bietet den Lebenszyklus vom Ei bis zum adulten Individuum zu erforschen. Neben ursprünglich rein biologischen Fragestellungen werden Nisthilfen auch für Fragestellungen zur Artenzusammensetzung entlang von Gradienten und im Bezug zum Umweltwandel behandelt [@staab2018c]. 
+Dennoch eignen sich Nisthilfen nicht um die gesamte Artendiversität von Bienen oder Wespen zu erfassen, da Nisthilfen nur für eine limitierte Anzahl an Arten einen geeigneten Nistplatz bieten [@staab2018c]<!-- (Kessler et al., 2011; Tscharntke et al., 1998) -->. In Nisthilfen wird nur ein Bruchteil der jeweiligen localen Fauna erfasst, und selbst nur einen Bruchteil der potentiellen Hohlraumbesiedler. Auch die relative Häufigkeit der Arten unterscheidet sich von mit Netzen im Feld gefangenen Arten  [@krombein; @prendergast2020].
 Laut @tscharntke1998 können die in Nisthilfen nistenen Bienen und Wespen jedoch durchaus als Bioindikatoren und zur Habitatevaluation genutzt werden.
 Ein Vorteil von der Erfassung von Wildbienen in Nisthilfen im Vergleich zum Fangen der fliegenden Wildbienen, ist, dass auch die Anzahl der toten Bienen, das Geschlechterverhätnis, sowie die Parasitierungsrate und die Parasitenarten bestimmt werden können. 
 
+Studien, welche solitäre Wespen und Bienen in Trap-nestern untersucht haben: [@budrien2004 (Nestdurchmesser, Ungarn); @krombein (allgemein, USA); @martins2012 (Trap-nest-methode, Brasilien); @moron2012 (Schwermetallbelastung, UK); @schuepp2011 (Landschaftskomposition und Habitatisolation); @tylianakis2007 (Wirt-Parasit-Beziehung, Landnutzungsintensität, Ecuador); @veddeler2010 (Parasitism, Ecuador); @westphal2008 (Vergleich zu anderen sampling Methoden)]
+in Deutschland: [@dainese2018 (Raps vs nicht-blühende Getreide, Populationsdynamik, Gegenspieler, Landnutzungsinstensität und -komplexität); @diekotter2014 (Raps); @gathmann2002 (foraging range); @happe2018 (ökologische vs. konventionelle Landwirtschaft); @holzschuh2010 (Landschaftszusammensetzung, ökologisch vs. konventionelle LW); @pereira-peixoto2014 (bienen und wespen, urban-rural Gradient); @pereira-peixoto2016 (Wirt-Parasit-Beziehung, urban-rural Gradient); @steckel2014 (Landschaftskomposition); @steffan-dewenter2002 (Landschaftskontext); @tscharntke1998 (Bioindication); @vonkonigslow2019 (Vergleich versch. Nisthilfen)]
 <!-- (Silveira, F. A. and L. M. GodÌnez, L.M. (1996) Systematic surveys of local bee faunas.Melissa, 9:1-4.) -->
 
 ## Bedeutung von Wildbienen
-Wildbienen sind ein Teil des natürlichen Ökosystems, die durch ihre Betäubungsleistung von besonderer Bedeutung sind. Da die Stabilität der natürlichen Ökosysteme durch den anthropogenen Einfluss gefährdet ist, stellt sich die Frage wie stark die Lebensbedingungen aller Arten, so auch der Wildbienen, eingeschränkt sind und wie sie sich verändern. Die Kenntnis der Lebensweise sowie der Ansprüche der Wildbienenarten an ihren Lebensraum ist nötig um Wildbienen zu fördern.
+Wildbienen sind ein Teil des natürlichen Ökosystems, die durch ihre Betäubungsleistung von besonderer Bedeutung sind. Da die Stabilität der natürlichen Ökosysteme durch den anthropogenen Einfluss gefährdet ist, stellt sich die Frage wie stark die Lebensbedingungen aller Arten, so auch der Wildbienen, eingeschränkt sind und wie sie sich verändern. Die Kenntnis der Lebensweise sowie der Ansprüche der Wildbienenarten an ihren Lebensraum ist nötig um Wildbienen zu fördern. 
 
 <!-- ### Weltweiter Insektenrückgang:
 - widely recognized threats to insect biodiversity, e.g., habitat destruction, agricultural intensification (including pesticide use), climate change, and invasive species, this assessment highlights a few less commonly considered factors such as atmospheric nitrification from the burning of fossil fuels and the effects of droughts and changing precipitation patterns ...  an urgent need for monitoring efforts, especially across ecological gradients, which will help to identify important causal factors in declines [@wagner2020].
@@ -78,7 +83,7 @@ Chrysididae (Cuckoo wasps): This rare group of parasitic wasps has recently been
  -->
 
 <!-- artenrückgang -->
-Das Artensterben und die Abnahme der Populationen von Insekten wird Weltweit beschrieben. <!-- viele Quellen --> So sorgte beispielsweise die "Krefelder Studie" [@hallmann2017] für besondere Aufmerksamkeit, da sie mit Daten aus 27 Jahren einen 75%igen Rückgang der Biomasse von fliegenden Insekten in Deutschland beschreibt. Neben dem Verschwinden von seltenen Arten, ist auch der Rückgang von früher sehr häufigen Arten [@wagner2020; @sanchez-bayo2019] nicht nur ein Wertverlust sondern schadet auch den Interatkionen zwischen Arten [@hallmann2014] und den damit verbundenen Prozessen im Ökosystem [@yang2014; @losey2006]. <!-- welche Prozesse  -->
+Das Artensterben und die Abnahme der Populationen von Insekten wird Weltweit beschrieben. <!-- viele Quellen --> So sorgte beispielsweise die "Krefelder Studie" [@hallmann2017] für besondere Aufmerksamkeit, da sie mit Daten aus 27 Jahren einen 75%igen Rückgang der Biomasse von fliegenden Insekten in Deutschland beschreibt. Neben dem Verschwinden von seltenen Arten, ist auch der Rückgang von früher sehr häufigen Arten [@wagner2020] nicht nur ein Wertverlust sondern schadet auch den Interatkionen zwischen Arten [@hallmann2014] und den damit verbundenen Prozessen im Ökosystem [@yang2014; @losey2006]. <!-- welche Prozesse  -->
 So können vielfältige Interaktionen ('top-down', der Einfluss der natürlichen Feinde und 'bottom-up', dem Einfluss der Nahrungsqualität- und Verfügbarkeit) im Ökosystem aus dem Gleichgewicht geraten [@raupp2010]. Bei Insekten haben diese Interaktionen beispielsweise einen Einfluss auf die Pflanzendiversität, da bestimmte Pflanzen nicht mehr konkurrieren können, wenn Bestäuber fehlen [@haddad2011].  
  <!-- @hennig2012 -->
 Der Grund für das Insektensterben ist bisher nicht eindeutig geklärt, weshalb es noch Forschungsbedarf hat, insbesondere zu ökologischen Gradienten [@wagner2020]. Räumlich und zeitlich variable Faktoren sind wahrscheinlich zu unterschiedlichen Anteilen ursächlich für das Insektensterben, so z.B. die Habitatzerstörung, Intensivierung der Landwirtschaft (inklusive Pestizideinsatz), Klimawandel und Invasive Arten [@wagner2020]. 
@@ -119,6 +124,8 @@ Die Lebensbedingungen und Zusammenhänge in einem "urbanen Ökosystem" zu verste
 Lebensräume im städischen Gebiet unterliegen einem generellen Wandel, z.B durch Nachverdichtung, Abriss und Neubau von Häusern, Straßen, Radwegen, Tramlinien, usw.. In Privatgärten kann es zu Strukturveränderungen der Kleinstrukturen kommen durch das Anlegen von Steingärten oder sterilen Rasen. Auf der anderen Seite wurden in den letzten Jahren, insbesondere durch das Medienecho auf das "Insektensterben" in Städten vielerlei Maßnahmen zum Naturschutz umgesetzt. Dazu zählen z.B. ein Trend von Insektenhäusern in privaten Gärten aber auch Blühstreifen und Wiesen mit geringerem Mahdrhythmus auf städtischen Grünflächen oder Steinhaufen, Trockenmauern etc. als Teil von Ausgleichsmaßnahmen. 
 In diesem heterogenen Mosaik im städischen Bereich gibt es viele "ökologische Fallen" wie Straßenbeleuchtung, durchsichtige Glasfenster oder reflektierende Asphaltflächen. Beispielsweise eignet sich der Urbane Raum laut der Hypothese von @bates2014 nur bedingt für Nachtfalter die der "ökologischen Falle" Licht zum Opfer fallen.
 
+<!-- Imprviousness: -->
+<!--@geslin2016: In urban environments, the main factor affecting pollinators appears to be the amount of impervious surfaces at the landscape scale with related impacts of habitat loss and fragmentation (Ahrné et al. 2009; Banaszak‐Cibicka and Żmihorski 2012; Geslin et al. 2013). Impervious surface coverage has emerged as a key environmental factor to describe urbanization over the past several years (Arnold and Gibbons 1996). Moreover, an increase in the proportion of impervious surfaces often implies joint modifications of the ecosystems at landscape and local scales (in addition to habitat loss in terms of floral resources and nesting sites) such as an increase in the ambient temperature, a soil compaction, and also soil and air pollution (McKinney 2002)  -->
 
 <!-- @grimm2008,  @steffan-dewenter2002 -->
 <!-- Saure 1996 (Urban habitats for bees: the example of the city of Berlin.);  -->
@@ -140,19 +147,24 @@ In diesem heterogenen Mosaik im städischen Bereich gibt es viele "ökologische 
 <!-- A model that includes nesting resources and foraging landscapes as predictors of local bee densities suggests that wild bee abundance is high in resource-rich areas of the USA such as chaparral and desert shrublands, whereas intermediate densities are typical in temperate forests and grasslands, and low densities in agricultural crops [@koh2016]. -->
 
 # Fragestellung und Hypothesen:
-In dieser Arbeit soll folgenden Fragestellungen nachgegangen werden.
+In dieser Arbeit soll Fragestellungen zu den Nisthilfen-besiedelnden Bienenarten und ihren Parasiten im Bezug auf die Landschaftskomplexität und dem Stadt-Land-Gradienten nachgegangen werden. 
+Dabei wird die Landschaftskomplexität als die Anzahl verschiedener Landnutzungsklassen (nach landuse Copernicus, siehe Abbildung \ref{bar_clc500_landuse}) im Umfeld der Nisthilfenstandorte definiert (oder eventuell auch die Edge-density?). Zusätzlich könnten auch Komplexitätskategorien gebildet werden aus bestimmten Kombinationen von Landnutzungsklassen des Umfeldes der Nisthilfen-Standorte. Insbesondere bezüglich dem Anteil natürlicher Habitate und dem Anteil landwirtschaftlicher Flächen.
+Zur Analyse des Stadt-Land-Gradienten werden Flächenversiegelungsdaten herangezogen, unter der Annahme, dass der Versiegelungsgrad vom Stadtzentrum zum Land hin abnimmt [@salvati2014]. Versiegelung bezeichnet Flächen die durch Menschliche Bedeckung des Bodens, durch beispielsweise Bauwerke oder Asphaltflächen, sodass er Wasserundurchlässig ist. <!-- anstatt Versiegelungsgrad: SVI oder NDVI? -->
+Versiegelungsgrad und Landnutzungskomplexität werden für die Radien 200m, 500m, 1000m berechnet, Versiegelungsgrad auch für 2000m. 
+<!-- As similar to Andersson et al. (2009) and Lowe et al. (2014), we believe that using multivariate gradients for future studies (with different landscape scales) will improve our knowledge of the impact of urbanization on bee assemblages.  -->
 
-- Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind xx Studien zu Nisthilfen bekannt [@gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014]. Die Artenlisten zusammengefasst ergeben xx bienen, ect. (). Für ein Monitoring das sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue arten zu erfassen. Gerade weil für Stadtrandbereiche eine hohe Bienen und Insektendiversität beschrieben ist, Anthropogene Bereiche verhältnismäßig wärmer als das Umland sind und durch hohen Strukturanteil verschiedene Lebensräume bieten können. <!-- Quellen -->
-<!-- Hier wären drei Sätze die dies erklären gut: Aus DE sind xx Studien zu Nisthilfen bekannt (). Die Artenlisten zusammengefasst ergeben xx bienen, ect. (). Für ein Monitoring das sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue arten zu erfassen. Gerade weil für Stadtrandbereiche eine hohe Bienen und Insektendiversität beschrieben ist, Anthropogene bereiche verhältnismäßig wärmer als das umland sind und durch hohen Strukturanteil verschiedene Lebensräume bieten können. ... -->
-- Der Anteil oligolektischer Arten ist abhängig vom Versiegelungsgrad in der Umgebung (200m, 500m, 1000m & 2000m): Mit zunemendem Versiegelungsgrad kommen mehr polylektische Arten vor, oligolektische Arten kommen hauptsächlich bei geringem Versiegelungsgrad vor.
-- Der Anteil oligolektischer Arten ist abhängig von der Landschaftskomplexität, also der Anzahl verschiedener Landnutzungsformen, sowie dem Anteil natürlicher Habitate und dem Anteil landwirtschaftlicher Flächen in der Umgebung (200m, 500m & 1000m).
-- Die Artengemeinschaft (Artenzusammensetzung in den Nisthilfen - Gemeinschaftsanalysen) ist abhängig vom Versiegelungsgrad: Bei mittlerem Versiegelungsgrad ist die Artenzusammensetzung am vielfältigsten.
+- Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind xx Studien zu Nisthilfen bekannt [@dainese2018; @gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014; @vonkonigslow2019]. Die Artenlisten zusammengefasst ergeben xx bienen, ect. (). Für ein Monitoring das sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue arten zu erfassen. Insbesondere da für Stadtrandbereiche eine hohe Bienen und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturanteil verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
+- Der Anteil oligolektischer Arten ist abhängig vom Versiegelungsgrad in der Umgebung: Mit zunemendem Versiegelungsgrad kommen mehr polylektische Arten vor, oligolektische Arten kommen hauptsächlich bei geringem Versiegelungsgrad vor.<!-- Quellen -->
+- Der Anteil oligolektischer Arten ist abhängig von der Landschaftskomplexität in der Umgebung.
+- Die Artengemeinschaft (Artenzusammensetzung in den Nisthilfen - Gemeinschaftsanalysen) ist abhängig vom Versiegelungsgrad: Bei mittlerem Versiegelungsgrad ist die Artenzusammensetzung am vielfältigsten. Denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am Vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten (rural Taxa) ebenso wie an städtische Gebiete angepasste Arten (urban Taxa) vorkommen können [@mcintyre2000].
 - Die Artengemeinschaft ist abhängig von der Landschaftskomplexität. Je komplexer die Landnutzungsformen in direkter Umgebung zum Nisthilfen-Standort, desto vielfältiger ist auch die Artenzusammensetzung der Wildbienen.
-- Die Parasitierungsrate und Wirt-Parasit-Beziehungen (Netzwerke) sind abhängig vom Versiegelungsgrad
-- Die Parasitierungsrate und Wirt-Parasit-Beziehungen (Netzwerke) sind abhängig von der Landschaftskomplexität
+- Die Parasitierungsrate und Wirt-Parasit-Beziehungen (Netzwerke) sind abhängig vom Versiegelungsgrad.
+<!-- Netzwerkindizes: bersier2002; bluthgen2006;dormann2009 -->
+- Die Parasitierungsrate und Wirt-Parasit-Beziehungen (Netzwerke) sind abhängig von der Landschaftskomplexität.
 <!-- Parasitierung evtl nur für bestimmte Artengruppen? -->
+<!-- Quelle für Parasitierungsrate und urban-rural gradient: @pereira-peixoto2016 -->
 
-- Gibt es Arten, welche mit Landnutzungsdaten (siehe Abbildung \ref{bar_clc500_landuse}) gut vorhersagbar sind (evtl. unter Einbezug zum Wandel in der Landschaft, also mit historischen Landnutzungsdaten)?
+- Gibt es Arten, dessen Vorkommen mit Landnutzungsdaten gut vorhersagbar sind (evtl. unter Einbezug zum Wandel in der Landschaft, also mit historischen Landnutzungsdaten)?
 
 
 <!-- Zwar haben @schuepp2011 keinen Effekt von Waldhabitaten auf die Artenvielfalt von Wildbienen aufzeigen können, in dieser Arbeit möchte ich jedoch untersuchen ob es einen Effekt auf die Artenzusammensetzung und das Verhältnis von Spezialisierten und Generalistischen Arten gibt. -->
@@ -166,9 +178,11 @@ In dieser Arbeit soll folgenden Fragestellungen nachgegangen werden.
 
 # Methoden
 ## Laborarbeit
-Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden aufbewahrt, sodass sich die Arten zum Adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
+Das Richten der Nisthilfen und Versenden an die Schulen in Deutschland wurde durch Projektmitarbeiter des Lehrstuhls für Naturschutz und Landschaftsökologie, sowie Schüler und Mitarbeiter des Robert-Bosch-Colleges durchgeführt. Das Anbringen der Nester im Frühjahr 2019 erfolgte ehrenamtlich durch die Partner an den Schulen, welche ebenso Daten zum Anbringungsort des Nestes und der Umgebung erfassten. Ende des Jahres 2019 wurden die Nisthilfen an die Uni Freiburg zurückgesendet. 
+Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, dass die Insekten vorzeitig schlüpfen. Aus allen Nisthilfen wurden die besetzen Nester folgendermaßen bearbeitet:
+Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
 
-- Mitarbeit beim Öffnen der Nester: Vorsortierung der Nester nach Morphospezies anhand von Kokon/Larve, Nestverschluss und Nahrunsquelle sowie Vermessen des Nestes (Durchmesser, Länge, Anzahl der Zellen, Puppen/Larven und sichtbarer Parasiten).
+
 - Mitarbeit beim Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen.
 
 <!-- trap nests: (Gathmann and Tscharntke 1999 Landschaftsbewertung mit Bienen und Wespen in Nisthilfen: Artenspektrum, Interaktionen und Bestimmungsschlüssel ;  --> 
@@ -176,12 +190,12 @@ Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als pote
 ## Auswertung
 
 ### Landnutzungs- und Versiegelunsdaten
-- Erstellen einer postgreSQL-Datenbank mit frei Verfügbaren Landnutzungsdaten (copernicus, open-street-map (OSM)) sowie Versiegelungsdaten (copernicus), sowie dem Datensatz des Schulinsektenhaus-Projektes. Das Erstellen der Datenbank halte ich aufgrund der großen Datenmenge für sinnvoll um schnelle Abfragen zur Landnutzung möglich zu machen. Die Datenbank kann dann auch von R aus abgerufen werden.
+- Erstellen einer postgreSQL-Datenbank mit frei Verfügbaren Landnutzungsdaten sowie Versiegelungsdaten, sowie dem Datensatz des Schulinsektenhaus-Projektes. Das Erstellen der Datenbank halte ich aufgrund der großen Datenmenge für sinnvoll um schnelle Abfragen zur Landnutzung möglich zu machen. Die Datenbank kann dann auch von R aus abgerufen werden.
 <!-- zur nutzung von osm landnutzungsdaten: zetero mit Tag "osm" -->
 
 - Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]: 
-    - Index für Komplexität der Landschaft (z.B Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius). Hierbei zum einen Verwendung von OSM-Daten, deren Landnutzungskategorieen [@osm] ich zu einigen wenigen relevanten Kategorieen zusammenfassen möchte. Des weiteren die Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten. 
-    - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}), (sowie minimaler Versiegelungsgrad?)
+    - Index für Komplexität der Landschaft (z.B Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius). Hierbei die Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten. 
+    - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}), (sowie minimaler Versiegelungsgrad?). Verwendung der Copernicus-Imperviousness Rasterdaten mit 20m Auflösung.
     -  Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
     
 ```{r imperviousness, cache = T}
@@ -249,6 +263,7 @@ clc500_Level1 <- clc500 %>%
 
 ```{r landuseplot, fig.cap="Die Anzahl der Nisthilfenstandorte, in deren 500m-Radius die Landnutzungsformen (landuse - Copernicus) vorkommen. Die Farbe stellt die gesamtfläche der Landnutzungsform in allen 500m-Radien (eine 500m-Radius-Fläche sind ca. 78ha) der Nisthilfen in ha dar.  \\label{bar_clc500_landuse}", cache=TRUE}
 ## clc Darstellung flächenanteile Landnutzung
+
 clcLABEL2 <- clc500 %>% group_by(LABEL2) %>% 
   summarise(Flaeche_ha = sum(area, na.rm = F)/10000, # hektar (jeder 500m-radius-Kreis sind 78.5 ha)
             Anzahl_Standorte = length(unique(schulid)))
@@ -307,26 +322,12 @@ Juli- September: Bienen bestimmen
 September-Dezember: Arbeit schreiben.
 
 <!-- ## Thema -->
-<!-- The effect of landscape composition on wild bee communities and their enemies.  -->
-
-<!-- - proportion of forest in the surrounding area (radius of 200 & 500 m) has an effect on wild bee species composition in trap nests. -->
-<!-- - Imperviousness has an effect on the wild bee community in the trap nest. -->
-
-
-<!-- Der Effect von Landnutzung, Habitatstrukturen, Versiegelungsgrad auf die Zusammensetzung der Wildbienen in Trapnests. -->
 
 <!-- Detecting landscape patterns that impact the wild bee diversity and promote the potential occurance of different wild bee species. Landscape patterns like landuse type, imperviousness and water bodies may act as proxi-variables for the available nesting- and food-resources that directly affect the occurance of different wild bee species. -->
 
 <!-- Modelling the wild bee diversity and the potential occurrence of different wild bee species across Germany with a focus on urban areas. -->
 
 <!-- Due to the anthropogenically induced landscape change, there is a loss of natural ecosystems. This is one reason for the discussion about wild bees extinction. In the changing environment, wild bees adapt to new habitats. The knowledge about wild bees species hotspots, especially in urban areas, is important to design appropriate measures to promote diversity. The monitoring of wild bee occurance on a landscape level is also important to identify the actual status of the wild bee community, including an analysis of their parasitoids. With further monitoring in the next years, changes in the wild bee community can be more accurately identified. -->
-
-<!-- wo/unter welchen Bedingungen werden welche Arten/Artengruppen durch die Insektenhäuser gefördert? -->
-<!-- Die Diversität der Landschaft und das vorhandensein von einer vielfältigen Landschaft fördern seltene Arten -->
-<!-- Hervorheben von Unterschieden der Artzusammensetzung welche durch die umliegenden Landschaftselemene beeinflusst sind. z.B welche Arten kommen nur im Ländlichen Raum vor, welche nur bei Wasser oder der Kombination von Wasser und Gärten,... also estmal überhaupt herauszuarbeiten welche Landschaften oder Nesteigenschaften die voneinander gegensätzlichsten Artzusammensetzugen bedingt. -->
-
-<!-- landscape dependant patterns of wild bees species composition in trap nests  --> 
-<!-- also: Landschaftsabhängige Muster der Wildbienenartenzusammensetzung in Nisthilfen inklusive der Parasiten -->
 
 <!-- cornuta bicornis konkurrieren andere Arten aus nach einigen jahren da sie sehr früh die Nester belegen. Also vielleicht vor allem in den Häusern wo viele Nester sind weil in der nähe altes Bienenhaus.   -->
 
@@ -347,6 +348,13 @@ September-Dezember: Arbeit schreiben.
 
 <!-- Durch Nisthilfen kann das Vorkommen von Hohlraumbesiedlern, also Bienen und Wespen, welche Nisthilfen besiedeln, erhöht werden (Gathmann und Tscharntke 1997 - Bees and wasps in the agricultural landscape: colonization and augmentation in trap nests. Mitteilungen der Deutschen Gesellschaft für Allgemeine und Angewandte Entomologie). Hauptsächlich Osmia bicorns und Osmia cornuta werden gefördert. -->
 
+<!-- @geslin2016: In general, urbanization appears to act as a filter for bee communities by promoting large‐bodied and aboveground‐nesting species and inhibiting small‐bodied and ground‐nesting bees in urban matrices (Banaszak‐Cibicka and Żmihorski 2012; Geslin et al. 2013).  -->
+
 # Literatur
+\setlength{\parindent}{-0.2in}
+\setlength{\leftskip}{0.2in}
+\setlength{\parskip}{8pt}
+\noindent
 
 <div id="refs"></div>
+ 
