@@ -98,7 +98,7 @@ Weltweit wird ein Landschaftswandel beobachtet: Die Intensivierung der Landwirts
 <!-- vlt noch kulturlandschaft wo mit unsere heutige Insektenwelt herkommt erwähnen. Davor war hier nur wald und sicher eine ganz andere Insektenzusammensetzung. -->
 Für die komplexen Lebensraumansprüche von Wildbienen sind verschiedene Landnutzungsformen wie Landwirtschaftliche Flächen und der städtische Bereich in unterschiedlichem Maße geeignet.  
 Viele Studien wurden bereits im Kontext der Agrarlandschaft durchgeführt, um die Bestäubungsleistung durch die Wildbienenpopulationen abzuschätzen und ihren ökonomischen Wert zu beurteilen [z.B.: @happe2018; @holzschuh2010].
-In Agrarlandschaften in denen Monokulturen nur saisonal einseitige Futterquellen bieten, Insektizide großflächig angewandt werden und Nistmöglichkeiten fehlen, können Wildbienenpopulationen nicht bestehen [@westrich1996]. In der Landwirtschaft ist so die Nähe zu natürlichen Habitaten wichtig um die Bestäubungsleistung durch Wildbienen zu gewährleisten [@garibaldi2011; @ricketts2008]. Der Anteil von semi-natürlichen Habitaten in der Landschaft hat einen positiven Einfluss auf die Artenzahl der Wildbienen sowie ihrer Parasiten [@steffan-dewenter2002]. 
+In Agrarlandschaften in denen Monokulturen nur saisonal einseitige Futterquellen bieten, Insektizide großflächig angewandt werden und Nistmöglichkeiten fehlen, können Wildbienenpopulationen nicht bestehen [@westrich1996]. In der Landwirtschaft ist so die Nähe zu natürlichen Habitaten wichtig um die Bestäubungsleistung durch Wildbienen zu gewährleisten [@garibaldi2011; @ricketts2008; @lefeon2010]. Der Anteil von semi-natürlichen Habitaten in der Landschaft hat einen positiven Einfluss auf die Artenzahl der Wildbienen sowie ihrer Parasiten [@steffan-dewenter2002]. 
 
 
  <!-- Waldhabitate, welche einen großteil der semi-natürleichen Habitate in Deutschland ausmachen, haben dabei jedoch hauptsächlich einen Einfluss auf die Artenzahl der Wespen und das Vorkommen der natürlichen Feinde [@schuepp2011]. <!-- weitere quellen zum eninfluss von natürlichen Habitaten --> 
@@ -108,40 +108,62 @@ Neben Agrarlandschaft und natürlichen Habitaten, bleibt noch der durch seine st
 Inwiefern der heterogene urbane Raum das Potential hat diverse Bienengemeinschaften zu beherbergen, dazu bedarf es noch genauerer Kenntnis. Vor allem um die Biodiversität aktiv schützen zu können. Denn "Ökologische Regeln" in Städten unterscheiden sich stark von denen in der natürlichen Umwelt und Reaktionen auf die Urbanisierung könnten durchaus wie bei herbivoren Anthropoden [@raupp2010] Taxonspezifisch sein.  
 Gründe für die Erhaltung der urbanen Biodiversität und Natur haben @dearborn2010 verfasst: Das ist zunächst der Artenschutz von seltenen oder vom Aussterben bedrohten Arten die im städtischen Bereich vorkommen, das Schaffen von Korridoren für die Vernetzung von Populationen sowie das Verständnis der Auswirkungen des Umweltwandels, Umweltbildung, das Bereitstellen von Ökosystemdienstleistungen, der ethischen Verantwortung gerecht zu werden und zuletzt auch um das menschliche Wohlbefinden zu verbessern.
 
-**Der Stadt-land-Gradient:**
+In dieser Arbeit werden die Nisthilfen-besiedelnden Bienen bezüglich Homogenisierung (Artengemeinschaft), Vielfalt (Artenanzahl) und Spezialisierung (oligolektie, betrachtung einzelner Arten) im Kontext des Stadt-Land-Gradienten und der Landschaftskomplexität analysiert.
 
+Das Konzept des Stadt-Land Gradienten basiert auf der Annahme, dass die Landnutzungsintensität von schwach entwickelten ländlichen Gebieten Land über die Vorstadt hin zum Stadtkern zunimmt [@warren2018] und die Habitatqualität abnimmt. Der Stadt-Land Gradient wird häufig durch die Proxi-Variable Versiegelungsgrad beschrieben. Da ländliche Gebiete jedoch auch intensiv genutzte Landwirtschaftliche Flächen beinhalten, was @warren2018 am Konzept des Stadt-Land Gradienten bemängelt haben, wird in dieser Arbeit auch der Anteil an Landwirtschaftlichen Flächen mit einbezogen.
+
+**Homogenisierung:**
+Nach @mckinney2006 ist die Arten-Diversität in Städten durchaus häufig hoch, jedoch überregional homogen, was den Verlust der regionalen Einzigartigkeit bedeutet. 
+
+- Stadt-Land Gradient:
+
+<!-- @hernandez2009 -->
+
+ Bates et al. 2011: Changing bee and hoverfly pollinator assemblages along an urban-rural gradient; 
+ Bergerot et al. 2011: Landscape variables impact the structure and composition of butterfly assemblages along an urbanization gradient; 
+Matteson et al. 2012: Direct and indirect effects of land use on floral resources and flowervisiting insects across an urban landscape.; 
+Geslin et al. 2013: Plant pollinator networks along a gradient of urbanisation.; 
+Verboven et al. 2014: Different responses of bees and hoverflies to land use in an urban-rural gradient show the importance of the nature of the rural land use.
+
+In urban environments, the main factor affecting pollinators appears to be the amount of impervious surfaces at the landscape scale with related impacts of habitat loss and fragmentation (Ahrne et al. 2009; Banaszak-Cibicka and Z_mihorski 2012; Geslin et al. 2013). @geslin2016
+
+Urbane Ökosysteme: Dort wo Menschen in hoher Dichte leben oder gebaute Infrastruktur einen Großteil der Landfläche bedeckt [@pickett2001].
+Aus der Analyse eines Gradienten können Informationen über die Resilienz und Toleranz der Arten abgeleitet werden [@new2015].
 <!-- stadt-land-gradient: was ist das, wodurch charakterisiert -->
   <!-- imperviousness -->
 
-**Die Landschaftskomplexität:**
+- Landschaftskomplexität:
 <!-- komplexität der landschaft: landschaftsmatrix, welche habitatfragmente sind vorhanden? (steffan-dewenter2002) -->
   <!-- edge-density -->
   <!-- Anzahl Landnutzungsklassen -->
 
 
-In dieser Arbeit werden die Nisthilfen-besiedelnden Bienen bezüglich Homogenisierung (Artengemeinschaft), Vielfalt (Artenanzahl) und Spezialisierung (oligolektie, betrachtung einzelner Arten) im Kontext des Stadt-Land-Gradienten und der Landschaftskomplexität analysiert.
+
 <!-- Gärten - und innerhalb Gärten variation: Community gärten und privatgärten @fetridge2008 (discussion) -->
 <!-- Zum Anteil von soil-nesting species (Cane2005, Cane2006)- quellen von fetridge2008 -->
 
-<!-- homogenisierung -->
-Nach @mckinney2006 ist die Arten-Diversität in Städten durchaus häufig hoch, jedoch überregional homogen, was den Verlust der regionalen Einzigartigkeit bedeutet. 
 
 
-<!-- vielfalt (Artenanzahl) -->
+**Vielfalt (Artenanzahl):**
  @shochat2006 haben die Theorie aufgestellt, dass die menschlichen Aktivitäten in Städten zu einer höheren allgemeinen Populationsdichte (aufgrund von einigen wenigen sehr häufigen Arten) und einer geringeren Artendiversität, führen. Zudem haben @shochat2006 einen Höhepunkt der Diversität auf einem mittleren Urbanisierungsniveau festgestellt. 
 
 Laut @fetridge2008 haben suburbane Landschaften das Potential diverse und intakte Bienengemeinschaften zu beherbergen. Hier bieten Gärten den Bestäubern Ressourcen, wie sie in der heutigen Agrarlandschaft nicht mehr vorkommen [@samnegard2011].
 
-<!-- Spezialisierung -->
-Bei der Analyse der Zusammensetzung der Artengemeinschaft im Stadt-Land Gradienten können Arthropodenarten anhand ihrer Charakteristika in drei Kategorien eingeteilt werden: Taxa des ländlichen Raums (rural taxa / urbanophob), Stadt-Taxa (urban taxa / urbanophil) und Taxa sowohl der ländlichen als auch der städtischen Umwelt (adapters / moderate urbanophile) [@mcintyre2000; @mckinney2006]. 
+- Stadt-Land Gradient:
 
+- Landschaftskomplexität:
+<!-- @hernandez2009 -->
 
+**Spezialisierung:**
  
 
- @shochat2006 empfehlen große Relikte natürlicher Habitate innerhalb der städtischen Kerngebiete in zukünftige Forschungen mit einzubeziehen.
-
+<!-- @hernandez2009 -->
  
 
+- Stadt-Land Gradient:
+Bei der Analyse der Zusammensetzung der Artengemeinschaft im Stadt-Land Gradienten können Arthropodenarten anhand ihrer Charakteristika in drei Kategorien eingeteilt werden: Taxa des ländlichen Raums (rural taxa / urbanophob), Stadt-Taxa (urban taxa / urbanophil) und Taxa sowohl der ländlichen als auch der städtischen Umwelt (adapters / moderate urbanophile) [@mcintyre2000; @mckinney2006].
+ 
+- Landschaftskomplexität:
  
 
 
@@ -216,13 +238,15 @@ Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als pote
 
 ## Auswertung
 
+ @shochat2006 empfehlen große Relikte natürlicher Habitate innerhalb der städtischen Kerngebiete in zukünftige Forschungen mit einzubeziehen.
+ 
 ### Landnutzungs- und Versiegelunsdaten
 - Erstellen einer postgreSQL-Datenbank mit frei Verfügbaren Landnutzungsdaten sowie Versiegelungsdaten, sowie dem Datensatz des Schulinsektenhaus-Projektes. Das Erstellen der Datenbank halte ich aufgrund der großen Datenmenge für sinnvoll um schnelle Abfragen zur Landnutzung möglich zu machen. Die Datenbank kann dann auch von R aus abgerufen werden.
 <!-- zur nutzung von osm landnutzungsdaten: zetero mit Tag "osm" -->
 
 - Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]: 
-    - Index für Komplexität der Landschaft (z.B Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius). Hierbei die Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten. 
-    - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}), (sowie minimaler Versiegelungsgrad?). Verwendung der Copernicus-Imperviousness Rasterdaten mit 20m Auflösung.
+    - Index für Komplexität der Landschaft (Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius und Edge-Density). Hierbei die Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten. 
+    - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}). Verwendung der Copernicus-Imperviousness Rasterdaten mit 20m Auflösung. Verrechnung mit dem Anteil Landwirtschaftlichen Flächen, da diese auch für eine intensive Landwirtschaft stehen.
     -  Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
     
 ```{r imperviousness, cache = T}
@@ -344,33 +368,38 @@ Zunächst werden folgende Parameter deskriptiv beschrieben:
 
 <!-- andere geostatistische ansätze: variogramm, autocorrelation ? -->
 ## Zeitplan
-April, Mai: Nester Öffnen
-Juni: Exposé schreiben, restliche Nester Öffnen und mit dem Bestimmen der Bienen beginnen
-Juli- September: Bienen bestimmen
-September-Dezember: Arbeit schreiben.
+
+| Wann | Was |
+| --------- | ------------ |
+| April - Mai | Nester Öffnen |
+| Juni | Exposé schreiben, restliche Nester Öffnen |
+| Juli | Exposé fertigstellen, Zweitbetreuer suchen |
+| August- September | Bienen bestimmen, Einleitung und Methodik schreiben |
+| Oktober - November | Datensatz auswerten |
+| Dezember | Ergebnisse und Diskussion schreiben |
+| Januar | Feedback, Korrektur und Puffer |
+
 
 <!-- ## Thema -->
 
 <!-- Detecting landscape patterns that impact the wild bee diversity and promote the potential occurance of different wild bee species. Landscape patterns like landuse type, imperviousness and water bodies may act as proxi-variables for the available nesting- and food-resources that directly affect the occurance of different wild bee species. -->
 
-<!-- Modelling the wild bee diversity and the potential occurrence of different wild bee species across Germany with a focus on urban areas. -->
+<!--  In the changing environment, wild bees adapt to new habitats. The knowledge about wild bees species hotspots, especially in urban areas, is important to design appropriate measures to promote diversity.  -->
 
-<!-- Due to the anthropogenically induced landscape change, there is a loss of natural ecosystems. This is one reason for the discussion about wild bees extinction. In the changing environment, wild bees adapt to new habitats. The knowledge about wild bees species hotspots, especially in urban areas, is important to design appropriate measures to promote diversity. The monitoring of wild bee occurance on a landscape level is also important to identify the actual status of the wild bee community, including an analysis of their parasitoids. With further monitoring in the next years, changes in the wild bee community can be more accurately identified. -->
 
-<!-- cornuta bicornis konkurrieren andere Arten aus nach einigen jahren da sie sehr früh die Nester belegen. Also vielleicht vor allem in den Häusern wo viele Nester sind weil in der nähe altes Bienenhaus.   -->
 
 <!-- invasive arten? -->
 
 
-# Diskussion
+<!-- # Diskussion #################################### -->
 
-- Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig
+<!-- cornuta bicornis konkurrieren andere Arten aus nach einigen jahren da sie sehr früh die Nester belegen. Also vielleicht vor allem in den Häusern wo viele Nester sind weil in der nähe altes Bienenhaus.   -->
 
 <!-- Artenvorkommen kann auch von einer ehemalige Landnutzung kommen [@do2014]. -->
 
 <!-- @pickett2001 claimed that urban gradients offer a very effective framework for studying impacts of urbanisation on invertebrates because they can capture a wide variety of urban effects. @new2015 s. 36 -->
 
-<!-- Wenn das Ökosystem (top-down und bottom-up Interaktionen) aus dem Gleichgewicht geraten kommt es zu saisonal sehr variablen Artenvorkommen- und Häufigkeit. -->
+<!-- Wenn das Ökosystem (top-down und bottom-up Interaktionen) aus dem Gleichgewicht geraten kommt es zu saisonal sehr variablen Artenvorkommen- und Häufigkeit. - Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig -->
 
 <!-- They may result from (1) localised direct habitat degradation or loss or from (2) wider changes in regional land use, together imposing two rather different scales for evaluation. Both may be infl uenced further by progressive influences of alien species as conditions continue to change [@new2015]. -->
 
