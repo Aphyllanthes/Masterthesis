@@ -19,9 +19,11 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <!-- To do:
- - Einleitung: urban-rural-gradient: Hintergründe der Hypothesen und hinführung zu Hypothesen
+ - Einleitung: Landschaftstruktur und Komplexität (Studien zu Artenreichtum, Artenzusammensetzung und Parasitierung)
  - Hypothesen: begründungen 
- - Methoden neu strukturieren -->
+ - Methoden neu strukturieren
+ - Methoden: definition Kategorien für Gemeinschaftsanalyse "suburban", "urban" 
+ - Methoden: grupierung der Landnutzungsformen -->
 
 # Einleitung
 Im Rahmen des Schulinsektenhausprojektes werde ich die in den Nisthilfen vorkommenden Bienenarten mit ihren Parasiten analysieren. Dabei werde ich den Effekt der Landnutzung, insbesondere in Siedlungsgebieten, auf die Artenzusammensetzung der kapp 300 über Deutschland verteilten Nisthilfen (siehe Abbildung \ref{standorte}) untersuchen.
@@ -94,7 +96,7 @@ Auch die Artenzahlen von solitären Bienenarten (=Wildbienen) welche Spezialiste
 Trotz zahlreichen Studien ist die genaue geografische Ausdehnung und der Ausmaß des Rückgangs der Insektenbestände noch nicht genau erforscht. Mit dieser Arbeit soll der aktuelle Status der Nisthilfen-besiedelnden Wildbienenarten im städtischen Bereich deutschlandweit erfasst werden.
  <!-- @hennig2012 -->
 
-## Wildbienen in der Landschaft - Landnutzungsformen
+## Wildbienen in der Landschaft - Landnutzung
 Weltweit wird ein Landschaftswandel beobachtet: Die Intensivierung der Landwirtschaft und die zunehmende Urbanisierung verdrängen natürliche Habitate. Mit der Zerstörung von natürlichen Habitate gehen Nahrungsressourcen und Nistplätze von Wildbienen verloren [@banaszak-cibicka2012]. Somit wird die Zerstörung und Zerstückelung von Habitaten im Zuge des Landschaftswandels als Hauptursache für die Abnahme der Bienendiversität gesehen [@wagner2020; @brown2009; @winfree2009]. In Deutschland sind natürliche Habitate wie Hecken oder Waldinseln durch die Zerstörung bedroht, oder <!-- Quelle: Der Strukturwandel ländlicher Siedlungen in der Bundesrepublik Deutschland --> bereits zu großen Teilen aus dem Landschaftsbild verschwunden, unter anderem durch die Flurneuordnung. <!-- landscape composition -->
 <!-- vlt noch kulturlandschaft wo mit unsere heutige Insektenwelt herkommt erwähnen. Davor war hier nur wald und sicher eine ganz andere Insektenzusammensetzung. -->
 Für die komplexen Lebensraumansprüche von Wildbienen sind verschiedene Landnutzungsformen wie Landwirtschaftliche Flächen und der städtische Bereich in unterschiedlichem Maße geeignet.  
@@ -104,44 +106,62 @@ In Agrarlandschaften in denen Monokulturen nur saisonal einseitige Futterquellen
 
  <!-- Waldhabitate, welche einen großteil der semi-natürleichen Habitate in Deutschland ausmachen, haben dabei jedoch hauptsächlich einen Einfluss auf die Artenzahl der Wespen und das Vorkommen der natürlichen Feinde [@schuepp2011]. <!-- weitere quellen zum eninfluss von natürlichen Habitaten --> 
 
-### Städtische Gebiete
-Neben Agrarlandschaft und natürlichen Habitaten, bleibt noch der durch seine starke strukturheterogenität charakterisierte Urbane (städtische) Raum, den Wildbienen besiedeln. Die Lebensbedingungen und Zusammenhänge in einem "urbanen Ökosystem" zu verstehen ist aufgrund der Heterogenität vieler Strukturen und Prozesse in Städten eine besondere Herausforderung. Das Vorkommen von bestimmten Arten in Städten hängt von vielen Faktoren wie der Verfügbarkeit von Nahrungsressourcen, der Vernetzung von Habitaten und von dem Vorhandensein "ökologischer Fallen" (z.B. Reflexionen von Straßenlaternen die fälschlicherweise als Wasserfläche wahrgenommen werden) ab [@new2015].  
+### Stadt-Land-Gradient
+Neben Agrarlandschaft und natürlichen Habitaten, bleibt noch der durch seine starke Strukturheterogenität charakterisierte Urbane (städtische) Raum, den Wildbienen besiedeln. Die Lebensbedingungen und Zusammenhänge in einem "urbanen Ökosystem" zu verstehen ist aufgrund der Heterogenität vieler Strukturen und Prozesse in Städten eine besondere Herausforderung. Das Vorkommen von bestimmten Arten in Städten hängt von vielen Faktoren wie der Verfügbarkeit von Nahrungsressourcen, der Vernetzung von Habitaten und von dem Vorhandensein "ökologischer Fallen" (z.B. Reflexionen von beleuchteten Asphaltflächen die fälschlicherweise als Wasserfläche wahrgenommen werden) ab [@new2015].  
 Inwiefern der heterogene urbane Raum das Potential hat diverse Bienengemeinschaften zu beherbergen, dazu bedarf es noch genauerer Kenntnis. Vor allem um die Biodiversität aktiv schützen zu können. Denn "Ökologische Regeln" in Städten unterscheiden sich stark von denen in der natürlichen Umwelt und Reaktionen auf die Urbanisierung könnten durchaus wie bei herbivoren Anthropoden [@raupp2010] Taxonspezifisch sein.  
 Gründe für die Erhaltung der urbanen Biodiversität und Natur haben @dearborn2010 verfasst: Das ist zunächst der Artenschutz von seltenen oder vom Aussterben bedrohten Arten die im städtischen Bereich vorkommen, das Schaffen von Korridoren für die Vernetzung von Populationen sowie das Verständnis der Auswirkungen des Umweltwandels, Umweltbildung, das Bereitstellen von Ökosystemdienstleistungen, der ethischen Verantwortung gerecht zu werden und zuletzt auch um das menschliche Wohlbefinden zu verbessern.
 
-Das Verständnis der Wildbienen im urbanen Raum kann durch die Analyse der Arten entlang des Stadt-Land-Gradienten untersucht werden, sodass Rückschlüsse gezogen werden können über die Resilienz der Arten sowie die Reaktionen der untersuchten Arten auf Veränderungen entlang des Gradienten [@new2019].
+Das Verständnis der Wildbienen im urbanen Raum kann durch die Analyse der Arten entlang des Stadt-Land-Gradienten untersucht werden, sodass Rückschlüsse gezogen werden können über die Resilienz der Arten sowie die Reaktionen der untersuchten Arten auf Veränderungen entlang des Gradienten [@new2019].  
+Das Konzept des Stadt-Land Gradienten basiert auf der Annahme, dass die Landnutzungsintensität von schwach entwickelten ländlichen Gebieten Land über die Vorstadt hin zum Stadtkern zunimmt [@warren2018] und die Habitatqualität abnimmt. Der Stadt-Land Gradient wird häufig durch die Proxi-Variable Versiegelungsgrad beschrieben. Der Anteil versiegelter Fläche ist durch seinen Einfluss auf Habitatverluste und Habitatzerstückelung laut @geslin2016 ein Hauptfaktor zur Beschreibung der Bestäuber im städtischen Bereich <!--  (Ahrne et al. 2009; Banaszak-Cibicka and Z_mihorski 2012; Geslin et al. 2013). -->. @shochat2006 erklären den Höhepunkt der Diversiät auf einem mittleren Urbanisierungsniveau durch die Antropogenen Habitatveränderungen welche Habitatproduktivität, Interaktionen der Arten und Ressourcenverfügbarkeit beeinflussen.
 
-Das Konzept des Stadt-Land Gradienten basiert auf der Annahme, dass die Landnutzungsintensität von schwach entwickelten ländlichen Gebieten Land über die Vorstadt hin zum Stadtkern zunimmt [@warren2018] und die Habitatqualität abnimmt. Der Stadt-Land Gradient wird häufig durch die Proxi-Variable Versiegelungsgrad beschrieben. 
+<!-- In dieser Arbeit werden die Nisthilfen-besiedelnden Bienen im Kontext des Stadt-Land-Gradienten und der Landschaftskomplexität analysiert.  -->
 
-In dieser Arbeit werden die Nisthilfen-besiedelnden Bienen im Kontext des Stadt-Land-Gradienten und der Landschaftskomplexität analysiert. 
-
-1) Bienenartenanzahl in Städten:
-Oberirdisch nistende Bienenarten kommen im urbanen Raum im Verhältins zu im Boden nistenden Bienenarten häufiger vor.
-
-Laut @fetridge2008 haben suburbane Landschaften das Potential diverse und intakte Bienengemeinschaften zu beherbergen. Hier bieten Gärten den Bestäubern Ressourcen, wie sie in der heutigen Agrarlandschaft nicht mehr vorkommen [@samnegard2011].
-
- @shochat2006 haben die Theorie aufgestellt, dass die menschlichen Aktivitäten in Städten zu einer höheren allgemeinen Populationsdichte (aufgrund von einigen wenigen sehr häufigen Arten) und einer geringeren Artendiversität, führen. Zudem haben @shochat2006 einen Höhepunkt der Diversität auf einem mittleren Urbanisierungsniveau festgestellt. 
-
+<!-- 1) Bienenartenanzahl in Städten: -->
+Der Versiegelungsgrad hat einen negativen Effekt auf das Artenreichtum von Wildbienen, wobei das in besonderem Maße für die bodennistenden Arten gilt [@geslin2016], was auf den Mangel an Nistmöglichkeiten, also freien Bodenflächen, zurückzuführen ist. Für oberirdisch nistende Arten, denen sich auch in Städten Nistmöglichkeiten bieten, haben @geslin2016 einen positiven Effekt des Versiegelungsgrades beobachtet, wobei der maximale Versiegelungsgrad in der Studie bei 60 % lag, was nach @fortel2014 einem mittleren Versiegelungsgrad entspricht. 
+@fortel2014 haben in Lyon in Frankreich für den mittleren Versiegelungsgrad von 50% die höchste Artenanzahl an Wildbienen beobachtet, für bodennistende sowie für Nisthilfen-besiedelnde Bienenarten.  
+Laut @fetridge2008 haben daher suburbane Landschaften das Potential diverse und intakte Bienengemeinschaften zu beherbergen. Denn dort bieten Gärten den Bestäubern Ressourcen, wie sie in der heutigen Agrarlandschaft nicht mehr vorkommen [@samnegard2011].  
 
 <!-- bray-curtis - beta-diversität -->
 
-2) Artengemeinschaft (Dissimilarity) in Städten
-Nach @mckinney2006 ist die Arten-Diversität in Städten durchaus häufig hoch, jedoch überregional homogen, was den Verlust der regionalen Einzigartigkeit bedeutet.
-
+<!-- 2) Artengemeinschaft (Dissimilarity) in Städten -->
 Bei der Analyse der Zusammensetzung der Artengemeinschaft im Stadt-Land Gradienten können Arthropodenarten anhand ihrer Charakteristika in drei Kategorien eingeteilt werden: Taxa des ländlichen Raums (rural taxa / urbanophob), Stadt-Taxa (urban taxa / urbanophil) und Taxa sowohl der ländlichen als auch der städtischen Umwelt (adapters / moderate urbanophile) [@mcintyre2000; @mckinney2006].
 
-3) Parasitierung in Städten
-@steckel2014 These findings are in accordance with studies on local prey/host losses that revealed that antagonists depend more than their hosts on habitat connectivity (Tscharntke and Kruess, 1999).
-@steckel2014 species groups that might respond to landscape parameters at different spatial scales. The antagonists responded to larger scales (1500 m) than their lower trophic level hosts (wasps 250 m, bees 1000 m) (Holt, 1996).
+Nach @mckinney2006 ist die Arten-Diversität in Städten durchaus häufig hoch, jedoch überregional homogen, was den Verlust der regionalen Einzigartigkeit bedeutet. Dies haben auch @banaszak-cibicka2020 in der polnischen Stadt Poznań für die Artengemeinschaft der Wildbienen beobachtet. Habitatzerstörung führt zu Homogenisierung der Artengemeinschaft  [@quintero2010]. @new2015 beschreiben die Theorie dazu, dass in Städten die Bedingungen an die Bedürfnisse des Mensch angepasst sind und sich somit überregional gleichen. So bietet das städtische Gefüge die Lebensgrundlage für viele, jedoch immer gleiche, Arten.   
+Des weiteren ist die homogene urbane Bienengemeinschaft eine Teilmenge der suburbanen und ländlichen Bienengemeinschaft [@banaszak-cibicka2020].  
+In dieser Studie wird untersucht, inwiefern die Homogenisierung der Artengemeinschaft in Städten auch für Nishilfen-besiedelnde Wildbienen deutschlandweit in Städten zutrifft. <!-- Zum Anteil von soil-nesting species (Cane2005, Cane2006)- quellen von fetridge2008 -->
+
+Parasiten, die die nächsthöhere trophische Ebene bilden nach den (nicht parasitischen) Wildbienen, hängen von der Dynamik ihres Wirts ab [@pereira-peixoto2016]. Landschaftsveränderungen können einen stärkeren Einfluss auf die Parasiten haben als auf die Wirte, wenn die Parasiten eine höhere Ressourcenspezialisierung aufweisen [@pereira-peixoto2016]. Die Artenzusammensetzung der Parasiten in Nisthilfen entlang des Stadt-Land-Gradient wurde noch nicht genauer untersucht.
+<!-- sind die lebensansprüche von Parasiten spezialisierter als die ihrer wirte? -->
+
+
+<!-- Parasitierung in Städten:   -->
+<!-- @steckel2014 These findings are in accordance with studies on local prey/host losses that revealed that antagonists depend more than their hosts on habitat connectivity (Tscharntke and Kruess, 1999).   -->
+<!-- @steckel2014 species groups that might respond to landscape parameters at different spatial scales. The antagonists responded to larger scales (1500 m) than their lower trophic level hosts (wasps 250 m, bees 1000 m) (Holt, 1996). -->
+
+
+### Landschaftsstruktur und Komplexität
+Landschaftsstruktur und -Komplexität beeinflussen den Lebensraum von Wildbienen durch Konnektivität der Habitate. 
+Jede Landnutzungsform bietet spezifische Ressourcen und somit Habitate bzw. Habitatfragmente. Aneinandergrenzende Landnutzungsformen können unterschiedliche Ressourcen bieten und so zusätzliche Habitate für Wildbienen bieten. So hat die Größe und Form (Landschaftsstruktur) der Flächen einer Landnutzungsform sowie Anzahl verschiedener Landnutzungsformen (Landschaftskomplexität) einen Einfluss auf vorkommende Bienenarten [@steffan-dewenter2003].
+
+ 
+
+
+Habitatspezialisten und Arten höherer trophischer Ebenen sind besonders beeinflusst durch Habitatisolation (Stef-fan-Dewenter & Tscharntke 2000).
+<!-- @darocha-filho2020 heterogeneous  landscapes  in  urban  areas  can  harbour  species-rich communities of cavity-nesting bees, wasps, and their natural enemies even when compared  to  areas  with  diverse  native  vegetation  with  similar  original  ecosystems -->
+
+<!-- komplexität der landschaft: landschaftsmatrix, welche habitatfragmente sind vorhanden? (steffan-dewenter2002) -->
+
+<!-- @steffan-dewenter2003: hypothesis: higher trophic levelsare more affected by habitat fragmentation than lower trophic levels. The surrounding matrix of a habitat fragment may increase the amount of available resources or provide additionalresources that do not occur within the local habitat frag-ment. -->
+
+-------------
 
 
 <!-- Studien, welche solitäre Wespen und Bienen in Trap-nestern untersucht haben: [@budrien2004 (Nestdurchmesser, Ungarn); @krombein (allgemein, USA); @martins2012 (Trap-nest-methode, Brasilien); @moron2012 (Schwermetallbelastung, UK); @schuepp2011 (Landschaftskomposition und Habitatisolation); @tylianakis2007 (Wirt-Parasit-Beziehung, Landnutzungsintensität, Ecuador); @veddeler2010 (Parasitism, Ecuador); @westphal2008 (Vergleich zu anderen sampling Methoden)] -->
 <!-- in Deutschland: [@dainese2018 (Raps vs nicht-blühende Getreide, Populationsdynamik, Gegenspieler, Landnutzungsinstensität und -komplexität); @diekotter2014 (Raps); @gathmann2002 (foraging range); @happe2018 (ökologische vs. konventionelle Landwirtschaft); @holzschuh2010 (Landschaftszusammensetzung, ökologisch vs. konventionelle LW); @pereira-peixoto2014 (bienen und wespen, urban-rural Gradient); @pereira-peixoto2016 (Wirt-Parasit-Beziehung, urban-rural Gradient); @steckel2014 (Landschaftskomposition); @steffan-dewenter2002 (Landschaftskontext); @tscharntke1998 (Bioindication); @vonkonigslow2019 (Vergleich versch. Nisthilfen)] -->
 
-
 <!-- (Silveira, F. A. and L. M. GodÌnez, L.M. (1996) Systematic surveys of local bee faunas.Melissa, 9:1-4.) -->
 
-
+<!-- @geslin2016: We found that seminatural areas promoted the maintenance of uncommon species or habitat-specific species (defined here as unique species). -->
 
 <!-- @hernandez2009 -->
 
@@ -151,14 +171,9 @@ Bei der Analyse der Zusammensetzung der Artengemeinschaft im Stadt-Land Gradient
 <!-- Geslin et al. 2013: Plant pollinator networks along a gradient of urbanisation.;  -->
 <!-- Verboven et al. 2014: Different responses of bees and hoverflies to land use in an urban-rural gradient show the importance of the nature of the rural land use. -->
 
-<!-- In urban environments, the main factor affecting pollinators appears to be the amount of impervious surfaces at the landscape scale with related impacts of habitat loss and fragmentation (Ahrne et al. 2009; Banaszak-Cibicka and Z_mihorski 2012; Geslin et al. 2013). @geslin2016 -->
-
 <!-- Urbane Ökosysteme: Dort wo Menschen in hoher Dichte leben oder gebaute Infrastruktur einen Großteil der Landfläche bedeckt [@pickett2001]. -->
 
-<!-- komplexität der landschaft: landschaftsmatrix, welche habitatfragmente sind vorhanden? (steffan-dewenter2002) -->
-
 <!-- Gärten - und innerhalb Gärten variation: Community gärten und privatgärten @fetridge2008 (discussion) -->
-<!-- Zum Anteil von soil-nesting species (Cane2005, Cane2006)- quellen von fetridge2008 -->
 
 <!-- Lebensräume im städischen Gebiet unterliegen einem generellen Wandel, z.B durch Nachverdichtung, Abriss und Neubau von Häusern, Straßen, Radwegen, Tramlinien, usw.. In Privatgärten kann es zu Strukturveränderungen der Kleinstrukturen kommen durch das Anlegen von Steingärten oder sterilen Rasen. Auf der anderen Seite wurden in den letzten Jahren, insbesondere durch das Medienecho auf das "Insektensterben" in Städten vielerlei Maßnahmen zum Naturschutz umgesetzt. Dazu zählen z.B. ein Trend von Insektenhäusern in privaten Gärten aber auch Blühstreifen und Wiesen mit geringerem Mahdrhythmus auf städtischen Grünflächen oder Steinhaufen, Trockenmauern etc. als Teil von Ausgleichsmaßnahmen.  -->
 <!-- In diesem heterogenen Mosaik im städischen Bereich gibt es viele "ökologische Fallen" wie Straßenbeleuchtung, durchsichtige Glasfenster oder reflektierende Asphaltflächen. Beispielsweise eignet sich der Urbane Raum laut der Hypothese von @bates2014 nur bedingt für Nachtfalter die der "ökologischen Falle" Licht zum Opfer fallen. -->
@@ -166,9 +181,8 @@ Bei der Analyse der Zusammensetzung der Artengemeinschaft im Stadt-Land Gradient
 <!-- ######### -->
 <!-- Die Abundanz (Häufigkeit) einzelner Wildbienenarten ist, bedingt durch die natürliche Dynamik der Populationen, zeitlich und räumlich sehr variabel [@williams2001]. Die Artenzusammensetzung der Wildbienenfauna ist zeitlich weniger variabel und zeigt im Verlauf mehrerer Jahre Artenverschiebungen [@williams2001].  -->
 
-
 <!-- Imprviousness: -->
-<!--@geslin2016: In urban environments, the main factor affecting pollinators appears to be the amount of impervious surfaces at the landscape scale with related impacts of habitat loss and fragmentation (Ahrné et al. 2009; Banaszak‐Cibicka and Żmihorski 2012; Geslin et al. 2013). Impervious surface coverage has emerged as a key environmental factor to describe urbanization over the past several years (Arnold and Gibbons 1996). Moreover, an increase in the proportion of impervious surfaces often implies joint modifications of the ecosystems at landscape and local scales (in addition to habitat loss in terms of floral resources and nesting sites) such as an increase in the ambient temperature, a soil compaction, and also soil and air pollution (McKinney 2002)  -->
+<!--@geslin2016:  Impervious surface coverage has emerged as a key environmental factor to describe urbanization over the past several years (Arnold and Gibbons 1996). Moreover, an increase in the proportion of impervious surfaces often implies joint modifications of the ecosystems at landscape and local scales (in addition to habitat loss in terms of floral resources and nesting sites) such as an increase in the ambient temperature, a soil compaction, and also soil and air pollution (McKinney 2002)  -->
 
 <!-- @grimm2008,  @steffan-dewenter2002 -->
 <!-- Saure 1996 (Urban habitats for bees: the example of the city of Berlin.);  -->
@@ -191,7 +205,7 @@ Bei der Analyse der Zusammensetzung der Artengemeinschaft im Stadt-Land Gradient
 
 # Fragestellung und Hypothesen:
 
-- Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind vielzählige Studien zu Nisthilfen bekannt [@dainese2018; @gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014; @vonkonigslow2019]. Die Artenlisten zusammengefasst ergeben xx Bienenarten (). Für ein Monitoring, dass sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue arten zu erfassen. Insbesondere da für Stadtrandbereiche eine hohe Bienen und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturanteil verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
+- Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind vielzählige Studien zu Nisthilfen bekannt [@dainese2018; @gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014; @vonkonigslow2019]. Die Artenlisten zusammengefasst ergeben xx Bienenarten (). Für ein Monitoring, dass sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue Arten zu erfassen. Insbesondere da für Stadtrandbereiche eine hohe Bienen- und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturanteil verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
 
 In dieser Arbeit soll Fragestellungen zu den Nisthilfen-besiedelnden Bienenarten und ihren Parasiten im Bezug auf die Landschaftskomplexität und dem Stadt-Land-Gradienten nachgegangen werden. 
 Dabei werden als Indices für die Landschaftskomplexität die Anzahl verschiedener Landnutzungsklassen sowie der Strukturreichtum der Landschaft (Edge-Density) der Landnutzungsklassen herangezogen. <!-- Kategorien bilden  --> Zusätzlich wird der Anteil natürlicher Habitate sowie der Anteil an Landwirtschaftlichen Flächen gesondert betrachtet.
@@ -201,13 +215,14 @@ Versiegelungsgrad und Landnutzungskomplexität werden für die Radien 200m, 500m
 
 - Die Anzahl der Bienenarten:
   - ist bei mittlerem Versiegelungsgrad am höchsten, denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am Vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten (rural Taxa) ebenso wie an städtische Gebiete angepasste Arten (urban Taxa) vorkommen können [@mcintyre2000].
-  - nimmt mit der Landschaftskomplexität sowie mit dem Strukturreichtum zu.
+  - nimmt mit der Landschaftskomplexität sowie mit dem Strukturreichtum zu, da mehr Strukturen und verschiedene Landnutzungsformen in größerem Umfang Futterressourcen sowie Nistmöglichkeiten für viele verschiedene Bienenarten bieten. 
+  
 - Die Anzahl der Parasitenarten:
-  - nimmt mit Versiegelungsgrad ...
-  - nimmt mit Landschaftskomplexität und Strukturreichtum ...
+  - ist bei mittlerem Versiegelungsgrad am höchsten, da die Artenanzahl der Parasiten von der Artengemeinschaft ihrer Wirte abhängt [@fortel2014; @sheffield2013].
+  - nimmt mit Landschaftskomplexität und Strukturreichtum zu, da durch viele Ressourcen viele verschiedene Lebensbedingungen gegeben sind [@pereira-peixoto2016].
 
 - Die Artengemeinschaft der Wildbienen (inkl. Parasitenarten):
-  - ist bei hohem Versiegelungsgrad homogener als bei mittlerem oder geringem Versiegelungsgrad.
+  - ist bei hohem Versiegelungsgrad homogener als bei mittlerem oder geringem Versiegelungsgrad, da sich Strukturen in Städten gleichen und überregional den selben Arten als Lebensraum dienen.
   - ist bei geringer Landschaftskomplexität und geringem Strukturreichtum homogener als bei hoher Landschaftskomplexität und hohem Strukturreichtum.
   
 <!-- - Die Parasitierungsrate (Anteil an parasitierten Zellen):  -->
@@ -215,12 +230,13 @@ Versiegelungsgrad und Landnutzungskomplexität werden für die Radien 200m, 500m
 <!--   - nimmt mit Landschaftskomplexität und Strukturreichtum ... -->
 
 <!-- - Der Anteil oligolektischer Bienenarten (Anteil an Arten, nicht Abundanz):  -->
-<!--   - ist bei mittlerem Versiegelungsgrad am höchsten. -->
+<!--   - ist bei mittlerem Versiegelungsgrad am höchsten. @fetridge2008: although certain
+specialist (oligolectic) and/or forest-associated species were absent in suburbs. -->
 <!--   - nimmt mit zunehmendem Strukturreichtum zu. -->
 <!--   - nimmt mit zunehmender Landschaftskomplexität zu. -->
 
 - Der Anteil von Osmia bicornis (Abundanz):
-  - nimmt mit zunehmendem Versiegelungsgrad zu
+  - nimmt mit zunehmendem Versiegelungsgrad zu.
   - ist am höchsten, wo der Anteil der Siedlungsfläche ("urban fabric") maximal ist.
   
 - Für den Anteil von Osmia cornuta gilt das selbe wie für Osmia bicornis.
@@ -254,15 +270,32 @@ Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als pote
 
 ## Auswertung
 
-### Landnutzungs- und Versiegelunsdaten
-- Erstellen einer postgreSQL-Datenbank mit frei Verfügbaren Landnutzungsdaten sowie Versiegelungsdaten, sowie dem Datensatz des Schulinsektenhaus-Projektes. Das Erstellen der Datenbank halte ich aufgrund der großen Datenmenge für sinnvoll um schnelle Abfragen zur Landnutzung möglich zu machen. Die Datenbank kann dann auch von R aus abgerufen werden.
-<!-- zur nutzung von osm landnutzungsdaten: zetero mit Tag "osm" -->
+- Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasiten.
 
-- Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]: 
-    - Index für Komplexität der Landschaft (Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius). Hierbei die Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten (siehe Abbildung \ref{bar_clc500_landuse}).
+In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. 
+<!-- wie geht man damit in der NMDS vor? -->
+Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten aufgelistet. Dann werden, für eine allgemeine Übersicht, folgende Parameter deskriptiv beschrieben:
+
+| Parameter | Beschreibung |
+| --------- | ------------ |
+| Artenreichtum | Anzahl der Arten pro Nisthilfe |
+| Abundanz | Anzahl lebender Puppen bzw. Larven pro Nisthilfe |
+| Überlebensrate | Anzahl der lebenden Puppen dividiert durch die Gesamtanzahl der Zellen |
+| Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen |
+
+
+### Landnutzungs- und Versiegelunsdaten
+- Download von frei Vefügbaren Landnutzungsdaten und Daten des Versiegelungsgrades: Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten und Versiegelungsdaten (Imperviousness-Rasterdaten mit 20m Auflösung) .
+- Um die Daten zur Landnutzung und zum Versiegelungsgrad schnell und reproduzierbar abrufen zu können wird aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank erstellt. In die Datenbank werden auch alle weiteren Daten eingebunden (Metadaten zu den Standorten der Nisthilfen sowie den Datensatz der bestimmten Arten). Die Datenbank kann dann auch von R aus abgerufen werden und die Daten direkt miteinander verschnitten werden (Bsp. Landnutzung und Nisthilfenstandorte: siehe Abbildung \ref{bar_clc500_landuse}).
+- Die Landnutzungsklassen des Copernicus-Datensatzes werden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt.
+- Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]. Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
+    - Index für Komplexität der Landschaft (Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius).
     - Index für den Strukturreichtum der Landschaft: Edge-Density. 
-    - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}). Verwendung der Copernicus-Imperviousness Rasterdaten mit 20m Auflösung.  Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
-    - Der Anteil Landwirtschaftlicher Flächen, da diese für eine intensive Landnutzungsform stehen, als Teil der unversiegelten Flächen die sonst für eine extensive Nutzung stehen.
+    - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}). 
+
+<!-- - Der Anteil Landwirtschaftlicher Flächen, da diese für eine intensive Landnutzungsform stehen, als Teil der unversiegelten Flächen die sonst für eine extensive Nutzung stehen. -->
+
+  <!--@hennig2012 the variation in bee diversity and visits can be explained by the extent of green area and edge density at larger scales than 200 m radius even in urban environments, -->
     
 ```{r imperviousness, cache = T}
 # imperviousness
@@ -342,31 +375,18 @@ ggplot(clcLABEL2, aes(reorder(LABEL2, -Anzahl_Standorte), Anzahl_Standorte, fill
 
 ```
 
-    
-- Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasiten.
-
-In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. 
-<!-- wie geht man damit in der NMDS vor? -->
-Zunächst werden folgende Parameter deskriptiv beschrieben:
-
-| Parameter | Beschreibung |
-| --------- | ------------ |
-| Artenreichtum | Anzahl der Arten pro Nisthilfe |
-| Abundanz | Anzahl lebender Puppen bzw. Larven pro Nisthilfe |
-| Überlebensrate | Anzahl der lebenden Puppen dividiert durch die Gesamtanzahl der Zellen |
-| Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen |
 
 <!-- Random forest mit Metadaten um zu sehen ob Standorteigenschaften die Landnutzungseffekte überwiegen. -->
+### Statistische Auswertung
 
 - Methodeneffekte ausschließen: Position und Ausrichtung der Nester können einen Einfluss haben [@martins2012], ebenso nahegelegene alte Insektenhotels.
 
 - Modellierung der Artenzusammensetzung: 
   - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen.
-    - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan" (Ordination NMDS) für verschiedene Landnutzungskategorieen (z.B.: 1. hoher Versiegelungsgrad - geringer Versiegelungsgrad, 2. Anteil natürlicher Habitaten im Radius 500m > bzw. < 10 %).
+  - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten mittels glm.
+  - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan" (Ordination NMDS) für verschiedene Landnutzungskategorieen: geringe Versiegelung (Versiegelungsgrad > 25%), mittlere Versiegelung (Versiegelungsgrad zwischen 25% und 50%) und starke Versiegelung (Versiegelungsgrad > 50 %). Ebenso Analyse für Kategorien der Landschaftskomplexität und des Strukturreichtum. 
 
-- Separate Analyse des Vorkommens von Teilgruppen: Polylektische bzw. oligolektische Arte sowie gefährdete Arten. 
-
-- Analyse der spezifischen Arten, auf auffällig verschiedene Standortansprüche.
+- Separate Analyse des Vorkommens von Teilgruppen: Osmia bicornis, O. cornuta und Chelostoma florisomnis 
 
 <!-- Landscape mosaics - Spearmans rank correlation to test correlations between landscape parameters. Anteil von non-crop habitat war positiv correlated mit Habitat-typ-diversität, Anteil an grassland, anteil an Wald, aber nicht mit der edge density [@holzschuh2010] -->
 
@@ -389,7 +409,8 @@ Zunächst werden folgende Parameter deskriptiv beschrieben:
 | Juni | Exposé schreiben, restliche Nester Öffnen |
 | Juli | Exposé fertigstellen, Zweitbetreuer suchen |
 | August- September | Bienen bestimmen, Einleitung und Methodik schreiben |
-| Oktober - November | Datensatz auswerten |
+| Oktober | Datensatz aufbereiten, Prädiktoren berechnen |
+| November | Modellierung |
 | Dezember | Ergebnisse und Diskussion schreiben |
 | Januar | Feedback, Korrektur und Puffer |
 
