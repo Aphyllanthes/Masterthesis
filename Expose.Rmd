@@ -1,5 +1,5 @@
 ---
-title: "Der Einfluss der Landnutzung auf die Wildbienenzusammensetzung in Nisthilfen"
+title: "Der Einfluss von Landnutzung und Urbanisierung auf hohlraumnistende Wildbienen und deren Gegenspieler"
 author: "Nele Stackelberg"
 date: "8 6 2020"
 output:
@@ -19,6 +19,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <!-- To do:
+- 
+" 
  - Einleitung: Landschaftstruktur und Komplexität (Studien zu Artenreichtum, Artenzusammensetzung und Parasitierung)
  - Hypothesen: begründungen 
  - Methoden neu strukturieren
@@ -144,7 +146,7 @@ Landschaftsstruktur und -Komplexität beeinflussen die Verfügbarkeit und Kombin
 Das Vorkommen verschiedener Bienenarten ist zudem von einer Vernetzung der Habitate abhängig, was gerade im innerstädtischen Bereich eine Rolle spielen kann.
 In verschiedenen Studien wurde bereits der positive Effekt von strukturreichen und komplexen Landschaften auf die Artenzahl von Wildbienen festgestellt [...]. Jedoch wurde nach meinem Wissen noch nicht untersucht ob sich dieser Effekt auch allgemein (also nicht nur Landwirtschaft-natürliche Habitate; Stadt-Land; Wald-Acker; etc.) und mit durch Satelitendaten klassifizierten Landnutzungsklassen zeigt, was in dieser Arbeit untersucht wird.
 
-Parasiten sind als Arten einer höheren trophischen Ebene stärker Beeinflusst von der Zerstückelung von Habitaten als Arten niedrigerer trophischer Ebenen [@steffan-dewenter2003a].
+Parasiten sind als Arten einer höheren trophischen Ebene stärker Beeinflusst von der Zerstückelung von Habitaten als Arten niedrigerer trophischer Ebenen [@steffan-dewenter2003a]. Somit ist ein stärkerer Effekt der Landschaftsstruktur und Komplexität auf die Artenzahlen der Parasiten als auf die Artenzahlen ihrer Wirte zu erwarten.
 
 <!-- @darocha-filho2020 heterogeneous  landscapes  in  urban  areas  can  harbour  species-rich communities of cavity-nesting bees, wasps, and their natural enemies even when compared  to  areas  with  diverse  native  vegetation  with  similar  original  ecosystems -->
 
@@ -257,11 +259,11 @@ specialist (oligolectic) and/or forest-associated species were absent in suburbs
 # Methoden
 ## Laborarbeit
 Das Richten der Nisthilfen und Versenden an die Schulen in Deutschland wurde durch Projektmitarbeiter des Lehrstuhls für Naturschutz und Landschaftsökologie, sowie Schüler und Mitarbeiter des Robert-Bosch-Colleges durchgeführt. Das Anbringen der Nester im Frühjahr 2019 erfolgte ehrenamtlich durch die Partner an den Schulen, welche ebenso Daten zum Anbringungsort des Nestes und der Umgebung erfassten. Ende des Jahres 2019 wurden die Nisthilfen an die Uni Freiburg zurückgesendet. 
-Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, dass die Insekten vorzeitig schlüpfen. Aus allen Nisthilfen wurden die besetzen Nester folgendermaßen bearbeitet:
-Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
+<!-- Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, dass die Insekten vorzeitig schlüpfen. Aus allen Nisthilfen wurden die besetzen Nester folgendermaßen bearbeitet: -->
+<!-- Alle Schilfröhrchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden. -->
 
 
-- Mitarbeit beim Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen.
+- Mitarbeit beim Öffnen der Nester und Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen.
 
 <!-- trap nests: (Gathmann and Tscharntke 1999 Landschaftsbewertung mit Bienen und Wespen in Nisthilfen: Artenspektrum, Interaktionen und Bestimmungsschlüssel ;  --> 
 
@@ -269,7 +271,7 @@ Alle Schilfrörchen die durch das hineinleuchten mit einer Taschenlampe als pote
 
 - Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasiten.
 
-In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. 
+<!-- In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen.  -->
 <!-- wie geht man damit in der NMDS vor? -->
 Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten aufgelistet. Dann werden, für eine allgemeine Übersicht, folgende Parameter deskriptiv beschrieben:
 
@@ -382,7 +384,7 @@ ggplot(clcLABEL2, aes(reorder(LABEL2, -Anzahl_Standorte), Anzahl_Standorte, fill
 
 - Modellierung der Artenzusammensetzung: 
   - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient), den Landnutzungsformen (den Flächenanteil jeder Landnutzungsform im Umkreis) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen.
-  - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten mittels glm.
+  - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten.
   - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan" (Ordination NMDS) für verschiedene Landnutzungskategorieen: geringe Versiegelung (Versiegelungsgrad > 25%), mittlere Versiegelung (Versiegelungsgrad zwischen 25% und 50%) und starke Versiegelung (Versiegelungsgrad > 50 %). Ebenso Analyse für Kategorien der Landschaftskomplexität und des Strukturreichtum. 
 
 - Separate Analyse des Vorkommens von Teilgruppen: Osmia bicornis, O. cornuta und Chelostoma florisomnis 
@@ -407,11 +409,12 @@ ggplot(clcLABEL2, aes(reorder(LABEL2, -Anzahl_Standorte), Anzahl_Standorte, fill
 | April - Mai | Nester Öffnen |
 | Juni | Exposé schreiben, restliche Nester Öffnen |
 | Juli | Exposé fertigstellen, Zweitbetreuer suchen |
-| August- September | Bienen bestimmen, Einleitung und Methodik schreiben |
-| Oktober | Datensatz aufbereiten, Prädiktoren berechnen |
-| November | Modellierung |
-| Dezember | Ergebnisse und Diskussion schreiben |
-| Januar | Feedback, Korrektur und Puffer |
+| August- September | Bienen Nadeln, Einleitung und Methodik schreiben |
+| Oktober | Bienen bestimmen, Einleitung und Methodik schreiben |
+| November | Datensatz aufbereiten, Prädiktoren berechnen |
+| Dezember | Modellierung |
+| Januar | Ergebnisse und Diskussion schreiben |
+| Februar | Feedback, Korrektur und Puffer |
 
 
 <!-- ## Thema -->
