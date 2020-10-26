@@ -143,6 +143,11 @@ Parasiten, die die nächsthöhere trophische Ebene bilden nach den (nicht parasi
 
 ### Landschaftsstruktur und Komplexität
 Landschaftsstruktur und -Komplexität beeinflussen die Verfügbarkeit und Kombination von verschiedenen Ressourcen und bilden somit Wildbienenhabitate unterschiedlicher Qualtität. Denn jede Landnutzungsform bietet spezifische Ressourcen und somit Habitate bzw. Habitatfragmente. Aneinandergrenzende Landnutzungsformen können unterschiedliche Ressourcen bieten und so zusätzliche Habitate für Wildbienen bieten. So hat die Größe und Form (Landschaftsstruktur) der Flächen einer Landnutzungsform sowie Anzahl verschiedener Landnutzungsformen (Landschaftskomplexität) einen Einfluss auf vorkommende Bienenarten [@steffan-dewenter2003a].
+
+Die Kantendichte ist ein Maß der Landschaftskomplexität, welches als Index für das Habitatnetzwerk dient. Denn die gesamtmenge an Kanten zwischen Landnutzungsklassen in einer Landschaft steht in direktem Zusammenhang zur räumlichen Heterogenität der Landschaft [@mcgarigal1995]. 
+Der Kantentyp, also welche zwei Landnutzungsklassen aneinandergrenzen, kann dabei einen Einfluss auf die Alpha-, Beta- und Gammadiversität haben, wie es @ma2013 für Pflanzen beschrieben haben.
+
+
 Das Vorkommen verschiedener Bienenarten ist zudem von einer Vernetzung der Habitate abhängig, was gerade im innerstädtischen Bereich eine Rolle spielen kann.
 In verschiedenen Studien wurde bereits der positive Effekt von strukturreichen und komplexen Landschaften auf die Artenzahl von Wildbienen festgestellt [...]. Jedoch wurde nach meinem Wissen noch nicht untersucht ob sich dieser Effekt auch allgemein (also nicht nur Landwirtschaft-natürliche Habitate; Stadt-Land; Wald-Acker; etc.) und mit durch Satelitendaten klassifizierten Landnutzungsklassen zeigt, was in dieser Arbeit untersucht wird.
 
@@ -205,7 +210,7 @@ Parasiten sind als Arten einer höheren trophischen Ebene stärker Beeinflusst v
 
 # Fragestellung und Hypothesen:
 
-- Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind vielzählige Studien zu Nisthilfen bekannt [@dainese2018; @gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014; @vonkonigslow2019]. Die Artenlisten zusammengefasst ergeben xx Bienenarten (). Für ein Monitoring, dass sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue Arten zu erfassen. Insbesondere da für Stadtrandbereiche eine hohe Bienen- und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturanteil verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
+- Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind vielzählige Studien zu Nisthilfen bekannt [@dainese2018; @gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014; @vonkonigslow2019]. Die Zusammenfassung verschiedener Artenlisten von Gathmann & Tscharntke 1999 ergaben 33 Wirts-Bienenarten und zusätzliche Kuckucksbienenarten. Für ein Monitoring, dass sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue Arten zu erfassen. Insbesondere da für Stadtrandbereiche eine hohe Bienen- und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturanteil verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
 
 In dieser Arbeit soll Fragestellungen zu den Nisthilfen-besiedelnden Bienenarten und ihren Parasiten im Bezug auf die Landschaftskomplexität und dem Stadt-Land-Gradienten nachgegangen werden. 
 Dabei werden als Indices für die Landschaftskomplexität die Anzahl verschiedener Landnutzungsklassen sowie der Strukturreichtum der Landschaft (Edge-Density) der Landnutzungsklassen herangezogen. <!-- Kategorien bilden  --> Zusätzlich wird der Anteil natürlicher Habitate sowie der Anteil an Landwirtschaftlichen Flächen gesondert betrachtet.
@@ -258,20 +263,21 @@ specialist (oligolectic) and/or forest-associated species were absent in suburbs
 
 # Methoden
 ## Laborarbeit
-Das Richten der Nisthilfen und Versenden an die Schulen in Deutschland wurde durch Projektmitarbeiter des Lehrstuhls für Naturschutz und Landschaftsökologie, sowie Schüler und Mitarbeiter des Robert-Bosch-Colleges durchgeführt. Das Anbringen der Nester im Frühjahr 2019 erfolgte ehrenamtlich durch die Partner an den Schulen, welche ebenso Daten zum Anbringungsort des Nestes und der Umgebung erfassten. Ende des Jahres 2019 wurden die Nisthilfen an die Uni Freiburg zurückgesendet. 
-<!-- Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, dass die Insekten vorzeitig schlüpfen. Aus allen Nisthilfen wurden die besetzen Nester folgendermaßen bearbeitet: -->
-<!-- Alle Schilfröhrchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden. -->
+Das Richten der Nisthilfen und Versenden an die Schulen in Deutschland wurde durch Projektmitarbeiter des Lehrstuhls für Naturschutz und Landschaftsökologie, sowie Schüler und Mitarbeiter des United-World-Colleges (UWC) durchgeführt. Das Anbringen der Nester im Frühjahr 2019 erfolgte ehrenamtlich durch die Partner an den Schulen, welche ebenso Daten zum Anbringungsort des Nestes und der Umgebung erfassten. Ende des Jahres 2019 wurden die Nisthilfen an die Uni Freiburg zurückgesendet. 
+Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, dass die Insekten vorzeitig schlüpfen. Aus allen Nisthilfen wurden die besetzen Nester folgendermaßen bearbeitet:
+Alle Schilfröhrchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
+Von den ca 7000 Nestern  aus 238 Nisthilfen habe ich 1400 Nester geöffnet. Die übrigen Nester wurden durch Schüler des UWC, HiWis sowie zwei Bachelorstudenten und einer weiteren Masterstudentin geöffnet.  
+Aus den nach Morphospezies sortierten Nestern schlüpften im Frühjahr und Sommer Bienen, Wespen und ihre Parasitoide, welche zunächst aus den Nestern geholt, das Geschlecht erfasst und eingefroren wurden. Hierbei bearbeitete ich 1100 Nester. Die eingefrorenen Bienen wurden dann genadelt und bestimmt, wobei Osmia bicornis und O. cornuta größtenteils durch Hiwis genadelt wurde. Alle weiteren Bienen und ihre Parasiten nadelte und bestimmte ich mit Hilfe durch ...
 
-
-- Mitarbeit beim Öffnen der Nester und Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen.
+<!-- - Mitarbeit beim Öffnen der Nester und Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen. -->
 
 <!-- trap nests: (Gathmann and Tscharntke 1999 Landschaftsbewertung mit Bienen und Wespen in Nisthilfen: Artenspektrum, Interaktionen und Bestimmungsschlüssel ;  --> 
 
 ## Auswertung
 
-- Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasiten.
+Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasiten.
 
-<!-- In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen.  -->
+In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen.  
 <!-- wie geht man damit in der NMDS vor? -->
 Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten aufgelistet. Dann werden, für eine allgemeine Übersicht, folgende Parameter deskriptiv beschrieben:
 
@@ -289,7 +295,7 @@ Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten
 - Die Landnutzungsklassen des Copernicus-Datensatzes werden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt. <!-- Landnutzungsformen: Verwendung von 11 Kategorieen, die aus einer Modifizierung der Kategorie 2 der CLC-Daten zustandekommen (siehe tab. xx).  -->
 - Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]. Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
     - Index für Komplexität der Landschaft (Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius).
-    - Index für den Strukturreichtum der Landschaft: Edge-Density. 
+    - Index für den Strukturreichtum der Landschaft: Edge-Density. Länge der Kanten von aneinandergrenzenden Flächen verschiedener Landnutzungskategorieen. Die Aussenkanten der Flächen im gepufferten Bereich werden nicht miteinberechnet. 
     - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}). 
   
   
