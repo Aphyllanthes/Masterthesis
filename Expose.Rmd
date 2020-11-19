@@ -20,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <!-- To do:
 - 
-" 
+ - neue Paper einarbeiten: normandin2017, vereecken2020, hortal2015
  - Einleitung: Landschaftstruktur und Komplexität (Studien zu Artenreichtum, Artenzusammensetzung und Parasitierung)
  - Hypothesen: begründungen 
  - Methoden neu strukturieren
@@ -262,20 +262,22 @@ specialist (oligolectic) and/or forest-associated species were absent in suburbs
 
 
 # Methoden
+<!-- package BAT, nlme -->
 ## Laborarbeit
 Das Richten der Nisthilfen und Versenden an die Schulen in Deutschland wurde durch Projektmitarbeiter des Lehrstuhls für Naturschutz und Landschaftsökologie, sowie Schüler und Mitarbeiter des United-World-Colleges (UWC) durchgeführt. Das Anbringen der Nester im Frühjahr 2019 erfolgte ehrenamtlich durch die Partner an den Schulen, welche ebenso Daten zum Anbringungsort des Nestes und der Umgebung erfassten. Ende des Jahres 2019 wurden die Nisthilfen an die Uni Freiburg zurückgesendet. 
 Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, dass die Insekten vorzeitig schlüpfen. Aus allen Nisthilfen wurden die besetzen Nester folgendermaßen bearbeitet:
 Alle Schilfröhrchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
 Von den ca 7000 Nestern  aus 238 Nisthilfen habe ich 1400 Nester geöffnet. Die übrigen Nester wurden durch Schüler des UWC, HiWis sowie zwei Bachelorstudenten und einer weiteren Masterstudentin geöffnet.  
-Aus den nach Morphospezies sortierten Nestern schlüpften im Frühjahr und Sommer Bienen, Wespen und ihre Parasitoide, welche zunächst aus den Nestern geholt, das Geschlecht erfasst und eingefroren wurden. Hierbei bearbeitete ich 1100 Nester. Die eingefrorenen Bienen wurden dann genadelt und bestimmt, wobei Osmia bicornis und O. cornuta größtenteils durch Hiwis genadelt wurde. Alle weiteren Bienen und ihre Parasiten nadelte und bestimmte ich mit Hilfe durch ...
+Aus den nach Morphospezies sortierten Nestern schlüpften im Frühjahr und Sommer Bienen, Wespen und ihre Parasitoide, welche zunächst aus den Nestern geholt, das Geschlecht erfasst und eingefroren wurden. Hierbei bearbeitete ich 1100 Nester. Die eingefrorenen Bienen wurden dann genadelt und bestimmt, wobei Osmia bicornis und O. cornuta größtenteils durch Hiwis genadelt wurde. Alle weiteren Bienen und ihre Parasiten nadelte und bestimmte ich.  
+Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @amiet1999,...] sowie zusätzlich für Arten der Gattung Hylaeus der Schlüssl von @dathe2016a. Für die Bestimmung der parasitoiden Keulenwespen (Sapygidae) wurde der Schlüssel Vespoidea von @amiet2008 verwendet.
 
 <!-- - Mitarbeit beim Öffnen der Nester und Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen. -->
 
 <!-- trap nests: (Gathmann and Tscharntke 1999 Landschaftsbewertung mit Bienen und Wespen in Nisthilfen: Artenspektrum, Interaktionen und Bestimmungsschlüssel ;  --> 
 
 ## Auswertung
-
-Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasiten.
+Die Daten wurden von allen bearbeitenden Personen in eine google-docs-Tabelle geschrieben
+Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasitoiden.
 
 In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen.  
 <!-- wie geht man damit in der NMDS vor? -->
@@ -290,8 +292,8 @@ Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten
 
 
 ### Landnutzungs- und Versiegelunsdaten
-- Download von frei Vefügbaren Landnutzungsdaten und Daten des Versiegelungsgrades: Verwendung der durch die European Environment Agency [@eea] im Rahmen des Copernicus-Programmes durch Satellitendaten kategorisierten Landnutzungsdaten und Versiegelungsdaten (Imperviousness-Rasterdaten mit 20m Auflösung) .
-- Um die Daten zur Landnutzung und zum Versiegelungsgrad schnell und reproduzierbar abrufen zu können wird aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank erstellt. In die Datenbank werden auch alle weiteren Daten eingebunden (Metadaten zu den Standorten der Nisthilfen sowie den Datensatz der bestimmten Arten). Die Datenbank kann dann auch von R aus abgerufen werden und die Daten direkt miteinander verschnitten werden (Bsp. Landnutzung und Nisthilfenstandorte: siehe Abbildung \ref{bar_clc500_landuse}).
+Zur Berechnung der Landnutzungs- und Versiegelungsdaten wurden die frei verfügbaren Daten der  European Environment Agency [@eea] herangezogen. Dies sind im Rahmen des Copernicus-Programmes der Europäischen Union [@zotero-383] durch Satellitendaten kategorisierte Landnutzungsdaten und Versiegelungsdaten (Imperviousness-Rasterdaten mit 20m Auflösung).  
+Um die Daten zur Landnutzung und zum Versiegelungsgrad schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank erstellt. In die Datenbank wurden auch alle weiteren Daten eingebunden (Metadaten zu den Standorten der Nisthilfen sowie den Datensatz der Arten). Die Datenbank kann von R aus abgerufen werden und die Daten direkt miteinander verschnitten werden (Bsp. Landnutzung und Nisthilfenstandorte: siehe Abbildung \ref{bar_clc500_landuse}).  
 - Die Landnutzungsklassen des Copernicus-Datensatzes werden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt. <!-- Landnutzungsformen: Verwendung von 11 Kategorieen, die aus einer Modifizierung der Kategorie 2 der CLC-Daten zustandekommen (siehe tab. xx).  -->
 - Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]. Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
     - Index für Komplexität der Landschaft (Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius).
