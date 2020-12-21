@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <!-- To do:
-- 
+- einleitung einarbeiten @orr2020
  - neue Paper einarbeiten: normandin2017, vereecken2020, hortal2015
  - Einleitung: Landschaftstruktur und Komplexität (Studien zu Artenreichtum, Artenzusammensetzung und Parasitierung)
  - Hypothesen: begründungen 
@@ -276,10 +276,13 @@ Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @
 <!-- trap nests: (Gathmann and Tscharntke 1999 Landschaftsbewertung mit Bienen und Wespen in Nisthilfen: Artenspektrum, Interaktionen und Bestimmungsschlüssel ;  --> 
 
 ## Auswertung
-Die Daten wurden von allen bearbeitenden Personen in eine google-docs-Tabelle geschrieben
-Bereinigen des Datensatz der Informationen zu den bearbeiteten Nisthilfen, also den Wildbienen und Parasitoiden.
+Zur Datenerfassung wurde eine google-docs-Tabelle verwendet, da diese zeitgleiches Bearbeiten von verschiedenen bearbeitenden Personen ermöglicht.
 
-In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen.  
+Der Datensatz der Informationen aller Nisthilfen wurde mithilfe der Software R [@R] Bereinigt. Neben der Korrektur von Schreibfehlern wurden vor allem die nicht exakt identifizierbaren Arten folgendermaßen bearbeitet:
+In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. 
+
+<!-- chaetodactylus, melittobia, chalcid wasp -->
+
 <!-- wie geht man damit in der NMDS vor? -->
 Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten aufgelistet. Dann werden, für eine allgemeine Übersicht, folgende Parameter deskriptiv beschrieben:
 
@@ -294,12 +297,13 @@ Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten
 ### Landnutzungs- und Versiegelunsdaten
 Zur Berechnung der Landnutzungs- und Versiegelungsdaten wurden die frei verfügbaren Daten der  European Environment Agency [@eea] herangezogen. Dies sind im Rahmen des Copernicus-Programmes der Europäischen Union [@zotero-383] durch Satellitendaten kategorisierte Landnutzungsdaten und Versiegelungsdaten (Imperviousness-Rasterdaten mit 20m Auflösung).  
 Um die Daten zur Landnutzung und zum Versiegelungsgrad schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank erstellt. In die Datenbank wurden auch alle weiteren Daten eingebunden (Metadaten zu den Standorten der Nisthilfen sowie den Datensatz der Arten). Die Datenbank kann von R aus abgerufen werden und die Daten direkt miteinander verschnitten werden (Bsp. Landnutzung und Nisthilfenstandorte: siehe Abbildung \ref{bar_clc500_landuse}).  
-- Die Landnutzungsklassen des Copernicus-Datensatzes werden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt. <!-- Landnutzungsformen: Verwendung von 11 Kategorieen, die aus einer Modifizierung der Kategorie 2 der CLC-Daten zustandekommen (siehe tab. xx).  -->
+- Die Landnutzungsklassen des Copernicus-Datensatzes werden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt. Für alle Kategorien wird ihre Fläche im 500m-Radius um die Nisthilfenstandorte berechnet. Kategorieen, welche nur in unter 10% der Nisthilfenstandorte vorkommen werden nicht für die Modellierung verwendet. Es bleiben somit die Landnutzungsklassen "Stadt" (Industielle Flächen sowie Wohngebiete), "Wald", "Ackerland" und "Weideflächen".  <!-- Landnutzungsformen: Verwendung von 11 Kategorieen, die aus einer Modifizierung der Kategorie 2 der CLC-Daten zustandekommen (siehe tab. xx).  -->
 - Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]. Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
     - Index für Komplexität der Landschaft (Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius).
     - Index für den Strukturreichtum der Landschaft: Edge-Density. Länge der Kanten von aneinandergrenzenden Flächen verschiedener Landnutzungskategorieen. Die Aussenkanten der Flächen im gepufferten Bereich werden nicht miteinberechnet. 
     - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}). 
   
+
   
 
 <!-- - Der Anteil Landwirtschaftlicher Flächen, da diese für eine intensive Landnutzungsform stehen, als Teil der unversiegelten Flächen die sonst für eine extensive Nutzung stehen. -->
@@ -390,6 +394,11 @@ ggplot(clcLABEL2, aes(reorder(LABEL2, -Anzahl_Standorte), Anzahl_Standorte, fill
 
 - Methodeneffekte ausschließen: Position und Ausrichtung der Nester können einen Einfluss haben [@martins2012], ebenso nahegelegene alte Insektenhotels.
 
+Ich habe den Versiegelungsgrad für verschiedene Radien berechnet, da mich der Einfluss der Versiegelung verschiedener Maßstäbe interessiert. Ich möchte somit alle Maßstäbe mit ins Modell nehmen obwohl diese Prädiktoren logischerweise korrelieren. Daher verwende ich im Modell lineare Kombinationen der Prädiktoren wie in @zuur2009 [p. 475] beschrieben
+<!-- scale of effect: miguet2015-->
+
+<!-- @zuur2009 p482: We calculated the landscape variables at different landscape extents, because we were interested in the impact of landscape characteristics measured at different scales (Chatterjee and Price, 1991; Trzcinski et al., 1999; Villard et al., 1999) -->
+
 - Modellierung der Artenzusammensetzung: 
   - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient), den Landnutzungsformen (den Flächenanteil jeder Landnutzungsform im Umkreis) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen.
   - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten.
@@ -421,9 +430,34 @@ ggplot(clcLABEL2, aes(reorder(LABEL2, -Anzahl_Standorte), Anzahl_Standorte, fill
 | Oktober | Bienen bestimmen, Einleitung und Methodik schreiben |
 | November | Datensatz aufbereiten, Prädiktoren berechnen |
 | Dezember | Modellierung |
+| Dezember | vor Weihnachten:  |
+| Dezember | Modellierung |
 | Januar | Ergebnisse und Diskussion schreiben |
 | Februar | Feedback, Korrektur und Puffer |
 
+# Ergebnisse
+
+Im Rahmen des Schulinsektenhaus-Projektes konnten in den 278 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*), neun Wespenarten (Apocrita) nachgewiesen werden. Weitere Parasitoide wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. 
+\ref{Artenliste}
+
+```{r Artenliste}
+library(dplyr)
+Artliste_IH19 <- readxl::read_excel("../Daten/Artliste_IH19.xls") %>% 
+  replace(is.na(.), "")
+
+kableExtra::kbl(Artliste_IH19, caption = "Liste aller nachgewiesenen Bienenarten und ihere Parasitoide im Schulinsektenhausprojekt 2019. \\label{Artenliste} ") %>% 
+  kableExtra::kable_paper(full_width = F) %>%
+  kableExtra::column_spec(1) %>%
+  kableExtra::column_spec(2, width = "15em") %>%
+  kableExtra::column_spec(3, width = "15em")
+```
+
+
+- Chaetodactylus problem.
+
+- chrysura radians an osmia adunca : zetero Galanthea (ohne id)
+
+<!-- - ephialtes: @horstmann -->
 
 <!-- ## Thema -->
 
