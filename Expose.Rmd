@@ -269,7 +269,7 @@ Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, d
 Alle Schilfröhrchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
 Von den ca 7000 Nestern  aus 238 Nisthilfen habe ich 1400 Nester geöffnet. Die übrigen Nester wurden durch Schüler des UWC, HiWis sowie zwei Bachelorstudenten und einer weiteren Masterstudentin geöffnet.  
 Aus den nach Morphospezies sortierten Nestern schlüpften im Frühjahr und Sommer Bienen, Wespen und ihre Parasitoide, welche zunächst aus den Nestern geholt, das Geschlecht erfasst und eingefroren wurden. Hierbei bearbeitete ich 1100 Nester. Die eingefrorenen Bienen wurden dann genadelt und bestimmt, wobei Osmia bicornis und O. cornuta größtenteils durch Hiwis genadelt wurde. Alle weiteren Bienen und ihre Parasiten nadelte und bestimmte ich.  
-Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @amiet1999,...] sowie zusätzlich für Arten der Gattung Hylaeus der Schlüssl von @dathe2016a. Für die Bestimmung der parasitoiden Keulenwespen (Sapygidae) wurde der Schlüssel Vespoidea von @amiet2008 verwendet.
+Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @amiet1999,...] sowie zusätzlich für Arten der Gattung Hylaeus der Schlüssel von @dathe2016a. Für die Bestimmung der parasitoiden Keulenwespen (Sapygidae) wurde der Schlüssel Vespoidea von @amiet2008 verwendet. Die Arten der Familie der Schlupfwespen (Ichneumonidae) wurden durch Vergleich der in @tscharntke1998 aufgeführten Arten anhand des Morphotyps identifiziert. 
 
 <!-- - Mitarbeit beim Öffnen der Nester und Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen. -->
 
@@ -279,7 +279,7 @@ Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @
 Zur Datenerfassung wurde eine google-docs-Tabelle verwendet, da diese zeitgleiches Bearbeiten von verschiedenen bearbeitenden Personen ermöglicht.
 
 Der Datensatz der Informationen aller Nisthilfen wurde mithilfe der Software R [@R] Bereinigt. Neben der Korrektur von Schreibfehlern wurden vor allem die nicht exakt identifizierbaren Arten folgendermaßen bearbeitet:
-In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. 
+In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. Die Parasitischen Arten der Überfamilie der Erzwespen (Chalcidoidea) - darunter wahrscheinlich hauptsächlich *Melittobia acasta* - wurden nicht bestimmt. In der Analyse wurde die Überfamilie Chalcidoidea als "Art" behandelt. Gleiches gilt für alle Käferarten, hier wurde die Ordnung (*Coleoptera*) als "Art" behandelt.
 
 <!-- chaetodactylus, melittobia, chalcid wasp -->
 
@@ -296,12 +296,19 @@ Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten
 
 ### Landnutzungs- und Versiegelunsdaten
 Zur Berechnung der Landnutzungs- und Versiegelungsdaten wurden die frei verfügbaren Daten der  European Environment Agency [@eea] herangezogen. Dies sind im Rahmen des Copernicus-Programmes der Europäischen Union [@zotero-383] durch Satellitendaten kategorisierte Landnutzungsdaten und Versiegelungsdaten (Imperviousness-Rasterdaten mit 20m Auflösung).  
-Um die Daten zur Landnutzung und zum Versiegelungsgrad schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank erstellt. In die Datenbank wurden auch alle weiteren Daten eingebunden (Metadaten zu den Standorten der Nisthilfen sowie den Datensatz der Arten). Die Datenbank kann von R aus abgerufen werden und die Daten direkt miteinander verschnitten werden (Bsp. Landnutzung und Nisthilfenstandorte: siehe Abbildung \ref{bar_clc500_landuse}).  
-- Die Landnutzungsklassen des Copernicus-Datensatzes werden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt. Für alle Kategorien wird ihre Fläche im 500m-Radius um die Nisthilfenstandorte berechnet. Kategorieen, welche nur in unter 10% der Nisthilfenstandorte vorkommen werden nicht für die Modellierung verwendet. Es bleiben somit die Landnutzungsklassen "Stadt" (Industielle Flächen sowie Wohngebiete), "Wald", "Ackerland" und "Weideflächen".  <!-- Landnutzungsformen: Verwendung von 11 Kategorieen, die aus einer Modifizierung der Kategorie 2 der CLC-Daten zustandekommen (siehe tab. xx).  -->
-- Berechnung von Prädiktoren zur Landnutzung und Versiegelung, jeweils im Umkreis um die Nisthilfen-Standorte bis 1km (200m, 500m, 1km), denn der Flugradius zur Nahrungssuche von Wildbienen liegt meist unter 1km [@garibaldi2011;@gathmann2002]. Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten) und über eventuell fehlende Habitatvernetzung. 
-    - Index für Komplexität der Landschaft (Anzahl an verschiedenen Landnutzungsformen in bestimmtem Radius).
-    - Index für den Strukturreichtum der Landschaft: Edge-Density. Länge der Kanten von aneinandergrenzenden Flächen verschiedener Landnutzungskategorieen. Die Aussenkanten der Flächen im gepufferten Bereich werden nicht miteinberechnet. 
-    - Index für den Urbanisierungsgrad: mittlerer Versiegelungsgrad (siehe Abbildung \ref{hist_imp500}). 
+Um die Daten zur Landnutzung und zum Versiegelungsgrad schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank erstellt. In die Datenbank wurden auch alle weiteren Daten eingebunden (Metadaten zu den Standorten der Nisthilfen sowie den Datensatz der Arten). Die Datenbank kann von R aus abgerufen werden und die Daten direkt miteinander verschnitten werden.    
+Die Landnutzungsklassen des Copernicus-Datensatzes wurden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt. Zur Analyse wurden ausschließlich die neu definierten Kategorieen verwendet. 
+
+Folgende Prädiktoren, die die Landschaft und ihre Nutzung beschreiben wurden berechnet:
+
+- Index für den Urbanisierungsgrad: der mittlere Versiegelungsgrad im Radius von 100m, 200m, 500m sowie 1000m um die Nisthilfenstandorte. Die Radien wurden gewählt da der Flugradius zur Nahrungssuche von Wildbienen meist unter 1km liegt [@garibaldi2011;@gathmann2002]. 
+ <!-- Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten)  und über eventuell fehlende Habitatvernetzung. -->
+ - Die Landnutzungsklassen: für alle Kategorien wurde ihre Fläche im 500m-Radius um die Nisthilfenstandorte berechnet. Kategorieen, welche nur in unter 10% der Nisthilfenstandorte vorkommen wurden nicht für die Modellierung verwendet. Es blieben somit die Landnutzungsklassen "Stadt" (Industielle Flächen sowie Wohngebiete), "Wald", "Ackerland" und "Weideflächen".
+ - Index 1 für die Komplexität der Landschaft: Anzahl an verschiedenen Landnutzungklassen im 500m-Radius.
+ - Index 2 für die Komplexität der Landschaft: die Summe der Kantenlänge (Edgelength)  aller Polygone der Landnutzungsklassen im 500m Radius. Die Kantenlänge ist gleich der Kantendichte (Edge-denisty) da die Fläche aller 500-Radius-Buffer um die Nisthilfenstandorte identisch ist. Die Aussenkanten der Flächen im gepufferten Bereich werden nicht miteinberechnet.
+
+  <!-- Landnutzungsformen: Verwendung von 11 Kategorieen, die aus einer Modifizierung der Kategorie 2 der CLC-Daten zustandekommen (siehe tab. xx).  -->
+
   
 
   
@@ -310,84 +317,6 @@ Um die Daten zur Landnutzung und zum Versiegelungsgrad schnell und reproduzierba
 
   <!--@hennig2012 the variation in bee diversity and visits can be explained by the extent of green area and edge density at larger scales than 200 m radius even in urban environments, -->
     
-```{r imperviousness, cache = T}
-# imperviousness
-imp1 <- raster::raster("../Imperviousness/IMD_2015_020m_eu_03035_d05_E40N20/IMD_2015_020m_eu_03035_d05_E40N20.tif")
-
-imp2 <- raster::raster("../Imperviousness/IMD_2015_020m_eu_03035_d05_E40N30/IMD_2015_020m_eu_03035_d05_E40N30.tif")
-
-# average imperviousness with buffer 500
-avg_imp1 <- raster::extract(x = imp1, y = mypoint, buffer = 500, fun = mean, na.rm=T, df = T)
-avg_imp2 <- raster::extract(x = imp2, y = mypoint, buffer = 500, fun = mean, na.rm=T, df = T)
-
-avg_imp <- left_join(avg_imp1, avg_imp2, by = "ID") %>% 
-  mutate(
-    avg500 = ifelse(is.na(IMD_2015_020m_eu_03035_d05_E40N20), 
-                    IMD_2015_020m_eu_03035_d05_E40N30, IMD_2015_020m_eu_03035_d05_E40N20)
-  ) %>% dplyr::select(ID, avg500)
-
-mypoint <- mypoint %>% 
-  bind_cols(avg_imp) %>% 
-  dplyr::select(-ID1)
-
-avg_imp1 <- raster::extract(x = imp1, y = mypoint, buffer = 1000, fun = mean, na.rm=T, df = T)
-avg_imp2 <- raster::extract(x = imp2, y = mypoint, buffer = 1000, fun = mean, na.rm=T, df = T)
-avg_imp <- left_join(avg_imp1, avg_imp2, by = "ID") %>% 
-  mutate(
-    avg1000 = ifelse(is.na(IMD_2015_020m_eu_03035_d05_E40N20), 
-                     IMD_2015_020m_eu_03035_d05_E40N30, IMD_2015_020m_eu_03035_d05_E40N20)
-  ) %>% dplyr::select(ID, avg1000)
-```
-
-    
-
-```{r versiegelung_hist, fig.cap="Histogram des durchschnittlichen Versiegelungsgrad im 500m-Radius um die Nisthilfen-Standorte, - berechnet aus 20m-Rasterdaten (Imperviousness Copernicus) \\label{hist_imp500}", cache=TRUE}
-
-mypoint_avg <- mypoint %>% 
-  bind_cols(avg_imp) %>% 
-  dplyr::select(-ID1)
-
-ggplot(data = mypoint_avg, aes(avg500)) + geom_histogram(binwidth = 5) +
-  xlab("mittlerer Versiegelungsgrad in %") +
-  ylab("Anzahl")
-```
-
-```{r clc500, cache=TRUE, include=FALSE}
-## clc 500 m radius
-clc500 <- read.csv2("../Daten/summary_clc500.csv")
-
-library(readxl)
-clc2000legend <- read_excel("../Daten/clc2000legend.xls") %>% 
-  unite("group_18", LEVEL1:LEVEL2, sep = "") %>% 
-  select(group_18, LABEL1, LABEL2) %>% 
-  mutate(group_18 = as.numeric(group_18))
-
-clc500 <- clc500 %>% 
-  left_join(clc2000legend)
-
-clc500_Level1 <- clc500 %>% 
-  group_by(schulid, LABEL1) %>% 
-  summarise(area = sum(area, na.rm = T)) %>% 
-  mutate(Anteil = area / sum(area, na.rm = T)) %>% 
-  pivot_wider(id_cols = c(schulid), names_from = LABEL1, values_from = Anteil, values_fill = 0)
-
-```
-
-```{r landuseplot, fig.cap="Die Anzahl der Nisthilfenstandorte, in deren 500m-Radius die Landnutzungsformen (landuse - Copernicus) vorkommen. Die Farbe stellt die gesamtfläche der Landnutzungsform in allen 500m-Radien (eine 500m-Radius-Fläche sind ca. 78ha) der Nisthilfen in ha dar.  \\label{bar_clc500_landuse}", cache=TRUE}
-## clc Darstellung flächenanteile Landnutzung
-
-clcLABEL2 <- clc500 %>% group_by(LABEL2) %>% 
-  summarise(Flaeche_ha = sum(area, na.rm = F)/10000, # hektar (jeder 500m-radius-Kreis sind 78.5 ha)
-            Anzahl_Standorte = length(unique(schulid)))
-ggplot(clcLABEL2, aes(reorder(LABEL2, -Anzahl_Standorte), Anzahl_Standorte, fill = Flaeche_ha)) + 
-  geom_bar(stat = "identity") + 
-  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  xlab("Landnutzungsform") +
-  scale_fill_viridis_c(breaks=seq(0,30000,5000)) +
-  guides(fill = guide_colourbar(barwidth = 0.5, barheight = 10, nbin= 5))
-
-```
-
 
 <!-- Random forest mit Metadaten um zu sehen ob Standorteigenschaften die Landnutzungseffekte überwiegen. -->
 ### Statistische Auswertung
@@ -405,6 +334,9 @@ Ich habe den Versiegelungsgrad für verschiedene Radien berechnet, da mich der E
   - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan" (Ordination NMDS) für verschiedene Landnutzungskategorieen: geringe Versiegelung (Versiegelungsgrad > 25%), mittlere Versiegelung (Versiegelungsgrad zwischen 25% und 50%) und starke Versiegelung (Versiegelungsgrad > 50 %). Ebenso Analyse für Kategorien der Landschaftskomplexität und des Strukturreichtum. 
 
 - Separate Analyse des Vorkommens von Teilgruppen: Osmia bicornis, O. cornuta und Chelostoma florisomnis 
+
+Für alle Hypothesen wurden jeweils glm (generalized linear models)  gefittet. Die Verteilung der Antwortvariablen wurde mithilfe der Fuktion "fitdist()" aus dem Paket "fitdistrplus" ermittelt. Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren.
+Jedes Model wurde evaluiert indem die Residuendiagnostik nach @DHARMa aus dem Paket "DHARMa" durchgeführt wurde.
 
 <!-- Landscape mosaics - Spearmans rank correlation to test correlations between landscape parameters. Anteil von non-crop habitat war positiv correlated mit Habitat-typ-diversität, Anteil an grassland, anteil an Wald, aber nicht mit der edge density [@holzschuh2010] -->
 
@@ -430,22 +362,50 @@ Ich habe den Versiegelungsgrad für verschiedene Radien berechnet, da mich der E
 | Oktober | Bienen bestimmen, Einleitung und Methodik schreiben |
 | November | Datensatz aufbereiten, Prädiktoren berechnen |
 | Dezember | Modellierung |
-| Dezember | vor Weihnachten:  |
-| Dezember | Modellierung |
+| Dezember | 22.12: Insektenhäuser mit in die Modelle nehmen |
+|  | Arttabelle beschreiben  |
+|  | glm Abundanz, glm Artenzahl, glm Osmia bicornis  |
+| 23.12 | Modelle für Osmia cornuta, und seltenere Arten |
+| 28.12 | envfit |
+| 30.12 | spatial autocorrelation |
 | Januar | Ergebnisse und Diskussion schreiben |
 | Februar | Feedback, Korrektur und Puffer |
 
 # Ergebnisse
 
-Im Rahmen des Schulinsektenhaus-Projektes konnten in den 278 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*), neun Wespenarten (Apocrita) nachgewiesen werden. Weitere Parasitoide wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. 
-\ref{Artenliste}
+Im Rahmen des Schulinsektenhaus-Projektes konnten in den 278 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*), neun Wespenarten (Apocrita) nachgewiesen werden. Weitere Parasitoide wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. In Tabelle \ref{Artenliste} sind alle nachgewiesenen Arten aufgeführt sowie ihre Parasitoide. Da einige Parasitoide das gesamte Nest ihres Wirtes eingenommen haben konnten die Wirtsarten nur anhand der Nestmorphologie bestimmt werden - diese sind in der dritten Spalte der Tabelle aufgeführt.
 
-```{r Artenliste}
+Im Vergleich zu @tscharntke1998 wurden sieben weitere Arten identifiziert: 
+
+  - *Anthidium manicatum*
+  - *Hylaeus graciliformis*, *H. hyalinatus*, *H. leptocephalus*, *H. taeniolatus*
+  - *Megachile centuncularis*, *M. ligniseca* 
+  
+Dagegen führen @tscharntke1998 in ihrer Arbeit zwölf Arten auf, die in dieser Arbeit nicht identifiziert wurden:
+ 
+ - *Chelostoma campanularum*, *C. distinctum*
+ - *Hylaeus annularis*, *H. gibbus*, *H. punctualissimus*, *H. signatus*
+ - *Megachile alpicola*, *M. versicolor*
+ - *Osmia claviventris*, *O. gallarum*, *O. leucomelana*, *O. parietina*
+ 
+Ein weiterer Parasit der in den Nestern dieser Arbeit vorkam, sind Milben der Gattung *Chaetodactylus*. Diese sind in der Tabelle \ref{Artenliste} nicht aufgeführt, da sie während der Lagerung in der Uni Freiburg in weitere Nester "übergelaufen" sind. Daher und durch zu späte Kenntnissnahme der bearbeitenden Personen wurden wahrscheinlich viele befallene Nester nicht als solche identifiziert. Es wurden ca. 100 Nester als von Chaetodactylus befallen identifiziert. Es kann aber davon ausgegangen werden, dass etwa das dreifache an Nestern befallen war. Leider konnten so aus sehr vielen Nestern keine Arten bestimmt werden - besonders groß war der Anteil an Nestern der Gattung *Megachile*. Identifiziert werden konnten dennoch folgende von Chaetodactylus befallene Arten:
+
+  - *Anthidium nanum*
+  - *Chelostoma florisomne*, *C. rapunculi* 
+  - *Heriades crenulatus*, *H. truncorum* 
+  - *Hylaeus communis*, *H. difformis*
+  - *Megachile ericetorum*, *M. centuncularis*, *M. rotundata*
+  - *Osmia adunca*, *O. bicornis*, *O. caerulescens*, *O. leaiana*
+ 
+<!-- Welche Parasiten bei tscharntke vorkamen und bei uns nicht: Stelis punctulatissima bei Anthidium nanum, ... -->
+
+ 
+```{r Artenliste, echo=FALSE, message=FALSE, warning=FALSE}
 library(dplyr)
 Artliste_IH19 <- readxl::read_excel("../Daten/Artliste_IH19.xls") %>% 
   replace(is.na(.), "")
 
-kableExtra::kbl(Artliste_IH19, caption = "Liste aller nachgewiesenen Bienenarten und ihere Parasitoide im Schulinsektenhausprojekt 2019. \\label{Artenliste} ") %>% 
+kableExtra::kbl(Artliste_IH19, caption = "Liste aller nachgewiesenen Bienenarten und ihere Parasitoide im Schulinsektenhausprojekt 2019. Alle Arten die in der Arbeit von Tscharntke et al. (1998) nicht beschrieben wurden sind mit einem '*' versehen.  \\label{Artenliste} ") %>% 
   kableExtra::kable_paper(full_width = F) %>%
   kableExtra::column_spec(1) %>%
   kableExtra::column_spec(2, width = "15em") %>%
