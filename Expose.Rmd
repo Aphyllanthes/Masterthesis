@@ -16,6 +16,7 @@ header-includes:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
 ```
 
 <!-- To do:
@@ -242,7 +243,7 @@ specialist (oligolectic) and/or forest-associated species were absent in suburbs
 
 - Der Anteil von Osmia bicornis (Abundanz):
   - nimmt mit zunehmendem Versiegelungsgrad zu.
-  - ist am höchsten, wo der Anteil der Siedlungsfläche ("urban fabric") maximal ist.
+  - ist am höchsten, wo der Anteil der Siedlungsfläche (Landnutzungsklasse "Urban") maximal ist.
   
 - Für den Anteil von Osmia cornuta gilt das selbe wie für Osmia bicornis.
 - Chelostoma florisomnis ist am höchsten wo der Anteil der Weideflächen am höchsten ist.
@@ -289,7 +290,7 @@ Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten
 | Parameter | Beschreibung |
 | --------- | ------------ |
 | Artenreichtum | Anzahl der Arten pro Nisthilfe |
-| Abundanz | Anzahl lebender Puppen bzw. Larven pro Nisthilfe |
+| Abundanz | Anzahl Brutzellen pro Nisthilfe |
 | Überlebensrate | Anzahl der lebenden Puppen dividiert durch die Gesamtanzahl der Zellen |
 | Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen |
 
@@ -320,23 +321,33 @@ Folgende Prädiktoren, die die Landschaft und ihre Nutzung beschreiben wurden be
 
 <!-- Random forest mit Metadaten um zu sehen ob Standorteigenschaften die Landnutzungseffekte überwiegen. -->
 ### Statistische Auswertung
+Die Auswertung von Abundanz und Artenzahl der Bienen sowie der Artenzahl der Parasitoide efolgt nach jeweils nach dem im folgenden beschriebenen Vorgehen:
 
-- Methodeneffekte ausschließen: Position und Ausrichtung der Nester können einen Einfluss haben [@martins2012], ebenso nahegelegene alte Insektenhotels.
+1) Ermittlung der Verteilung, welche die Antwortvariable (Abundanz bzw. Artenzahl) am besten beschreibt, mithilfe der Funktion *fitdistr()*  aus dem Paket "fitdistrplus". Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren.
+2a) Testen des Einflusses von nahegelegenem Insektenhaus anhand eines GLM (generalized linear model) - mit reduziertem Datensatz, da nur für 114 Trapnester eine Information über Insektenhäuser verfügbar war.
+2b) Evaluation des in 2a gefitteten Modells anhand der Residuendiagnostik nach @DHARMa aus dem Paket "DHARMa".
+3a) Fitten der Modelle zur Analyse des Zusammenhangs von Versiegelungsgrad und Strukturreichtum auf Abundanz und Artenzahl von Bienen und Parasitoiden. Um die Hypothesen zu modellieren wurden somit quadratische Modelle (y ~ x + x^2) implementiert. Zusätzlich wurde jeweils ein Modell mit allen weiteren verfügbaren Prädiktoren (Mittlere Jahrestemperatur, jährlicher Niederschlag, Höher über NN sowie jeweils der Anteil der Landnutzungsklassen Stadt, Ackerland, Weideflächen und Wald im 500m Radius) gefittet um zu prüfen ob die zusätzlichen Informationen die Modellqualität verbessern können. 
+3b) Alle Modelle wurden anhand der Residuendiagnostik nach @DHARMa aus dem Paket "DHARMa" evaluiert.
+3c) Alle Modelle deren Residuendiagnostik keine signifikanten Testergebnisse aufwiesen wurden mittels AIC und Anova verglichen. Aus Modellen, deren AIC keine Differenz größer als 10 ergab und auch duch die Anova kein signifikant besseres Modell identifiziert werden konnte wurde das simplere Modell (mit der geringeren Anzahl an Prädiktoren) bzw. das Modell welches Anhand der Hypothesen besser erklärt werden konnte, verwendet.
+4) Anhand des P-Wert (p<=0.05) der Modelle wurde der Einfluss der Prädiktoren bewertet.
 
-Ich habe den Versiegelungsgrad für verschiedene Radien berechnet, da mich der Einfluss der Versiegelung verschiedener Maßstäbe interessiert. Ich möchte somit alle Maßstäbe mit ins Modell nehmen obwohl diese Prädiktoren logischerweise korrelieren. Daher verwende ich im Modell lineare Kombinationen der Prädiktoren wie in @zuur2009 [p. 475] beschrieben
+
+
+<!-- - Methodeneffekte ausschließen: Position und Ausrichtung der Nester können einen Einfluss haben [@martins2012], ebenso nahegelegene alte Insektenhotels. -->
+
+<!-- Ich habe den Versiegelungsgrad für verschiedene Radien berechnet, da mich der Einfluss der Versiegelung verschiedener Maßstäbe interessiert. Ich möchte somit alle Maßstäbe mit ins Modell nehmen obwohl diese Prädiktoren logischerweise korrelieren. Daher verwende ich im Modell lineare Kombinationen der Prädiktoren wie in @zuur2009 [p. 475] beschrieben -->
 <!-- scale of effect: miguet2015-->
 
 <!-- @zuur2009 p482: We calculated the landscape variables at different landscape extents, because we were interested in the impact of landscape characteristics measured at different scales (Chatterjee and Price, 1991; Trzcinski et al., 1999; Villard et al., 1999) -->
 
-- Modellierung der Artenzusammensetzung: 
-  - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient), den Landnutzungsformen (den Flächenanteil jeder Landnutzungsform im Umkreis) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen.
-  - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten.
+<!-- - Modellierung der Artenzusammensetzung:  -->
+<!--   - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient), den Landnutzungsformen (den Flächenanteil jeder Landnutzungsform im Umkreis) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen. -->
+<!--   - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten. -->
   - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan" (Ordination NMDS) für verschiedene Landnutzungskategorieen: geringe Versiegelung (Versiegelungsgrad > 25%), mittlere Versiegelung (Versiegelungsgrad zwischen 25% und 50%) und starke Versiegelung (Versiegelungsgrad > 50 %). Ebenso Analyse für Kategorien der Landschaftskomplexität und des Strukturreichtum. 
 
 - Separate Analyse des Vorkommens von Teilgruppen: Osmia bicornis, O. cornuta und Chelostoma florisomnis 
 
-Für alle Hypothesen wurden jeweils glm (generalized linear models)  gefittet. Die Verteilung der Antwortvariablen wurde mithilfe der Fuktion "fitdist()" aus dem Paket "fitdistrplus" ermittelt. Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren.
-Jedes Model wurde evaluiert indem die Residuendiagnostik nach @DHARMa aus dem Paket "DHARMa" durchgeführt wurde.
+
 
 <!-- Landscape mosaics - Spearmans rank correlation to test correlations between landscape parameters. Anteil von non-crop habitat war positiv correlated mit Habitat-typ-diversität, Anteil an grassland, anteil an Wald, aber nicht mit der edge density [@holzschuh2010] -->
 
@@ -372,6 +383,35 @@ Jedes Model wurde evaluiert indem die Residuendiagnostik nach @DHARMa aus dem Pa
 | Februar | Feedback, Korrektur und Puffer |
 
 # Ergebnisse
+In den Nisthilfen des Schulinsektenhaus-Projektes welche im Jahr 2019 ausgehängt waren wurden 4716 Bienennester sowie 2147 Wespennester aufgefunden. Somit machen die in dieser Arbeit behandelten Nester etwa 70 % der vorgefundenen Nester aus. Die Wespennester werden in dieser Arbeit nicht behandelt.
+Alle weiteren Ergebnisse beziehen sich ausschließlich auf die Biennennester. In Abbildung \ref{deskriptiv} sind die Histogramme der Artenanzahl und Abundanz dargestellt.
+
+```{r message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
+source("../datenschau.R")
+```
+
+
+<!-- Anzahl der Arten pro Nisthilfe | -->
+<!-- Anzahl Brutzellen pro Nisthilfe | -->
+<!-- | Überlebensrate | Anzahl der lebenden Puppen dividiert durch die Gesamtanzahl der Zellen | -->
+<!-- | Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen | -->
+
+```{r daten_deskriptiv, echo=FALSE, fig.cap="Histogramme der Anzahl der Wirts-Bienenarten pro Nisthilfe (links) und Anzahl der von Bienen angelegten Brutzellen (=Abundanz) pro Nisthilfe (rechts)"}
+p1 <- ggplot(A1, aes(Artenanzahl_det)) + geom_histogram(bins = 8) +
+  theme_bw() + labs(x = "Artenzahl der Wirte")
+p2 <- ggplot(A1, aes(Abundanz)) + geom_histogram(breaks=c(seq(0, 14, by = 1),seq(15, 100, by = 5), seq(110, 240, by = 10), seq(250, 850, by = 20))) + theme_bw() 
+
+gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(4, c("in")))
+
+# sum(nests$nb_cells, na.rm = T) # Anzahl der Zellen gesamt: 18757
+# sum(nests$nb_pupa_larva, na.rm = T) # Anzahl Puppen/Larven: 11376
+# sum(nests$nb_pupa_larva, na.rm = T) / sum(nests$nb_cells, na.rm = T)
+# sum(nests$parasitized_cells, na.rm = T) # Anzahl Parasitierter Zellen
+# sum(nests$parasitized_cells, na.rm = T) / sum(nests$nb_cells, na.rm = T)
+```
+
+
+Von den insgesamt `r sum(nests$nb_cells, na.rm = T)` angelegten Zellen entwickelten sich in etwa 60 % (`r sum(nests$nb_pupa_larva, na.rm = T)` Brutzellen) Puppen bzw. Larven. Etwa 13 % der Angelegten Zellen wurde Parasitiert (`r sum(nests$parasitized_cells, na.rm = T)` Brutzellen).  
 
 Im Rahmen des Schulinsektenhaus-Projektes konnten in den 278 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*), neun Wespenarten (Apocrita) nachgewiesen werden. Weitere Parasitoide wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. In Tabelle \ref{Artenliste} sind alle nachgewiesenen Arten aufgeführt sowie ihre Parasitoide. Da einige Parasitoide das gesamte Nest ihres Wirtes eingenommen haben konnten die Wirtsarten nur anhand der Nestmorphologie bestimmt werden - diese sind in der dritten Spalte der Tabelle aufgeführt.
 
@@ -413,11 +453,33 @@ kableExtra::kbl(Artliste_IH19, caption = "Liste aller nachgewiesenen Bienenarten
 ```
 
 
-- Chaetodactylus problem.
 
-- chrysura radians an osmia adunca : zetero Galanthea (ohne id)
+<!-- - chrysura radians an osmia adunca : zetero Galanthea (ohne id) -->
 
 <!-- - ephialtes: @horstmann -->
+
+## Modelle: 
+### Artenzahl und Abundanz der Bienen
+Das Vorkommen eines Insektenhaus hat einen signifikanten Einfluss auf die Artenzahl der Bienen, jedoch nicht auf die Abundanz. Die Artenzahl ist in Trapnestern in der Nähe eines Insektenhauses höher als in Trapnestern in deren Nähe kein Insektenhaus steht.
+
+Zwischen der Artenanzahl und dem Versiegelungsgrad besteht kein signifikanter Zusammenhang.  
+Zwischen Abundanz und dem mittleren Versiegelungsgrad im 1000m-Radius besteht ein signifikanter quadratischer Zusammenhang. Für den mittleren Versiegelungsgrad geringerer Radien besteht kein Zusammenhang.
+
+Zwischen den Sturkturreichtum bescheibenden Parametern Kantendichte und Anzahl der Landnutzungsklassen und der Abundanz der Bienen kann kein Zusammenhang aufgezeigt werden. Ebenso wird kein Zusammenhang der den Strukturreichtum beschreibenden Parametern und der Artenzahl der Bienen beschrieben. 
+
+### Artenzahl der Parasitoide
+So wie bei den Wirtsbienen auch, hat das Vorhandensein eines Insektenhauses einen positiven Einfluss auf die Artenzahl der Parasitoide während der Versiegelungsgrad die Artenzahl nicht beeinflusst.
+
+### Artengemeinschaft
+Die Analyse der Artengemeinschaft entlang des Stadt-Land-Gradienten zeigte keine signifikanten Unterschiede. 
+<!-- -envfit Versiegelungsgrad und Strukturreichtum -->
+<!-- - Adonis zwei Gruppen 50 versiegeltste STandorte und 50 unversiegelste Standorte (ländlich) -->
+
+
+
+
+
+
 
 <!-- ## Thema -->
 
