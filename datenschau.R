@@ -1,11 +1,11 @@
 if(!("gsheet" %in% installed.packages()[,"Package"])) devtools::install_github("maxconway/gsheet")
 
+source("~/Documents/Uni/Master/Masterarbeit/Masterthesis/links.R")
 
-
-source("links.R")
 library(gsheet)
 Daten <- gsheet2tbl(link1, sheetid = 4)
 Standorte <- gsheet2tbl(link2, sheetid = 2)
+
 
 library(dplyr)
 library(tidyr)
@@ -20,10 +20,20 @@ Standorte <- read.csv("~/Documents/Uni/Master/Masterarbeit/Daten/Standorte_all_c
                       colClasses = "character" )
 
 versiegelung <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/standorte_versiegelung.csv", sep = ",", dec = ".") %>% 
-  unite("geometry", geometry:geometry2, sep = ",") %>% 
+  tidyr::unite("geometry", geometry:geometry2, sep = ",") %>% 
   mutate(ID = tolower(ID),
          imp = as.numeric(imp),
          radius_m = as.factor(radius_m))
+
+versiegelung2000 <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/standorte_versiegelung2000.csv", sep = ",", dec = ".") %>% 
+  tidyr::unite("geometry", geometry:geometry2, sep = ",") %>% 
+  mutate(ID = tolower(ID),
+         imp = as.numeric(imp),
+         radius_m = as.factor(radius_m))
+
+versiegelung <- versiegelung %>% 
+  bind_rows(versiegelung2000) %>% 
+  mutate(radius_m = as.factor(radius_m))
 
 ############# 1. Daten bereinigen ################
 # Daten bereinigen und alles zu kleinbuchstaben damit es einheitlicher wird.
@@ -261,15 +271,17 @@ plz <- function(adress){
   return(as.numeric(unlist(stringr::str_split(adress, ","))[2]))
 }
 
-pr1_2 <- read.csv("~/Documents/Uni/Master/Masterarbeit/Daten/standorte_versiegelung.csv") %>% 
+pr1_2 <- versiegelung %>% 
   pivot_wider(names_from = radius_m, values_from = imp) %>% 
   group_by(ID) %>% 
   mutate(postal_code = plz(Adresse)) %>% 
   ungroup() %>% 
   rename(imp500 = `500`,
+         imp2000 = `2000`,
          imp1000 = `1000`,
          imp250 = `250`,
          imp100 = `100`)
+
 pr3 <- read.csv("~/Documents/Uni/Master/Masterarbeit/Daten/clc500.csv") %>% select(-X) %>% 
   mutate_at(vars(matches("X")), list(~ replace_na(., 0)))
 ## missing schools in pr3!!!!
@@ -286,7 +298,7 @@ pr_insektenhotel <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/Standor
 # allse Prs zusammenmergen
 Praedis <- pr1_2 %>% 
   left_join(pr6_8, by= "postal_code") %>% 
-  select(ID, imp100, imp250, imp500, imp1000, mean_annual_temp_celsius, annual_precipitation_mm, altitude_town_m) %>% 
+  select(ID, imp100, imp250, imp500, imp1000, imp2000, mean_annual_temp_celsius, annual_precipitation_mm, altitude_town_m) %>% 
   left_join(pr4, by = c("ID" = "schulid")) %>% 
   left_join(pr5, by = c("ID" = "schulid")) %>% 
   left_join(pr3, by = c("ID" = "schulid")) %>% 

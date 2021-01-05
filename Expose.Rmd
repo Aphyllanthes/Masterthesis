@@ -11,19 +11,38 @@ bibliography: Masterarbeit.bib
 csl: biological-conservation.csl
 link-citations: true
 header-includes:
-  \usepackage[utf8]{inputenc}
+- \usepackage{booktabs}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{float}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{threeparttablex}
+- \usepackage[normalem]{ulem}
+- \usepackage{makecell}
+- \usepackage{xcolor}
+- \usepackage[utf8]{inputenc}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+options(kableExtra.latex.load_packages =FALSE)
+library(kableExtra)
+
 library(ggplot2)
+library(jtools)
+library(sjPlot)
 ```
 
 <!-- To do:
 - einleitung einarbeiten @orr2020
  - neue Paper einarbeiten: normandin2017, vereecken2020, hortal2015
  - Einleitung: Landschaftstruktur und Komplexität (Studien zu Artenreichtum, Artenzusammensetzung und Parasitierung)
- - Hypothesen: begründungen 
+ - Hypothesen: begründung Abundanz 
  - Methoden neu strukturieren
  - Methoden: definition Kategorien für Gemeinschaftsanalyse "suburban", "urban" 
  - Methoden: grupierung der Landnutzungsformen -->
@@ -33,8 +52,8 @@ Im Rahmen des Schulinsektenhausprojektes werde ich die in den Nisthilfen vorkomm
 
 ```{r standorte, fig.cap="Standorte der Nisthilfen 2019 in Deutschland \\label{standorte}", cache=TRUE}
 library(dplyr)
-library(tidyr)
-library("sf")
+#library(tidyr)
+library(sf)
 library(ggplot2)
 # standorte
 
@@ -223,13 +242,18 @@ Versiegelungsgrad und Landnutzungskomplexität werden für die Radien 200m, 500m
   - ist bei mittlerem Versiegelungsgrad am höchsten, denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am Vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten (rural Taxa) ebenso wie an städtische Gebiete angepasste Arten (urban Taxa) vorkommen können [@mcintyre2000].
   - nimmt mit der Landschaftskomplexität sowie mit dem Strukturreichtum zu, da mehr Strukturen und verschiedene Landnutzungsformen in größerem Umfang Futterressourcen sowie Nistmöglichkeiten für viele verschiedene Bienenarten bieten. 
   
+- Die Abundanz der Bienen (Gesamtanzahl angelgter Brutzellen):
+  - verhält sich wie die Anzahl der Bienenarten, da .... 
+  
 - Die Anzahl der Parasitenarten:
-  - ist bei mittlerem Versiegelungsgrad am höchsten, da die Artenanzahl der Parasiten von der Artengemeinschaft ihrer Wirte abhängt [@fortel2014; @sheffield2013].
+  - ist bei mittlerem Versiegelungsgrad am höchsten, da die Artenanzahl der Parasiten von der Artengemeinschaft ihrer Wirte abhängt [@fortel2014; @sheffield2013]. Der Effekt des Versiegelungsgrad auf die Parasitoide ist stärker als auf die Artenzahl der Wirte, da Arten höherer trophischer Ebenen anspruchsvoller an ihren Lebensraum sind als Arten niedrigerer trophischer Ebenen und somit auf Umweltveränderungen stärker reagieren [@davies2000; @albrecht2007]. 
   - nimmt mit Landschaftskomplexität und Strukturreichtum zu, da durch viele Ressourcen viele verschiedene Lebensbedingungen gegeben sind [@pereira-peixoto2016].
 
 - Die Artengemeinschaft der Wildbienen (inkl. Parasitenarten):
   - ist bei hohem Versiegelungsgrad homogener als bei mittlerem oder geringem Versiegelungsgrad, da sich Strukturen in Städten gleichen und überregional den selben Arten als Lebensraum dienen.
   - ist bei geringer Landschaftskomplexität und geringem Strukturreichtum homogener als bei hoher Landschaftskomplexität und hohem Strukturreichtum.
+  
+- Der
   
 <!-- - Die Parasitierungsrate (Anteil an parasitierten Zellen):  -->
 <!--   - nimmt mit Versiegelungsgrad ... -->
@@ -343,7 +367,7 @@ Die Auswertung von Abundanz und Artenzahl der Bienen sowie der Artenzahl der Par
 <!-- - Modellierung der Artenzusammensetzung:  -->
 <!--   - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient), den Landnutzungsformen (den Flächenanteil jeder Landnutzungsform im Umkreis) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen. -->
 <!--   - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten. -->
-  - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan" (Ordination NMDS) für verschiedene Landnutzungskategorieen: geringe Versiegelung (Versiegelungsgrad > 25%), mittlere Versiegelung (Versiegelungsgrad zwischen 25% und 50%) und starke Versiegelung (Versiegelungsgrad > 50 %). Ebenso Analyse für Kategorien der Landschaftskomplexität und des Strukturreichtum. 
+  - Analyse der Unterschiede der Artenzusammensetzung mithilfe der R-Paketes "vegan" (Ordination NMDS) für verschiedene Urbanisierungskategorieen: geringe Versiegelung (Versiegelungsgrad > 25%), mittlere Versiegelung (Versiegelungsgrad zwischen 25% und 50%) und starke Versiegelung (Versiegelungsgrad > 50 %). Ebenso Analyse für Kategorien der Landschaftskomplexität und des Strukturreichtum. 
 
 - Separate Analyse des Vorkommens von Teilgruppen: Osmia bicornis, O. cornuta und Chelostoma florisomnis 
 
@@ -387,7 +411,7 @@ In den Nisthilfen des Schulinsektenhaus-Projektes welche im Jahr 2019 ausgehäng
 Alle weiteren Ergebnisse beziehen sich ausschließlich auf die Biennennester. In Abbildung \ref{deskriptiv} sind die Histogramme der Artenanzahl und Abundanz dargestellt.
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
-source("../datenschau.R")
+source("datenschau.R")
 ```
 
 
@@ -445,8 +469,9 @@ library(dplyr)
 Artliste_IH19 <- readxl::read_excel("../Daten/Artliste_IH19.xls") %>% 
   replace(is.na(.), "")
 
-kableExtra::kbl(Artliste_IH19, caption = "Liste aller nachgewiesenen Bienenarten und ihere Parasitoide im Schulinsektenhausprojekt 2019. Alle Arten die in der Arbeit von Tscharntke et al. (1998) nicht beschrieben wurden sind mit einem '*' versehen.  \\label{Artenliste} ") %>% 
+kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller nachgewiesenen Bienenarten und ihere Parasitoide im Schulinsektenhausprojekt 2019. Alle Arten die in der Arbeit von Tscharntke et al. (1998) nicht beschrieben wurden sind mit einem '*' versehen.  \\label{Artenliste} ") %>% 
   kableExtra::kable_paper(full_width = F) %>%
+  kableExtra::kable_styling(latex_options =c("repeat_header")) %>% 
   kableExtra::column_spec(1) %>%
   kableExtra::column_spec(2, width = "15em") %>%
   kableExtra::column_spec(3, width = "15em")
@@ -460,9 +485,60 @@ kableExtra::kbl(Artliste_IH19, caption = "Liste aller nachgewiesenen Bienenarten
 
 ## Modelle: 
 ### Artenzahl und Abundanz der Bienen
-Das Vorkommen eines Insektenhaus hat einen signifikanten Einfluss auf die Artenzahl der Bienen, jedoch nicht auf die Abundanz. Die Artenzahl ist in Trapnestern in der Nähe eines Insektenhauses höher als in Trapnestern in deren Nähe kein Insektenhaus steht.
+Das Vorkommen eines Insektenhaus hat einen signifikanten Einfluss auf die Artenzahl der Bienen, jedoch nicht auf die Abundanz. Die Artenzahl ist in Trapnestern in der Nähe eines Insektenhauses höher als in Trapnestern in deren Nähe kein Insektenhaus steht.  
+Anhand AIC und Residuendiagnostik wurden für beide Variablen, Artenzahl sowie Abundanz, negativ-binomiale GLM mit folgender Formel ausgewählt: $y = imp1000 + imp1000^2 + Insektenhaus$ (imp1000 ist der mittlere Versiegelungsgrad im 1000m Radius um den Nisthilfenstandort)
+Die Datenpunkte sowie die Modellvorhersage als marginaler Effektplot sind in Abbildung \ref{effektplotIH} dargestellt. Das Modell der Artenzahl beschreibt einen signifikanten Einfluss des Parameters Insektenhaus (siehe Tab. \ref{summaryIH}). Im Modell der Abundanz ist eine Tendenz einer Zunahme der Abundanz bei vorhandensein eines Insektenhauses zu erkennen, welche jedoch nicht signifikant ist. In beiden Modellen hat der Versiegelungsgrad im 1000m Umkreis keinen signifikanten Einfluss.
+ 
 
-Zwischen der Artenanzahl und dem Versiegelungsgrad besteht kein signifikanter Zusammenhang.  
+
+```{r echo=FALSE, fig.show='hold', message=FALSE, warning=FALSE, cache=TRUE, out.width=c('50%', '50%'), fig.asp = 1, fig.cap= "Einfluss von vorhandenem Insektenhaus auf Artenanzahl (links) und Abundanz (rechts) der Bienen. Die Fehlerbalken sind 'marginal effect-plots', welche die Vorhersage der Modelle (Mittelwert und Standartabweichung) bei mittlerem Versiegelungsgrad darstellen. Die Punkte sind die realen Datenpunkte. \\label{effektplotIH}" }
+sub_IH <- A1_IH_factor %>% 
+  filter(!is.na(Insektenhaus))
+## einfluss von Insektenhaus auf artenzahl:
+modelIH <- MASS::glm.nb(Artenanzahl_det ~ Insektenhaus, data = sub_IH) ## signifikant
+
+model_IH2a <- MASS::glm.nb(Artenanzahl_det ~ imp1000 + I(imp1000^2) + Insektenhaus, data = sub_IH) # signifikant
+
+
+jtools::effect_plot(model_IH2a, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
+                    jitter = .2) + 
+  ylab("Artenzahl der Wirtsbienen")
+
+sub_IH <- A1_IH_factor %>% 
+  filter(!is.na(Insektenhaus)) %>% 
+  select(Abundanz,imp1000, Insektenhaus)
+
+modelIH <- MASS::glm.nb(Abundanz ~ Insektenhaus, data = sub_IH)
+model_IH2b <- MASS::glm.nb(Abundanz ~ imp1000 + I(imp1000^2) + Insektenhaus, data = sub_IH)
+jtools::effect_plot(model_IH2b, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
+                    jitter = .2) +
+  scale_x_discrete(labels = c("Nein", "Ja"))
+
+```
+
+```{r include=FALSE}
+sjPlot::tab_model(model_IH2a, model_IH2b, dv.labels = c("Artenzahl", "Abundanz"), file = "test.html") 
+
+#sjPlot::tab_model(model_IH2a, model_IH2b, dv.labels = c("Artenzahl", "Abundanz")) 
+```
+
+
+```{r echo=FALSE,  message=FALSE, warning=FALSE}
+#htmltools::includeHTML("test.html")
+sum_IH <- cbind(mutate_if(broom::tidy(model_IH2a), is.numeric, round, 2),
+                mutate_if(broom::tidy(model_IH2b)[,-1], is.numeric, round, 2))
+  
+
+kableExtra::kbl(sum_IH,longtable =T,booktabs =T, caption = "Modellzusammenfassung der Modellvariablen Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen nach der Formel 'y \\~  imp1000 + I(imp1000)\\^  2' + Insektenhaus an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " ) %>% #caption = "" 
+  kableExtra::add_header_above(c(" ","Artenzahl"=4,"Abundanz"=4)) %>%
+  kableExtra::kable_styling(latex_options =c("repeat_header")) %>% 
+  kableExtra::column_spec(5,bold = sum_IH[,5]<0.05) %>% 
+  kableExtra::column_spec(9,bold = sum_IH[,9]<0.05)
+
+```
+
+Zur Analyse der Artenzahl mit dem gesamten Datensatz wurde anhand AIC und DHARMa-Modelldiagnostik folgendes Modell ausgewählt: 
+Zwischen der Artenzahl und dem Versiegelungsgrad besteht kein signifikanter Zusammenhang.  
 Zwischen Abundanz und dem mittleren Versiegelungsgrad im 1000m-Radius besteht ein signifikanter quadratischer Zusammenhang. Für den mittleren Versiegelungsgrad geringerer Radien besteht kein Zusammenhang.
 
 Zwischen den Sturkturreichtum bescheibenden Parametern Kantendichte und Anzahl der Landnutzungsklassen und der Abundanz der Bienen kann kein Zusammenhang aufgezeigt werden. Ebenso wird kein Zusammenhang der den Strukturreichtum beschreibenden Parametern und der Artenzahl der Bienen beschrieben. 
