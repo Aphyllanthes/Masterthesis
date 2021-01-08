@@ -347,9 +347,43 @@ Folgende Prädiktoren, die die Landschaft und ihre Nutzung beschreiben wurden be
 ### Statistische Auswertung
 Die Auswertung von Abundanz und Artenzahl der Bienen sowie der Artenzahl der Parasitoide efolgt nach jeweils nach dem im folgenden beschriebenen Vorgehen:
 
-1) Ermittlung der Verteilung, welche die Antwortvariable (Abundanz bzw. Artenzahl) am besten beschreibt, mithilfe der Funktion *fitdistr()*  aus dem Paket "fitdistrplus". Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren.
-2a) Testen des Einflusses von nahegelegenem Insektenhaus anhand eines GLM (generalized linear model) - mit reduziertem Datensatz, da nur für 114 Trapnester eine Information über Insektenhäuser verfügbar war.
-2b) Evaluation des in 2a gefitteten Modells anhand der Residuendiagnostik nach @DHARMa aus dem Paket "DHARMa".
+Bei allen Modellen wurde die Verteilung, welche die Antwortvariable (Artenzahl bzw. Abundanz) am besten beschreibt, mithilfe der Funktion *fitdistr()*  aus dem Paket "fitdistrplus" ermittelt. Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren.
+
+Für alle wie im folgenden beschrieben ausgewählten Modelle wird eine Residuendiagnostik nach @DHARMa mit dem R-Paket "DHARMa" durchgeführt. Dabei werden zunächst die Residuen des Modells berechnet. Mit den Residuen werden dann folgende Tests durchgeführt: 
+Verteilung der Residuen, Ausreißer, Streuung
+ - testUniformity: Testet ob die Verteilung den Erwartungen entspricht
+ - testOutliers: testet ob es mehr simulierte ausreißer gibt als erwartet
+ - testDispersion: testest ob die simulierte Streuung gleich ist wie die beobachtete Streuung
+ - testZeroInflation: testet ob die Anzahl an Nullen höher ist als Erwartet
+ - test ob Mittelwert und Standartabweichung von den Modellerwartungen abweicht
+ - testQuantiles: 
+
+
+
+
+testQuantiles(simulationOutput)
+par(mfrow = c(1,2))
+plotResiduals(simulationOutput, sub_IH$imp1000)
+plotResiduals(simulationOutput, sub_IH$Insektenhaus)
+testSpatialAutocorrelation(simulationOutput, 
+                           x = left_join(sub_IH, Artenzahl_autocor)$lon,
+                           y = left_join(sub_IH, Artenzahl_autocor)$lat)
+
+
+Zunächst wurde der Einfluss von nahegelegenen Insektenhäusern anhand glm (generalized linear model) untersucht. Da die Information über das Vorhandensein von Insektenhäusern am Nisthilfenstandort nur für einen Teil der Standorte (114 von 246) zur Verfügung  stand, wurde der Einfluss des Insektenhauses jeweils mit reduziertem Datensatz modelliert. Neben einem einfachen Modell (siehe Formel nr. 1) mit der Information zum Insektenhaus als einzigen Prädiktor wurden auch Modelle mit den Parametern zur Fragestellung der Urbanisierung und Landschaftskomplexität gefittet. Um das Modell mit den Modellierungen des gesamten Datensatzes vergleichen zu können wird auch ein Modell ohne den Prädiktor "Insektenhaus" gefittet.
+ $$ y \sim Insektenhaus $$
+ $$ y \sim Insektenhaus + imp_{1000} + imp_{1000}^2$$
+ $$ y \sim Insektenhaus + imp_{1000} + imp_{1000}^2 + len + class\_nr $$
+ $$ y \sim imp_{1000} + imp_{1000}^2  $$
+ 
+Hierbei beschreibt $Insektenhaus$ die binäre Information, ob ein Insektenhaus vorhanden ist oder nicht, $imp_n$ beschreibt den mittleren Versiegelungsgrad im Radius von n Metern, $len$ beschreibt die Kantenlänge der Landnutzungsklassen im 500m-Radius und $class\_nr$ breschreibt die Anzahl an Landnutzungsklassen im 500m-Radius.  
+
+Alle Modelle werden Anhand AIC und Anova verglichen. Modelle mit besonders hohem AIC (mindestens um 10 höher) im Vergleich zu den anderen Modellen werden nicht weiter betrachtet. Zeigt die Anova signifikante Unterschiede zwischen zwei Modellen, wird das komplexere Modell (mit größerer Anzahl an Prädiktoren) ausgewählt. Andernfalls wird das einfachere Modell verwendet. Das somit ausgewählte Modell wird anhand der Residuendiagnostik nach @DHARMa evaluiert.
+
+
+
+
+
 3a) Fitten der Modelle zur Analyse des Zusammenhangs von Versiegelungsgrad und Strukturreichtum auf Abundanz und Artenzahl von Bienen und Parasitoiden. Um die Hypothesen zu modellieren wurden somit quadratische Modelle (y ~ x + x^2) implementiert. Zusätzlich wurde jeweils ein Modell mit allen weiteren verfügbaren Prädiktoren (Mittlere Jahrestemperatur, jährlicher Niederschlag, Höher über NN sowie jeweils der Anteil der Landnutzungsklassen Stadt, Ackerland, Weideflächen und Wald im 500m Radius) gefittet um zu prüfen ob die zusätzlichen Informationen die Modellqualität verbessern können. 
 3b) Alle Modelle wurden anhand der Residuendiagnostik nach @DHARMa aus dem Paket "DHARMa" evaluiert.
 3c) Alle Modelle deren Residuendiagnostik keine signifikanten Testergebnisse aufwiesen wurden mittels AIC und Anova verglichen. Aus Modellen, deren AIC keine Differenz größer als 10 ergab und auch duch die Anova kein signifikant besseres Modell identifiziert werden konnte wurde das simplere Modell (mit der geringeren Anzahl an Prädiktoren) bzw. das Modell welches Anhand der Hypothesen besser erklärt werden konnte, verwendet.
@@ -486,9 +520,27 @@ kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller n
 ## Modelle: 
 ### Artenzahl und Abundanz der Bienen
 Das Vorkommen eines Insektenhaus hat einen signifikanten Einfluss auf die Artenzahl der Bienen, jedoch nicht auf die Abundanz. Die Artenzahl ist in Trapnestern in der Nähe eines Insektenhauses höher als in Trapnestern in deren Nähe kein Insektenhaus steht.  
+
 Anhand AIC und Residuendiagnostik wurden für beide Variablen, Artenzahl sowie Abundanz, negativ-binomiale GLM mit folgender Formel ausgewählt: $y = imp1000 + imp1000^2 + Insektenhaus$ (imp1000 ist der mittlere Versiegelungsgrad im 1000m Radius um den Nisthilfenstandort)
 Die Datenpunkte sowie die Modellvorhersage als marginaler Effektplot sind in Abbildung \ref{effektplotIH} dargestellt. Das Modell der Artenzahl beschreibt einen signifikanten Einfluss des Parameters Insektenhaus (siehe Tab. \ref{summaryIH}). Im Modell der Abundanz ist eine Tendenz einer Zunahme der Abundanz bei vorhandensein eines Insektenhauses zu erkennen, welche jedoch nicht signifikant ist. In beiden Modellen hat der Versiegelungsgrad im 1000m Umkreis keinen signifikanten Einfluss.
  
+Um den einfluss des Insektenhauses auf die Artenzahl zu untersuchen wurde das negativ-binomiale Modell mit der formel $Artenzahl \sim Insektenhaus$ ausgewählt. Das Modell zeigt einen schwach signifikanten Einfluss ($p = 0.0103$) des Insektenhauses auf die Artenzahl. Das Modell erklärt jedoch nur 5,6% der Varianz der Daten.
+Das Modell kann durch das Erweitern um die Parameter "Versiegelung" und "Versiegelung im Quadrat" nicht verbessert werden. Dies gilt für alle berechneten Radien des Versiegelungsgrades.
+
+<!-- (Null_deviance - Residual_deviance)/Null_deviance -->
+Zur Analyse des Einflusses des Versiegelungsgrades verschiedener Radien auf die Artenzahl wurde für jeden Radius das beste Modell ausgewählt. 
+
+Artenanzahl_det ~ imp100 + annual_precipitation_mm (erklärt 2,7 % der Varianz)
+Artenanzahl_det ~ imp250 + mean_annual_temp_celsius + annual_precipitation_mm (erklärt 3,4 % der Varianz)
+Artenanzahl_det ~ I(imp500^2) (erklärt 1,6 % der Varianz)
+Artenanzahl_det ~ I(imp1000^2) (erklärt 1,2 % der Varianz)
+  bzw. Artenanzahl_det ~ mean_annual_temp_celsius + annual_precipitation_mm + I(imp1000^2) (erklärt 3,1 % der Varianz)
+Artenanzahl_det ~ I(imp2000^2)  (erklärt 1,1 % der Varianz)
+  bzw. Artenanzahl_det ~ imp2000 + annual_precipitation_mm + class_nr + I(imp2000^2)  (erklärt 3,9 % der Varianz)
+
+
+
+
 
 
 ```{r echo=FALSE, fig.show='hold', message=FALSE, warning=FALSE, cache=TRUE, out.width=c('50%', '50%'), fig.asp = 1, fig.cap= "Einfluss von vorhandenem Insektenhaus auf Artenanzahl (links) und Abundanz (rechts) der Bienen. Die Fehlerbalken sind 'marginal effect-plots', welche die Vorhersage der Modelle (Mittelwert und Standartabweichung) bei mittlerem Versiegelungsgrad darstellen. Die Punkte sind die realen Datenpunkte. \\label{effektplotIH}" }
@@ -525,8 +577,8 @@ sjPlot::tab_model(model_IH2a, model_IH2b, dv.labels = c("Artenzahl", "Abundanz")
 
 ```{r echo=FALSE,  message=FALSE, warning=FALSE}
 #htmltools::includeHTML("test.html")
-sum_IH <- cbind(mutate_if(broom::tidy(model_IH2a), is.numeric, round, 2),
-                mutate_if(broom::tidy(model_IH2b)[,-1], is.numeric, round, 2))
+sum_IH <- cbind(mutate_if(broom::tidy(model_IH2a), is.numeric, round, 3),
+                mutate_if(broom::tidy(model_IH2b)[,-1], is.numeric, round, 3))
   
 
 kableExtra::kbl(sum_IH,longtable =T,booktabs =T, caption = "Modellzusammenfassung der Modellvariablen Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen nach der Formel 'y \\~  imp1000 + I(imp1000)\\^  2' + Insektenhaus an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " ) %>% #caption = "" 
@@ -537,7 +589,7 @@ kableExtra::kbl(sum_IH,longtable =T,booktabs =T, caption = "Modellzusammenfassun
 
 ```
 
-Zur Analyse der Artenzahl mit dem gesamten Datensatz wurde anhand AIC und DHARMa-Modelldiagnostik folgendes Modell ausgewählt: 
+Zur Analyse der Artenzahl mit dem gesamten Datensatz wurde anhand AIC und DHARMa-Modelldiagnostik für jeden Radius das beste Modell ausgesucht. Der Versiegelungsgrad aller Radien 
 Zwischen der Artenzahl und dem Versiegelungsgrad besteht kein signifikanter Zusammenhang.  
 Zwischen Abundanz und dem mittleren Versiegelungsgrad im 1000m-Radius besteht ein signifikanter quadratischer Zusammenhang. Für den mittleren Versiegelungsgrad geringerer Radien besteht kein Zusammenhang.
 
