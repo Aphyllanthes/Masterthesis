@@ -22,17 +22,15 @@ Standorte <- read.csv("~/Documents/Uni/Master/Masterarbeit/Daten/Standorte_all_c
 versiegelung <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/standorte_versiegelung.csv", sep = ",", dec = ".") %>% 
   tidyr::unite("geometry", geometry:geometry2, sep = ",") %>% 
   mutate(ID = tolower(ID),
-         imp = as.numeric(imp),
-         radius_m = as.factor(radius_m))
+         imp = as.numeric(imp))
 
 versiegelung2000 <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/standorte_versiegelung2000.csv", sep = ",", dec = ".") %>% 
   tidyr::unite("geometry", geometry:geometry2, sep = ",") %>% 
   mutate(ID = tolower(ID),
-         imp = as.numeric(imp),
-         radius_m = as.factor(radius_m))
+         imp = as.numeric(imp))
 
-versiegelung <- versiegelung %>% 
-  bind_rows(versiegelung2000) %>% 
+versiegelung <- versiegelung %>%
+  bind_rows(versiegelung2000) %>%
   mutate(radius_m = as.factor(radius_m))
 
 ############# 1. Daten bereinigen ################
@@ -86,7 +84,7 @@ meta <- Bees %>%
     ))
 
 Chalcidoidea <- c("coelopencyrtus", "Chalcididae", "Chalcidoidea",  "kleine Erzwespen", "melittobia", "melittobia acasta", "chalcid wasp", "Chalcid wasp", "Melittobia", "Melittobia acasta", "Coelopencyrtus", "Erzwespe", "Eulophidae", "Kleine Wespen", "Eurytoma", "euritoma")
-Cacoxenus <- c("diptera", "cacox", "cacoxenus?", "cacoxenus, mites", "cacoxenus\n" , "Cacoxenus\n", "Cocaxenus", "Cacoxenenus\n", "Cacoxenus Indagator", "Cocaxenus Indagator", "Cacoxenus (fly)", "Cacoxenus" , "cacoxenus", "Cacoxenus indagator")
+Cacoxenus <- c("diptera", "cacox", "cacoxenus?", "cacoxenus, mites", "cacoxenus\n" , "Cacoxenus\n", "Cocaxenus", "Cacoxenenus\n", "Cacoxenus Indagator", "Cocaxenus Indagator", "Cacoxenus (fly)", "Cacoxenus" , "cacoxenus", "Cacoxenus indagator", "ci", "CI")
 NAs <- c("?", "??", "na", "na\n", "white larvae", "xylocopa violacea", "small white larvae", "gelb schwarzer matsch in zelle", "Auplopus carbonarius", "Caterpillar", "Eumenidae", "dermaptera")
 Kaefer <- c("beetle", "Beetle", "Holzkäfer\n", "Holzkäfer") ## Trichodes, Speckkäfer = Dermestidae (Museumskäfer)
 Dermestidae <- c("Museumskäfer", "Megatoma", "Megatoma undata", "Dermastidae", "Dermastid")
@@ -104,7 +102,7 @@ species <- Bees %>%
          S3 = `3rd_parasit`,
          m0 = male, m1 = m1,
          f0 = fem, f1 = f1,
-         ) %>% 
+  ) %>% 
   mutate(m1 = as.character(m1),
          m2 = as.character(m2),
          m3 = as.character(m3),
@@ -125,8 +123,8 @@ species <- Bees %>%
   mutate(S = ifelse(S %in% Dermestidae, "Dermestidae", S)) %>%  
   # alle Cacoxenus schreibfehler korrigieren:
   mutate(S = ifelse(S %in% Cacoxenus, "Cacoxenus indagator", S)) %>%
-# alle Ichneumonidae schreibfehler korrigieren:
-mutate(S = ifelse(S %in%  Ichneumonidae, "Ichneumonidae", S)) %>%  
+  # alle Ichneumonidae schreibfehler korrigieren:
+  mutate(S = ifelse(S %in%  Ichneumonidae, "Ichneumonidae", S)) %>%  
   # alle Chaetodactylus schreibfehler korrigieren:
   mutate(S = ifelse(S %in% Chaetodactylus, "Chaetodactylus", S))%>%  
   # alle Sapygidae schreibfehler korrigieren:
@@ -138,20 +136,20 @@ mutate(S = ifelse(S %in%  Ichneumonidae, "Ichneumonidae", S)) %>%
   # in die Spalte species_det werden alle bestimmten Arten geschrieben, von denen es ein sample gibt, da ich davon ausgehe dass diese exakt Bestimmt wurden.
   group_by(location) %>% 
   mutate(species_det = tolower(ifelse(species_type == "Host",
-    ifelse(
-      stringr::str_detect(sample_sex, "m") | stringr::str_detect(sample_sex, "f"),
-      S, NA), 
-    ifelse(
-      stringr::str_detect(sample_sex, "p"),
-      S, NA)
-    ))
+                                      ifelse(
+                                        stringr::str_detect(sample_sex, "m") | stringr::str_detect(sample_sex, "f"),
+                                        S, NA), 
+                                      ifelse(
+                                        stringr::str_detect(sample_sex, "p"),
+                                        S, NA)
+  ))
   ) %>% 
   filter(!is.na(S))
 
 rm(Chalcidoidea, Cacoxenus, NAs, Kaefer, Dermestidae, Chaetodactylus, Ichneumonidae, Sapygidae, Gasteruption)
 
 
-## Trapnester, die zurückgeschickt wurden aber leer waren heraussuchen
+## 1.1 leere Trapnester:  die zurückgeschickt wurden aber leer waren heraussuchen ###############
 library(readxl)
 Mappe1 <- read_excel("~/Documents/Uni/Master/Masterarbeit/Daten/Mappe1.xlsx", 
                      range = "A1:B309", col_types = c("text", 
@@ -161,8 +159,7 @@ leer <- angekommen[which(!angekommen %in% nests$location)]
 
 rm(angekommen, Mappe1)
 
-
-## todo: arttabelle vervollständigen - vorallem noch hylaeus
+## 2. Arttabelle ##########
 arttabelle <- readr::read_csv2("~/Documents/Uni/Master/Masterarbeit/Daten/Arttabelle.csv")
 Artdet <- species %>% 
   mutate(S = tolower(S)) %>% 
@@ -170,7 +167,7 @@ Artdet <- species %>%
   left_join(arttabelle, by = c("S"= "species_det")) %>% 
   mutate(Gattung = ifelse(is.na(Gattung.x), Gattung.y, Gattung.x)) %>% 
   select(-Gattung.x, -Gattung.y) 
- 
+
 sub_Artx <- Artdet %>% 
   select(location, Art.x) %>% 
   filter(!is.na(Art.x)) %>% 
@@ -194,7 +191,7 @@ sub_Arty <- Artdet %>%
   summarise(anzahl_y = n_distinct(Art.y, na.rm = T)) %>% 
   ungroup()
 
-  # 22609_hemzeau ?
+# 22609_hemzeau ?
 Artenzahl <- Artdet %>% 
   left_join(sub_Artx, by = c("location", "Art.y" = "Art.x")) %>% 
   left_join(distinct(filter(sub_Gattung, Artenzahl_gattung == 1)), by = c("location", "Gattung", "species_type")) %>% 
@@ -234,6 +231,13 @@ Abundanz_Ob <- nests %>%
   bind_rows(data.frame(location = leer,
                        Abundanz_Ob = 0))
 
+No_Ob <- unique(Artenzahl$location)[which(! unique(Artenzahl$location) %in% Abundanz_Ob$location)]
+
+Abundanz_Ob <- Abundanz_Ob %>% 
+  bind_rows(data.frame(location = No_Ob,
+                       Abundanz_Ob = 0))
+
+
 Abundanz <- nests %>% 
   group_by(location) %>% 
   summarise(Abundanz = sum(nb_cells, na.rm = T)) %>% ungroup() %>% 
@@ -244,12 +248,13 @@ Abundanz_Host <- Artenzahl_Host %>%
   left_join(Abundanz, by = "location")
 
 Artenzahl_Par <- Artenzahl %>% 
-  group_by(species_type, location) %>% 
+  group_by(species_type, location, .drop=FALSE) %>% 
   summarise(Artenanzahl_det = n_distinct(Art, na.rm = T)) %>% 
-  filter(species_type == "Parasitoid") %>% ungroup() %>% 
-  bind_rows(data.frame(species_type = "Parasitoid", 
-                       location = leer,
-                       Artenanzahl_det = 0))
+  pivot_wider(values_from = Artenanzahl_det, names_from = species_type, values_fill = 0 ) %>% 
+  ungroup() %>% 
+  bind_rows(data.frame(location = leer,
+                       Host = 0,
+                       Parasitoid = 0))
 
 Artenzahl_all <- Artenzahl %>% 
   group_by(location) %>% 
@@ -257,7 +262,7 @@ Artenzahl_all <- Artenzahl %>%
   bind_rows(data.frame(location = leer,
                        Artenanzahl_det = 0))
 
-# Welche Arten sind als einzelne Arten in den trapnestern?
+# 2.1 einzelne Arten: Welche Arten sind als einzelne Arten in den trapnestern? ########
 TN_1nest <- Artenzahl %>% filter(species_type == "Host") %>% 
   select(location, Art) %>% 
   distinct() %>% 
@@ -265,13 +270,14 @@ TN_1nest <- Artenzahl %>% filter(species_type == "Host") %>%
   filter(n() == 1) %>% 
   left_join(Artenzahl_Host, by = c("location"))
 
+## 3. Praedis ##########
 # dazu kommen als prädiktoren: -imp 500, imp 2000, clc500, clc_500_edgelength, clc_500_nr_classes, temp, percip, altitude
 
 plz <- function(adress){
   return(as.numeric(unlist(stringr::str_split(adress, ","))[2]))
 }
 
-pr1_2 <- versiegelung %>% 
+pr1_2 <- versiegelung %>% select(-geometry) %>% 
   pivot_wider(names_from = radius_m, values_from = imp) %>% 
   group_by(ID) %>% 
   mutate(postal_code = plz(Adresse)) %>% 
@@ -283,10 +289,12 @@ pr1_2 <- versiegelung %>%
          imp100 = `100`)
 
 pr3 <- read.csv("~/Documents/Uni/Master/Masterarbeit/Daten/clc500.csv") %>% select(-X) %>% 
-  mutate_at(vars(matches("X")), list(~ replace_na(., 0)))
-## missing schools in pr3!!!!
-pr4 <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/clc_500_edgelength.csv")
-pr5 <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/clc_500_nr_classes.csv")
+  mutate_at(vars(matches("X")), list(~ replace_na(., 0))) %>% 
+  mutate(schulid = tolower(schulid))
+pr4 <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/clc_500_edgelength.csv") %>% 
+  mutate(schulid = tolower(schulid))
+pr5 <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/clc_500_nr_classes.csv")%>% 
+  mutate(schulid = tolower(schulid))
 pr6_8 <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/climate_data.csv") %>% 
   distinct(postal_code, .keep_all = TRUE)
 pr_insektenhotel <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/Standortinfos20201115.csv") %>% 
@@ -294,6 +302,15 @@ pr_insektenhotel <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/Standor
   select(-AngeInsektenhaus) %>% 
   mutate(Isnsektenhaus = case_when(Isnsektenhaus == "Ja" ~ 1,
                                    Isnsektenhaus == "Nein"~ 0))
+library(readxl)
+add_insektenhotel <- read_excel("Daten/2020_01_08_contact form data.xlsx") %>% 
+  filter(Date > as.POSIXct(as.Date("2020.11.15", "%Y.%m.%d"))) %>% 
+  select(Kenncode, DistInsektenhaus, Isnsektenhaus) %>% 
+  mutate(Kenncode = tolower(Kenncode),
+         DistInsektenhaus = as.integer(DistInsektenhaus),
+         Isnsektenhaus = case_when(Isnsektenhaus == "Ja" ~ 1,
+                                   Isnsektenhaus == "Nein"~ 0)) %>% 
+  bind_rows(pr_insektenhotel)
 
 # allse Prs zusammenmergen
 Praedis <- pr1_2 %>% 
@@ -303,7 +320,7 @@ Praedis <- pr1_2 %>%
   left_join(pr5, by = c("ID" = "schulid")) %>% 
   left_join(pr3, by = c("ID" = "schulid")) %>% 
   mutate(ID = tolower(ID)) %>% 
-  left_join(pr_insektenhotel, by = c("ID" = "Kenncode"))
+  left_join(add_insektenhotel, by = c("ID" = "Kenncode"))
 rm(pr1_2, pr3, pr4, pr5, pr6_8, pr_insektenhotel)
 
 ## Prädiktoren, die mehr als 90% aus Nullen bestehen werden entfernt:
@@ -311,7 +328,7 @@ rm(pr1_2, pr3, pr4, pr5, pr6_8, pr_insektenhotel)
 nullpraedis <- Praedis %>% 
   summarize_all(function(x){sum(x == 0, na.rm = T)}) %>% 
   pivot_longer(cols = everything()) %>% 
-  filter(value < 257*0.9)
+  filter(value < nrow(Praedis)*0.75)
 # entfernt: "X140" "X510" "X520" "X324" "X420" "X242" "X410" "X243" "X221" "X222" "X321"
 
 Praedis <- Praedis %>% select(any_of(nullpraedis$name)) %>% 
@@ -330,8 +347,7 @@ A1_IH_factor <- A1 %>%
   select(-Isnsektenhaus)
 
 A2 <- Artenzahl_Par %>% 
-  left_join(Praedis,  by = c("location"= "ID")) %>% 
-  select(-species_type)
+  left_join(Praedis,  by = c("location"= "ID"))
 
 Osmia_bicornis <- Abundanz_Ob %>% 
   left_join(Praedis,  by = c("location"= "ID")) %>% 
@@ -339,7 +355,7 @@ Osmia_bicornis <- Abundanz_Ob %>%
   mutate(Insektenhaus = as.factor(Isnsektenhaus)) %>% 
   select(-Isnsektenhaus)
 
-## Standorte
+## 4. koords: Standorte ###########
 koords <- Standorte %>% 
   select(ID, lat, lon) %>% 
   mutate(ID = tolower(ID)) 
@@ -355,6 +371,6 @@ Artenzahl_autocor <- A1_koords %>%
   sf::st_transform(crs = 3035) %>% 
   mutate(lon = sf::st_coordinates(geometry)[,1],
          lat = sf::st_coordinates(geometry)[,2]) %>% 
-  st_set_geometry(NULL)
+  sf::st_set_geometry(NULL)
 
 
