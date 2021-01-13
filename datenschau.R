@@ -12,7 +12,7 @@ library(tidyr)
 library(ggplot2)
 
 
-########### standorttabelle ########
+######### standorttabelle ########
 # Standorte <- Standorte %>% 
 #   separate(Neststandort, c("lat", "lon"), sep = "([\\,])")
 #write.csv2(Standorte[,c(1,2,8,9)], "standorte.csv", row.names = F)
@@ -35,7 +35,6 @@ versiegelung <- versiegelung %>%
 
 ############# 1. Daten bereinigen ################
 # Daten bereinigen und alles zu kleinbuchstaben damit es einheitlicher wird.
-head(Daten)
 Daten <- Daten %>% 
   select(id:f3) %>% 
   filter(!is.na(location)) %>% 
@@ -57,21 +56,6 @@ Bees <- Daten %>%
 Wasps <- Daten %>% 
   filter(host_bwo == "wasp")
 
-#paste0(sort(unique(Bees$Host_species_if_known)), collapse = "','")
-#trans_table <- data.frame(Host_species_if_known = '?','??','anthidium','anthidium manicatum','anthidium nanum','chelostoma','chelostoma florisomne','chelostoma rapunculi','chelostoma_florisomne','eumenidae','gelb schwarzer matsch in zelle','herades truncorum','heriades','heriades crenulatus','hylaeus','hylaeus_silk','magachile ericetorum','megachile','megachile centuncularis','megachile lapponica','megachile ligniseca','megachile pilidens','megachile rotundata','megachile wilunghbiella','na','na\n','osmia','osmia\n','osmia adunca','osmia bicornis','osmia brevicornis','osmia caerulescens','osmia cf caerulescens','osmia cf cornuta','osmia cf niveata','osmia cf. cearulescens','osmia cornuta','osmia cornuta?','osmia leaiana','osmia leiana/neviata','osmia niveata','osmia small  clay','osmia truncorum','osmia_caerulescens','osmia?','osmia/chelostoma','xylocopa violacea')
-
-trans_table <- data.frame(Host_species = as.character(unique(Bees$Host_species_if_known))) %>% 
-  mutate(Wortzahl = stringr::str_count(Host_species, "\\S+"))
-
-### für Analysen der Artenanzahl:
-# fehlende Arten in Host_species_if_known aufgrund von:
-# -  nest trashed
-# - sample_sex == 0
-# werden ersetzt durch 1) Host_species_if_known aus selben trapnest wenn:
-# - identisches Nest_material und morphotype_host für nur eine Art im selben trapnest
-# durch 2) bei mehreren möglichen Arten im selben trapnest nur durch morphotype-host bzw. gattung, was jedoch für die Berechnung der Artanzahl dann ausgeklammert werden muss.
-# durch 3) gattung/morphotype_host wenn kein identisches Nest_material und morphotype_host im selben trapnest, was bei Analysen zur ß-diversität/species-turnover ausgeklammert werden muss (?)
-
 
 nests <- Bees %>% 
   select(id:hatched, hatched_1, dead, para, sample_sex, pinned)
@@ -83,12 +67,12 @@ meta <- Bees %>%
       trashed %in% c("yes", "y", "yes\n"), "yes", NA
     ))
 
-Chalcidoidea <- c("coelopencyrtus", "Chalcididae", "Chalcidoidea",  "kleine Erzwespen", "melittobia", "melittobia acasta", "chalcid wasp", "Chalcid wasp", "Melittobia", "Melittobia acasta", "Coelopencyrtus", "Erzwespe", "Eulophidae", "Kleine Wespen", "Eurytoma", "euritoma")
+Chalcidoidea <- c("coelopencyrtus", "Chalcididae", "Chalcidoidea",  "kleine Erzwespen", "melittobia", "melittobia acasta", "chalcid wasp", "Chalcid wasp", "Melittobia", "Melittobia acasta", "Coelopencyrtus", "Erzwespe", "Eulophidae", "Kleine Wespen", "Eurytoma", "euritoma", "Monodontomerus sp")
 Cacoxenus <- c("diptera", "cacox", "cacoxenus?", "cacoxenus, mites", "cacoxenus\n" , "Cacoxenus\n", "Cocaxenus", "Cacoxenenus\n", "Cacoxenus Indagator", "Cocaxenus Indagator", "Cacoxenus (fly)", "Cacoxenus" , "cacoxenus", "Cacoxenus indagator", "ci", "CI")
-NAs <- c("?", "??", "na", "na\n", "white larvae", "xylocopa violacea", "small white larvae", "gelb schwarzer matsch in zelle", "Auplopus carbonarius", "Caterpillar", "Eumenidae", "dermaptera")
+NAs <- c("?", "??", "na", "na\n", "white larvae", "xylocopa violacea", "small white larvae", "gelb schwarzer matsch in zelle", "Auplopus carbonarius", "Caterpillar", "Eumenidae", "dermaptera", "Dermaptera")
 Kaefer <- c("beetle", "Beetle", "Holzkäfer\n", "Holzkäfer") ## Trichodes, Speckkäfer = Dermestidae (Museumskäfer)
 Dermestidae <- c("Museumskäfer", "Megatoma", "Megatoma undata", "Dermastidae", "Dermastid")
-Chaetodactylus <- c("Chaetodactylis", "Chaetodactylus", "Chetodactylis", "Kuglemilbe")
+Chaetodactylus <- c("Chaetodactylis", "Chaetodactylus", "Chetodactylis", "Kuglemilbe", "Chaetodactylus rund")
 Ichneumonidae <- c("Schlupfwespe", "Ichneumonidae?","Ichneumonidae", "Ichneumonid")
 Sapygidae <- c("Sapyga", "Sapygidae")
 Gasteruption <- c("Wespe dicke Hinterbeine", "Wespe verdickte Hinterbeine")
@@ -133,7 +117,7 @@ species <- Bees %>%
   mutate(S = ifelse(S %in% Gasteruption, "Gasteruption", S)) %>%  
   # alle NAs korrigieren und unnötiges entfernen:
   mutate(S = ifelse(S %in% NAs, NA, S)) %>%  # paste0("Parasitoid_", species_type)
-  # in die Spalte species_det werden alle bestimmten Arten geschrieben, von denen es ein sample gibt, da ich davon ausgehe dass diese exakt Bestimmt wurden.
+  # in die Spalte species_det werden alle bestimmten Arten geschrieben, von denen es ein sample gibt.
   group_by(location) %>% 
   mutate(species_det = tolower(ifelse(species_type == "Host",
                                       ifelse(
@@ -153,13 +137,22 @@ rm(Chalcidoidea, Cacoxenus, NAs, Kaefer, Dermestidae, Chaetodactylus, Ichneumoni
 library(readxl)
 Mappe1 <- read_excel("~/Documents/Uni/Master/Masterarbeit/Daten/Mappe1.xlsx", 
                      range = "A1:B309", col_types = c("text", 
-                                                      "date"))
+                                                      "text"))
 angekommen <- tolower(Mappe1$ID[which(!is.na(Mappe1$`Rücksend. Nisth. 2019`))])
 leer <- angekommen[which(!angekommen %in% nests$location)]
 
 rm(angekommen, Mappe1)
 
 ## 2. Arttabelle ##########
+### für Analysen der Artenanzahl:
+# fehlende Arten in Host_species_if_known aufgrund von:
+# -  nest trashed
+# - sample_sex == 0
+# werden ersetzt durch 1) Host_species_if_known aus selben trapnest wenn:
+# - identischer morphotype_host für nur eine Art im selben trapnest
+# durch 2) bei mehreren möglichen Arten im selben trapnest nur durch morphotype-host bzw. gattung, was jedoch für die Berechnung der Artanzahl dann ausgeklammert werden muss.
+# durch 3) gattung/morphotype_host wenn kein identisches Nest_material und morphotype_host im selben trapnest, was bei Analysen zur ß-diversität/species-turnover ausgeklammert werden muss (?)
+
 arttabelle <- readr::read_csv2("~/Documents/Uni/Master/Masterarbeit/Daten/Arttabelle.csv")
 Artdet <- species %>% 
   mutate(S = tolower(S)) %>% 
@@ -309,8 +302,10 @@ add_insektenhotel <- read_excel("Daten/2020_01_08_contact form data.xlsx") %>%
   mutate(Kenncode = tolower(Kenncode),
          DistInsektenhaus = as.integer(DistInsektenhaus),
          Isnsektenhaus = case_when(Isnsektenhaus == "Ja" ~ 1,
-                                   Isnsektenhaus == "Nein"~ 0)) %>% 
-  bind_rows(pr_insektenhotel)
+                                   Isnsektenhaus == "Nein"~ 0))
+
+add_insektenhotel <- pr_insektenhotel %>% filter(!Kenncode %in% add_insektenhotel$Kenncode) %>% 
+  bind_rows(add_insektenhotel[-c(8,12,40),])
 
 # allse Prs zusammenmergen
 Praedis <- pr1_2 %>% 
@@ -340,20 +335,29 @@ rm(nullpraedis)
 
 A1 <- Abundanz_Host %>% 
   left_join(Praedis,  by = c("location"= "ID")) %>% 
-  select(-species_type)
+  select(-species_type) %>% 
+  mutate(test1 = scale(runif(nrow(.)))[,1],
+         test2 = scale(runif(nrow(.)))[,1],
+         test3 = scale(runif(nrow(.)))[,1])
 
 A1_IH_factor <- A1 %>% 
   mutate(Insektenhaus = as.factor(Isnsektenhaus)) %>% 
-  select(-Isnsektenhaus)
+  select(-Isnsektenhaus) 
 
 A2 <- Artenzahl_Par %>% 
-  left_join(Praedis,  by = c("location"= "ID"))
+  left_join(Praedis,  by = c("location"= "ID"))  %>% 
+  mutate(test1 = scale(runif(nrow(.)))[,1],
+         test2 = scale(runif(nrow(.)))[,1],
+         test3 = scale(runif(nrow(.)))[,1])
 
 Osmia_bicornis <- Abundanz_Ob %>% 
   left_join(Praedis,  by = c("location"= "ID")) %>% 
   select( -location) %>% 
   mutate(Insektenhaus = as.factor(Isnsektenhaus)) %>% 
-  select(-Isnsektenhaus)
+  select(-Isnsektenhaus) %>% 
+  mutate(test1 = scale(runif(nrow(.)))[,1],
+         test2 = scale(runif(nrow(.)))[,1],
+         test3 = scale(runif(nrow(.)))[,1])
 
 ## 4. koords: Standorte ###########
 koords <- Standorte %>% 
