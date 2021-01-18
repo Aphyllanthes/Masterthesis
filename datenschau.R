@@ -296,7 +296,7 @@ pr_insektenhotel <- read.csv2("~/Documents/Uni/Master/Masterarbeit/Daten/Standor
   mutate(Isnsektenhaus = case_when(Isnsektenhaus == "Ja" ~ 1,
                                    Isnsektenhaus == "Nein"~ 0))
 library(readxl)
-add_insektenhotel <- read_excel("Daten/2020_01_08_contact form data.xlsx") %>% 
+add_insektenhotel <- read_excel("~/Documents/Uni/Master/Masterarbeit/Daten/2020_01_08_contact form data.xlsx") %>% 
   filter(Date > as.POSIXct(as.Date("2020.11.15", "%Y.%m.%d"))) %>% 
   select(Kenncode, DistInsektenhaus, Isnsektenhaus) %>% 
   mutate(Kenncode = tolower(Kenncode),
@@ -333,6 +333,7 @@ Praedis <- Praedis %>% select(any_of(nullpraedis$name)) %>%
          Pastures = X231)
 rm(nullpraedis)
 
+set.seed(1)
 A1 <- Abundanz_Host %>% 
   left_join(Praedis,  by = c("location"= "ID")) %>% 
   select(-species_type) %>% 
