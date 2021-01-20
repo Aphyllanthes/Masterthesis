@@ -31,7 +31,7 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE)
 options(kableExtra.latex.load_packages =FALSE)
 options(knitr.table.format = "latex")
 library(kableExtra)
@@ -376,7 +376,7 @@ Diese Analyse wurde für die Radien, für die der mittlere Versiegelungsgrad ber
 Der Einfluss von Urbanisierung und Landschaftskomplexität auf die oben genannten drei Antwortvariablen wurde mit dem gesamten Datensatz von 259 Nisthilfen analysiert. Hierzu wurden für die verschiedenen Radien des Versiegelungsgrades jeweils vier Modelle gefittet. Als erstes Modell (siehe Gleichung \ref{eq1}) wurden zusätzlich zum Versiegelungsgrad, dem Versiegelungsgrad als quadratischen Therm und den Parametern der Landschaftskomplexität auch Klimainformationen, Höhenlage sowie die Anteile verschiedener Landnutzungsklassen als Prädiktoren mit ins Modell genommen. Dass diese Parameter im Modell als unabhänige Variablen verwendet werden ist in Gleichung \ref{eq1} durch den Punkt (".") dargestellt.  
 Der Einfluss von Versiegelungsgrad und Landschaftskomplexität sowie der quadratische Einfluss des Versiegelungsgrades ist in den Hypothesen beschrieben. Dass zusätzlich auch noch weitere Parameter zum Klima, Höhenlage und verschiedenen Landnutzungsformen mit ins Modell genommen werden, ist dadurch Begründet, dass das Modell durch den potentiellen Einfluss dieser Parameter verbessert werden kann und Auskunft über deren Bedeutung im Vergleich zu Versiegelungsgrad und Landschaftskomplexität geben kann. 
 Das zweite Modell (siehe Gleichung \ref{eq2}) entsteht durch schrittweise Modellselektion des ersten Modells anhand des AIC. Hierzu wird die Formel $stepAIC()$  aus dem Paket $MASS$ verwendet.
-Im drittes Modell (siehe Gleichung \ref{eq3}) wird der Versiegelungsgrad als quadratischer sowie als linearer Therm implementiert, im vierten Modell (siehe Gleichung \ref{eq4}) ist der Versiegelungsgrad im quadrat der einzige Prädiktor. Die vier Modelle werden jeweils anhand AIC und anova verglichen. <!-- AIC erklären -->
+Im drittes Modell (siehe Gleichung \ref{eq3}) wird der Versiegelungsgrad als quadratischer sowie als linearer Term implementiert, im vierten Modell (siehe Gleichung \ref{eq4}) ist der Versiegelungsgrad im quadrat der einzige Prädiktor. Die vier Modelle werden jeweils anhand AIC und anova verglichen. <!-- AIC erklären -->
 
 \begin{align}
 y \sim  . + imp^2 \label{eq1} \\
@@ -396,6 +396,7 @@ Alle Modelle werden Anhand AIC und Anova verglichen. Modelle mit besonders hohem
 
 Für alle ausgewählten Modelle wird eine Residuendiagnostik nach @DHARMa mit dem R-Paket "DHARMa" durchgeführt. Dabei werden zunächst die Residuen des Modells berechnet. Mit den Residuen werden dann folgende Tests durchgeführt: 
 Verteilung der Residuen, Ausreißer, Streuung
+
  - testUniformity: Testet ob die Verteilung den Erwartungen entspricht
  - testOutliers: testet ob es mehr simulierte Ausreißer gibt als erwartet
  - testDispersion: testest ob die simulierte Streuung gleich ist wie die beobachtete Streuung
@@ -569,8 +570,6 @@ sub_IH <- A1_IH_factor %>%
 ## einfluss von Insektenhaus auf artenzahl:
 modelIH <- glm.nb(Artenanzahl_det ~ Insektenhaus, data = sub_IH) ## signifikant
 
-summary(modelIH)
-
 model_IH2a <- glm.nb(Artenanzahl_det ~ imp250 + I(imp250^2) + Insektenhaus, data = sub_IH) # signifikant
 
 jtools::effect_plot(modelIH, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
@@ -582,7 +581,7 @@ model_IH5_zi <- readRDS("Modelle_Abundanz/model_IH5_zi.rds")
 model_IH2_250_zi <- readRDS("Modelle_Abundanz/model_IH2_250_zi.rds")
 
 jtools::effect_plot(model_IH5_zi, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
-                    jitter = .2) + 
+                    jitter = .2) +
   ylab("Abundanz")
 
 ```
@@ -590,7 +589,7 @@ jtools::effect_plot(model_IH5_zi, pred = Insektenhaus, interval = TRUE, plot.poi
 ```{r echo=FALSE}
 
 detach("package:MASS")
-sjPlot::tab_model(modelIH,  dv.labels = c("Artenzahl"), file = "modelIH.html", transform = NULL) 
+test <- sjPlot::tab_model(modelIH,  dv.labels = c("Artenzahl"), file = "modelIH.html", transform = NULL) 
 
 tables <- rlist::list.clean(XML::readHTMLTable("modelIH.html"), fun = is.null, recursive = FALSE)
 tables2 <- tables[[1]] %>% 
@@ -598,7 +597,7 @@ tables2 <- tables[[1]] %>%
   as.matrix() %>% as_tibble()
 
 #model_IH2a,
-sjPlot::tab_model(model_IH2a,  dv.labels = c("Abundanz"), file = "model_IH2a.html", transform = NULL) 
+test <- sjPlot::tab_model(model_IH2a,  dv.labels = c("Abundanz"), file = "model_IH2a.html", transform = NULL) 
 
 tables3 <- rlist::list.clean(XML::readHTMLTable("model_IH2a.html"), fun = is.null, recursive = FALSE)
 tables4 <- tables3[[1]] %>% 
@@ -610,7 +609,7 @@ table_1[is.na(table_1)] <- ""
 
 ## Abundanz: 
 
-sjPlot::tab_model(model_IH5_zi,  dv.labels = c("Artenzahl"), file = "model_IH5_zi.html", transform = NULL) 
+test <- sjPlot::tab_model(model_IH5_zi,  dv.labels = c("Artenzahl"), file = "model_IH5_zi.html", transform = NULL) 
 
 tables5 <- rlist::list.clean(XML::readHTMLTable("model_IH5_zi.html"), fun = is.null, recursive = FALSE)
 tables6 <- tables5[[1]] %>% 
@@ -619,7 +618,7 @@ tables6 <- tables5[[1]] %>%
   mutate(Predictors = janitor::make_clean_names(Predictors) )
 
 #model_IH2a,
-sjPlot::tab_model(model_IH2_250_zi,  dv.labels = c("Abundanz"), file = "model_IH2_250_zi.html", transform = NULL) 
+test <- sjPlot::tab_model(model_IH2_250_zi,  dv.labels = c("Abundanz"), file = "model_IH2_250_zi.html", transform = NULL) 
 
 tables7 <- rlist::list.clean(XML::readHTMLTable("model_IH2_250_zi.html"), fun = is.null, recursive = FALSE)
 tables8 <- tables7[[1]] %>% 
@@ -639,7 +638,7 @@ table_2$Predictors <- c("count_model", "(Intercept)", "imp250", "imp250^2", "Ins
 ```
 
 
-```{r eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 #htmltools::includeHTML("test.html")
 table_a <- table_1 %>% 
   full_join(table_2, by = "Predictors", suffix = c(".","..")) %>% 
@@ -649,8 +648,9 @@ table_a[table_a$Predictors == "Intercept_2",1] <- "count_model: Intercept"
 table_a[table_a$Predictors == "Intercept_3",1] <- "zero_inflated_model: Intercept"
 
 kableExtra::kbl(table_a,longtable =T,booktabs =T, caption = "Modellzusammenfassung der Modellvariablen Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " ) %>% #caption = "" 
+  kable_styling(latex_options =c("striped")) %>% 
   kableExtra::add_header_above(c(" ","Artenzahl"=6,"Abundanz"=6)) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
   kableExtra::column_spec(4,bold = (as.numeric(table_a$p.)<0.05 | table_a$p. == "<0.001")  & table_a$p. != "" )%>% 
   kableExtra::column_spec(7,bold = (as.numeric(table_a$`p .`)<0.05 | table_a$`p .` == "<0.001") & table_a$`p .` != "") %>% 
   kableExtra::column_spec(10,bold = (as.numeric(table_a$p..)<0.05 | table_a$p.. == "<0.001") & table_a$p.. != "") %>% 
@@ -739,7 +739,7 @@ model4c <- MASS::glm.nb(Artenanzahl_det ~ I(imp^2), data = A1_1000) #
 model5c <- MASS::glm.nb(Artenanzahl_det ~ I(imp^2), data = A1_2000) 
 
 
-sjPlot::tab_model(model0_step, model2a_step, model3a_step,model4c,model5c,
+test <- sjPlot::tab_model(model0_step, model2a_step, model3a_step,model4c,model5c,
                   dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),
                   file = "model_Artenzahl.html", transform = NULL)
 ## transform html via excel to .csv-file
@@ -755,7 +755,7 @@ model_Artenzahl[is.na(model_Artenzahl)] <- ""
 
 
 
-```{r}
+```{r echo=FALSE}
 
 # function for detection of significant values:
 p_sig <- function(x){
@@ -789,7 +789,7 @@ kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusamme
 
 ```
 
-```{r}
+```{r echo=FALSE, fig.show='hold', out.width=c('50%', '50%'), warning=FALSE, message=FALSE, fig.cap="Modelle zur Artenanzahl"}
 unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scaled:scale")) {
   if(!is.null(scale))  z <- sweep(z, 2, scale, `*`)
   if(!is.null(center)) z <- sweep(z, 2, center, `+`)
@@ -800,12 +800,10 @@ unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scale
     "unscaled:scale"  = scale
   )
 }
-
 # model0_step, model2a_step, model3a_step,model4c,model5c,
-jtools::effect_plot(model0_step, pred = imp, interval = TRUE, plot.points = TRUE, jitter = .2)
 
 #imp + mean_annual_temp_celsius + annual_precipitation_mm + altitude_town_m
-newdata <- A1_100 %>% expand(imp, mean_annual_temp_celsius) %>% 
+newdata <- A1_100 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
   left_join(A1_100[,c("annual_precipitation_mm", "mean_annual_temp_celsius", "altitude_town_m")])
 pred_100 <- predict(model0_step, newdata = newdata, type = "response", se.fit = T) 
 
@@ -821,7 +819,7 @@ pred_100 <- pred_100 %>%
   mutate(imp = unscale(pred_100[,"imp"], center = attr(A1_100$imp, "scaled:center"), scale = attr(A1_100$imp, "scaled:scale"))$imp)
 #   ylab("Abundanz der Wirtsbienen") 
 
-newdata <- A1_250 %>% expand(imp, mean_annual_temp_celsius) %>% 
+newdata <- A1_250 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
   left_join(A1_250[,c("annual_precipitation_mm", "mean_annual_temp_celsius")])
 pred_250 <- predict(model2a_step, newdata = newdata, type = "response", se.fit = T) 
 
@@ -839,7 +837,7 @@ pred_250 <- pred_250 %>%
 
 #   ylab("Abundanz der Wirtsbienen") 
 
-newdata <- A1_500 %>% expand(imp, mean_annual_temp_celsius) %>% 
+newdata <- A1_500 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
   left_join(A1_500[,c("annual_precipitation_mm", "mean_annual_temp_celsius")])
 pred_500 <- predict(model3a_step, newdata = newdata, type = "response", se.fit = T) 
 
@@ -856,7 +854,7 @@ pred_500 <- pred_500 %>%
 
 
 #
-newdata <- A1_1000 %>% expand(imp, mean_annual_temp_celsius) %>% 
+newdata <- A1_1000 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
   left_join(A1_1000[,c("annual_precipitation_mm", "mean_annual_temp_celsius")])
 pred_1000 <- predict(model4c, newdata = newdata, type = "response", se.fit = T) 
 
@@ -873,7 +871,7 @@ pred_1000 <- pred_1000 %>%
 
 
 #
-newdata <- A1_2000 %>% expand(imp, mean_annual_temp_celsius) %>% 
+newdata <- A1_2000 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
   left_join(A1_2000[,c("annual_precipitation_mm", "mean_annual_temp_celsius")])
 pred_2000 <- predict(model5c, newdata = newdata, type = "response", se.fit = T) 
 
@@ -888,33 +886,31 @@ pred_2000 <- data.frame(pred = pred_2000$fit, pred.se = pred_2000$se.fit,
 pred_2000 <- pred_2000 %>% 
   mutate(imp = unscale(pred_2000[,"imp"], center = attr(A1_2000$imp, "scaled:center"), scale = attr(A1_2000$imp, "scaled:scale"))$imp)
 
-
 ggplot(data = pred_250, aes(imp, mean)) +
   geom_line() +
   geom_ribbon(aes(ymin = quant05, ymax  =quant95), alpha = 0.2, fill = "blue") +
   geom_line(data = pred_250, aes(imp, mean), col = "darkblue") +
-  # geom_ribbon(data = pred_100, aes(ymin = quant05, ymax  =quant95), alpha = 0.2, fill = "green") +
-  # geom_line(data = pred_100, aes(imp, mean), col = "darkgreen") +#+
-  # geom_ribbon(data = pred_500, aes(ymin = quant05, ymax  =quant95), alpha = 0.2, fill = "yellow") +
-  # geom_line(data = pred_500, aes(imp, mean), col = "orange") +
-  # geom_ribbon(data = pred_1000, aes(ymin = quant05, ymax  =quant95), alpha = 0.2, fill = "red") +
-  # geom_line(data = pred_1000, aes(imp, mean), col = "darkred") +
-  # geom_ribbon(data = pred_2000, aes(ymin = min, ymax  =max), alpha = 0.2, fill = "purple") +
-  # geom_line(data = pred_2000, aes(imp, mean), col = "purple") #+
-  geom_point(data = A1_250, aes(unscale(imp), Artenanzahl_det), alpha = 0.5) 
+  geom_point(data = A1_250, aes(unscale(imp), Artenanzahl_det), alpha = 0.5)  +
+  theme_bw() +
+  ylab("Artenanzahl") +
+  xlab("mittlerer Versiegelungsgrad [%] im 250m-Radius")
+
 
 ggplot(data = pred_1000, aes(imp, mean)) +
   geom_line() +
   geom_ribbon(aes(ymin = min, ymax  =max), alpha = 0.2, fill = "blue") +
   geom_line(data = pred_1000, aes(imp, mean), col = "darkblue") +
-  geom_point(data = A1_1000, aes(unscale(imp), Artenanzahl_det), alpha = 0.5) 
+  geom_point(data = A1_1000, aes(unscale(imp), Artenanzahl_det), alpha = 0.5) +
+  theme_bw()+
+  ylab("Artenanzahl") +
+  xlab("mittlerer Versiegelungsgrad [%] im 1000m-Radius")
 
 
 
 ```
 
 
-```{r Abundanz}
+```{r Abundanz, echo=FALSE, message=FALSE, warning=FALSE}
 
 model1b_zi <- readRDS("Modelle_Abundanz/model1b_zi.rds")
 model2a_step_zi <- readRDS("Modelle_Abundanz/model2a_step_zi.rds")
@@ -924,7 +920,7 @@ model4b_zi <- readRDS("Modelle_Abundanz/model4b_zi.rds")
 model5b_zi <- readRDS("Modelle_Abundanz/model5b_zi.rds")
 
 model_abundanz <- read.csv("model_abundanz.csv") %>% 
-  select(-component.250b, -statistic.250b, -statistic.500)
+  dplyr::select(-component.250b, -statistic.250b, -statistic.500)
 
 model_abundanz_a <- model_abundanz[-6,-c(11:19)] %>% 
   arrange(component) %>% 
@@ -961,10 +957,12 @@ kableExtra::kbl(model_abundanz_a, booktabs =T, caption = "Modellzusammenfassung 
   kableExtra::column_spec(11,bold = p_sig(model_abundanz_a[,11])) %>% 
   kableExtra::row_spec(4, hline_after = T)
 
+
+
 ```
 
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 kableExtra::kbl(model_abundanz_b, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{} " ) %>% 
   kable_styling(latex_options =c("striped")) %>% 
   kableExtra::add_header_above(
@@ -980,101 +978,80 @@ kableExtra::kbl(model_abundanz_b, booktabs =T, caption = "Modellzusammenfassung 
 
 ```
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width=c('50%', '50%'), fig.cap="Modelle zur Abundanz"}
+## prediction erzeugt merkwürdige werte...?
+A1_100_sub <- A1_100 %>% 
+  filter(Abundanz < 500)
+pred_100 <- simulate(model1b_zi, nsim = 1000) # newdata = A1_100, type = "link", se.fit = T 
+pred_100 <- data.frame(pred_mean = rowMeans(pred_100),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_100), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_100), probs = 0.05),
+                       imp = unscale(A1_100_sub$imp))
 
-pred_100 <- predict(model1b_zi, newdata = A1_100, type = "response", se.fit = T) 
-
-pred_100 <- data.frame(pred = pred_100$fit, pred.se = pred_100$se.fit, 
-                   imp = A1_100$imp) %>% 
-  group_by(imp) %>% 
-  summarise(mean = mean(pred),
-            min = min(pred)- pred.se,
-            max = max(pred) + pred.se)
-pred_100 <- pred_100 %>% 
-  mutate(imp = unscale(pred_100[,"imp"], center = attr(A1_100$imp, "scaled:center"), scale = attr(A1_100$imp, "scaled:scale"))$imp)
-#   ylab("Abundanz der Wirtsbienen") 
-
-newdata <- A1_250 %>% expand(imp, Arable) %>% 
-  left_join(A1_250[,c("Arable", "Forest")])
-pred_250 <- predict(model2a_step_zi, newdata = newdata, type = "response", se.fit = T) 
-
-pred_250 <- data.frame(pred = pred_250$fit, pred.se = pred_250$se.fit, 
-                   imp = newdata$imp) %>% 
-  group_by(imp) %>% 
-  summarise(mean = mean(pred),
-            min = min(pred),
-            max = max(pred),
-            quant95 = quantile(pred, 0.95),
-            quant05 = quantile(pred, 0.05)) 
-
-pred_250 <- pred_250 %>% 
-  mutate(imp = unscale(pred_250[,"imp"], center = attr(A1_250$imp, "scaled:center"), scale = attr(A1_250$imp, "scaled:scale"))$imp)
+A1_250_sub <- A1_250 %>% 
+  filter(Abundanz < 500)
+pred_250 <- simulate(model2a_step_zi, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
+pred_250 <- data.frame(pred_mean = rowMeans(pred_250),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_250), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_250), probs = 0.05),
+                       imp = unscale(A1_250_sub$imp))
 
 
-pred_250 <- predict(model2d_zi, newdata = A1_250, type = "response", se.fit = T) 
 
-pred_250 <- data.frame(pred = pred_250$fit, pred.se = pred_250$se.fit, 
-                   imp = A1_250$imp) %>% 
-  group_by(imp) %>% 
-  summarise(mean = mean(pred),
-            min = min(pred) - pred.se,
-            max = max(pred) + pred.se,
-            quant95 = quantile(pred, 0.95),
-            quant05 = quantile(pred, 0.05)) 
+pred_250b <- simulate(model2d_zi, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
+pred_250b <- data.frame(pred_mean = rowMeans(pred_250b),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_250b), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_250b), probs = 0.05),
+                       imp = unscale(A1_250_sub$imp))
 
-pred_250 <- pred_250 %>% 
-  mutate(imp = unscale(pred_250[,"imp"], center = attr(A1_250$imp, "scaled:center"), scale = attr(A1_250$imp, "scaled:scale"))$imp)
-
-
-pred_500 <- predict(model3b_zi, newdata = A1_500, type = "response", se.fit = T) 
-
-pred_500 <- data.frame(pred = pred_500$fit, pred.se = pred_500$se.fit, 
-                   imp = A1_500$imp) %>% 
-  group_by(imp) %>% 
-  summarise(mean = mean(pred),
-            min = min(pred) - pred.se,
-            max = max(pred) + pred.se,
-            quant95 = quantile(pred, 0.95),
-            quant05 = quantile(pred, 0.05))
-pred_500 <- pred_500 %>% 
-  mutate(imp = unscale(pred_500[,"imp"], center = attr(A1_500$imp, "scaled:center"), scale = attr(A1_500$imp, "scaled:scale"))$imp)
-
-
-#
-pred_1000 <- predict(model4b_zi, newdata = A1_1000, type = "response", se.fit = T) 
-
-pred_1000 <- data.frame(pred = pred_1000$fit, pred.se = pred_1000$se.fit, 
-                   imp = A1_1000$imp) %>% 
-  group_by(imp) %>% 
-  summarise(mean = mean(pred),
-            min = pred - pred.se,
-            max = pred + pred.se,
-            quant95 = quantile(pred, 0.95),
-            quant05 = quantile(pred, 0.05))
-pred_1000 <- pred_1000 %>% 
-  mutate(imp = unscale(pred_1000[,"imp"], center = attr(A1_1000$imp, "scaled:center"), scale = attr(A1_1000$imp, "scaled:scale"))$imp)
-
-
-#
-pred_2000 <- predict(model5b_zi, newdata = A1_2000, type = "response", se.fit = T) 
-
-pred_2000 <- data.frame(pred = pred_2000$fit, pred.se = pred_2000$se.fit, 
-                   imp = A1_2000$imp) %>% 
-  group_by(imp) %>% 
-  summarise(mean = mean(pred),
-            min = pred - pred.se,
-            max = pred + pred.se,
-            quant95 = quantile(pred, 0.95),
-            quant05 = quantile(pred, 0.05)) 
-pred_2000 <- pred_2000 %>% 
-  mutate(imp = unscale(pred_2000[,"imp"], center = attr(A1_2000$imp, "scaled:center"), scale = attr(A1_2000$imp, "scaled:scale"))$imp)
-
-
-ggplot(data = pred_1000, aes(imp, mean)) +
+ggplot(data = pred_250b, aes(imp, pred_mean)) +
   geom_line() +
-  geom_ribbon(aes(ymin = min, ymax  =max), alpha = 0.2, fill = "blue") +
-  geom_line(data = pred_1000, aes(imp, mean), col = "darkblue") +
-  geom_point(data = A1_1000, aes(unscale(imp), Artenanzahl_det), alpha = 0.5) 
+  geom_ribbon(aes(ymin = pred_min, ymax  =pred_max), alpha = 0.2, fill = "blue") +
+  geom_point(data = A1_250_sub, aes(unscale(imp), Abundanz), alpha = 0.5) +
+  theme_bw()+
+  xlab("mittlerer Versiegelungsgrad [%] im 250m-Radius") +
+  ylab("Abundanz (Anzahl der Brutzellen)")
+
+
+A1_500_sub <- A1_500 %>% 
+  filter(Abundanz < 500)
+
+pred_500 <- simulate(model3b_zi, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
+pred_500 <- data.frame(pred_mean = rowMeans(pred_500),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_500), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_500), probs = 0.05),
+                       imp = unscale(A1_500_sub$imp))
+
+
+#
+
+A1_1000_sub <- A1_1000 %>% 
+  filter(Abundanz < 500)
+
+pred_1000 <- simulate(model4b_zi, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
+pred_1000 <- data.frame(pred_mean = rowMeans(pred_1000),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_1000), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_1000), probs = 0.05),
+                       imp = unscale(A1_1000_sub$imp))
+
+#
+A1_2000_sub <- A1_2000 %>% 
+  filter(Abundanz < 500)
+
+pred_2000 <- simulate(model5b_zi, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
+pred_2000 <- data.frame(pred_mean = rowMeans(pred_2000),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_2000), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_2000), probs = 0.05),
+                       imp = unscale(A1_2000_sub$imp))
+
+
+ggplot(data = pred_2000, aes(imp, pred_mean)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = pred_min, ymax  =pred_max), alpha = 0.2, fill = "blue") +
+  geom_point(data = A1_2000_sub, aes(unscale(imp), Abundanz), alpha = 0.5) +
+  theme_bw() +
+  xlab("mittlerer Versiegelungsgrad [%] im 2000m-Radius") +
+  ylab("Abundanz (anzahl Brutzellen)")
 
 ```
 
@@ -1083,6 +1060,67 @@ Zwischen den Sturkturreichtum bescheibenden Parametern Kantendichte und Anzahl d
 
 ### Artenzahl der Parasitoide
 So wie bei den Wirtsbienen auch, hat das Vorhandensein eines Insektenhauses einen positiven Einfluss auf die Artenzahl der Parasitoide während der Versiegelungsgrad die Artenzahl nicht beeinflusst.
+
+```{r}
+model_par <- rlist::list.clean(XML::readHTMLTable("model_par_IH.html"), fun = is.null, recursive = FALSE)[[1]]
+parnames <-  model_par[1,]
+model_par[6:7,5] <- model_par[6:7,3] 
+model_par[6:7,3] <- NA
+model_par[is.na(model_par)] <- ""
+#names(model_par) <- model_par[1,]
+model_par1 <- model_par %>% 
+  filter(V1 != "Predictors")
+names(model_par1) <- parnames
+
+kableExtra::kbl(model_par1,longtable =T,booktabs =T, caption = "Modellzusammenfassung der Modelle der Artenzahl der Parasitoide. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH_par} " ) %>% #caption = "" 
+  kable_styling(latex_options =c("striped")) %>% 
+  kableExtra::add_header_above(c(" ","Model 1"=3,"Model 2"=3)) %>%
+  kableExtra::kable_styling(latex_options =c("repeat_header")) %>% 
+  kableExtra::column_spec(4,bold = (as.numeric(model_par1[,4])<0.05 | model_par1[,4] == "<0.001")  & model_par1[,4] != "" )%>% 
+  kableExtra::column_spec(7,bold = (as.numeric(model_par1[,7])<0.05 | model_par1[,7] == "<0.001") & model_par1[,7] != "")
+```
+
+```{r echo=FALSE, fig.show='hold', message=FALSE, warning=FALSE, out.width=c('50%', '50%'), fig.asp = 1, fig.cap= "Einfluss von vorhandenem Insektenhaus auf Artenanzahl der Parasitoide. Die Fehlerbalken sind 'marginal effect-plots', welche die Vorhersage der Modelle (Mittelwert und Standartabweichung) bei mittlerem Versiegelungsgrad darstellen. Die Punkte sind die realen Datenpunkte. \\label{effektplotIH_par}" }
+library(MASS)
+
+sub_IH_scl <- A2 %>% 
+  rename(Insektenhaus = Isnsektenhaus) %>% 
+  filter(!is.na(Insektenhaus)) %>% 
+  dplyr::mutate(Insektenhaus = as.factor(Insektenhaus)) %>% 
+  mutate_at(vars(imp100:Forest), scale) %>% 
+  mutate_at(vars(test1:test3), scale)
+  
+sub_IH <- sub_IH_scl %>% 
+  mutate_at(vars(imp100:Forest), as.numeric) %>% 
+  mutate_at(vars(test1:test3), as.numeric)
+
+## einfluss von Insektenhaus auf artenzahl:
+model_IH2_250 <- MASS::glm.nb(Parasitoid ~ imp250 + I(imp250^2) + Insektenhaus, data = sub_IH)
+
+
+# jtools::effect_plot(model_IH2_250, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
+#                     jitter = .2) + 
+#   ylab("Artenzahl der Wirtsbienen")
+tranlabels <- c(3.908e+01 + 2.072e+01*-1 , 3.908e+01 + 2.072e+01*0 , 3.908e+01 + 2.072e+01*1 )
+tranlabels <- function(x) attr(sub_IH_scl$imp250, "scaled:center") + attr(sub_IH_scl$imp250, "scaled:scale")*x
+werte <- paste(round(tranlabels(c(-1, 0, 1)),2), collapse = ", ")
+
+sjPlot::plot_model(model_IH2_250, type = "pred", terms = c("Insektenhaus", "imp250"), 
+                   show.p = T, show.data = T, jitter = T)+
+  labs(caption = paste0("Die Werte des skalierten Versiegelunsgrades -1, 0, 1 entsprechen den prozentualen Werten von ", werte))
+
+
+## Abundanz:
+model_IH5_zi <- readRDS("Modelle_Abundanz/model_IH5_zi.rds")
+model_IH2_250_zi <- readRDS("Modelle_Abundanz/model_IH2_250_zi.rds")
+
+jtools::effect_plot(model_IH5_zi, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
+                    jitter = .2) +
+  theme(legend.title = "skalierter Versiegelungsgrad (250m)")
+  ylab("Abundanz")
+
+```
+
 
 ### Artengemeinschaft
 Die Analyse der Artengemeinschaft entlang des Stadt-Land-Gradienten zeigte keine signifikanten Unterschiede. 
