@@ -12,7 +12,7 @@ library(tidyr)
 library(ggplot2)
 
 
-######### standorttabelle ########
+############### standorttabelle ########
 # Standorte <- Standorte %>% 
 #   separate(Neststandort, c("lat", "lon"), sep = "([\\,])")
 #write.csv2(Standorte[,c(1,2,8,9)], "standorte.csv", row.names = F)
@@ -220,15 +220,18 @@ Abundanz_Ob <- nests %>%
   left_join(Artenzahl, by = "id") %>% 
   filter(Art == "osmia bicornis") %>% 
   group_by(location) %>% 
-  summarise(Abundanz_Ob = sum(nb_cells, na.rm = T) )%>% 
+  summarise(Abundanz_Ob = sum(nb_cells, na.rm = T) ,
+            nests_ob = n()) %>% 
   bind_rows(data.frame(location = leer,
-                       Abundanz_Ob = 0))
+                       Abundanz_Ob = 0,
+                       nests_ob = 0))
 
 No_Ob <- unique(Artenzahl$location)[which(! unique(Artenzahl$location) %in% Abundanz_Ob$location)]
 
 Abundanz_Ob <- Abundanz_Ob %>% 
   bind_rows(data.frame(location = No_Ob,
-                       Abundanz_Ob = 0))
+                       Abundanz_Ob = 0,
+                       nests_ob = 0))
 
 
 Abundanz <- nests %>% 
@@ -353,7 +356,7 @@ A2 <- Artenzahl_Par %>%
 
 Osmia_bicornis <- Abundanz_Ob %>% 
   left_join(Praedis,  by = c("location"= "ID")) %>% 
-  select( -location) %>% 
+  #select( -location) %>% 
   mutate(Insektenhaus = as.factor(Isnsektenhaus)) %>% 
   select(-Isnsektenhaus) %>% 
   mutate(test1 = scale(runif(nrow(.)))[,1],
