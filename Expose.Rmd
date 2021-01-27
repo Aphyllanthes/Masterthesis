@@ -520,6 +520,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(4, c("in")))
 
 Von den insgesamt `r sum(nests$nb_cells, na.rm = T)` angelegten Zellen entwickelten sich in etwa 60 % (`r sum(nests$nb_pupa_larva, na.rm = T)` Brutzellen) Puppen bzw. Larven. Etwa 13 % der Angelegten Zellen wurde Parasitiert (`r sum(nests$parasitized_cells, na.rm = T)` Brutzellen).  
 
+## Die Arten in den Nisthilfen
 Im Rahmen des Schulinsektenhaus-Projektes konnten in den 276 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*), neun Wespenarten (Apocrita) nachgewiesen werden. Weitere Parasitoide wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. In Tabelle \ref{Artenliste} sind alle nachgewiesenen Arten aufgeführt sowie ihre Parasitoide. Da einige Parasitoide das gesamte Nest ihres Wirtes eingenommen haben konnten die Wirtsarten nur anhand der Nestmorphologie bestimmt werden - diese sind in der dritten Spalte der Tabelle aufgeführt.
 
 Im Vergleich zu @tscharntke1998 wurden sieben weitere Arten identifiziert: 
@@ -552,7 +553,7 @@ library(dplyr)
 Artliste_IH19 <- readxl::read_excel("../Daten/Artliste_IH19.xls") %>% 
   replace(is.na(.), "")
 
-kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller nachgewiesenen Bienenarten und ihere Parasitoide im Schulinsektenhausprojekt 2019. Alle Arten die in der Arbeit von Tscharntke et al. (1998) nicht beschrieben wurden sind mit einem '*' versehen.  \\label{Artenliste} ") %>% 
+kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller nachgewiesenen Bienenarten und ihere Parasitoide im Schulinsektenhausprojekt 2019. Alle Arten die in der Arbeit von Tscharntke et al. (1998) nicht beschrieben wurden bzw. bei den Gegenspielern nicht bei dem entsprechenden Wirt beschrieben wurden, sind mit einem '*' versehen.  \\label{Artenliste} ") %>% 
   kableExtra::kable_paper(full_width = F) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header")) %>% 
   kableExtra::column_spec(1) %>%
@@ -566,21 +567,18 @@ kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller n
 
 <!-- - ephialtes: @horstmann -->
 
-## Modelle: 
-### Artenzahl und Abundanz der Bienen
-Das Vorkommen eines Insektenhaus hat einen signifikanten Einfluss auf die Artenzahl der Bienen, jedoch nicht auf die Abundanz. Die Artenzahl ist in Trapnestern in der Nähe eines Insektenhauses höher als in Trapnestern in deren Nähe kein Insektenhaus steht.  
 
-<!-- Anhand AIC und Residuendiagnostik wurden für beide Variablen, Artenzahl sowie Abundanz, negativ-binomiale GLM mit folgender Formel ausgewählt: $y = imp1000 + imp1000^2 + Insektenhaus$ (imp1000 ist der mittlere Versiegelungsgrad im 1000m Radius um den Nisthilfenstandort) -->
-<!-- Die Datenpunkte sowie die Modellvorhersage als marginaler Effektplot sind in Abbildung \ref{effektplotIH} dargestellt. Das Modell der Artenzahl beschreibt einen signifikanten Einfluss des Parameters Insektenhaus (siehe Tab. \ref{summaryIH}). Im Modell der Abundanz ist eine Tendenz einer Zunahme der Abundanz bei Vorhandensein eines Insektenhauses zu erkennen, welche jedoch nicht signifikant ist. In beiden Modellen hat der Versiegelungsgrad im 1000m Umkreis keinen signifikanten Einfluss. -->
- 
-Um den Einfluss des Insektenhauses auf die Artenzahl zu untersuchen wurde das negativ-binomiale Modell mit der Formel $Artenzahl \sim Insektenhaus$ anhand von AIC und Residuendiagnostik ausgewählt. Das Modell zeigt einen schwach signifikanten Einfluss ($p = 0.0103$) des Insektenhauses auf die Artenzahl. Das Modell erklärt nur 5,6% der Varianz der Daten.
-Das Modell kann durch das Erweitern um die Parameter "Versiegelung" und "Versiegelung im Quadrat" nicht verbessert werden. Dies gilt für alle berechneten Radien des Versiegelungsgrades. Umgekehrt verbessert der Parameter "Insektenhotel" das Modell mit den Prädiktoren "Versiegelungsgrad" und "Versiegelungsgrad im Quadrat" ebensowenig.
+## Der Einfluss von vorhandenen Insektenhäusern auf Artenzahl und Abundanz der Wildbienen
+Das Modell, welches den Einfluss von vorhandenen Insektenhäusern auf die Artenzahl der Wildbienen beschreibt zeigt einen schwach signifikanten Einfluss der Insektenhäuser auf. Die Artenzahl in den Nisthilfen in der Nähe eines Insektenhauses ist demnach höher als in Nisthilfen ohne Insektenhaus. Dieses Modell kann durch die Erweiterung um die Prädiktoren des mittleren Versiegelungsgrades als linearer sowie quadratischer Term nicht verbessert werden. Dies gilt für alle Radien für den der mittlere Versiegelungsgrad berechnet wurde. Umgekehrt verbessert der Parameter "Insektenhaus" das Modell mit den Prädiktoren "Versiegelungsgrad" und "Versiegelungsgrad im Quadrat" ebensowenig.  
+In Tabelle \ref{summaryIH} ist der Einfluss den vorhandenen Insektenhäusern auf die Artenzahl in der linken Hälfte abgebildet. Es ist jeweils auch das um die Prädiktoren des Versiegelungsgrades im 250m-Radius erweiterte Modell abgebildet. Das um den Versiegelungsgrad im 250m-Radius erweiterte Modell der Artenzahl weist einen geringfügig höheren $R^2$-Wert auf, der Versiegelungsgrad sowie vorhandene Insektenhäuser haben keinen signifikanten Effekt. Der $R^2$-Wert beider Modelle  ist kleiner $0.1$, was bedeutet, dass die verwendeten Prädiktoren nur einen geringen Teil der Varianz der Artenzahl erklären.  
 
-<!-- (Null_deviance - Residual_deviance)/Null_deviance -->
+Der Einfluss von vorhandenen Insektenhäusern auf die Abundanz der Wildbienen zeigt weder im Modell mit den zusätzlichen Prädiktoren des mittleren Versiegelungsgrades im 250m-Radius als linearen und quadratischen Therm einen signifikanten Zusammenhang, noch im Modell ohne diesen Prädiktor (siehe Tab. \ref{summaryIH}). Bei beiden Modellen der Abundanz wurde der Einfluss der Nullen ("Zeroinflation") mitmodelliert. Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius der einzige Radius des Versiegelungsgrades (aus den berechneten Radien von 100m,250m,500m,1000m,2000m), welcher das Modell der vorhandenen Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell mit dem Prädiktor Versiegelungsgrad verbessert werden.
+Ein Effekt-Plot des um den Parameter des 250m-Versiegelungsgrades erweiterten Modells ist in Abbilung \ref{effektplotIH} auf der rechten Seite dargestellt. Das Modells zeigt einen signifikanten linearen Zusammenhang zwischen dem mittleren Versiegelungsgrad im 250m-Radius und der Abundanz (siehe Tab. \ref{summaryIH}).
+
+Für beide Variablen Artenzahl und Abundanz kann mit dem Datensatz von 129 Punkten nur eine Tendenz eines positiven Einflusses von vorhandenen Insektenhäusern beobachtet werden, wobei dieser Einfluss auf die Artenzahl deutlicher zu sehen ist als auf die Abundanz. 
 
 
-
-```{r echo=FALSE, fig.show='hold', message=FALSE, warning=FALSE, out.width=c('50%', '50%'), fig.asp = 1, fig.cap= "Einfluss von vorhandenem Insektenhaus auf Artenanzahl (links) und Abundanz (rechts) der Bienen. Die Fehlerbalken sind 'marginal effect-plots', welche die Vorhersage der Modelle (Mittelwert und Standartabweichung) bei mittlerem Versiegelungsgrad darstellen. Die Punkte sind die realen Datenpunkte. \\label{effektplotIH}" }
+```{r echo=FALSE, fig.show='hold', message=FALSE, warning=FALSE, out.width=c('50%', '50%'), fig.asp = 1, fig.cap= "Einfluss von vorhandenem Insektenhaus auf Artenanzahl (links) und Abundanz (rechts) der Bienen. Die Fehlerbalken sind 'marginal effect-plots', welche die Vorhersage der Modelle (Mittelwert und Standartabweichung) bei variablem Versiegelungsgrad darstellen. Die Punkte sind die realen Datenpunkte. \\label{effektplotIH}" }
 library(MASS)
 
 sub_IH <- A1_IH_factor %>% 
@@ -600,11 +598,28 @@ model_IH5_zi <- readRDS("Modelle/model_IH5_zi.rds")
 model_IH2_250_zi <- readRDS("Modelle/model_IH2_250_zi.rds")
 
 
-jtools::effect_plot(model_IH5_zi, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
-                    jitter = .2) +
-  ylab("Abundanz")
+# jtools::effect_plot(model_IH5_zi, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
+#                     jitter = .2) +
+#   ylab("Abundanz")
+
+tranlabels <- function(x) attr(sub_IH$imp250, "scaled:center") + attr(sub_IH$imp250, "scaled:scale")*x
+werte <- paste(round(tranlabels(c(-1, 0, 1)),2), collapse = ", ")
+
+labeltext <- list("Die Werte des skalierten", 
+                         "Versiegelunsgrades -1, 0, 1", 
+                  "entsprechen den prozentualen", 
+                         paste0("Werten von ", werte))
+
+
+sjPlot::plot_model(model_IH2_250_zi, type = "pred", 
+                   terms = c("Insektenhaus", "imp250"), 
+                   show.p = T, show.data = T, jitter = T)+
+  theme_bw() +
+  annotate("text", y = seq(450,400,length=4), x = 0.35,
+            label = labeltext)
 
 ```
+
 
 ```{r echo=FALSE}
 
@@ -668,7 +683,7 @@ table_a[table_a$Predictors == "Intercept_2",1] <- "count_model: Intercept"
 table_a[table_a$Predictors == "Intercept_3",1] <- "zero_inflated_model: Intercept"
 
 kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Modellvariablen Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " ) %>% #caption = "" 
-  kable_styling(latex_options =c("striped")) %>% 
+  kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(c(" ","Artenzahl"=6,"Abundanz"=6)) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
   kableExtra::column_spec(4,bold = (as.numeric(table_a$p.)<0.05 | table_a$p. == "<0.001")  & table_a$p. != "" )%>% 
@@ -678,15 +693,42 @@ kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Model
 
 ```
 
-Zur Analyse des Einflusses des Versiegelungsgrades verschiedener Radien auf die Artenzahl wurde für jeden Radius das beste Modell anhand von AIC, anova und Residuendiagnostik ausgewählt. 
+## Der Einfluss der Landschaftstruktur 
+Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Landnutzungsklassen, und allen Modellierten Antwortvariablen konnte kein Zusammenhang aufgezeigt werden. 
 
-Artenanzahl_det ~ imp100 + annual_precipitation_mm (erklärt 2,7 % der Varianz)
-Artenanzahl_det ~ imp250 + mean_annual_temp_celsius + annual_precipitation_mm (erklärt 3,4 % der Varianz)
-Artenanzahl_det ~ I(imp500^2) (erklärt 1,6 % der Varianz)
-Artenanzahl_det ~ I(imp1000^2) (erklärt 1,2 % der Varianz)
-  bzw. Artenanzahl_det ~ mean_annual_temp_celsius + annual_precipitation_mm + I(imp1000^2) (erklärt 3,1 % der Varianz)
-Artenanzahl_det ~ I(imp2000^2)  (erklärt 1,1 % der Varianz)
-  bzw. Artenanzahl_det ~ imp2000 + annual_precipitation_mm + class_nr + I(imp2000^2)  (erklärt 3,9 % der Varianz)
+
+<!-- Zwischen den Sturkturreichtum bescheibenden Parametern Kantendichte und Anzahl der Landnutzungsklassen und der Abundanz der Bienen kann kein Zusammenhang aufgezeigt werden. Ebenso wird kein Zusammenhang der den Strukturreichtum beschreibenden Parametern und der Artenzahl der Bienen beschrieben.  -->
+
+
+## Der Einfluss des Versiegelungsgrades auf Artenzahl und Abundanz der Bienen
+  
+
+<!-- Anhand AIC und Residuendiagnostik wurden für beide Variablen, Artenzahl sowie Abundanz, negativ-binomiale GLM mit folgender Formel ausgewählt: $y = imp1000 + imp1000^2 + Insektenhaus$ (imp1000 ist der mittlere Versiegelungsgrad im 1000m Radius um den Nisthilfenstandort) -->
+<!-- Die Datenpunkte sowie die Modellvorhersage als marginaler Effektplot sind in Abbildung \ref{effektplotIH} dargestellt. Das Modell der Artenzahl beschreibt einen signifikanten Einfluss des Parameters Insektenhaus (siehe Tab. \ref{summaryIH}). Im Modell der Abundanz ist eine Tendenz einer Zunahme der Abundanz bei Vorhandensein eines Insektenhauses zu erkennen, welche jedoch nicht signifikant ist. In beiden Modellen hat der Versiegelungsgrad im 1000m Umkreis keinen signifikanten Einfluss. -->
+ 
+
+<!-- (Null_deviance - Residual_deviance)/Null_deviance -->
+
+
+
+
+Zur Analyse des Einflusses des Versiegelungsgrades verschiedener Radien auf die Artenzahl wurde für jeden Radius das beste Modell anhand von AIC, anova und Residuendiagnostik ausgewählt. Die Modellzusammenfassung ist in Tabelle \ref{summary_Artenzahl} dargestellt. Die Modellformeln sind im folgenden aufgeführt, wobei "imp_r" den Versiegelungsgrad im Radius r beschreibt, "annual_precipitation_mm" den Jahresniederschlag in mm, "mean_annual_temp_celsius" die mittlere Jahrestemperatur in grad Celsius und "altitude_town_m" die Höhenlage über NN:
+
+$Artenanzahl_det ~ imp100 + annual_precipitation_mm + mean_annual_temp_celsius + altitude_town_m $ 
+$Artenanzahl_det ~ imp250 + mean_annual_temp_celsius + annual_precipitation_mm$ 
+$Artenanzahl_det ~ imp500 + mean_annual_temp_celsius + annual_precipitation_mm$ 
+$Artenanzahl_det ~ I(imp1000^2)$  
+$Artenanzahl_det ~ I(imp2000^2)$ 
+
+Modelle mit dem Prädiktor der Radien 100m, 250m und 500m des Versigelungsgrades können durch das Erweitern der Prädiktoren um die Klimavariablen "mittlere Jahrestemperatur" sowie "Jahresniederschlag" verbessert werden. Im 100m-Radius verbessert zusätzlich die Höhenlage des Nisthilfenstandortes das Modell. In den Modellen mit den Radien des Versiegelungsgrades von 1000m und 2000m beschreibt der quadratische Term des Versiegelungsgrades als einzelner Prädiktor die Artenzahl der Wildbienen am besten. Der $R^2$-Wert all dieser Modelle liegt unter dem Wert von $0.1$, somit erklären all diese Modelle die Varianz der Daten nur minimal.
+
+Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
+
+Der Versiegelungsgrad hat im 100m, 250m und 500m-Radius einen negativen signifikanten linearen Einfluss auf die Artenzahl der Bienen. Mit zunehmender Versiegelung nimmt die Artenzahl ab.
+Zusätzlich beschreibt die Höhenlage des Nisthilfenstandortes im Modell mit dem Versiegelungsgrad im 100m-Radius einen postitiven signifikanten Zusammenhang. Der mittlere Versiegelungsgrad im 1000m und 2000m-Radius hat einen signifikanten quadratischen Einfluss auf die Artenzahl der Wildbienen. Bei einem Versiegelungsgrad von ca. $30 %$ ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts). 
+
+
+ 
 
 
 ```{r imp_subs, include=FALSE}
@@ -787,7 +829,7 @@ p_sig <- function(x){
 }
 
 kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Artenzahl. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Artenzahl} " ) %>% 
-  kable_styling(latex_options =c("striped")) %>% 
+  kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp250"=3,"imp500"=3,"imp1000"=3, "imp2000" = 3)
   ) %>%
@@ -809,7 +851,7 @@ kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusamme
 
 ```
 
-```{r echo=FALSE, fig.show='hold', out.width=c('50%', '50%'), warning=FALSE, message=FALSE, fig.cap="Modelle zur Artenanzahl"}
+```{r echo=FALSE, fig.show='hold', out.width=c('50%', '50%'), warning=FALSE, message=FALSE, fig.cap="Modelle zur Artenanzahl \\label{plot_modelle_artenzahl}"}
 unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scaled:scale")) {
   if(!is.null(scale))  z <- sweep(z, 2, scale, `*`)
   if(!is.null(center)) z <- sweep(z, 2, center, `+`)
@@ -930,6 +972,8 @@ ggplot(data = pred_1000, aes(imp, mean)) +
 ```
 
 
+Die Abundanz
+
 ```{r Abundanz, echo=FALSE, message=FALSE, warning=FALSE}
 
 model1b_zi <- readRDS("Modelle/model1b_zi.rds")
@@ -965,11 +1009,11 @@ model_abundanz_b <- model_abundanz[-c(4,5),-c(2:10)] %>%
 names(model_abundanz_b) <- c("term" ,"component", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value" )
 
 kableExtra::kbl(model_abundanz_a, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{} " ) %>% 
-  kable_styling(latex_options =c("striped")) %>% 
+  #kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
     c(" " = 2, "imp100"=3,"imp250"=3,"imp250"=3)
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(5,bold = p_sig(model_abundanz_a[,5])) %>% 
@@ -1076,7 +1120,6 @@ ggplot(data = pred_2000, aes(imp, pred_mean)) +
 ```
 
 
-Zwischen den Sturkturreichtum bescheibenden Parametern Kantendichte und Anzahl der Landnutzungsklassen und der Abundanz der Bienen kann kein Zusammenhang aufgezeigt werden. Ebenso wird kein Zusammenhang der den Strukturreichtum beschreibenden Parametern und der Artenzahl der Bienen beschrieben. 
 
 ### Artenzahl der Parasitoide
 So wie bei den Wirtsbienen auch, hat das Vorhandensein eines Insektenhauses einen positiven Einfluss auf die Artenzahl der Parasitoide während der Versiegelungsgrad die Artenzahl nicht beeinflusst.
@@ -1372,7 +1415,10 @@ rows <- seq_len(nrow(land_species) %/% 2)
 <!-- invasive arten? -->
 
 
-<!-- # Diskussion #################################### -->
+# Diskussion ####################################
+
+Die Parameter der Landschaftstruktur zeigten keinerlei Effekt auf die untersuchten Variablen der Nisthilfen. Es ist davon auszugehen, dass die Berechnung der Parameter aus Satelittendaten insbesondere im Siedlungsbereich nicht die Genauigkeit bietet um für Wildbienen und ihre Gegenspieler relevante Habitateigenschaften abzubilden. 
+Denn in anderen Studien ... wurde der Effekt der Landschaftstruktur bereits aufgezeigt.
 
 <!-- Da ländliche Gebiete jedoch auch intensiv genutzte Landwirtschaftliche Flächen beinhalten, was @warren2018 am Konzept des Stadt-Land Gradienten bemängelt haben, wird in dieser Arbeit auch der Anteil an Landwirtschaftlichen Flächen mit einbezogen. -->
 
