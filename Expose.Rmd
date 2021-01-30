@@ -54,18 +54,16 @@ library(sjPlot)
 -->
 
 # Einleitung
-Bienen haben Forscher durch ihre Vielfalt spezifischer Anpassungen und Interaktionen mit ihrer Umwelt schon seit Jahrhunderten fasziniert. Die Bedeutung dieser Insektengruppe in der Umwelt im Zusammenhang mit der Kenntnis über deren Artenrückgang (in der öffentlichen Presse als "Insektensterben" bzw. "Bienensterben" bezeichnet) hat das Interesse an der Erforschung in den letzten Jahrzehnten gesteigert.  
+Bienen haben durch ihre Vielfalt spezifischer Anpassungen und Interaktionen mit ihrer Umwelt schon seit Jahrhunderten fasziniert. Die Bedeutung dieser Insektengruppe in der Umwelt im Zusammenhang mit der Kenntnis über deren Artenrückgang, welcher in der Öffentlichkeit auch als "Insektensterben" bzw. "Bienensterben" bezeichnet wird, hat das Interesse an der Erforschung in den letzten Jahrzehnten noch gesteigert.  
 
 <!-- artenrückgang -->
-Das Artensterben und die Abnahme der Populationen von Insekten wird Weltweit beschrieben. <!-- viele Quellen --> So sorgte beispielsweise die "Krefelder Studie" [@hallmann2017] für besondere Aufmerksamkeit, da sie mit Daten aus 27 Jahren einen 75%igen Rückgang der Biomasse von fliegenden Insekten in Deutschland beschreibt. Neben dem Verschwinden von seltenen Arten, ist auch der Rückgang von früher sehr häufigen Arten [@wagner2020] nicht nur ein Wertverlust sondern schadet auch den Interaktionen zwischen Arten [@hallmann2014] und den damit verbundenen Prozessen im Ökosystem [@yang2014; @losey2006]. <!-- welche Prozesse  -->  
-So können vielfältige Interaktionen ('top-down', der Einfluss der natürlichen Feinde und 'bottom-up', dem Einfluss der Nahrungsqualität- und Verfügbarkeit) im Ökosystem aus dem Gleichgewicht geraten [@raupp2010]. Bei Insekten haben diese Interaktionen beispielsweise einen Einfluss auf die Pflanzendiversität, da bestimmte Pflanzen nicht mehr konkurrieren können, wenn Bestäuber fehlen [@haddad2011].   
+Das Artensterben und die Abnahme der Populationen von Insekten wird Weltweit beschrieben. <!-- viele Quellen --> So sorgte beispielsweise die "Krefelder Studie" [@hallmann2017] für besondere Aufmerksamkeit, da sie mit Daten aus 27 Jahren einen 75%igen Rückgang der Biomasse von fliegenden Insekten in Deutschland beschreibt. Neben dem Verschwinden von seltenen Arten, wird auch ein Rückgang von früher sehr häufigen Arten verzeichnet [@wagner2020]. Der Artenrückgang ist nicht nur ein Wertverlust sondern schadet auch den Interaktionen zwischen Arten [@hallmann2014] und den damit verbundenen Prozessen im Ökosystem [@yang2014; @losey2006]. <!-- welche Prozesse  -->  
+So können vielfältige Interaktionen ('top-down', der Einfluss der natürlichen Feinde und 'bottom-up', dem Einfluss der Nahrungsqualität- und Verfügbarkeit) im Ökosystem aus dem Gleichgewicht geraten [@raupp2010]. Bei bestäubenden Insekten haben diese Interaktionen beispielsweise einen Einfluss auf die Pflanzendiversität, da bestimmte Pflanzen nicht mehr konkurrieren können, wenn Bestäuber fehlen [@haddad2011].   
 
 Der Grund für das Insektensterben ist bisher nicht eindeutig geklärt. So sind Räumlich und zeitlich variable Faktoren zu unterschiedliechen Anteilen ursächlich für das Insektensterben. @wagner2020 führen die Habitatzerstörung, Intensivierung der Landwirtschaft (inklusive Pestizideinsatz), Klimawandel und die Verbreitung invasiver Arten als Ursachen für das Insektensterben auf. Um die Ursachen besser bewerten zu können bedarf es noch Forschungsarbeit insbesondere zu ökologischen Gradienten [@wagner2020].   <!-- und Umweltgifte, die als solche noch nicht erkannt sind --><!-- @didham2020 einfügen -->  
 Neben der Zerstörung von natürlichen Habitaten kann jegliche Umwandlung der Landnutzung den Lebensraum von Arten beeinflussen und gefährden. Je nach Lebensraumansprüchen reagieren einzelne Arten und Artengruppen auf Veränderungen wie Intensivierung der Landwirtschaft oder Flächenversiegelung in unterschiedlichem Maße. Auch Aspekte des Klimawandels wie veränderte Niederschläge, Jahresmitteltemperaturen oder Dürreperioden, führen zu Veränderungen der Lebensräume verschiedener Insekten, so beispielsweise auch durch ihren Einfluss auf deren Nahrungsressourcen.  
 
-
-
-## Bedeutung von Wildbienen
+<!-- ## Bedeutung von Wildbienen -->
 <!-- ökonomische bedeutung --> Der negative Trend der Insektenvorkommen hat es bereits in die politische Agenda geschafft, vor allem da die Bestäubungsleistung als Ökosystemfunktion von Insekten von großer Ökonomischer Bedeutung ist. So haben @losey2006 beispielsweise den Wert der Bestäubungsleistung durch Wildbienen auf 20% der Landwirtschaftlichen Produktion geschätzt. Die Stabilität dieser Ökosystemfunktion wird durch den Rückgang der Diversität als gefährdet eingeschätzt [@balvanera2006]. Denn die Artenzahlen von solitären Bienenarten (=Wildbienen) welche Spezialisten bezüglich Habitat und Bestäubung sind, sind größtenteils Rückläufig [@biesmeijer2006]. Laut der Roten Liste sind 9% der Wildbienenarten Europas vom Aussterben Bedroht [@nieto2014], wobei allerdings für 56% der Arten nicht genug Daten vorhanden sind um eine Aussage über ihren Gefährdungsstatus zu machen.  
 Trotz zahlreichen Studien ist die genaue geografische Ausdehnung und der Ausmaß des Rückgangs der Insektenbestände noch nicht genau erforscht. Es stellt sich die Frage wie stark die Lebensbedingungen aller Arten, so auch der Wildbienen, durch den anthropogenen Einfluss eingeschränkt sind und wie sie sich verändern. Die Kenntnis der Lebensweise sowie der Ansprüche der Wildbienenarten an ihren Lebensraum ist nötig um den Erhalt der Wildbienenarten zu gewährleisten. 
 
@@ -81,17 +79,17 @@ Chrysididae (Cuckoo wasps): This rare group of parasitic wasps has recently been
 
 
 ## Wildbienen und ihre Nistweise
-Wildbienen sind solitär lebende Bienen verschiedener Familien, die in der Überfamilie *Apoidea* zusammengefasst werden, in der Teilordnung Stechimmen (*Aculeata*),  Unterordung Taillenwespen (*Apocrita*) und Insektenordnung der Hautflügler (*Hymenoptera*). In Bezug auf Aussehen, Lebensweise und Anpassungen an die Umwelt sind Wildbienen vielfältig. Die Metamorphose vom Ei zur Larve zur adulten Biene, manchmal mit einer Verupuppung im Kokon, verläuft im vom Bienenweibchen angelegten Nest. Die Nester werden in verschiedenen röhrenförmigen Hohlräumen wie Pflanzenstengel und Käferfraßgängen angelegt, oder selbst gegraben, beispielsweise im Boden. So sind  die meisten Arten hochspezialisiert in Bezug auf ihren Nistplatz, so zum Beispiel einige Osmia-Arten die nur in leeren Schneckenhäusern nisten. <!-- Zitat: so z.B. die 50% die irgendwo im Erdreich nisten. --> Die Nestanlage erfolgt je mit Artspezifischen  Materialien, die zum verschießen des Nestes sowie zur Unterteilung von Brutzellen dienen, so z.B. Lehm, Steinchen, Blätter oder selbstproduziertes seidiges Sekret. Das Nest dient zur Eiablage und zur Anlagerung von Pollen, welcher den sich später entwickelnden Larven als Nahrung dient. Dabei gibt es Bienen die den Pollen nur von einer bestimmten Pflanzenart bzw. Pflanzenfamilie sammeln, was als oligolektisches Pflanzensammelverhalten bezeichnet wird. Neben diesen Pollenspezialisten werden Bienen, welche ein vielfältigeres Blütenspektrum zum Pollensammeln nutzen, also die Pollengeneralisten, als polylektischen Bienen bezeichnet [@westrich2019].
-Durch die Spezialisierung der Bienen auf Baumaterial, Nistplatz und Nahrungsraum [@westrich2019] ist der Anspruch jeder einzelnen Bienenart an den Lebensraum hoch und von geeignete Bedingungen der Umgebung abhängig. <!-- mehr Quellen aus Wissenschaftlichen Artikeln, nicht so oft westrich2019 zitieren --> <!-- allgemeines auch in Krombein-->
-Die Ressourcen Baumarerial, Nistplatz und Nahrung müssen inerhalb der Flugradius der Bienenart vorkommen. Durch ihren komplexen Lebensarumanspruch sind Wildbienen abhängig von einer bestimmten Kombination von Landschaftsstruktur, Flächenversiegelung, Klimatischen Faktoren, Höhenlage und Landnutzung.  In dieser Arbeit soll der Einfluss dieser Umweltparameter auf die nisthilfen-Besiedelnde Bienenarten untersucht werden.  
+Wildbienen sind solitär lebende Bienen verschiedener Familien, die in der Überfamilie *Apoidea* zusammengefasst werden, in der Teilordnung Stechimmen (*Aculeata*),  Unterordung Taillenwespen (*Apocrita*) und Insektenordnung der Hautflügler (*Hymenoptera*). In Bezug auf Aussehen, Lebensweise und Anpassungen an die Umwelt sind Wildbienen vielfältig. Die Metamorphose vom Ei zur Larve zur adulten Biene, manchmal mit einer Verupuppung im Kokon, verläuft im vom Bienenweibchen angelegten Nest. Die Nester werden in verschiedenen röhrenförmigen Hohlräumen wie Pflanzenstengel und Käferfraßgängen angelegt, oder selbst gegraben, beispielsweise im Boden. So sind  die meisten Arten hochspezialisiert in Bezug auf ihren Nistplatz, so gibt es zum Beispiel einige Osmia-Arten die nur in leeren Schneckenhäusern nisten. <!-- Zitat: so z.B. die 50% die irgendwo im Erdreich nisten. --> Die Nestanlage erfolgt je mit Artspezifischen  Materialien wie Lehm, Steinchen, Blätter oder einem selbstproduziertes seidiges Sekret, die zum verschießen des Nestes sowie zur Unterteilung von Brutzellen dienen. Das Nest dient zur Eiablage und zur Anlagerung von Pollen, welcher den sich später entwickelnden Larven als Nahrung dient. Dabei gibt es Bienen die den Pollen nur von einer bestimmten Pflanzenart bzw. Pflanzenfamilie sammeln, was als oligolektisches Pflanzensammelverhalten bezeichnet wird. Neben diesen Pollenspezialisten werden Bienen, welche ein vielfältigeres Blütenspektrum zum Pollensammeln nutzen, also die Pollengeneralisten, als polylektischen Bienen bezeichnet [@westrich2019].
+Durch die Spezialisierung der Bienen auf Baumaterial, Nistplatz und Nahrungsraum [@westrich2019] ist der Anspruch jeder einzelnen Bienenart an den Lebensraum hoch und stark von geeignete Bedingungen der Umgebung abhängig. <!-- mehr Quellen aus Wissenschaftlichen Artikeln, nicht so oft westrich2019 zitieren --> <!-- allgemeines auch in Krombein-->
+Die Ressourcen Baumarerial, Nistplatz und Nahrung müssen inerhalb der Flugradius der Bienenart vorkommen. Durch ihren komplexen Lebensarumanspruch sind Wildbienen abhängig von einer bestimmten Kombination von Landschaftsstruktur, Flächenversiegelung, Klimatischen Faktoren, Höhenlage und Landnutzung.  In dieser Arbeit soll der Einfluss dieser Umweltparameter auf die Nisthilfen-besiedelnde Bienenarten untersucht werden.  Besonderer Fokus ist dabei der Siedlungsbereich da dieser global und auch in Deutschland an Fläche zunimmt. So hat der Siedlungsbereich ein großes Potential zur Arterhaltung von Wildbienen beizutragen, falls er geeigntete Habitate bietet. 
 
 In Deutschland kommen etwa 566 Wildbienenarten vor, wovon etwa 6% [@tscharntke1998] Hohlraumbewohner sind, welche Nisthilfen besiedeln.
-Neben den Bienen und Wespen, die ihre Nester in den Nisthilfen anlegen, werden diese auch von deren natürlichen Gegenspielern besiedelt. Die natürlichen Gegenspieler sind teils hochspezialisiert auf ihren Wirt und haben einen regulierenden Einfluss auf dessen Population. Es kommen verschiedene Formen des Parasitismus vor (echte Parasiten (z.B. Milben) die ihren Wirt nicht töten, Parasitoide, welche ihren Wirt töten (z.B. Goldwespen) oder Futterparasiten wie Kuckucksbienen und -wespen), wobei es sogar zur Parasitierung 2. und 3. Grades kommen kann [@westrich2020]. 
+Neben den Bienen und Wespen, die ihre Nester in den Nisthilfen anlegen, werden diese auch von deren natürlichen Gegenspielern (z.B. Parasitoide) besiedelt. Die natürlichen Gegenspieler sind teils hochspezialisiert auf ihren Wirt und haben einen regulierenden Einfluss auf dessen Population. Es kommen verschiedene Formen des Parasitismus vor (echte Parasiten die ihren Wirt nicht töten wie beispielsweise Milben, Parasitoide, welche ihren Wirt töten, wie z.B. Goldwespen, und Futterparasiten wie Kuckucksbienen und -wespen), wobei es sogar zur Parasitierung 2. und 3. Grades kommen kann [@westrich2020]. 
 Da auch die Gegenspieler in ihrem Lebensraumanspruch von Veränderungen beeinflusst werden, können solche Änderungen der Umweltparameter auch die Häufigkeit der Wirtsarten sowie ihr Vorkommen verändern. Nach @combes1996 sind parasitische Arten gute Indikatoren für die Bewertung von Ökosystemen und ihrer Stabilität [@fortel2014<!-- @fortel2014: [71–75] -->]. @sheffield2013 zeigen, dass die Struktur der Artengemeinschaft von parasitischen Bienen die gesamte Bienenartengemeinschaft repräsentiert und somit als Indikator für die gesamte Bienenartengemeinschaft dienen kann.
 
 <!-- @fortel2014: Indeed, several studies suggest that parasitic species are good indicators of ecosystem health and stability [70–75]. Parasitic bees play a stabilizing role in bee communities [69,70]-->
 
-### Nisthilfen (Trap-Nests)
+## Nisthilfen (Trap-Nests)
 <!-- sampling-method trap-nest -->
 Einige Wildbienenarten Nisten in oberirdischen Hohlräumen und besiedeln daher auch Nisthilfen (Trap-nest), welche durch waagerecht orientierte Schilfhalme und Bambusröhrchen eine Nistmöglichkeit bieten. Das Monitoring von Wildbienen, Wespen und deren Parasiten mittels Nisthilfen ist eine etablierte Methode, die die Möglichkeit bietet den Lebenszyklus vom Ei bis zum adulten Individuum zu erforschen. So ist die Analyse der Mortalität, des Geschlechterverhältnisses, der Parasitierungsraten und der Wirt-Parasit-Beziehungen ein Vorteil, welchen Nisthilfen, im Vergleich zu Fangmethoden der fliegenden Wildbienen, bieten.  
 Neben ursprünglich rein biologischen Fragestellungen werden Nisthilfen auch für Fragestellungen zur Artenzusammensetzung entlang von Gradienten und im Bezug zum Umweltwandel behandelt [@staab2018c].  
@@ -99,24 +97,15 @@ Analysen von Bienen und Wespen in Nisthilfen eignen sich zur Bewertung von Habit
   
 Dennoch eignen sich Nisthilfen nicht um die gesamte Artendiversität von Bienen oder Wespen zu erfassen, da Nisthilfen nur für eine limitierte Anzahl an Arten einen geeigneten Nistplatz bieten [@staab2018c]<!-- (Kessler et al., 2011; Tscharntke et al., 1998) -->. In Nisthilfen wird nur ein Bruchteil der jeweiligen localen Fauna erfasst, und selbst nur einen Bruchteil der potentiellen Hohlraumbesiedler. Auch die relative Häufigkeit der Arten unterscheidet sich von mit Netzen im Feld gefangenen Arten [@krombein; @prendergast2020].
 
-In dieser Arbeit wird die Artenzusammensetzung der Bienen in Nisthilfen entlang eines Stadt-Land-Gradienten untersucht. Anhand der Artenzusammensetzung und Analyse der Parasitierung sollen die Habitatqualität im Siedlungsbereich bewertet werden.
+In dieser Arbeit wird die Artenzusammensetzung der Bienen in Nisthilfen entlang eines Stadt-Land-Gradienten untersucht. Anhand der Analyse von Artenzusammensetzung und Parasitierung soll die Habitatqualität im Siedlungsbereich bewertet werden. Die für diese Arbeit analysierten Nishilfen sind Teil des Projekt "Schulinsektenhaus".
 
-Nisthilfen sind ... Bioindikatoren
+<!-- Nisthilfen sind ... Bioindikatoren -->
+## Das Projekt "Schulinsektenhaus"
+Im Projekt "Schulinsektenhaus" der Proffessur für Naturschutz und Landschaftsökologie der Albert-Ludwigs-Universität Freiburg in Kooperation mit dem Robert-Bosch-College in Freiburg werden flächendeckende Daten über hohlraumbesiedelnde Insekten gesammelt. Das Projekt was über mehrere Jahre laufen soll hat im Jahr 2019 gestartet und Insktenhäuser (Nisthilfen) an über 300 Schulen in ganz Deutschland versendet. Verantwortliche Lehrer\*innen und Schüler\*innen dokumentieren die Anbringung des Nestes sowie Informationen zur Umgebung, welche das Vorkommen der Insekten beeinflussen können.
+Von den Schulen wird am Jahresende je eine Nisthilfe zurückgesendet an die Uni Freiburg, sodass die Besiedelung der Insektenhäuser bezüglich Nahrungsverhalten, Nestbauweise und Parasitierung analysiert werden kann. 
+Das Projekt beinhaltet so zum einen den Bildunsaspekt, um bei Schüler\*innen und Lehrer\*innen in ganz Deutschland das Interesse an der Ökologie der Insekten zu wecken, zum anderen ermöglicht das Projekt Erkenntnisse über den deutschlandweiten Status der vorkommenden Wespen- und Bienenarten mit einem Fokus auf Siedlungsgebiete.
 
-Um das "Bienensterben" als Teil des "Insektensterben" zu verstehen und zu beurteilen gilt es den Einfluss von verschiedenen Umweltfaktoren auf Wildbienen zu untersuchen um ein genaueres Verständnis der Lebensweise dieser Artengruppe zu erlangen.
-Besonderer Fokus ist dabei der Siedlungsbereich da dieser global und auch in Deutschland an Fläche zunimmt. So hat der Siedlungsbereich ein großes Potential zur Arterhaltung von Wildbienen beizutragen, insofern er geeigntete Habitate bietet. 
-
-Studien im Landwirtschaftlichen Kontext und im Bereich natürlicher Habitate wurde bereits intensiv untersucht. Der Anteil natürlicher Habitate in der Landschaft nimmt im Gegensatz zum Siedlungsbereich ab.
-- Einfluss von Landwirtschaft auf Wildbienen
-- Einfluss von natürlichen Habitaten auf Wildbienen
-
-Wie Landschaftsstruktur Wildbienen in trapnestern beeinflusst
-Wie der Versiegelungsgrad Wildbienen in trapnestern beeinflusst
-Wie die Landnutzung Wildbienen in trapnestern beeinflusst
-Wie das Klima Wildbienen in trapnestern beeinflusst
-Wie die Höhenlage Wildbienen in trapnestern beeinflusst
-
-Im Rahmen des Schulinsektenhausprojektes werde ich die in den Nisthilfen vorkommenden Bienenarten mit ihren Parasiten analysieren. Dabei werde ich den Effekt der Landnutzung, insbesondere in Siedlungsgebieten, auf die Artenzusammensetzung der kapp 300 über Deutschland verteilten Nisthilfen (siehe Abbildung \ref{standorte}) untersuchen.
+Die in dieser Arbeit analysierten Nisthilfen waren im gesamten Jahr 2019 im Rahmen des Schulinsektenhausprojekt an den knapp 300 in Abbildnung \ref{standorte} dargestellten Standorten aufgestellt.
 
 ```{r standorte, fig.cap="Standorte der Nisthilfen 2019 in Deutschland \\label{standorte}", cache=TRUE}
 
@@ -144,25 +133,25 @@ ggplot()  + geom_sf(data = germany) + geom_sf(data = mypoint)
 ```
 
 
-
-
- 
-
-
-
-## Wildbienen in der Landschaft - Landnutzung
-Weltweit wird ein Landschaftswandel beobachtet: Die Intensivierung der Landwirtschaft und die zunehmende Urbanisierung verdrängen natürliche Habitate. Mit der Zerstörung von natürlichen Habitate gehen Nahrungsressourcen und Nistplätze von Wildbienen verloren [@banaszak-cibicka2012]. Somit wird die Zerstörung und Zerstückelung von Habitaten im Zuge des Landschaftswandels als Hauptursache für die Abnahme der Bienendiversität gesehen [@wagner2020; @brown2009; @winfree2009]. In Deutschland sind natürliche Habitate wie Hecken oder Waldinseln durch die Zerstörung bedroht, oder <!-- Quelle: Der Strukturwandel ländlicher Siedlungen in der Bundesrepublik Deutschland --> bereits zu großen Teilen aus dem Landschaftsbild verschwunden, unter anderem durch die Flurneuordnung. <!-- landscape composition -->
+## Der Einfluss der Landnutzung auf Wildbienen 
+<!-- Studien im Landwirtschaftlichen Kontext und im Bereich natürlicher Habitate wurde bereits intensiv untersucht. Der Anteil natürlicher Habitate in der Landschaft nimmt im Gegensatz zum Siedlungsbereich ab. -->
+<!-- - Einfluss von Landwirtschaft auf Wildbienen -->
+<!-- - Einfluss von natürlichen Habitaten auf Wildbienen -->
+Natürliche Habitate bieten Wildbienen Nahrungsressourcen und Nistplätze, welche durch die Verdrängung dieser Landschaftselemente verlorgen gehen [@banaszak-cibicka2012]. Somit wird die Zerstörung und Zerstückelung von Habitaten im Zuge des Landschaftswandels als Hauptursache für die Abnahme der Bienendiversität gesehen [@wagner2020; @brown2009; @winfree2009]. In Deutschland sind natürliche Habitate wie Hecken oder Waldinseln durch die Zerstörung bedroht, oder <!-- Quelle: Der Strukturwandel ländlicher Siedlungen in der Bundesrepublik Deutschland --> bereits zu großen Teilen aus dem Landschaftsbild verschwunden, unter anderem durch die Flurneuordnung. <!-- landscape composition -->
+Der Landschsaftswandel zu einer Intensivierung der Landwirtschaft und einer zunehmenden Urbanisierung zulasten der natürlichen Habitate wird weltweit beobachtet.
 <!-- vlt noch kulturlandschaft wo mit unsere heutige Insektenwelt herkommt erwähnen. Davor war hier nur wald und sicher eine ganz andere Insektenzusammensetzung. -->
 Für die komplexen Lebensraumansprüche von Wildbienen sind verschiedene Landnutzungsformen wie Landwirtschaftliche Flächen und der städtische Bereich in unterschiedlichem Maße geeignet.  
 Viele Studien wurden bereits im Kontext der Agrarlandschaft durchgeführt, um die Bestäubungsleistung durch die Wildbienenpopulationen abzuschätzen und ihren ökonomischen Wert zu beurteilen [z.B.: @happe2018; @holzschuh2010].
-In Agrarlandschaften in denen Monokulturen nur saisonal einseitige Futterquellen bieten, Insektizide großflächig angewandt werden und Nistmöglichkeiten fehlen, können Wildbienenpopulationen nicht bestehen [@westrich1996]. In der Landwirtschaft ist so die Nähe zu natürlichen Habitaten wichtig um die Bestäubungsleistung durch Wildbienen zu gewährleisten [@garibaldi2011; @ricketts2008; @lefeon2010]. Der Anteil von semi-natürlichen Habitaten in der Landschaft hat einen positiven Einfluss auf die Artenzahl der Wildbienen sowie ihrer Parasiten [@steffan-dewenter2002]. 
+In Agrarlandschaften in denen Monokulturen nur saisonal einseitige Futterquellen bieten, Insektizide großflächig angewandt werden und Nistmöglichkeiten fehlen, können Wildbienenpopulationen nicht bestehen [@westrich1996]. In der Landwirtschaft ist so die Nähe zu natürlichen Habitaten wichtig um die Bestäubungsleistung durch Wildbienen zu gewährleisten [@garibaldi2011; @ricketts2008; @lefeon2010]. Der Anteil von semi-natürlichen Habitaten in der Landschaft hat einen positiven Einfluss auf die Artenzahl der Wildbienen sowie ihrer Parasiten [@steffan-dewenter2002]. Dies beobachteten auch @holzschuh2010, die den Anteil von Nicht-Ackerland-Habitaten in der Landschaft untersucht haben. Der Anteil von Nicht-Ackerland-Habitaten in der Landschaft hat einen positiven Effekt auf Artenzahl sowie Abundanz von Bienen in Nisthilfen, als auch auf die Abundanz der in den Nisthilfen häufigsten Bienenart *Osmia bicornis*.
+
+#### Studien zu Ackerland, Weideflächen und Wald
+
 
 
  <!-- Waldhabitate, welche einen großteil der semi-natürleichen Habitate in Deutschland ausmachen, haben dabei jedoch hauptsächlich einen Einfluss auf die Artenzahl der Wespen und das Vorkommen der natürlichen Feinde [@schuepp2011]. <!-- weitere quellen zum eninfluss von natürlichen Habitaten --> 
 
-### Stadt-Land-Gradient
 Neben Agrarlandschaft und natürlichen Habitaten, bleibt noch der durch seine starke Strukturheterogenität charakterisierte Urbane (städtische) Raum, den Wildbienen besiedeln. Die Lebensbedingungen und Zusammenhänge in einem "urbanen Ökosystem" zu verstehen ist aufgrund der Heterogenität vieler Strukturen und Prozesse in Städten eine besondere Herausforderung. Das Vorkommen von bestimmten Arten in Städten hängt von vielen Faktoren wie der Verfügbarkeit von Nahrungsressourcen, der Vernetzung von Habitaten und von dem Vorhandensein "ökologischer Fallen" (z.B. Reflexionen von beleuchteten Asphaltflächen die fälschlicherweise als Wasserfläche wahrgenommen werden) ab [@new2015].  
-Inwiefern der heterogene urbane Raum das Potential hat diverse Bienengemeinschaften zu beherbergen, dazu bedarf es noch genauerer Kenntnis. Vor allem um die Biodiversität aktiv schützen zu können. Denn "Ökologische Regeln" in Städten unterscheiden sich stark von denen in der natürlichen Umwelt und Reaktionen auf die Urbanisierung könnten durchaus wie bei herbivoren Anthropoden [@raupp2010] Taxonspezifisch sein.  
+Inwiefern der heterogene urbane Raum das Potential hat diverse Bienengemeinschaften zu beherbergen, dazu bedarf es noch genauerer Kenntnis. Vor allem um die Biodiversität aktiv schützen zu können. Denn die ökologischen Zusammenhänge in Städten unterscheiden sich stark von denen in der natürlichen Umwelt und Reaktionen auf die Urbanisierung könnten durchaus wie bei herbivoren Anthropoden [@raupp2010] Taxonspezifisch sein.  
 Gründe für die Erhaltung der urbanen Biodiversität und Natur haben @dearborn2010 verfasst: Das ist zunächst der Artenschutz von seltenen oder vom Aussterben bedrohten Arten die im städtischen Bereich vorkommen, das Schaffen von Korridoren für die Vernetzung von Populationen sowie das Verständnis der Auswirkungen des Umweltwandels, Umweltbildung, das Bereitstellen von Ökosystemdienstleistungen, der ethischen Verantwortung gerecht zu werden und zuletzt auch um das menschliche Wohlbefinden zu verbessern.
 
 Das Verständnis der Wildbienen im urbanen Raum kann durch die Analyse der Arten entlang des Stadt-Land-Gradienten untersucht werden, sodass Rückschlüsse gezogen werden können über die Resilienz der Arten sowie die Reaktionen der untersuchten Arten auf Veränderungen entlang des Gradienten [@new2015].  
@@ -192,29 +181,55 @@ Parasiten, die die nächsthöhere trophische Ebene bilden nach den (nicht parasi
 <!-- @steckel2014 These findings are in accordance with studies on local prey/host losses that revealed that antagonists depend more than their hosts on habitat connectivity (Tscharntke and Kruess, 1999).   -->
 <!-- @steckel2014 species groups that might respond to landscape parameters at different spatial scales. The antagonists responded to larger scales (1500 m) than their lower trophic level hosts (wasps 250 m, bees 1000 m) (Holt, 1996). -->
 
+<!-- @darocha-filho2020 heterogeneous  landscapes  in  urban  areas  can  harbour  species-rich communities of cavity-nesting bees, wasps, and their natural enemies even when compared  to  areas  with  diverse  native  vegetation  with  similar  original  ecosystems -->
 
-### Landschaftsstruktur und Komplexität
+
+## Der Einfluss von Landschaftsstruktur und Komplexität auf Wildbienen
 Landschaftsstruktur und -Komplexität beeinflussen die Verfügbarkeit und Kombination von verschiedenen Ressourcen und bilden somit Wildbienenhabitate unterschiedlicher Qualtität. Denn jede Landnutzungsform bietet spezifische Ressourcen und somit Habitate bzw. Habitatfragmente. Aneinandergrenzende Landnutzungsformen können unterschiedliche Ressourcen bieten und so zusätzliche Habitate für Wildbienen bieten. So hat die Größe und Form (Landschaftsstruktur) der Flächen einer Landnutzungsform sowie Anzahl verschiedener Landnutzungsformen (Landschaftskomplexität) einen Einfluss auf vorkommende Bienenarten [@steffan-dewenter2003a].
 
 Die Kantendichte ist ein Maß der Landschaftskomplexität, welches als Index für das Habitatnetzwerk dient. Denn die gesamtmenge an Kanten zwischen Landnutzungsklassen in einer Landschaft steht in direktem Zusammenhang zur räumlichen Heterogenität der Landschaft [@mcgarigal1995]. 
 Der Kantentyp, also welche zwei Landnutzungsklassen aneinandergrenzen, kann dabei einen Einfluss auf die Alpha-, Beta- und Gammadiversität haben, wie es @ma2013 für Pflanzen beschrieben haben.
 
-
-Das Vorkommen verschiedener Bienenarten ist zudem von einer Vernetzung der Habitate abhängig, was gerade im innerstädtischen Bereich eine Rolle spielen kann.
-In verschiedenen Studien wurde bereits der positive Effekt von strukturreichen und komplexen Landschaften auf die Artenzahl von Wildbienen festgestellt [...]. Jedoch wurde nach meinem Wissen noch nicht untersucht ob sich dieser Effekt auch allgemein (also nicht nur Landwirtschaft-natürliche Habitate; Stadt-Land; Wald-Acker; etc.) und mit durch Satelitendaten klassifizierten Landnutzungsklassen zeigt, was in dieser Arbeit untersucht wird.
+Das Vorkommen verschiedener Bienenarten ist zudem von einer Vernetzung der Habitate abhängig.
+In verschiedenen Studien wurde bereits der positive Effekt von strukturreichen und komplexen Landschaften auf die Artenzahl von Wildbienen festgestellt [...]. Wobei die Landschaftstruktur sowie Habitatisolation von Gehölz- und Waldhabitaten im Landwirtschaftlichen Kontext in der Studie von @schuepp2011 keinen Einfluss auf die Artenzahl der Bienen in Nisthilfen aufzeigte.
+Jedoch wurde nach meinem Wissen noch nicht untersucht ob sich dieser Effekt auch allgemein (also nicht nur Landwirtschaft-natürliche Habitate; Stadt-Land; Wald-Acker; etc.) und mit durch Satelitendaten klassifizierten Landnutzungsklassen zeigt, was in dieser Arbeit untersucht wird.
 
 Parasiten sind als Arten einer höheren trophischen Ebene stärker Beeinflusst von der Zerstückelung von Habitaten als Arten niedrigerer trophischer Ebenen [@steffan-dewenter2003a]. Somit ist ein stärkerer Effekt der Landschaftsstruktur und Komplexität auf die Artenzahlen der Parasiten als auf die Artenzahlen ihrer Wirte zu erwarten.
 
-<!-- @darocha-filho2020 heterogeneous  landscapes  in  urban  areas  can  harbour  species-rich communities of cavity-nesting bees, wasps, and their natural enemies even when compared  to  areas  with  diverse  native  vegetation  with  similar  original  ecosystems -->
 
 <!-- komplexität der landschaft: landschaftsmatrix, welche habitatfragmente sind vorhanden? (steffan-dewenter2002) -->
 
-<!-- @steffan-dewenter2003a: hypothesis: higher trophic levelsare more affected by habitat fragmentation than lower trophic levels. The surrounding matrix of a habitat fragment may increase the amount of available resources or provide additionalresources that do not occur within the local habitat frag-ment. -->
+## Der Einfluss abiotischer Faktoren auf Wildbienen
+Abiotische Faktoren wie Temperatur, Niederschlag und Höhenlage beeinflussen Wildbienen. Temperatur und Niederschlag können einen direkten physiologischen Einfluss auf Wildbienen. Hinzu kommt der indirekte Einfluss, da diese Parameter und auch die Höhenlage des Standortes die Nahrungsressourcen der Wildbienen beeinflussen. Die Klimatischen Bedingungen steuern die zeitliche Verfügbarkeit der Nahrungsressourcen und auch ihre Quantität. Die Höhenlage ist durch die Klimatischen Bedingungen geprägt [@mayr2020].
+
+<!-- Weil diese Parameter die Modelle zu Landnutzung und Struktur potentiell verbessern können -->
 
 
 
-<!-- Studien, welche solitäre Wespen und Bienen in Trap-nestern untersucht haben: [@budrien2004 (Nestdurchmesser, Ungarn); @krombein (allgemein, USA); @martins2012 (Trap-nest-methode, Brasilien); @moron2012 (Schwermetallbelastung, UK); @schuepp2011 (Landschaftskomposition und Habitatisolation); @tylianakis2007 (Wirt-Parasit-Beziehung, Landnutzungsintensität, Ecuador); @veddeler2010 (Parasitism, Ecuador); @westphal2008 (Vergleich zu anderen sampling Methoden)] -->
-<!-- in Deutschland: [@dainese2018 (Raps vs nicht-blühende Getreide, Populationsdynamik, Gegenspieler, Landnutzungsinstensität und -komplexität); @diekotter2014 (Raps); @gathmann2002 (foraging range); @happe2018 (ökologische vs. konventionelle Landwirtschaft); @holzschuh2010 (Landschaftszusammensetzung, ökologisch vs. konventionelle LW); @pereira-peixoto2014 (bienen und wespen, urban-rural Gradient); @pereira-peixoto2016 (Wirt-Parasit-Beziehung, urban-rural Gradient); @steckel2014 (Landschaftskomposition); @steffan-dewenter2002 (Landschaftskontext); @tscharntke1998 (Bioindication); @vonkonigslow2019 (Vergleich versch. Nisthilfen)] -->
+
+
+<!-- Studien, welche solitäre Wespen und Bienen in Trap-nestern untersucht haben: 
+[@budrien2004 (Nestdurchmesser, Ungarn); 
+@krombein (allgemein, USA); 
+@martins2012 (Trap-nest-methode, Brasilien); 
+@moron2012 (Schwermetallbelastung, UK); 
+
+@tylianakis2007 (Wirt-Parasit-Beziehung, Landnutzungsintensität, Ecuador); 
+@veddeler2010 (Parasitism, Ecuador); 
+@westphal2008 (Vergleich zu anderen sampling Methoden)] -->
+
+<!-- in Deutschland: 
+[@dainese2018 (Trapnests als bestäubungsunterstützung. Raps vs nicht-blühende Getreide, Populationsdynamik, Gegenspieler, Landnutzungsinstensität und -komplexität); 
+@diekotter2014 (Raps); 
+@gathmann2002 (foraging range); 
+@happe2018 (ökologische vs. konventionelle Landwirtschaft);
+
+@pereira-peixoto2014 (bienen und wespen, urban-rural Gradient);
+@pereira-peixoto2016 (Wirt-Parasit-Beziehung, urban-rural Gradient); 
+@steckel2014 (Landschaftskomposition);
+@steffan-dewenter2002 (Landschaftskontext);
+@tscharntke1998 (Bioindication);
+@vonkonigslow2019 (Vergleich versch. Nisthilfen)] -->
 
 <!-- (Silveira, F. A. and L. M. GodÌnez, L.M. (1996) Systematic surveys of local bee faunas.Melissa, 9:1-4.) -->
 
@@ -260,11 +275,6 @@ Parasiten sind als Arten einer höheren trophischen Ebene stärker Beeinflusst v
 <!-- ### Modellierung: -->
 <!-- A model that includes nesting resources and foraging landscapes as predictors of local bee densities suggests that wild bee abundance is high in resource-rich areas of the USA such as chaparral and desert shrublands, whereas intermediate densities are typical in temperate forests and grasslands, and low densities in agricultural crops [@koh2016]. -->
 
-## Schulinsektenhausprojekt
-Ziele: Citizen science, Deutschlandweite erfassung der nisthilfenbesiedelnden Arten mit einem Fokus auf Siedlungsgebiete.
-Im Projekt "Schulinsektenhaus" der Proffessur für Naturschutz und Landschaftsökologie der Albert-Ludwigs-Universität Freiburg in Kooperation mit dem Robert-Bosch-College in Freiburg werden flächendeckende Daten über hohlraumbesiedelnde Insekten gesammelt. Das Projekt was über mehrere Jahre laufen soll hat im Jahr 2019 gestartet und Insktenhäuser (Nisthilfen) an über 300 Schulen in ganz Deutschland versendet. Verantwortliche Lehrer\*innen und Schüler\*innen dokumentieren die Anbringung des Nestes sowie Informationen zur Umgebung, welche das Vorkommen der Insekten beeinflussen können.
-Von den Schulen wird am Jahresende je eine Nisthilfe zurückgesendet an die Uni Freiburg, sodass die "Bewohner" der Insektenhäuser und ihre Ökologie (Nahrungsverhalten, Nestbauweise, Parasitierung) analysiert werden können.
-Das Projekt beinhaltet so zum einen den Bildunsaspekt, um bei Schüler\*innen und Lehrer\*innen in ganz Deutschland das Interesse an der Ökologie der Insekten und dem Naturschutz zu wecken, zum anderen ermöglicht das Projekt Erkenntnisse über den deutschlandweiten Status der vorkommenden Wespen- und Bienenarten.
 
 
 # Fragestellung und Hypothesen:
@@ -466,9 +476,13 @@ Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben i
 <!--   - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient), den Landnutzungsformen (den Flächenanteil jeder Landnutzungsform im Umkreis) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen. -->
 <!--   - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten. -->
 
-Die Artengemeinschaft in den Nisthilfen wurde mithilfe der R-Paketes "vegan" durchgeführt. Zunächst wurden dafür alle Arten aus den zu analysierenden Daten entfernt, die nur in einer einzigen Nisthilfe vorkamen. Der Einfluss von Strukturparametern sowie dem Versiegelungsgrad aller Radien wurde separat mit der Funktion $envfit()$ modelliert. 
-Des weiteren wurde der Datensatz in die drei Gruppen "Land", "Übergang" und "Stadt" unterteilt. Die Unterteilung erfolgte Anhand der $33%$ und $66%$ Quantile des mittleren Versiegelungsgrades im 500m-Radius der Nisthilfenstandorte. 
+Die Artengemeinschaft in den Nisthilfen wurde mithilfe der R-Paketes "vegan" durchgeführt. Zunächst wurden dafür alle Arten aus den zu analysierenden Daten entfernt, die nur in einer einzigen Nisthilfe vorkamen.  
+Des Datensatz wurde in die drei Gruppen "Land", "Übergang" und "Stadt" unterteilt. Die Unterteilung erfolgte Anhand der $33%$ und $66%$ Quantile des mittleren Versiegelungsgrades im 500m-Radius der Nisthilfenstandorte. 
 Eine weitere Einteilung in "Ackerland" und "Kein-Ackerland" wurde anhand der Ackerlandfläche im 500m-Radius unternommen.
+Zunächst wird eine Distanzmatrix der Bray-Curtis Dissimilarity, einem Maß für die Unähnlichkeit der Artenzusammensetzung, zwischen allen Nisthilfen mit der Funktion $vegdist()$ berechnet. Als Datengrundlage dient hierfür die Nestzahl jeder Art pro Nisthilfe. Um zu analysieren ob die Artenzusammensetzung in den Städten homogener ist als auf dem Land wird mithilfe der Funktion $betadisper()$ die Dispersion (Streuung) der Dissimilarity beider Gruppen berechnet. Anhand anova wird daraufhin auf signifikante Unterschiede getestet und anhand des TukeyHSD-test (Tukey's Honest Significant Difference) die Unterschiede zwischen den spezifischen Gruppen analysiert.
+Des weiteren wird mit der Funktion adonis() getestet ob sich die Artenzusammensetzung zwischen den Gruppen 'Stadt' und 'Land' unterscheidet.  
+
+Der Einfluss von Strukturparametern sowie dem Versiegelungsgrad aller Radien wurde separat mit der Funktion $envfit()$ modelliert.
 
 <!-- Analyse der Varianzen (z.B.: Adonis) , -->
 
@@ -494,7 +508,8 @@ In den Nisthilfen des Schulinsektenhaus-Projektes welche im Jahr 2019 ausgehäng
 Alle weiteren Ergebnisse beziehen sich ausschließlich auf die Biennennester. In Abbildung \ref{deskriptiv} sind die Histogramme der Artenanzahl und Abundanz dargestellt.
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
-source("datenschau.R")
+#source("datenschau.R")
+load("my_work_space.RData")
 ```
 
 
@@ -567,6 +582,12 @@ kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller n
 
 <!-- - ephialtes: @horstmann -->
 
+## Der Einfluss der Landschaftstruktur 
+Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Landnutzungsklassen, und allen Modellierten Antwortvariablen konnte kein Zusammenhang aufgezeigt werden. 
+
+
+<!-- Zwischen den Sturkturreichtum bescheibenden Parametern Kantendichte und Anzahl der Landnutzungsklassen und der Abundanz der Bienen kann kein Zusammenhang aufgezeigt werden. Ebenso wird kein Zusammenhang der den Strukturreichtum beschreibenden Parametern und der Artenzahl der Bienen beschrieben.  -->
+
 
 ## Der Einfluss von vorhandenen Insektenhäusern auf Artenzahl und Abundanz der Wildbienen
 Das Modell, welches den Einfluss von vorhandenen Insektenhäusern auf die Artenzahl der Wildbienen beschreibt zeigt einen schwach signifikanten Einfluss der Insektenhäuser auf. Die Artenzahl in den Nisthilfen in der Nähe eines Insektenhauses ist demnach höher als in Nisthilfen ohne Insektenhaus. Dieses Modell kann durch die Erweiterung um die Prädiktoren des mittleren Versiegelungsgrades als linearer sowie quadratischer Term nicht verbessert werden. Dies gilt für alle Radien für den der mittlere Versiegelungsgrad berechnet wurde. Umgekehrt verbessert der Parameter "Insektenhaus" das Modell mit den Prädiktoren "Versiegelungsgrad" und "Versiegelungsgrad im Quadrat" ebensowenig.  
@@ -621,6 +642,7 @@ sjPlot::plot_model(model_IH2_250_zi, type = "pred",
 ```
 
 
+
 ```{r echo=FALSE}
 
 detach("package:MASS")
@@ -673,6 +695,7 @@ table_2$Predictors <- c("count_model", "(Intercept)", "imp250", "imp250^2", "Ins
 ```
 
 
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 #htmltools::includeHTML("test.html")
 table_a <- table_1 %>% 
@@ -693,11 +716,6 @@ kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Model
 
 ```
 
-## Der Einfluss der Landschaftstruktur 
-Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Landnutzungsklassen, und allen Modellierten Antwortvariablen konnte kein Zusammenhang aufgezeigt werden. 
-
-
-<!-- Zwischen den Sturkturreichtum bescheibenden Parametern Kantendichte und Anzahl der Landnutzungsklassen und der Abundanz der Bienen kann kein Zusammenhang aufgezeigt werden. Ebenso wird kein Zusammenhang der den Strukturreichtum beschreibenden Parametern und der Artenzahl der Bienen beschrieben.  -->
 
 
 ## Der Einfluss des Versiegelungsgrades auf Artenzahl und Abundanz der Bienen
@@ -714,11 +732,13 @@ Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Land
 
 Zur Analyse des Einflusses des Versiegelungsgrades verschiedener Radien auf die Artenzahl wurde für jeden Radius das beste Modell anhand von AIC, anova und Residuendiagnostik ausgewählt. Die Modellzusammenfassung ist in Tabelle \ref{summary_Artenzahl} dargestellt. Die Modellformeln sind im folgenden aufgeführt, wobei "imp_r" den Versiegelungsgrad im Radius r beschreibt, "annual_precipitation_mm" den Jahresniederschlag in mm, "mean_annual_temp_celsius" die mittlere Jahrestemperatur in grad Celsius und "altitude_town_m" die Höhenlage über NN:
 
-$Artenanzahl_det ~ imp100 + annual_precipitation_mm + mean_annual_temp_celsius + altitude_town_m $ 
-$Artenanzahl_det ~ imp250 + mean_annual_temp_celsius + annual_precipitation_mm$ 
-$Artenanzahl_det ~ imp500 + mean_annual_temp_celsius + annual_precipitation_mm$ 
-$Artenanzahl_det ~ I(imp1000^2)$  
-$Artenanzahl_det ~ I(imp2000^2)$ 
+\begin{align}
+Artenanzahl \sim imp_{100} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm + Höhenlage\_m \label{Az_1} \\
+Artenanzahl \sim imp_{250} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm \label{Az_2} \\
+ Artenanzahl \sim imp_{500} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm \label{Az_3} \\
+ Artenanzahl \sim imp_{1000}^2 \label{Az_4} \\
+Artenanzahl \sim imp_{2000}^2 \label{Az_5}
+\end{align}
 
 Modelle mit dem Prädiktor der Radien 100m, 250m und 500m des Versigelungsgrades können durch das Erweitern der Prädiktoren um die Klimavariablen "mittlere Jahrestemperatur" sowie "Jahresniederschlag" verbessert werden. Im 100m-Radius verbessert zusätzlich die Höhenlage des Nisthilfenstandortes das Modell. In den Modellen mit den Radien des Versiegelungsgrades von 1000m und 2000m beschreibt der quadratische Term des Versiegelungsgrades als einzelner Prädiktor die Artenzahl der Wildbienen am besten. Der $R^2$-Wert all dieser Modelle liegt unter dem Wert von $0.1$, somit erklären all diese Modelle die Varianz der Daten nur minimal.
 
@@ -851,6 +871,7 @@ kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusamme
 
 ```
 
+
 ```{r echo=FALSE, fig.show='hold', out.width=c('50%', '50%'), warning=FALSE, message=FALSE, fig.cap="Modelle zur Artenanzahl \\label{plot_modelle_artenzahl}"}
 unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scaled:scale")) {
   if(!is.null(scale))  z <- sweep(z, 2, scale, `*`)
@@ -972,7 +993,26 @@ ggplot(data = pred_1000, aes(imp, mean)) +
 ```
 
 
-Die Abundanz
+Um den Einfluss des Versiegelungsgrades verschiedener Radien auf die Abundanz (Anzahl Brutzellen pro Nisthilfe) zu bewerten wurden folgende Modelle unter der Annahme negativbinomialverteilter Daten sowie unter Einbezug des Einflusses der Nullen (Zeroinflation) ausgewählt:
+
+\begin{align}
+Abundanz \sim imp_{100}  \label{Ab_1} \\
+Abundanz \sim imp_{250}  + Ackerland + Wald \label{Ab_2} \\
+Abundanz \sim imp_{250} \label{Ab_2b} \\
+ Abundanz \sim imp_{500} + imp_{500}^2 \label{Ab_3} \\
+ Abundanz \sim imp_{1000} + imp_{1000}^2 \label{Ab_4} \\
+Abundanz \sim imp_{2000} + imp_{2000}^2 \label{Ab_5}
+\end{align}
+
+In den Modellformeln bezeichnet "imp_r" den Versiegelungsgrad im Radius r, "Arable" den Flächenanteil an Ackerland im 500m-Radius sowie "Forest" den Flächenanteil an Wald im 500m-Radius. Für die Modellierung der Abundanz anhand des Versiegelungsgrades der Radien 100m und 250m wird dieser als linearer Term im Modlel implementiert. Das Modell mit dem Versiegelungsgrad im 250m-Radius kann durch die Erweiterung um die Prädiktoren des Flächenanteils von Ackerland sowie von Wald verbessert werden.
+Für alle Radien des Versiegelungsgrades von 500m und größer wurde das Modell mit dem Versiegelungsgrad als linearen sowie quadratischen Term ausgewählt.  Die Modellzusammenfassung aller Modelle sind in den Tabellen \ref{summary_Abundanz_a} und \ref{summary_Abundanz_b} dargestellt. 
+
+Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
+
+Der Versiegelungsgrad hat im  250m und 500m-Radius einen negativen signifikanten linearen Einfluss auf die Artenzahl der Bienen (siehe Abbildung \ref{plot_modelle_abundanz} links). Mit zunehmender Versiegelung nimmt die Artenzahl ab. Der Anteil des Ackerfläche sowie der Anteil an Wald haben im Modell mit dem Versiegelungsgrad im 250m-Radius einen negativen signifikanten Einfluss auf die Abundanz. 
+Für die Radien von 500m, 1000m und 2000m hat der mittlere Versiegelungsgrad jeweils einen signifikanten quadratischen Einfluss auf die Abundanz der Wildbienen, wovon der signifikanzwert von $p=0.001$ im Modell des 2000m-Radius die höchste signifikanz aufweist. Bei einem Versiegelungsgrad von ca. $25 %$ ist die Abundanz maximal (Abbildung \ref{plot_modelle_abundanz} rechts). 
+
+
 
 ```{r Abundanz, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1008,7 +1048,7 @@ model_abundanz_b <- model_abundanz[-c(4,5),-c(2:10)] %>%
   replace(is.na(.), "")
 names(model_abundanz_b) <- c("term" ,"component", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value" )
 
-kableExtra::kbl(model_abundanz_a, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{} " ) %>% 
+kableExtra::kbl(model_abundanz_a, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_a} " ) %>% 
   #kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
     c(" " = 2, "imp100"=3,"imp250"=3,"imp250"=3)
@@ -1026,23 +1066,29 @@ kableExtra::kbl(model_abundanz_a, booktabs =T, caption = "Modellzusammenfassung 
 ```
 
 
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-kableExtra::kbl(model_abundanz_b, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{} " ) %>% 
-  kable_styling(latex_options =c("striped")) %>% 
+kableExtra::kbl(model_abundanz_b, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_b} " ) %>% 
   kableExtra::add_header_above(
     c(" " = 2, "imp500"=3,"imp1000"=3,"imp2000"=3)
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(5,bold = p_sig(model_abundanz_b[,5])) %>% 
   kableExtra::column_spec(8,bold = p_sig(model_abundanz_b[,8])) %>% 
   kableExtra::column_spec(11,bold = p_sig(model_abundanz_b[,11])) %>% 
-  kableExtra::row_spec(4, hline_after = T)
+  kableExtra::row_spec(3, hline_after = T)
 
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width=c('50%', '50%'), fig.cap="Modelle zur Abundanz"}
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width=c('50%', '50%'), fig.cap="Die Modelle des mittleren Versiegelungsgrades im 250m-Radius (links) sowie 2000m-Radius (rechts), welche den Einfluss der Nullen (Zeroinflation) brücksichtigen. Die Linie beschreibt den Mittelwert der simulierten Daten, der violett gezeichnete Bereich beschreibt Bereich bis zum 95 \\% Quantil der Simulierten Daten, die Punkte sind die realen Messwerte. \\label{plot_modelle_abundanz}"}
+
+#
+
+
 ## prediction erzeugt merkwürdige werte...?
 A1_100_sub <- A1_100 %>% 
   filter(Abundanz < 500)
@@ -1121,8 +1167,9 @@ ggplot(data = pred_2000, aes(imp, pred_mean)) +
 
 
 
-### Artenzahl der Parasitoide
-So wie bei den Wirtsbienen auch, hat das Vorhandensein eines Insektenhauses einen positiven Einfluss auf die Artenzahl der Parasitoide während der Versiegelungsgrad die Artenzahl nicht beeinflusst.
+## Artenzahl der natürlichen Gegenspieler
+Das Vorhandensein eines Insektenhauses im Umfeld des Nisthilfenstandortes hat einen positiven signifikanten Einfluss auf die Artenzahl der natürlichen Gegenspieler. Die Modellzusammenfassung des Modells mit dem Parameter zum Insektenhaus sowie mit der Erweiterung um die Parameter des Versiegelungsgrades im 250m-Radius ist in Tabelle \ref{summaryIH_par} dargestellt. Der Effektplot von zweiterem ist in Abbildung \ref{effektplotIH_par} abgebildet.
+Das Modell mit der Information über vorhandene Insektenhäuser als unabhängiger Variable kann durch die Erweiterung um die Variablen des mittleren Versiegelungsgrades im 100m-Radius als linearer sowie quadratischer Term verbessert werden. Gleiches gilt für den mittleren Versiegelungsgrad im 250m- und 500m-Radius. Andersherum verbessert der Term des vorhandenen Insektenhauses die Modelle mit dem mittleren Versiegelungsgrad aller Radien.
 
 ```{r}
 model_par <- rlist::list.clean(XML::readHTMLTable("model_par_IH.html"), fun = is.null, recursive = FALSE)[[1]]
@@ -1135,13 +1182,14 @@ model_par1 <- model_par %>%
   filter(V1 != "Predictors")
 names(model_par1) <- parnames
 
-kableExtra::kbl(model_par1,longtable =T,booktabs =T, caption = "Modellzusammenfassung der Modelle der Artenzahl der Parasitoide. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH_par} " ) %>% #caption = "" 
-  kable_styling(latex_options =c("striped")) %>% 
+kableExtra::kbl(model_par1,booktabs =T, caption = "Modellzusammenfassung der Modelle der Artenzahl der Parasitoide. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH_par} " ) %>% #caption = "" 
   kableExtra::add_header_above(c(" ","Model 1"=3,"Model 2"=3)) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
   kableExtra::column_spec(4,bold = (as.numeric(model_par1[,4])<0.05 | model_par1[,4] == "<0.001")  & model_par1[,4] != "" )%>% 
   kableExtra::column_spec(7,bold = (as.numeric(model_par1[,7])<0.05 | model_par1[,7] == "<0.001") & model_par1[,7] != "")
 ```
+
+
 
 ```{r echo=FALSE, fig.show='hold', message=FALSE, warning=FALSE, fig.cap= "Einfluss von vorhandenem Insektenhaus auf Artenanzahl der Parasitoide. Die Fehlerbalken sind 'marginal effect-plots', welche die Vorhersage der Modelle (Mittelwert und Standartabweichung) bei mittlerem Versiegelungsgrad darstellen. Die Punkte sind die realen Datenpunkte. \\label{effektplotIH_par}" }
 library(MASS)
@@ -1177,14 +1225,14 @@ sjPlot::plot_model(model_IH2_250, type = "pred",
                    terms = c("Insektenhaus", "imp250"), 
                    show.p = T, show.data = T, jitter = T)+
   theme_bw() +
-  annotate("text", y = seq(10,9,length=4), x = 0.25,
+  annotate("text", y = seq(10,8,length=4), x = 0.35,
             label = labeltext)
 
 
 ```
 
 
-```{r message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
 model_Artenzahl_par <- read_delim("model_Artenzahl_par.csv", 
     ";", escape_double = FALSE, col_names = FALSE, 
@@ -1195,7 +1243,8 @@ model_Artenzahl_par[is.na(model_Artenzahl_par)] <- ""
 
 ```
 
-
+Der Einfluss des Versiegelungsgrades auf die Abundanz zeigt in den Modellen des gesamten Datensatz ohne die Information zu vorhandenen Insektenhäusern für die Radien von 100m, 250m und 500m jeweils einen signifikanten linearen Einfluss auf die Artenzahl der natürlichen Gegenspieler. Für die Radien 500m, 1000m und 2000m ist auch ein signifikanter quadratischer Zusammenhang zu erkennen.
+Modelle mit dem mittleren Versiegelungsgrad von 250m sowie 500m  können durch die Erweiterung um die Prädiktoren des Flächenanteils von Wald, Weideflächen sowie Ackerland und den Jahresniederschlag verbessert werden. Dabei zeigt sich auch ein signifikanter negativer linearer Zusammenhang zwischen der Abundanz der natürlichen Gegenspielern und den Flächenanteilen von Wald, Weideflächen sowie Ackerland. Das Erweiterte Modell mit dem Versiegelungsgrad im 250m-Radius ist in Abbildung \ref{} dargestellt. Der $R^2$-Wert dieser komplexeren Modelle liegt bei etwa $0.1$ und ist somit höher als der $R^2$-Wert der simpleren Modelle, welche jeweils kleiner als $0.05$ sind.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -1208,12 +1257,11 @@ p_sig <- function(x){
   return(bold)
 }
 
-kableExtra::kbl(model_Artenzahl_par[-c(1,2),1:10], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par} " ) %>% 
-  kable_styling(latex_options =c("striped")) %>% 
+kableExtra::kbl(model_Artenzahl_par[-c(1,2),1:10], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par1} " ) %>% 
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp250"=3,"imp250"=3) 
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_Artenzahl_par[-c(1,2),4])) %>% 
@@ -1222,13 +1270,15 @@ kableExtra::kbl(model_Artenzahl_par[-c(1,2),1:10], booktabs =T, caption = "Model
   kableExtra::row_spec(7, hline_after = T)
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-kableExtra::kbl(model_Artenzahl_par[-c(1,2),c(1, 11:22)], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par} " ) %>% 
-  kable_styling(latex_options =c("striped")) %>% 
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+
+kableExtra::kbl(model_Artenzahl_par[-c(1,2),c(1, 11:22)], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par1} " ) %>% 
   kableExtra::add_header_above(
     c(" ", "imp500"=3,"imp500"=3,"imp1000"=3, "imp2000" = 3) 
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_Artenzahl_par[-c(1,2),13])) %>% 
   kableExtra::column_spec(7,bold = p_sig(model_Artenzahl_par[-c(1,2),16])) %>% 
   kableExtra::column_spec(10,bold = p_sig(model_Artenzahl_par[-c(1,2),19])) %>% 
@@ -1237,9 +1287,13 @@ kableExtra::kbl(model_Artenzahl_par[-c(1,2),c(1, 11:22)], booktabs =T, caption =
 
 ```
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, out.width=c('50%', '50%'), fig.asp = 1, fit.cap = "Modelle zur Artenzahl der Gegenspieler"}
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, out.width=c('50%', '50%'), fig.show= 'hold', fig.cap="Die Modelle des Einflusses von mittlerem Versiegelungsgrades im 250m-Radius (links) sowie 2000m-Radius (rechts) auf die Artenzahl der natürlichen Gegenspieler. Die Linie beschreibt den Mittelwert der simulierten Daten, der violett gezeichnete Bereich beschreibt Bereich bis zum 95% Quantil der Simulierten Daten, die Punkte sind die realen Messwerte \\label{plot_modelle_gegenspieler}", results='asis'}
+
 library(dplyr)
 model_par_2a_step <- readRDS("Modelle/model_par_2a_step.rds")
+
 
 A2_250 <- A2 %>% 
   dplyr::select(-imp100, -imp500, -imp1000, -imp2000) %>% 
@@ -1290,13 +1344,35 @@ ggplot(data = pred_2000, aes(imp, pred_mean)) +
   ylab("Artenzahl der Gegenspieler")
 ```
 
-### Osmia bicornis
+## Die Abundanz von Osmia bicornis
 Die Abundanz von Osmia bicornis wurde durch die Anzahl angelegter Nester pro Trapnest berechnet. Es wurde nicht die Anzahl an Brutzellen verwendet, da sich diese schlechter an eine Verteilung fitten lies als die Anzahl angelegter Nester. Da beide Maße stark korrelieren, ist davon auszugehen, dass der Effekt der verschiedenen Prädiktoren auf die Anzahl angelegter Nester sich auch in der Anzahl der Brutzellen zeigt.
 
-Das vorhandensein eines Insektenhauses hat keinen signifikanten Einfluss auf die Abundanz von Osmia bicornis. Der mittlere Versiegelungrad im 250m Radius um den Nisthilfenstandort verbessert das Modell welches den Einfluss des Insektenhauses auf die Abundanz von *O. bicornis* beschreibt. Der mittlere Versiegelungsgrad anderer Radien hat keinen Effekt.
+Das vorhandensein eines Insektenhauses hat keinen signifikanten Einfluss auf die Abundanz von Osmia bicornis (siehe Tabelle \ref{summary_Abundanz_IH_ob}). Der mittlere Versiegelungrad im 250m Radius um den Nisthilfenstandort verbessert das Modell welches den Einfluss des Insektenhauses auf die Abundanz von *O. bicornis* beschreibt. Der mittlere Versiegelungsgrad anderer Radien verbessert das Modell nicht. Der Parameter Insektenhaus kann keines der Modelle mit den Prädiktoren des Versiegelungsgrades der verschiedenen Radien verbessern. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-Ob_models_list <- readRDS(file = "Modelle/Ob_models_list.rds")
+model_IH_ob <- read_delim("Modelle/model_IH_Ob.csv", 
+    ";", escape_double = FALSE, col_names = FALSE, 
+    trim_ws = TRUE) 
+names(model_IH_ob) <- model_IH_ob[2,]
+model_IH_ob[is.na(model_IH_ob)] <- ""
+
+kableExtra::kbl(model_IH_ob[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle des Einflusses von vorhandenen Insektenhäusern auf die Abundanz von Osmia bicornis. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Abundanz_IH_ob} " ) %>% 
+  kableExtra::add_header_above(
+    c(" ", "model 1"=3,"model 2"=3) 
+  ) %>%
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
+  # kableExtra::column_spec(c(4,7,10, 13,16),
+  #                         bold = p_sig(.)) %>% 
+  kableExtra::column_spec(4,bold = p_sig(model_IH_ob[-c(1,2),4])) %>% 
+  kableExtra::column_spec(7,bold = p_sig(model_IH_ob[-c(1,2),7])) %>% 
+  kableExtra::row_spec(5, hline_after = T)
+```
+
+Als Ergebnis der Modellselektion wurden für den Versiegelungsgrad jedes Radius zwei Modelle ausgewählt mit jeweils ähnlicher Qualität. Für alle Radien bis auf den 500m-Radius ist dabei das erste Modell durch die Formel $Abundanz \sim imp_r^2 + lat$ beschrieben, wobei "lat" für den Breitengrad (latitude) steht, welcher im Modell mit dem Versiegelungsgrad im 500m-Radius (Formel: $Abundanz \sim imp_r^2$ ) nicht vorkommt (siehe Tab. \ref{summary_Abundanz_ob}). Der Versiegelungsgrad im 100m-Radius, sowie im 250m-Radius hat keinen signifikanten Effekt auf die Abundanz von *Osmia bicornis*. Die Modelle des Versiegelungsgrades im 500m, 1000m und 2000m-Radius beschreiben dagegen einen signifikanten quadratischen Einfluss auf die Abundanz von *Osmia bicornis*.  
+Das zweite Modell für den jeweiligen Versiegelungsgrad jedes Radius, von dem die zusammenfassende Statistik in Tabelle \ref{} dargestellt ist,  beinhaltet für alle Radien den Prädiktor der Höhenlage des Nisthilfenstandortes. Die Höhenlage hat bis auf im Modell mit dem Versiegelungsgrad von 250m in jedem Modell einen negativen signifikanten Einfluss auf die Abundanz von Osmia bicornis. Die Modelle mit dem Versiegelungsgrad im 500m, 1000m und 2000m-Radius beschreiben jeweils einen signifikante linearen Einfluss als auch einen signifikanten quadratischen Einfluss des Versiegelungsgrades.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, results = 'asis'}
+Ob_models_list <- readRDS(file = "Modelle/Ob_models_list_new.rds")
 
 test <- sjPlot::tab_model(Ob_models_list[[1]], Ob_models_list[[3]], Ob_models_list[[5]],
                   Ob_models_list[[7]], Ob_models_list[[9]],  
@@ -1307,6 +1383,7 @@ test <- sjPlot::tab_model(Ob_models_list[[2]], Ob_models_list[[4]], Ob_models_li
                   Ob_models_list[[8]], Ob_models_list[[10]],  
                   dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),
                   file = "Modelle/model_Ob2.html", transform = NULL) 
+
 
 library(readr)
 model_ob1 <- read_delim("Modelle/model_Ob1.csv", 
@@ -1322,12 +1399,19 @@ model_ob2 <- read_delim("Modelle/model_Ob2.csv",
 names(model_ob2) <- model_ob2[2,]
 model_ob2[is.na(model_ob2)] <- ""
 
+# list(teil1 = model_ob1[,1:8], teil2 = model_ob1[,9:16]) %>% 
+# #split(1:ncol(model_ob1), sort(rep_len(1:2, ncol(model_ob1)))) %>%
+#   
+#   #purrr::map(~dplyr::select(model_ob1, .)) %>%
+#   purrr::map(kable, booktabs = T) %>%
+#   purrr::map(kable_styling) %>%
+#   purrr::walk(print)
+
 kableExtra::kbl(model_ob1[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Abundanz von Osmia bicornis. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Abundanz_ob} " ) %>% 
-  kable_styling(latex_options =c("striped")) %>% 
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp250"=3,"imp500"=3, "imp1000"=3, "imp2000"=3) 
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_ob1[-c(1,2),4])) %>% 
@@ -1335,14 +1419,13 @@ kableExtra::kbl(model_ob1[-c(1,2),], booktabs =T, caption = "Modellzusammenfassu
   kableExtra::column_spec(10,bold = p_sig(model_ob1[-c(1,2),10])) %>% 
   kableExtra::column_spec(13,bold = p_sig(model_ob1[-c(1,2),13])) %>% 
   kableExtra::column_spec(16,bold = p_sig(model_ob1[-c(1,2),16])) %>% 
-  kableExtra::row_spec(2, hline_after = T)
+  kableExtra::row_spec(3, hline_after = T)
 
 kableExtra::kbl(model_ob2[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Abundanz von Osmia bicornis. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Abundanz_ob2} " ) %>% 
-  kable_styling(latex_options =c("striped")) %>% 
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp250"=3,"imp500"=3, "imp1000"=3, "imp2000"=3) 
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_ob2[-c(1,2),4])) %>% 
@@ -1350,12 +1433,12 @@ kableExtra::kbl(model_ob2[-c(1,2),], booktabs =T, caption = "Modellzusammenfassu
   kableExtra::column_spec(10,bold = p_sig(model_ob2[-c(1,2),10])) %>% 
   kableExtra::column_spec(13,bold = p_sig(model_ob2[-c(1,2),13])) %>% 
   kableExtra::column_spec(16,bold = p_sig(model_ob2[-c(1,2),16])) %>% 
-  kableExtra::row_spec(6, hline_after = T)
+  kableExtra::row_spec(8, hline_after = T)
 
 ```
 
 
-### Artengemeinschaft
+## Artengemeinschaft
 Die Analyse der Artengemeinschaft entlang des Stadt-Land-Gradienten zeigte, dass weder Strukturparameter noch Versiegelungsgrad verschiedener Radien einen Einfluss auf die Zusammensetzung der Arten in den Trapnestern hat.
 
 Die Artengemeinschaft von Standorten, bei denen im 500m-Radius Ackerland vorkommt unterscheidet sich nicht von der Artengemeinschaft, bei der im 500m-Radius kein Ackerland vorkomt.
@@ -1369,15 +1452,17 @@ Es kamen elf Arten in nur einer Nisthilfe vor. Die Arten sind in Tabelle \ref{lo
 lonely_species <- read.csv("summaryTabellen/lonely_species_summary.csv")
 
 lonely_species %>%
-  kable(booktabs = T, linesep = "", format = "latex", caption = "Auflistung der Arten, welche nur in einer Nisthilfe vorkommen, mit der Information wiviele Nester in der Nisthilfe belegt waren ('Nests') und dem mittleren Versiegelungsgrad in % im 500m-Radius der besiedelten Nisthilfe. \\label{lonely_species} ") %>%
+  kable(booktabs = T, linesep = "",  caption = "Auflistung der Arten, welche nur in einer Nisthilfe vorkommen, mit der Information wiviele Nester in der Nisthilfe belegt waren ('Nests') und dem mittleren Versiegelungsgrad in \\% im 500m-Radius der besiedelten Nisthilfe. \\label{lonely_species} ") %>%
   kable_paper(full_width = F) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "hold_position")) %>% 
   column_spec(3, color = "white",
               background =spec_color(lonely_species$imp500, end = 0.50))
 
 
 
 ```
+
+
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -1393,9 +1478,9 @@ rows <- seq_len(nrow(land_species) %/% 2)
 #            land_species[-rows, ])
 
   kable(land_species ,
-        booktabs = T,  caption = "Auflistung der Arten, welche in mehr als einer Nisthilfe vorkamen. Die Nisthilfen wurden Anhand der 33% und 66%-Quantile des Versiegelungsgrades im 500m-Radius in die Kategorien 'Land' (<33%), 'Übergang' (>33% und <66%) und 'Stadt'(>66%)  unterteilt. In der Tabelle ist die Anzahl an besidelten Nisthilfen der jeweiligen Kategorie dargestellt. Der Anteil an besidelten Nisthilfen in der Stadt ('Anteil_Stadt') beschreibt den Anteil von besiedelten Nisthilfen in der Stadt an der Summe von besiedelten Nisthilfen von Stadt und Land. Der Übergangsbereich wird nicht miteinberechnet. \\label{lonely_species} ") %>% #format = "latex",
+        booktabs = T, linesep = "", caption = "Auflistung der Arten, welche in mehr als einer Nisthilfe vorkamen. Die Nisthilfen wurden Anhand der 33\\% und 66\\%-Quantile des Versiegelungsgrades im 500m-Radius in die Kategorien \\`Land\\' (<33\\%), \\`Übergang\\' (>33\\% und <66\\%) und \\`Stadt\\'(>66\\%)  unterteilt. In der Tabelle ist die Anzahl an besidelten Nisthilfen der jeweiligen Kategorie dargestellt. Der Anteil an besidelten Nisthilfen in der Stadt (\\`Anteil_Stadt\\') beschreibt den Anteil von besiedelten Nisthilfen in der Stadt an der Summe von besiedelten Nisthilfen von Stadt und Land. Der Übergangsbereich wird nicht miteinberechnet. \\label{multiple_species} ") %>% #
   #kable_paper(full_width = F) %>%
-  #kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "hold_position")) %>% 
   column_spec(5, color = "white",
               background =spec_color(land_species$Anteil_stadt, end = 1))
 
@@ -1415,10 +1500,13 @@ rows <- seq_len(nrow(land_species) %/% 2)
 <!-- invasive arten? -->
 
 
-# Diskussion ####################################
+# Diskussion 
 
 Die Parameter der Landschaftstruktur zeigten keinerlei Effekt auf die untersuchten Variablen der Nisthilfen. Es ist davon auszugehen, dass die Berechnung der Parameter aus Satelittendaten insbesondere im Siedlungsbereich nicht die Genauigkeit bietet um für Wildbienen und ihre Gegenspieler relevante Habitateigenschaften abzubilden. 
 Denn in anderen Studien ... wurde der Effekt der Landschaftstruktur bereits aufgezeigt.
+
+Die in dieser Arbeit erfassten Daten beschreiben alle Wildbienen und Parasiten, die im Jahr 2019 eine Nisthilfe des Schulinsektenhausprojektes besiedelt haben. Es wurde bereits in verschiedenen Studien aufgezeit, dass es bei Bestäubern eine hohe Variabilität zwischen verschiedenen Jahren gibt. <!-- vielleicht @burkle2011 -->
+<!-- Wenn das Ökosystem (top-down und bottom-up Interaktionen) aus dem Gleichgewicht geraten kommt es zu saisonal sehr variablen Artenvorkommen- und Häufigkeit. - Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig -->
 
 <!-- Da ländliche Gebiete jedoch auch intensiv genutzte Landwirtschaftliche Flächen beinhalten, was @warren2018 am Konzept des Stadt-Land Gradienten bemängelt haben, wird in dieser Arbeit auch der Anteil an Landwirtschaftlichen Flächen mit einbezogen. -->
 
@@ -1430,7 +1518,7 @@ Denn in anderen Studien ... wurde der Effekt der Landschaftstruktur bereits aufg
 
 <!-- @pickett2001 claimed that urban gradients offer a very effective framework for studying impacts of urbanisation on invertebrates because they can capture a wide variety of urban effects. @new2015 s. 36 -->
 
-<!-- Wenn das Ökosystem (top-down und bottom-up Interaktionen) aus dem Gleichgewicht geraten kommt es zu saisonal sehr variablen Artenvorkommen- und Häufigkeit. - Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig -->
+
 
 <!-- They may result from (1) localised direct habitat degradation or loss or from (2) wider changes in regional land use, together imposing two rather different scales for evaluation. Both may be infl uenced further by progressive influences of alien species as conditions continue to change [@new2015]. -->
 
