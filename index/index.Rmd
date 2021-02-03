@@ -88,6 +88,7 @@ library(dplyr)
 load("../my_work_space.RData")
 
 knitr::opts_chunk$set(echo = FALSE, cache = TRUE)
+options(scipen=999)
 # options(kableExtra.latex.load_packages =FALSE)
 # options(knitr.table.format = "latex")
 library(kableExtra)

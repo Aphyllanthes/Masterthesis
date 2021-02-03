@@ -15,7 +15,8 @@
 % \usepackage[colorlinks=true]{hyperref}
 % \usepackage[bottom]{footmisc}
 \usepackage[bottom, flushmargin]{footmisc}                   % For footnotes
-\usepackage[citebordercolor={0 1 0}]{hyperref}                           % For creating hyperlinks in cross references
+% \usepackage{hyperref}                           % For creating hyperlinks in cross references
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref}
 \usepackage{footnotebackref}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -126,7 +127,7 @@ $endif$
   \Large{\thesistype{}} \\ \vspace*{\fill}
 
   \Large{Von} \\\vspace{0.5cm}
-  \Large{$authordegree$ $author$} \\
+  \Large{$author$} \\
   \Large{aus $birthplace$} \\
   \Large{Abgabetermin: $examdate$}
 
@@ -150,24 +151,6 @@ Zweitgutachter der Arbeit:  &  $referee2$ \\
 \end{tabular}
 
 
-Ich erkläre hiermit ehrenwörtlich, dass:
-
-\begin{enumerate}
-    \item   ich die vorliegende Bachelor-/Masterarbeit selbständig unter Anleitung verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe;
-    \item   die Übernahme wörtlicher Zitate aus der Literatur/Internet sowie die Verwendung der Gedanken anderer Autoren an den entsprechenden Stellen innerhalb der Arbeit gekennzeichnet wurde;
-    \item	ich meine Bachelor-/Masterarbeit bei keiner anderen Prüfung vorgelegt habe.
-
-\end{enumerate}
-
-Ich bin mir bewusst, dass eine falsche Erklärung rechtliche Folgen haben wird. \\
-
-
-
-
-Ort, Datum \hspace{4cm}				Unterschrift \\
-
-Hinweis: \\
-Ohne Unterschrift, Datums- und Ortsangabe ist diese Erklärung ungültig und damit auch die Bachelor-/Masterarbeit.\\
 
 \newpage
 
@@ -270,5 +253,9 @@ $endif$
 \pagenumbering{arabic}  % page numbers in arabic style
 
 $body$
+
+\newpage
+Hiermit versichere ich, die vorliegende Arbeit selbständig verfasst zu haben. Ich habe keine anderen als die angegebenen Quellen und Hilfsmittel benutzt und alle wörtlich oder sinngemäß aus   anderen   Werken   übernommenen   Inhalte   als   solche   kenntlich   gemacht.   Die   eingereichte Masterarbeit  war  oder  ist  weder  vollständig  noch  in  wesentlichen  Teilen  Gegenstand  eines  anderen Prüfungsverfahrens.  Die  elektronische  Version  der  eingereichten  Masterarbeit  stimmt  in  Inhalt  und Formatierung mit den auf Papier ausgedruckten Exemplaren überein.
+
 
 \end{document}

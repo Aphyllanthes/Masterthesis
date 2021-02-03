@@ -79,15 +79,15 @@ Zur Beschreibung der vier Antwortvariablen Artenzahl der Wirtsbienen pro Nisthil
 
 <!-- - Methodeneffekte ausschließen: Position und Ausrichtung der Nester können einen Einfluss haben [@martins2012], ebenso nahegelegene alte Insektenhotels. -->
 
-Zunchächst wurde der Einfluss von vorhandenen Insektenhotels am Nisthilfenstandort analysiert. Da die Information über Insektenhotels am Nisthilfenstandort nur für einen Teil (129 von 259) der Nisthilfen zur Verfügung stand, wurden mit diesem Parameter mit reduziertem Datensatz folgende Modelle gefittet: 
+Zunchächst wurde der Einfluss von vorhandenen Insektenhäusern am Nisthilfenstandort analysiert. Da die Information über Insektenhäuser am Nisthilfenstandort nur für einen Teil (129 von 259) der Nisthilfen zur Verfügung stand, wurden mit diesem Parameter mit reduziertem Datensatz folgende Modelle gefittet: 
 
 \begin{align}
- y \sim Insektenhotel \label{eqIH1} \\
- y \sim Insektenhotel + imp_r + imp_r^2 \label{eqIH2} \\
+ y \sim Insektenhaus \label{eqIH1} \\
+ y \sim Insektenhaus + imp_r + imp_r^2 \label{eqIH2} \\
  y \sim imp_r + imp_r^2 \label{eqIH3}
 \end{align}
 
-wobei $y$ die jeweilige Antwortvariable beschreibt, $Insektenhotel$ das Vorhandensein von Insektenhotels am Nisthilfenstandort und $imp_r$ den Versiegelungsgrad im Radius r. Die gefitteten Modelle wurden daraufhin mittels Anova verglichen. So konnte bewertet werden ob der Versiegelungsgrad das Modell mit dem Insektenhotel als alleinigen Prädiktor verbessern kann und andersherum ob das Insektenhotel das Modell mit dem Versiegelungsgrad als Prädiktor verbessern kann. Dies dient dem Vergleich mit den Modellierungen des gesamten Datensatz, welche den Prädiktor $Insektenhaus$ nicht beinhalten.
+wobei $y$ die jeweilige Antwortvariable beschreibt, $Insektenhaus$ das Vorhandensein von Insektenhäusern am Nisthilfenstandort und $imp_r$ den Versiegelungsgrad im Radius r. Die gefitteten Modelle wurden daraufhin mittels Anova verglichen. So konnte bewertet werden ob der Versiegelungsgrad das Modell mit dem Insektenhaus als alleinigen Prädiktor verbessern kann und andersherum ob das Insektenhaus das Modell mit dem Versiegelungsgrad als Prädiktor verbessern kann. Dies dient dem Vergleich mit den Modellierungen des gesamten Datensatz, welche den Prädiktor $Insektenhaus$ nicht beinhalten.
 Diese Analyse wurde für die Radien, für die der mittlere Versiegelungsgrad berechnet wurde, 100m, 250m, 500m, 1000m und 2000m, durchgeführt. Die Modellierung der verschiedenen Radien, welche auch für alle folgenden Modelle durchgeführt wird, dient der Fragestellung in welcher Entfernung der Versiegelungsgrad den stärksten Einfluss auf die Wildbienen hat. <!-- Anova beschreiben!!! -->
 
 <!-- Ich habe den Versiegelungsgrad für verschiedene Radien berechnet, da mich der Einfluss der Versiegelung verschiedener Maßstäbe interessiert. Ich möchte somit alle Maßstäbe mit ins Modell nehmen obwohl diese Prädiktoren logischerweise korrelieren. Daher verwende ich im Modell lineare Kombinationen der Prädiktoren wie in @zuur2009 [p. 475] beschrieben -->
@@ -154,20 +154,18 @@ Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben i
 <!--   - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten. -->
 
 Die Artengemeinschaft in den Nisthilfen wurde mithilfe der R-Paketes "vegan" durchgeführt. Zunächst wurden dafür alle Arten aus den zu analysierenden Daten entfernt, die nur in einer einzigen Nisthilfe vorkamen.  
-Des Datensatz wurde in die drei Gruppen "Land", "Übergang" und "Stadt" unterteilt. Die Unterteilung erfolgte Anhand der $33%$ und $66%$ Quantile des mittleren Versiegelungsgrades im 500m-Radius der Nisthilfenstandorte. 
-Eine weitere Einteilung in "Ackerland" und "Kein-Ackerland" wurde anhand der Ackerlandfläche im 500m-Radius unternommen.
+Des Datensatz wurde in die drei Gruppen "Land", "Übergang" und "Stadt" unterteilt. Die Unterteilung erfolgte Anhand der $33\%$ und $66\%$ Quantile des mittleren Versiegelungsgrades im 500m-Radius der Nisthilfenstandorte. 
+Eine weitere Einteilung in "Ackerland" und "Kein-Ackerland" wurde anhand der Ackerlandfläche im 500m-Radius unternommen.  
+
 Zunächst wird eine Distanzmatrix der Bray-Curtis Dissimilarity, einem Maß für die Unähnlichkeit der Artenzusammensetzung, zwischen allen Nisthilfen mit der Funktion $vegdist()$ berechnet. Als Datengrundlage dient hierfür die Nestzahl jeder Art pro Nisthilfe. Um zu analysieren ob die Artenzusammensetzung in den Städten homogener ist als auf dem Land wird mithilfe der Funktion $betadisper()$ die Dispersion (Streuung) der Dissimilarity beider Gruppen berechnet. Anhand anova wird daraufhin auf signifikante Unterschiede getestet und anhand des TukeyHSD-test (Tukey's Honest Significant Difference) die Unterschiede zwischen den spezifischen Gruppen analysiert.
 Des weiteren wird mit der Funktion adonis() getestet ob sich die Artenzusammensetzung zwischen den Gruppen 'Stadt' und 'Land' unterscheidet.  
-
-Der Einfluss von Strukturparametern sowie dem Versiegelungsgrad aller Radien wurde separat mit der Funktion $envfit()$ modelliert.
-Zusätzlich erfolgte eine Deskriptive Analyse des Vorkommens auf Artebene. 
+Der Einfluss von Strukturparametern sowie dem Versiegelungsgrad aller Radien wurde separat mit der Funktion $envfit()$ modelliert. Da durch diese Modelle keine Effekte von Versiegelungsgrad und Strukturparametern aufgezeigt werden konnten, folgte eine deskriptive Analyse des Artvorkommens in den drei Gruppen "Land", "Übergang" und "Stadt". 
 <!-- Analyse der Varianzen (z.B.: Adonis) , -->
 
-Die Netzwerkanalyse der Wirt-Parasit-Beziehungen wurde mit den zwei Gruppen der Nisthilfenstandorte "Land" und "Stadt", welche auch für die Analyse der Artengemeinschaft verwendet wurden (siehe Absatz oben). 
-Mithilfe des Paketes @bipartite wurden die Wirt-Parasit-Beziehungen dargestellt und die das Netzwerk beschreibenden Indizes "H2", "generality" und "vulneratbility" berechnet.
-Um den Grad der Spezialisierung bzw. Generalisierung der natürlichen Gegenspieler und der Wirtsbienen auf dem Land mit der Stadt zu vergleichen wurden der quantitative Index H2, sowie die qualitiativen Indizes Generalisierung der natürlichen Gegenspieler und Vulnerabilität der Wirtsbienen berechnet (R-Funktion networklevel(), ebenso aus dem Paket bipartite).
-Der Index H2 ist ein standardisierter Shannon-Diversity-Index [@dormann2009]. Der Wertebereich des Index reicht von 0 (keine Spezialisierung) bis 1 (perfekte Spezialisierung für alle gegebenen Interaktionen). 
-Laut @bluthgen2006 ist der Index H2 unabhängig von Netwerkgröße und Probenanzahl und eignet sich daher für den Vergleich der Spezialisierung zwischen verschiedenen Netzwerken. Die Generalisierung der Insekten (später generality.HL genannt) ist definiert, als die gewichtete mittlere effektive Anzahl an Wirten (LL: lower level) pro Parasitoid (HL: higer level). Der Wert 1 beschreibt damit die perfekte Spezialisierung und hohe Werte beschreiben abhängig von der Netzwerkgröße und Anzahl an Interaktionen ein generalistisches Wirt-Parasitoid-Netzwerk. Die Vulnerabilität der Wirte beschreibt das Gegenteil, nämlich die mittlere effektive Anzahl der natürlichen Gegenspielern pro Wirtsbienenart.
+Die Netzwerkanalyse der Wirt-Parasit-Beziehungen wurde mit den zwei Gruppen der Nisthilfenstandorte "Land" und "Stadt", welche auch für die Analyse der Artengemeinschaft verwendet wurden (siehe Absatz oben), durchgeführt. 
+Mithilfe des Paketes 'bipartite' [@bipartite] wurden die Wirt-Parasit-Beziehungen dargestellt und die das Netzwerk beschreibenden Indizes "H2", "generality" und "vulneratbility" mithilfe der Funktion $networklevel()$  berechnet. Die Indizes dienen zum Vergleich des Grades der Spezialisierung der natürlichen Gegenspieler und Wirtsbienen zwischen Land und Stadt.
+Der Index H2 ist ein standardisierter Shannon-Diversity-Index [@dormann2009] und dient der quantitativen Beschreibung des Spezialisierungsgrades des Netzwerkes. Der Wertebereich des Index reicht von 0 (keine Spezialisierung) bis 1 (perfekte Spezialisierung für alle gegebenen Interaktionen). 
+Laut @bluthgen2006 ist der Index H2 unabhängig von Netwerkgröße und Probenanzahl und eignet sich daher für den Vergleich der Spezialisierung zwischen verschiedenen Netzwerken. Die Generalisierung der Insekten ist definiert, als die gewichtete mittlere effektive Anzahl an Wirten pro Parasitoid. Der Wert 1 beschreibt damit die perfekte Spezialisierung und hohe Werte beschreiben abhängig von der Netzwerkgröße und Anzahl an Interaktionen ein generalistisches Wirt-Parasitoid-Netzwerk. Die Vulnerabilität der Wirte beschreibt das Gegenteil, nämlich die mittlere effektive Anzahl der natürlichen Gegenspielern pro Wirtsbienenart.
 
 <!-- Separate Analyse des Vorkommens von Teilgruppen erfolgte Deskriptiv:  O. cornuta und Chelostoma florisomnis  -->
 

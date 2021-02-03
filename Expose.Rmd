@@ -841,13 +841,18 @@ model0_step <- MASS::stepAIC(model0)
 model2a <- MASS::glm.nb(Artenanzahl_det ~ . + I(imp^2), data = A1_250[,-c(1,3)]) ##
 model2a_step <- MASS::stepAIC(model2a)
 
+#saveRDS(model2a_step, "Modelle/Artenzahl_250_step.rds")
+
 model3a <- MASS::glm.nb(Artenanzahl_det ~ . + I(imp^2), data = A1_500[,-c(1,3)]) ##
 model3a_step <- MASS::stepAIC(model3a)
 
 model4c <- MASS::glm.nb(Artenanzahl_det ~ I(imp^2), data = A1_1000) #
 
+#saveRDS(model4c, "Modelle/Artenzahl_1000_step.rds")
+
 model5c <- MASS::glm.nb(Artenanzahl_det ~ I(imp^2), data = A1_2000) 
 
+summary(model2a_step)
 
 test <- sjPlot::tab_model(model0_step, model2a_step, model3a_step,model4c,model5c,
                   dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),

@@ -274,7 +274,7 @@ specialist (oligolectic) and/or forest-associated species were absent in suburbs
 <!-- - Chelostoma florisomnis ist am höchsten wo der Anteil der Weideflächen am höchsten ist. -->
 
 <!-- - Landnutzungsformen von seltenen Arten -->
-- Die Wirt-Parasit-Beziehungen sind im urbanen Umfeld mit hohem Versiegelungsgrad ... als im ländlichen Umfeld mit geringem Versiegelungsgrad.
+- Die Wirt-Parasitoid-Beziehungen weisen im urbanen Umfeld mit hohem Versiegelungsgrad einen geringeren Grad an Spezialisierung auf als im ländlichen Umfeld mit geringem Versiegelungsgrad. Denn die homogenen Bedingungen im urbanen Gebiet bieten nicht die erforderliche Komplexität von verfügbaren Ressourcen um spezialisierte Interaktionen zu ermöglichen.
 
 <!-- Parasitierung evtl nur für bestimmte Artengruppen? -->
 <!-- Quelle für Parasitierungsrate und urban-rural gradient: @pereira-peixoto2016 -->

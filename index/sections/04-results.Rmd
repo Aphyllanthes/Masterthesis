@@ -1,53 +1,28 @@
-# Results
+# Diskussion 
 
-<!-- * Organize material and present results. -->
+Die Parameter der Landschaftstruktur zeigten keinerlei Effekt auf die untersuchten Variablen der Nisthilfen. Es ist davon auszugehen, dass die Berechnung der Parameter aus Satelittendaten insbesondere im Siedlungsbereich nicht die Genauigkeit bietet um für Wildbienen und ihre Gegenspieler relevante Habitateigenschaften abzubilden. 
+Denn in anderen Studien ... wurde der Effekt der Landschaftstruktur bereits aufgezeigt.
 
-<!-- * Use tables, figures (but prefer visual presentation): -->
+Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
 
-<!--   + Tables and figures should supplement (and not duplicate) the text. -->
+Die in dieser Arbeit erfassten Daten beschreiben alle Wildbienen und Parasiten, die im Jahr 2019 eine Nisthilfe des Schulinsektenhausprojektes besiedelt haben. Es wurde bereits in verschiedenen Studien aufgezeit, dass es bei Bestäubern eine hohe Variabilität zwischen verschiedenen Jahren gibt. <!-- vielleicht @burkle2011 -->
+<!-- Wenn das Ökosystem (top-down und bottom-up Interaktionen) aus dem Gleichgewicht geraten kommt es zu saisonal sehr variablen Artenvorkommen- und Häufigkeit. - Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig -->
 
-<!--   + Tables and figures should be provided with legends. -->
+<!-- Da ländliche Gebiete jedoch auch intensiv genutzte Landwirtschaftliche Flächen beinhalten, was @warren2018 am Konzept des Stadt-Land Gradienten bemängelt haben, wird in dieser Arbeit auch der Anteil an Landwirtschaftlichen Flächen mit einbezogen. -->
 
-<!--   + _Figure \@ref(fig:graph) shows how to include and reference graphics. -->
-<!--     The graphic must be labelled before. Files must be in __.eps__ format. You -->
-<!--     can do this really easily in R Markdown with `knitr::include_graphics()`_! -->
+<!-- @shochat2006 empfehlen große Relikte natürlicher Habitate innerhalb der städtischen Kerngebiete in zukünftige Forschungen mit einzubeziehen. -->
 
-<!--   + Figures can be referenced with `\@ref(fig:<name>)`, where `<name>` is the -->
-<!--     name of the code chunk. -->
+Abundanz von Osmia bicornis ist durch die Art der Anbringung der Nisthilfe beeinflusst und die Anzahl verfügbarer Nistplätze  [@everaars2011]  
+<!-- cornuta bicornis konkurrieren andere Arten aus nach einigen jahren da sie sehr früh die Nester belegen. Also vielleicht vor allem in den Häusern wo viele Nester sind weil in der nähe altes Bienenhaus.   -->
 
-<!-- ```{r graph, echo=FALSE, fig.cap="Estimated residuals from model XXX. ...", out.width = "50%"} -->
-<!-- knitr::include_graphics("figures/graph.eps") -->
-<!-- ``` -->
-<!--   + Tables and graphics may appear in the text or in the appendix, especially if -->
-<!--   there are many simulation results tabulated, but is also depends on the study -->
-<!--   and number of tables resp. figures. The key graphs and tables must appear in -->
-<!--   the text! -->
+<!-- Artenvorkommen kann auch von einer ehemalige Landnutzung kommen [@do2014]. -->
 
-<!-- * R Markdown can also supports math equations just like _LaTeX_! -->
+<!-- @pickett2001 claimed that urban gradients offer a very effective framework for studying impacts of urbanisation on invertebrates because they can capture a wide variety of urban effects. @new2015 s. 36 -->
 
-<!--   + _Equation \@ref(eq:SpecDens) represents the ACs of a stationary -->
-<!--     stochastic process:_ -->
-<!--     \begin{equation} -->
-<!--             f_y(\lambda) = (2\pi)^{-1} \sum_{j=-\infty}^{\infty} -->
-<!--                            \gamma_j e^{-i\lambda j} -->
-<!--                          =(2\pi)^{-1}\left(\gamma_0 + 2 \sum_{j=1}^{\infty} -->
-<!--         \gamma_j \cos(\lambda j)\right) -->
-<!--                                        (\#eq:SpecDens) -->
-<!--     \end{equation} -->
-<!--     _where $i=\sqrt{-1}$ is the imaginary unit, $\lambda \in [-\pi, \pi]$ is the -->
-<!--     frequency and the $\gamma_j$ are the autocovariances of $y_t$._ -->
 
-<!--   + Equations can be referenced with `\@ref(eq:<name>)`, where name is defined -->
-<!--     by adding `(\#eq:<name>)` in the line immediately before `\end{equation}`. -->
 
-<!-- ## Review of Results -->
+<!-- They may result from (1) localised direct habitat degradation or loss or from (2) wider changes in regional land use, together imposing two rather different scales for evaluation. Both may be infl uenced further by progressive influences of alien species as conditions continue to change [@new2015]. -->
 
-<!-- *  Do the results support or do they contradict economic theory ? -->
+<!-- Durch Nisthilfen kann das Vorkommen von Hohlraumbesiedlern, also Bienen und Wespen, welche Nisthilfen besiedeln, erhöht werden (Gathmann und Tscharntke 1997 - Bees and wasps in the agricultural landscape: colonization and augmentation in trap nests. Mitteilungen der Deutschen Gesellschaft für Allgemeine und Angewandte Entomologie). Hauptsächlich Osmia bicorns und Osmia cornuta werden gefördert. -->
 
-<!-- *  What does the reader learn from the results? -->
-
-<!-- *  Try to give an intuition for your results. -->
-
-<!-- *  Provide robustness checks. -->
-
-<!-- *  Compare to previous research. -->
+<!-- @geslin2016: In general, urbanization appears to act as a filter for bee communities by promoting large‐bodied and aboveground‐nesting species and inhibiting small‐bodied and ground‐nesting bees in urban matrices (Banaszak‐Cibicka and Żmihorski 2012; Geslin et al. 2013).  -->
