@@ -109,7 +109,7 @@ y \sim imp_{r}^2 \label{eq4}
 
 
 
-Bei allen Modellen wurde die Verteilung, welche die Antwortvariable (Artenzahl bzw. Abundanz) am besten beschreibt, mithilfe der Funktion *fitdistr()*  aus dem Paket "fitdistrplus" ermittelt. Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren.
+Bei allen Modellen wurde die Verteilung, welche die Antwortvariable (Artenzahl bzw. Abundanz) am besten beschreibt, mithilfe der Funktion *fitdistr()*  aus dem Paket "fitdistrplus" ermittelt. Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren. Für alle Parameter stellte die Negativebinomialverteilung den besten fit dar. Des weiteren wurde jeweils noch die Poissonverteilung untersucht, welche jedoch in anschließenden der Modellselektion jeweils schlecht abschnitt.
 
 Dem Datensatz werden drei Parameter mit zufällig uniformverteilten Werten angehängt. Diese Test-Prädiktoren dienen als Kontrolle und sollten keinen Effekt zeigen.  Jedes ausgewählte Modell wurde mit einem Modell verglichen, dass um drei "test"-Parameter erweitert wurde. Die test-Prädiktoren sollten das Modell nicht verbessern.  
 Die Prädiktoren, welche für das erste Modell mit allen Prädiktoren verwendet werden, werden anhand einer Clusteranalyse ausgewählt. Dies verhindert, dass korrelierende Parameter im selben Modell verwendet werden. Die Clusteranalyse wird anhand der Funkion $varclus()$ aus dem R-Packet $Hmisc$ durchgeführt. Aus Parametern, wessen $spearmans  \rho^2$ größer als $0.5$ ist, wird der Parameter ausgewählt, welcher näher an der Fragestellung dieser Arbeit und somit ökologisch relevanter ist. 
@@ -126,7 +126,7 @@ Für alle ausgewählten Modelle wird eine Residuendiagnostik nach @DHARMa mit de
  - testQuantiles: überprüft die Quantile der Residuen anhand einer Quantilregression.
  - testSpatialAutocorrelation: testes ob eine räumliche Autokorrelation vorliegt.
 
-Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben in dieser Arbeit keine Tests signifikante Ergebnisse (p<0.05). Wo der Einfluss der Nullen eine Rolle spielte, wurde mithilfe der Funktion $glmmTMB()$ aus dem gleichnamigen Paket ein Modell gefittet, welches den Einfluss der Nullen berücksichtigt. 
+Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben in dieser Arbeit keine Tests signifikante Ergebnisse (p<0.05). Der Einfluss der Nullen spielte bei der Abundanz der Wildbienen eine Rolle, sodass hierfür mithilfe der Funktion $glmmTMB()$ aus dem gleichnamigen Paket ein Modell gefittet wurde, welches den Einfluss der Nullen ('Zeroinflation') berücksichtigt. Dass die Verteilung der Abundanz der Wildbienen durch den Einfluss der Nullen charakterisiert ist, lässt sich folgendermaßen erklären: die Abundanz der Wildbienen (Anzahl an Brutzellen) hat dann den Wert Null, wenn in einer Nisthilfe kein einziges Nest von Wildbienen angelegt wurde. Wo jedoch mindestens ein Nest angelegt ist, kommen tendenziell gleich mehrere Brutzellen vor.
 
  <!-- Neben einem einfachen Modell (siehe Formel nr. 1) mit der Information zum Insektenhaus als einzigen Prädiktor wurden auch Modelle mit den Parametern zur Fragestellung der Urbanisierung und Landschaftskomplexität gefittet. -->
  <!-- $$ y \sim Insektenhaus $$ -->
@@ -183,5 +183,4 @@ Laut @bluthgen2006 ist der Index H2 unabhängig von Netwerkgröße und Probenanz
 <!-- - Analysis of uncertainty -->
 
 <!-- andere geostatistische ansätze: variogramm, autocorrelation ? -->
-
 
