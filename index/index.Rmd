@@ -1,0 +1,130 @@
+---
+#
+# Required Information --------------------------------------------------------
+# change lines 5 - 15
+title: "Der Einfluss von Landnutzung und Urbanisierung auf hohlraumnistende Wildbienen und deren Gegenspieler"
+type: "Masterarbeit"
+author: "Nele Stackelberg"
+authordegree: "M. Sc."
+birthplace: "Freiburg"
+date: "MMMM dd, yyyy"
+examdate: "20. März 2021"
+university: "Albert-Ludwigs-Universität Freiburg"
+institute: "Fakultät für Umwelt und Natürliche Ressourcen"
+instituteshort: "(UNR)"
+department: "Professur für Naturschutz und Landschaftsökologie"
+supervisor: "Dr. Felix Fornoff"
+referee1: "Dr. Felix Fornoff"
+referee2: "Dr. Jochen Fründ"
+#dedication: "To my pet Fred"
+#
+# Optional Information --------------------------------------------------------
+# comment out if unnecessary
+abstract: |  
+  `r if(knitr:::is_latex_output()) paste(readLines("prelim/00-abstract.Rmd"), collapse = '\n  ')`
+zusammenfassung: |
+  `r if(knitr:::is_latex_output()) paste(readLines("prelim/00-zusammenfassung.Rmd"), collapse = '\n  ')`
+acknowledge: |  
+  `r if(knitr:::is_latex_output()) paste(readLines("prelim/00-acknowledge.Rmd"), collapse = '\n  ')`
+abbreviations: |  
+  `r if(knitr:::is_latex_output()) paste(readLines("prelim/00-abbreviations.Rmd"), collapse = '\n  ')`
+lot: true                              # list of tables
+lof: true                              # list of figures
+link-citations: true
+bibliography: ../Masterarbeit.bib       # bibliography file
+#
+# Rendering Options -----------------------------------------------------------
+#
+knit: "bookdown::render_book"
+output: 
+  heididown::thesis_without_chapter_ipmb_pdf
+space_between_paragraphs: true       # if you want spaces bt paragraph
+# header-includes:     # if including additional latex packages or commands
+  # - \setlength{\parindent}{17pt}
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{float}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{threeparttablex}
+- \usepackage[normalem]{ulem}
+- \usepackage{makecell}
+- \usepackage{xcolor}
+- \usepackage[utf8]{inputenc}
+- \usepackage{placeins}
+- \DeclareUnicodeCharacter{00A0}{~}
+---
+
+<!--
+Above is the YAML (YAML Ain't Markup Language) header that includes a lot of
+metadata used to produce the document.  Be careful with spacing in this header!
+If you'd like to include a comment that won't be produced in your resulting file
+enclose it in a block like this.
+-->
+
+<!--
+If you receive a duplicate label error after knitting, make sure to delete the
+index.Rmd file and then knit again.
+-->
+
+```{r include_packages, include = FALSE}
+# This chunk ensures that the `huwiwidown` package is installed and loaded. This
+# package includes the template files for the thesis.
+if (!require(devtools)) {
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+}
+if (!require(heididown)) {
+  devtools::install_github("nkurzaw/heididown")
+  library(heididown)
+}
+library(dplyr)
+
+load("../my_work_space.RData")
+
+knitr::opts_chunk$set(echo = FALSE, cache = TRUE)
+# options(kableExtra.latex.load_packages =FALSE)
+# options(knitr.table.format = "latex")
+library(kableExtra)
+
+library(dplyr)
+library(ggplot2)
+library(jtools)
+library(sjPlot)
+
+```
+
+<!-- 
+The {.unnumbered} option here means that the introduction will be "Section  0."
+You can also use {-} for no numbers on section. 
+-->
+
+<!--
+The body of the thesis starts underneath the text below. Feel free to delete
+everything below this.
+-->
+
+<!-- # About this Thesis Template {-} -->
+
+<!-- Welcome to the Heidelberg biosciences thesis template. This template is based on the famous two mandatory   -->
+<!-- pages that the Faculty of Biosciences at Heidelberg University requires for dissertations. -->
+<!-- It was adapted from [phister/huwiwidown](https://github.com/phister/huwiwidown) that  -->
+<!-- in turn is based on [ismayc/thesisdown](https://github.com/ismayc/thesisdown). -->
+
+
+<!-- ## Why use R Markdown? {-} -->
+
+<!-- _R Markdown_ creates a simple and straightforward way to interface with the -->
+<!-- beauty of LaTeX. Packages have been written in **R** to work directly with LaTeX -->
+<!-- to produce nicely formatting tables and paragraphs.  -->
+
+<!-- _R Markdown_ also allows you to read in your data, to analyze it and to -->
+<!-- visualize it using **R** functions, and also to provide the documentation and -->
+<!-- commentary on the results of your project. Using _R Markdown_ will also allow -->
+<!-- you to easily keep track of your analyses in **R** chunks of code, with the  -->
+<!-- resulting plots and output included as well. -->

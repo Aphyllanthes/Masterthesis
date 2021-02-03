@@ -32,8 +32,9 @@ header-includes:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, cache = TRUE)
-options(kableExtra.latex.load_packages =FALSE)
-options(knitr.table.format = "latex")
+options(kableExtra.latex.load_packages =FALSE,
+        knitr.table.format = "latex",
+        scipen=999)
 library(kableExtra)
 
 library(dplyr)
@@ -89,6 +90,8 @@ Da auch die Gegenspieler in ihrem Lebensraumanspruch von Veränderungen beeinflu
 
 <!-- @fortel2014: Indeed, several studies suggest that parasitic species are good indicators of ecosystem health and stability [70–75]. Parasitic bees play a stabilizing role in bee communities [69,70]-->
 
+Die in Deutschland häufigste Bienenart in Nisthilfen ist die Rostrote Mauerbiene (*Osmia bicornis*, Synonym: *Osmia rufa*). 
+
 ## Nisthilfen (Trap-Nests)
 <!-- sampling-method trap-nest -->
 Einige Wildbienenarten Nisten in oberirdischen Hohlräumen und besiedeln daher auch Nisthilfen (Trap-nest), welche durch waagerecht orientierte Schilfhalme und Bambusröhrchen eine Nistmöglichkeit bieten. Das Monitoring von Wildbienen, Wespen und deren Parasiten mittels Nisthilfen ist eine etablierte Methode, die die Möglichkeit bietet den Lebenszyklus vom Ei bis zum adulten Individuum zu erforschen. So ist die Analyse der Mortalität, des Geschlechterverhältnisses, der Parasitierungsraten und der Wirt-Parasit-Beziehungen ein Vorteil, welchen Nisthilfen, im Vergleich zu Fangmethoden der fliegenden Wildbienen, bieten.  
@@ -104,6 +107,8 @@ In dieser Arbeit wird die Artenzusammensetzung der Bienen in Nisthilfen entlang 
 Im Projekt "Schulinsektenhaus" der Proffessur für Naturschutz und Landschaftsökologie der Albert-Ludwigs-Universität Freiburg in Kooperation mit dem Robert-Bosch-College in Freiburg werden flächendeckende Daten über hohlraumbesiedelnde Insekten gesammelt. Das Projekt was über mehrere Jahre laufen soll hat im Jahr 2019 gestartet und Insktenhäuser (Nisthilfen) an über 300 Schulen in ganz Deutschland versendet. Verantwortliche Lehrer\*innen und Schüler\*innen dokumentieren die Anbringung des Nestes sowie Informationen zur Umgebung, welche das Vorkommen der Insekten beeinflussen können.
 Von den Schulen wird am Jahresende je eine Nisthilfe zurückgesendet an die Uni Freiburg, sodass die Besiedelung der Insektenhäuser bezüglich Nahrungsverhalten, Nestbauweise und Parasitierung analysiert werden kann. 
 Das Projekt beinhaltet so zum einen den Bildunsaspekt, um bei Schüler\*innen und Lehrer\*innen in ganz Deutschland das Interesse an der Ökologie der Insekten zu wecken, zum anderen ermöglicht das Projekt Erkenntnisse über den deutschlandweiten Status der vorkommenden Wespen- und Bienenarten mit einem Fokus auf Siedlungsgebiete.
+
+<!-- citizen-science wie schon bei @everaars2011 durchgeführt. -->
 
 Die in dieser Arbeit analysierten Nisthilfen waren im gesamten Jahr 2019 im Rahmen des Schulinsektenhausprojekt an den knapp 300 in Abbildnung \ref{standorte} dargestellten Standorten aufgestellt.
 
@@ -134,6 +139,8 @@ ggplot()  + geom_sf(data = germany) + geom_sf(data = mypoint)
 
 
 ## Der Einfluss der Landnutzung auf Wildbienen 
+<!-- Allgemeines aus @roulston2011 -->
+
 <!-- Studien im Landwirtschaftlichen Kontext und im Bereich natürlicher Habitate wurde bereits intensiv untersucht. Der Anteil natürlicher Habitate in der Landschaft nimmt im Gegensatz zum Siedlungsbereich ab. -->
 <!-- - Einfluss von Landwirtschaft auf Wildbienen -->
 <!-- - Einfluss von natürlichen Habitaten auf Wildbienen -->
@@ -142,9 +149,9 @@ Der Landschsaftswandel zu einer Intensivierung der Landwirtschaft und einer zune
 <!-- vlt noch kulturlandschaft wo mit unsere heutige Insektenwelt herkommt erwähnen. Davor war hier nur wald und sicher eine ganz andere Insektenzusammensetzung. -->
 Für die komplexen Lebensraumansprüche von Wildbienen sind verschiedene Landnutzungsformen wie Landwirtschaftliche Flächen und der städtische Bereich in unterschiedlichem Maße geeignet.  
 Viele Studien wurden bereits im Kontext der Agrarlandschaft durchgeführt, um die Bestäubungsleistung durch die Wildbienenpopulationen abzuschätzen und ihren ökonomischen Wert zu beurteilen [z.B.: @happe2018; @holzschuh2010].
-In Agrarlandschaften in denen Monokulturen nur saisonal einseitige Futterquellen bieten, Insektizide großflächig angewandt werden und Nistmöglichkeiten fehlen, können Wildbienenpopulationen nicht bestehen [@westrich1996]. In der Landwirtschaft ist so die Nähe zu natürlichen Habitaten wichtig um die Bestäubungsleistung durch Wildbienen zu gewährleisten [@garibaldi2011; @ricketts2008; @lefeon2010]. Der Anteil von semi-natürlichen Habitaten in der Landschaft hat einen positiven Einfluss auf die Artenzahl der Wildbienen sowie ihrer Parasiten [@steffan-dewenter2002]. Dies beobachteten auch @holzschuh2010, die den Anteil von Nicht-Ackerland-Habitaten in der Landschaft untersucht haben. Der Anteil von Nicht-Ackerland-Habitaten in der Landschaft hat einen positiven Effekt auf Artenzahl sowie Abundanz von Bienen in Nisthilfen, als auch auf die Abundanz der in den Nisthilfen häufigsten Bienenart *Osmia bicornis*.
+In Agrarlandschaften in denen Monokulturen nur saisonal einseitige Futterquellen bieten, Insektizide großflächig angewandt werden und Nistmöglichkeiten fehlen, können Wildbienenpopulationen nicht bestehen [@westrich1996]. In der Landwirtschaft ist so die Nähe zu natürlichen Habitaten wichtig um die Bestäubungsleistung durch Wildbienen zu gewährleisten [@garibaldi2011; @ricketts2008; @lefeon2010]. Der Anteil von semi-natürlichen Habitaten in der Landschaft hat einen positiven Einfluss auf die Artenzahl der Wildbienen sowie ihrer Parasiten [@steffan-dewenter2002]. Dies beobachteten auch @holzschuh2010, die den Anteil von Nicht-Ackerland-Habitaten in der Landschaft untersucht haben. Der Anteil von Nicht-Ackerland-Habitaten in der Landschaft hat einen positiven Effekt auf Artenzahl sowie Abundanz von Bienen in Nisthilfen, als auch auf die Abundanz der in Deutschland in den Nisthilfen häufigsten Bienenart *Osmia bicornis*.
 
-#### Studien zu Ackerland, Weideflächen und Wald
+<!-- #### Studien zu Ackerland, Weideflächen und Wald -->
 
 
 
@@ -163,6 +170,7 @@ Das Konzept des Stadt-Land Gradienten basiert auf der Annahme, dass die Landnutz
 Der Versiegelungsgrad hat einen negativen Effekt auf das Artenreichtum von Wildbienen, wobei das in besonderem Maße für die bodennistenden Arten gilt [@geslin2016], was auf den Mangel an Nistmöglichkeiten, also freien Bodenflächen, zurückzuführen ist. Für oberirdisch nistende Arten, denen sich auch in Städten Nistmöglichkeiten bieten, haben @geslin2016 einen positiven Effekt des Versiegelungsgrades beobachtet, wobei der maximale Versiegelungsgrad in der Studie bei 60 % lag, was nach @fortel2014 einem mittleren Versiegelungsgrad entspricht. 
 @fortel2014 haben in Lyon in Frankreich für den mittleren Versiegelungsgrad von 50% die höchste Artenanzahl an Wildbienen beobachtet, für bodennistende sowie für Nisthilfen-besiedelnde Bienenarten.  
 Laut @fetridge2008 haben daher suburbane Landschaften das Potential diverse und intakte Bienengemeinschaften zu beherbergen. Denn dort bieten Gärten den Bestäubern Ressourcen, wie sie in der heutigen Agrarlandschaft nicht mehr vorkommen [@samnegard2011].  
+Die häufigste in Mitteleuropa in Nisthilfen vorkommende Art, *Osmia bicornis*, wurde von @everaars2011 in allen Bereichen der Stadt beobachtet. Dies lässt sich dadurch erklären, dass *Osmia bicornis*, die rostrote Mauerbiene eine hinsichtlich der Art des Hohlraums, der als Nistplatz dient, als auch hinsichtlich der Futterplanzen generalistische Art ist und so auch in der Stadt ubiquitär vorkommt. 
 
 <!-- bray-curtis - beta-diversität -->
 
@@ -279,30 +287,33 @@ Abiotische Faktoren wie Temperatur, Niederschlag und Höhenlage beeinflussen Wil
 
 # Fragestellung und Hypothesen:
 <!-- @guisan2017 -->
+
+In dieser Arbeit soll Fragestellungen zu den Nisthilfen-besiedelnden Bienenarten und ihren natürlichen Gegenspielern im Bezug auf die Landschaftskomplexität und dem Stadt-Land-Gradienten nachgegangen werden. Als Indices für die Landschaftskomplexität werden die Anzahl verschiedener Landnutzungsklassen, sowie der Strukturreichtum der Landschaft (Edge-Density) der Landnutzungsklassen herangezogen.  
+<!-- Zusätzlich wird der Anteil natürlicher Habitate sowie der Anteil an Landwirtschaftlichen Flächen gesondert betrachtet. -->
+Zur Analyse des Stadt-Land-Gradienten werden Flächenversiegelungsdaten verwendet, unter der Annahme, dass der Versiegelungsgrad vom Stadtzentrum zum Land hin abnimmt [@salvati2014].
+
 - Welche Arten von Bienen, Wespen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Aus Deutschland sind vielzählige Studien zu Nisthilfen bekannt [@dainese2018; @gathmann2002; @happe2018; @holzschuh2010; @pereira-peixoto2014; @steckel2014; @vonkonigslow2019]. Die Zusammenfassung verschiedener Artenlisten von Gathmann & Tscharntke 1999 ergaben 33 Wirts-Bienenarten und zusätzliche Kuckucksbienenarten. Für ein Monitoring, dass sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue Arten zu erfassen. Insbesondere da für Stadtrandbereiche eine hohe Bienen- und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturanteil verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
 
-In dieser Arbeit soll Fragestellungen zu den Nisthilfen-besiedelnden Bienenarten und ihren Parasiten im Bezug auf die Landschaftskomplexität und dem Stadt-Land-Gradienten nachgegangen werden. 
-Dabei werden als Indices für die Landschaftskomplexität die Anzahl verschiedener Landnutzungsklassen sowie der Strukturreichtum der Landschaft (Edge-Density) der Landnutzungsklassen herangezogen. <!-- Kategorien bilden  --> Zusätzlich wird der Anteil natürlicher Habitate sowie der Anteil an Landwirtschaftlichen Flächen gesondert betrachtet.
-
-Zur Analyse des Stadt-Land-Gradienten werden Flächenversiegelungsdaten verwendet, unter der Annahme, dass der Versiegelungsgrad vom Stadtzentrum zum Land hin abnimmt [@salvati2014]. Versiegelung bezeichnet Flächen die durch Menschliche Bedeckung des Bodens, beispielsweise durch Bauwerke oder Asphaltflächen, wasserundurchlässig sind. <!-- anstatt Versiegelungsgrad: SVI oder NDVI? -->
-Versiegelungsgrad und Landnutzungskomplexität werden für die Radien 200m, 500m, 1000m berechnet, nach der Empfehlung von @geslin2016 zur Verwendung multivariater Gradienten für zukünftige Studien zum Einfluss von Urbanisierung auf die Bienengemeinschaft. Der Versiegelungsgrad wird auch für einen Radius von 2000m berechnet. 
 
 - Die Anzahl der Bienenarten:
   - ist bei mittlerem Versiegelungsgrad am höchsten, denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am Vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten (rural Taxa) ebenso wie an städtische Gebiete angepasste Arten (urban Taxa) vorkommen können [@mcintyre2000].
   - nimmt mit der Landschaftskomplexität sowie mit dem Strukturreichtum zu, da mehr Strukturen und verschiedene Landnutzungsformen in größerem Umfang Futterressourcen sowie Nistmöglichkeiten für viele verschiedene Bienenarten bieten. 
   
 - Die Abundanz der Bienen (Gesamtanzahl angelgter Brutzellen):
-  - verhält sich wie die Anzahl der Bienenarten, da .... 
+  - verhält sich wie die Anzahl der Bienenarten, da die auch Abundanz von der Verfügbarkeit der Nahrungsressourcen abhängt [@roulston2011].
   
 - Die Anzahl der Parasitenarten:
   - ist bei mittlerem Versiegelungsgrad am höchsten, da die Artenanzahl der Parasiten von der Artengemeinschaft ihrer Wirte abhängt [@fortel2014; @sheffield2013]. Der Effekt des Versiegelungsgrad auf die Parasitoide ist stärker als auf die Artenzahl der Wirte, da Arten höherer trophischer Ebenen anspruchsvoller an ihren Lebensraum sind als Arten niedrigerer trophischer Ebenen und somit auf Umweltveränderungen stärker reagieren [@davies2000; @albrecht2007]. 
   - nimmt mit Landschaftskomplexität und Strukturreichtum zu, da durch viele Ressourcen viele verschiedene Lebensbedingungen gegeben sind [@pereira-peixoto2016].
 
+- Die Abundanz von Osmia bicornis:
+  - ist bei mittlerem Versiegelungsgrad am höchsten, da Bereiche des mittleren Versiegelungsgrad die Stadtrandbereiche mit vielfältigen kleinräumigen Strukturen darstellen, welche vielfältige Nahrungsressourcen für Bienen der Art *Osmia biconis* bieten.
+
+<!-- red mason bee is ubiquitous in urban area but clearly profits from nearby floral resources. -->
+  
 - Die Artengemeinschaft der Wildbienen (inkl. Parasitenarten):
   - ist bei hohem Versiegelungsgrad homogener als bei mittlerem oder geringem Versiegelungsgrad, da sich Strukturen in Städten gleichen und überregional den selben Arten als Lebensraum dienen.
   - ist bei geringer Landschaftskomplexität und geringem Strukturreichtum homogener als bei hoher Landschaftskomplexität und hohem Strukturreichtum.
-  
-- Der
   
 <!-- - Die Parasitierungsrate (Anteil an parasitierten Zellen):  -->
 <!--   - nimmt mit Versiegelungsgrad ... -->
@@ -314,15 +325,12 @@ specialist (oligolectic) and/or forest-associated species were absent in suburbs
 <!--   - nimmt mit zunehmendem Strukturreichtum zu. -->
 <!--   - nimmt mit zunehmender Landschaftskomplexität zu. -->
 
-- Der Anteil von Osmia bicornis (Abundanz):
-  - nimmt mit zunehmendem Versiegelungsgrad zu.
-  - ist am höchsten, wo der Anteil der Siedlungsfläche (Landnutzungsklasse "Urban") maximal ist.
-  
-- Für den Anteil von Osmia cornuta gilt das selbe wie für Osmia bicornis.
-- Chelostoma florisomnis ist am höchsten wo der Anteil der Weideflächen am höchsten ist.
+
+<!-- - Für den Anteil von Osmia cornuta gilt das selbe wie für Osmia bicornis. -->
+<!-- - Chelostoma florisomnis ist am höchsten wo der Anteil der Weideflächen am höchsten ist. -->
 
 <!-- - Landnutzungsformen von seltenen Arten -->
-
+- Die Wirt-Parasit-Beziehungen sind im urbanen Umfeld mit hohem Versiegelungsgrad ... als im ländlichen Umfeld mit geringem Versiegelungsgrad.
 
 <!-- Parasitierung evtl nur für bestimmte Artengruppen? -->
 <!-- Quelle für Parasitierungsrate und urban-rural gradient: @pereira-peixoto2016 -->
@@ -341,7 +349,7 @@ specialist (oligolectic) and/or forest-associated species were absent in suburbs
 Das Richten der Nisthilfen und Versenden an die Schulen in Deutschland wurde durch Projektmitarbeiter des Lehrstuhls für Naturschutz und Landschaftsökologie, sowie Schüler und Mitarbeiter des United-World-Colleges (UWC) durchgeführt. Das Anbringen der Nester im Frühjahr 2019 erfolgte ehrenamtlich durch die Partner an den Schulen, welche ebenso Daten zum Anbringungsort des Nestes und der Umgebung erfassten. Ende des Jahres 2019 wurden die Nisthilfen an die Uni Freiburg zurückgesendet. 
 Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, dass die Insekten vorzeitig schlüpfen. Aus allen Nisthilfen wurden die besetzen Nester folgendermaßen bearbeitet:
 Alle Schilfröhrchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
-Von den ca 7000 Nestern  aus 238 Nisthilfen habe ich 1400 Nester geöffnet. Die übrigen Nester wurden durch Schüler des UWC, HiWis sowie zwei Bachelorstudenten und einer weiteren Masterstudentin geöffnet.  
+Von den ca 7000 Nestern  aus 259 Nisthilfen habe ich 1400 Nester geöffnet. Die übrigen Nester wurden durch Schüler des UWC, HiWis sowie zwei Bachelorstudenten und einer weiteren Masterstudentin geöffnet. Zur Datenerfassung wurde eine google-docs-Tabelle verwendet, da diese zeitgleiches Bearbeiten von verschiedenen bearbeitenden Personen ermöglicht.
 Aus den nach Morphospezies sortierten Nestern schlüpften im Frühjahr und Sommer Bienen, Wespen und ihre Parasitoide, welche zunächst aus den Nestern geholt, das Geschlecht erfasst und eingefroren wurden. Hierbei bearbeitete ich 1100 Nester. Die eingefrorenen Bienen wurden dann genadelt und bestimmt, wobei Osmia bicornis und O. cornuta größtenteils durch Hiwis genadelt wurde. Alle weiteren Bienen und ihre Parasiten nadelte und bestimmte ich.  
 Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @amiet1999,...] sowie zusätzlich für Arten der Gattung Hylaeus der Schlüssel von @dathe2016a. Für die Bestimmung der parasitoiden Keulenwespen (Sapygidae) wurde der Schlüssel Vespoidea von @amiet2008 verwendet. Die Arten der Familie der Schlupfwespen (Ichneumonidae) wurden durch Vergleich der in @tscharntke1998 aufgeführten Arten anhand des Morphotyps identifiziert. 
 
@@ -350,38 +358,53 @@ Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @
 <!-- trap nests: (Gathmann and Tscharntke 1999 Landschaftsbewertung mit Bienen und Wespen in Nisthilfen: Artenspektrum, Interaktionen und Bestimmungsschlüssel ;  --> 
 
 ## Auswertung
-Zur Datenerfassung wurde eine google-docs-Tabelle verwendet, da diese zeitgleiches Bearbeiten von verschiedenen bearbeitenden Personen ermöglicht.
-
-Der Datensatz der Informationen aller Nisthilfen wurde mithilfe der Software R [@R] Bereinigt. Neben der Korrektur von Schreibfehlern wurden vor allem die nicht exakt identifizierbaren Arten folgendermaßen bearbeitet:
-In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. In der Analyse wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. Die Parasitischen Arten der Überfamilie der Erzwespen (Chalcidoidea) - darunter wahrscheinlich hauptsächlich *Melittobia acasta* - wurden nicht bestimmt. In der Analyse wurde die Überfamilie Chalcidoidea als "Art" behandelt. Gleiches gilt für alle Käferarten, hier wurde die Ordnung (*Coleoptera*) als "Art" behandelt.
+Die Abundanz wurde durch die Summe aller Brutzellen pro Nisthilfe berechnet. 
+Da nicht alle Arten exakt identifiziert werden konnten wurde zur Berechnung der Artenzahl folgendermaßen vorgegangen:
+In manchen Nestern entwickelten sich keine adulten Tiere, da alle Zellen parasitiert wurden oder die Eier oder Larven sich aus anderen Gründen nicht weiterentwickelten. Dies führte dazu, dass nur die Arten von etwa 50% der Nester exakt bestimmt wurden. In der Analyse der Artenzahlen wurde angenommen dass die Arten dieser Nester von der selben Art waren wie von auf Artebene bestimmten Arten mit gleichen Informationen zu Nestverschluss und Futtermaterial derselben Nisthilfe. Falls keine Art mit gleichem Nestcharacteristika in der gleichen Nisthilfe vorhanden war wurde der Morphotyp der Art als weitere Art in die Analyse miteinbezogen. Die Parasitischen Arten der Überfamilie der Erzwespen (Chalcidoidea) - darunter wahrscheinlich hauptsächlich *Melittobia acasta* - wurden nicht bestimmt. In der Analyse wurde die Überfamilie Chalcidoidea als "Art" behandelt. Gleiches gilt für alle Käferarten, hier wurde die Ordnung (*Coleoptera*) als "Art" behandelt.
 
 <!-- chaetodactylus, melittobia, chalcid wasp -->
 
 <!-- wie geht man damit in der NMDS vor? -->
-Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten aufgelistet. Dann werden, für eine allgemeine Übersicht, folgende Parameter deskriptiv beschrieben:
-
-| Parameter | Beschreibung |
-| --------- | ------------ |
-| Artenreichtum | Anzahl der Arten pro Nisthilfe |
-| Abundanz | Anzahl Brutzellen pro Nisthilfe |
-| Überlebensrate | Anzahl der lebenden Puppen dividiert durch die Gesamtanzahl der Zellen |
-| Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen |
+Zunächst werden alle in den Nisthilfen vorgefundenen Bienen- und Parasitenarten, welche bis auf Artebene bestimmt werden konnten, aufgelistet und mit den Ergebnissen von @tscharntke1998 verglichen.
 
 
 ### Landnutzungs- und Versiegelunsdaten
-Zur Berechnung der Landnutzungs- und Versiegelungsdaten wurden die frei verfügbaren Daten der  European Environment Agency [@eea] herangezogen. Dies sind im Rahmen des Copernicus-Programmes der Europäischen Union [@zotero-383] durch Satellitendaten kategorisierte Landnutzungsdaten und Versiegelungsdaten (Imperviousness-Rasterdaten mit 20m Auflösung).  
-Um die Daten zur Landnutzung und zum Versiegelungsgrad schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank erstellt. In die Datenbank wurden auch alle weiteren Daten eingebunden (Metadaten zu den Standorten der Nisthilfen sowie den Datensatz der Arten). Die Datenbank kann von R aus abgerufen werden und die Daten direkt miteinander verschnitten werden.    
-Die Landnutzungsklassen des Copernicus-Datensatzes wurden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt. Zur Analyse wurden ausschließlich die neu definierten Kategorieen verwendet. 
+Um den Einflus von Landnutzung und Versiegelungsgrad auf die Wildbienen in den Nisthilfen zu Analysieren wurden frei verfügbare Daten der European Environment Agency [@eea] herangezogen. Dies sind im Rahmen des Copernicus-Programmes der Europäischen Union [@zotero-383] durch Satellitendaten erfasste Versiegelungsdaten  (Imperviousness-Rasterdaten mit 20m Auflösung) und im Projekt "CORINE Land Cover (CLC)" kategorisierte  Landnutzungsdaten.  Die Landnutzungsdaten beschreiben 44 Klassen, welche mit einer minimalen Kartiereinheit (MMU = minimum mapping unit) von 25 ha für Flächen und 100m für Lineare Erscheinungen erfasst sind. Die 44 Landnutzungsklassen des Copernicus-Datensatzes wurden in für den Lebensraum für Wildbienen relevante Kategorien unterteilt (siehe Tab. \ref{clc_cat}). Zur Analyse wurden ausschließlich die neu definierten Kategorieen verwendet.   
 
-Folgende Prädiktoren, die die Landschaft und ihre Nutzung beschreiben wurden berechnet:
+Versiegelung bezeichnet Flächen die durch Menschliche Bedeckung des Bodens, beispielsweise durch Bauwerke oder Asphaltflächen, wasserundurchlässig sind. <!-- anstatt Versiegelungsgrad: SVI oder NDVI? -->
 
-- Index für den Urbanisierungsgrad: der mittlere Versiegelungsgrad im Radius von 100m, 200m, 500m sowie 1000m um die Nisthilfenstandorte. Die Radien wurden gewählt da der Flugradius zur Nahrungssuche von Wildbienen meist unter 1km liegt [@garibaldi2011;@gathmann2002]. 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readxl)
+clc2000legend_IH <- read_excel("~/Documents/Uni/Master/Masterarbeit/Daten/clc2000legend_IH.xls") %>% 
+  dplyr::filter(!is.na(Kategorisierung_IH) ) %>% 
+  dplyr::filter(Kategorisierung_IH != "NA" ) %>% 
+  dplyr::select(-LABEL1, -LABEL2) %>% 
+  rename(clc_category = LABEL3,
+         IH_category = Kategorisierung_IH) %>% 
+  group_by(IH_category) %>% 
+  summarize(clc_categories = paste0(clc_category, collapse = ", "),
+            clc_codes = paste0(CLC_CODE, collapse = ", "))
+
+kableExtra::kbl(clc2000legend_IH,longtable =T,booktabs =T, caption = "Die in dieser Arbeit verwendeten Landnutzungskategorien (spalte IH\\_category) sind eine Zusammenfassung der Landnutzungklassen der CLC-Daten des Copernicus-Programmes (Kageogrien des clc-Datensatzes in der Spalte clc\\_categories, sowie deren Kodierung in der Spalte clc\\_codes.  \\label{clc_cat} ") %>% 
+  kableExtra::kable_paper(full_width = F) %>%
+  kableExtra::kable_styling(latex_options =c("repeat_header", "striped", "hold_position")) %>% 
+  kableExtra::column_spec(1,  width = "18em") %>%
+  kableExtra::column_spec(2, width = "20em") %>%
+  kableExtra::column_spec(3, width = "6em")
+```
+
+Um die Daten zur Landnutzung schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank mit der PostGIS-Erweiterung erstellt. In die Datenbank wurden auch die Standortdaten der Nisthilfen eingebunden. Die Datenbank wurde dann direkt von R aus abgerufen, wo die Daten mithilfe des Paketes (@dbi) direkt miteinander verschnitten werden konnten. Aus den Landnutzungs- und Versiegelungsdaten wurden folgende Variablen berechnet:
+
+- Index für den Urbanisierungsgrad: der mittlere Versiegelungsgrad im Radius von 100m, 250m, 500m, 1000m sowie 2000m um die Nisthilfenstandorte. Die kleineren Radien wurden gewählt um den Flugradius zur Nahrungssuche der Wildbienen, welcher meist unter 1km liegt  [@garibaldi2011;@gathmann2002], abzubilden. Dies entwpricht auch der Empfehlung von @geslin2016 zur Verwendung multivariater Gradienten für zukünftige Studien zum Einfluss von Urbanisierung auf die Bienengemeinschaft. Die Radien 1000m und 2000m werden verwendet um das größere Umfeld um den Standort zu kategorisieren. Ist der Standort im größeren Umfeld von einen großen Anteil versiegelter Fläche umgeben, so kann dies als Indikator für die Habitatvernetzung und die Lage des Nisthilfenstandortes innerhalb des städtischen Bereich dienen.
+
  <!-- Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten)  und über eventuell fehlende Habitatvernetzung. -->
  - Die Landnutzungsklassen: für alle Kategorien wurde ihre Fläche im 500m-Radius um die Nisthilfenstandorte berechnet. Kategorieen, welche nur in unter 10% der Nisthilfenstandorte vorkommen wurden nicht für die Modellierung verwendet. Es blieben somit die Landnutzungsklassen "Stadt" (Industielle Flächen sowie Wohngebiete), "Wald", "Ackerland" und "Weideflächen".
  - Index 1 für die Komplexität der Landschaft: Anzahl an verschiedenen Landnutzungklassen im 500m-Radius.
  - Index 2 für die Komplexität der Landschaft: die Summe der Kantenlänge (Edgelength)  aller Polygone der Landnutzungsklassen im 500m Radius. Die Kantenlänge ist gleich der Kantendichte (Edge-denisty) da die Fläche aller 500-Radius-Buffer um die Nisthilfenstandorte identisch ist. Die Aussenkanten der Flächen im gepufferten Bereich werden nicht miteinberechnet.
  
 Weiter Prädiktoren welche mit in die Modellierung eingebunden wurden sind die Klimafaktoren Jahresniederschlag und mittlere jährliche Temperatur, sowie die Höhenlage des Standortes und die Information ob im Umfeld der Nisthilfe bereits eine Nisthilfe in der Art eines konventionell zu erwerbenden "Insektenhotels" besteht.
+Die Daten zu Klima und Höhenlage wurden mir vom Bachelorstudent Max Mundt zur Verfügung gestellt. Klimadaten wurden von climate-data.org bezogen, die Daten zur Höhenlage wurden von mapcoordinates.net bezogen.
+
 
   <!-- Landnutzungsformen: Verwendung von 11 Kategorieen, die aus einer Modifizierung der Kategorie 2 der CLC-Daten zustandekommen (siehe tab. xx).  -->
 
@@ -401,7 +424,7 @@ Zur Beschreibung der vier Antwortvariablen Artenzahl der Wirtsbienen pro Nisthil
 
 <!-- - Methodeneffekte ausschließen: Position und Ausrichtung der Nester können einen Einfluss haben [@martins2012], ebenso nahegelegene alte Insektenhotels. -->
 
-Zunchächst wurde der Einfluss von vorhandenen Insektenhotels am Nisthilfenstandort analysiert. Da die Information über Insektenhotels am Nisthilfenstandort nur für einen Teil (154 von 276) der Nisthilfen zur Verfügung stand, wurden mit diesem Parameter mit reduziertem Datensatz folgende Modelle gefittet: 
+Zunchächst wurde der Einfluss von vorhandenen Insektenhotels am Nisthilfenstandort analysiert. Da die Information über Insektenhotels am Nisthilfenstandort nur für einen Teil (129 von 259) der Nisthilfen zur Verfügung stand, wurden mit diesem Parameter mit reduziertem Datensatz folgende Modelle gefittet: 
 
 \begin{align}
  y \sim Insektenhotel \label{eqIH1} \\
@@ -431,7 +454,7 @@ y \sim imp_{r}^2 \label{eq4}
 
 
 
-Bei allen Modellen wurde die Verteilung, welche die Antwortvariable (Artenzahl bzw. Abundanz) am besten beschreibt, mithilfe der Funktion *fitdistr()*  aus dem Paket "fitdistrplus" ermittelt. Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren.
+Bei allen Modellen wurde die Verteilung, welche die Antwortvariable (Artenzahl bzw. Abundanz) am besten beschreibt, mithilfe der Funktion *fitdistr()*  aus dem Paket "fitdistrplus" ermittelt. Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren. Für alle Parameter stellte die Negativebinomialverteilung den besten fit dar. Des weiteren wurde jeweils noch die Poissonverteilung untersucht, welche jedoch in anschließenden der Modellselektion jeweils schlecht abschnitt.
 
 Dem Datensatz werden drei Parameter mit zufällig uniformverteilten Werten angehängt. Diese Test-Prädiktoren dienen als Kontrolle und sollten keinen Effekt zeigen.  Jedes ausgewählte Modell wurde mit einem Modell verglichen, dass um drei "test"-Parameter erweitert wurde. Die test-Prädiktoren sollten das Modell nicht verbessern.  
 Die Prädiktoren, welche für das erste Modell mit allen Prädiktoren verwendet werden, werden anhand einer Clusteranalyse ausgewählt. Dies verhindert, dass korrelierende Parameter im selben Modell verwendet werden. Die Clusteranalyse wird anhand der Funkion $varclus()$ aus dem R-Packet $Hmisc$ durchgeführt. Aus Parametern, wessen $spearmans  \rho^2$ größer als $0.5$ ist, wird der Parameter ausgewählt, welcher näher an der Fragestellung dieser Arbeit und somit ökologisch relevanter ist. 
@@ -439,17 +462,16 @@ Die Prädiktoren, welche für das erste Modell mit allen Prädiktoren verwendet 
 Alle Modelle werden Anhand AIC und Anova verglichen. Modelle mit besonders hohem AIC (mindestens um 10 höher) im Vergleich zu den anderen Modellen werden nicht weiter betrachtet. Zeigt die Anova signifikante Unterschiede zwischen zwei Modellen, wird das komplexere Modell (mit größerer Anzahl an Prädiktoren) ausgewählt. Andernfalls wird das einfachere Modell verwendet. Das somit ausgewählte Modell wird anhand der Residuendiagnostik nach @DHARMa evaluiert.
 
 Für alle ausgewählten Modelle wird eine Residuendiagnostik nach @DHARMa mit dem R-Paket "DHARMa" durchgeführt. Dabei werden zunächst die Residuen des Modells berechnet. Mit den Residuen werden dann folgende Tests durchgeführt: 
-Verteilung der Residuen, Ausreißer, Streuung
 
  - testUniformity: Testet ob die Verteilung den Erwartungen entspricht
  - testOutliers: testet ob es mehr simulierte Ausreißer gibt als erwartet
- - testDispersion: testest ob die simulierte Streuung gleich ist wie die beobachtete Streuung
+ - testDispersion: testet ob die simulierte Streuung gleich ist wie die beobachtete Streuung
  - testZeroInflation: testet ob die Anzahl an Nullen höher ist als Erwartet
- - test ob Mittelwert und Standartabweichung von den Modellerwartungen abweicht
- - testQuantiles: 
- - testSpatialAutocorrelation:
+ - Test ob Mittelwert und Standartabweichung von den Modellerwartungen abweichen
+ - testQuantiles: überprüft die Quantile der Residuen anhand einer Quantilregression.
+ - testSpatialAutocorrelation: testes ob eine räumliche Autokorrelation vorliegt.
 
-Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben in dieser Arbeit keine Tests signifikante Ergebnisse (p<0.05). Wo der Einfluss der Nullen eine Rolle spielte, wurde mithilfe der Funktion $glmmTMB()$ aus dem gleichnamigen Paket ein Modell gefittet, welches den Einfluss der Nullen berücksichtigt. 
+Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben in dieser Arbeit keine Tests signifikante Ergebnisse (p<0.05). Der Einfluss der Nullen spielte bei der Abundanz der Wildbienen eine Rolle, sodass hierfür mithilfe der Funktion $glmmTMB()$ aus dem gleichnamigen Paket ein Modell gefittet wurde, welches den Einfluss der Nullen ('Zeroinflation') berücksichtigt. Dass die Verteilung der Abundanz der Wildbienen durch den Einfluss der Nullen charakterisiert ist, lässt sich folgendermaßen erklären: die Abundanz der Wildbienen (Anzahl an Brutzellen) hat dann den Wert Null, wenn in einer Nisthilfe kein einziges Nest von Wildbienen angelegt wurde. Wo jedoch mindestens ein Nest angelegt ist, kommen tendenziell gleich mehrere Brutzellen vor.
 
  <!-- Neben einem einfachen Modell (siehe Formel nr. 1) mit der Information zum Insektenhaus als einzigen Prädiktor wurden auch Modelle mit den Parametern zur Fragestellung der Urbanisierung und Landschaftskomplexität gefittet. -->
  <!-- $$ y \sim Insektenhaus $$ -->
@@ -483,11 +505,16 @@ Zunächst wird eine Distanzmatrix der Bray-Curtis Dissimilarity, einem Maß für
 Des weiteren wird mit der Funktion adonis() getestet ob sich die Artenzusammensetzung zwischen den Gruppen 'Stadt' und 'Land' unterscheidet.  
 
 Der Einfluss von Strukturparametern sowie dem Versiegelungsgrad aller Radien wurde separat mit der Funktion $envfit()$ modelliert.
-
+Zusätzlich erfolgte eine Deskriptive Analyse des Vorkommens auf Artebene. 
 <!-- Analyse der Varianzen (z.B.: Adonis) , -->
 
+Die Netzwerkanalyse der Wirt-Parasit-Beziehungen wurde mit den zwei Gruppen der Nisthilfenstandorte "Land" und "Stadt", welche auch für die Analyse der Artengemeinschaft verwendet wurden (siehe Absatz oben). 
+Mithilfe des Paketes @bipartite wurden die Wirt-Parasit-Beziehungen dargestellt und die das Netzwerk beschreibenden Indizes "H2", "generality" und "vulneratbility" berechnet.
+Um den Grad der Spezialisierung bzw. Generalisierung der natürlichen Gegenspieler und der Wirtsbienen auf dem Land mit der Stadt zu vergleichen wurden der quantitative Index H2, sowie die qualitiativen Indizes Generalisierung der natürlichen Gegenspieler und Vulnerabilität der Wirtsbienen berechnet (R-Funktion networklevel(), ebenso aus dem Paket bipartite).
+Der Index H2 ist ein standardisierter Shannon-Diversity-Index [@dormann2009]. Der Wertebereich des Index reicht von 0 (keine Spezialisierung) bis 1 (perfekte Spezialisierung für alle gegebenen Interaktionen). 
+Laut @bluthgen2006 ist der Index H2 unabhängig von Netwerkgröße und Probenanzahl und eignet sich daher für den Vergleich der Spezialisierung zwischen verschiedenen Netzwerken. Die Generalisierung der Insekten (später generality.HL genannt) ist definiert, als die gewichtete mittlere effektive Anzahl an Wirten (LL: lower level) pro Parasitoid (HL: higer level). Der Wert 1 beschreibt damit die perfekte Spezialisierung und hohe Werte beschreiben abhängig von der Netzwerkgröße und Anzahl an Interaktionen ein generalistisches Wirt-Parasitoid-Netzwerk. Die Vulnerabilität der Wirte beschreibt das Gegenteil, nämlich die mittlere effektive Anzahl der natürlichen Gegenspielern pro Wirtsbienenart.
 
-Separate Analyse des Vorkommens von Teilgruppen erfolgte Deskriptiv:  O. cornuta und Chelostoma florisomnis 
+<!-- Separate Analyse des Vorkommens von Teilgruppen erfolgte Deskriptiv:  O. cornuta und Chelostoma florisomnis  -->
 
 
 
@@ -533,10 +560,13 @@ gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(4, c("in")))
 ```
 
 
-Von den insgesamt `r sum(nests$nb_cells, na.rm = T)` angelegten Zellen entwickelten sich in etwa 60 % (`r sum(nests$nb_pupa_larva, na.rm = T)` Brutzellen) Puppen bzw. Larven. Etwa 13 % der Angelegten Zellen wurde Parasitiert (`r sum(nests$parasitized_cells, na.rm = T)` Brutzellen).  
+Von den insgesamt `r round(sum(nests$nb_cells, na.rm = T),0)` angelegten Zellen entwickelten sich in etwa 60 % (`r round(sum(nests$nb_pupa_larva, na.rm = T),0)` Brutzellen) Puppen bzw. Larven. Etwa 13 % der Angelegten Zellen wurde Parasitiert (`r sum(nests$parasitized_cells, na.rm = T)` Brutzellen).  
+
+In 45 der 259 Nisthilfen kamen keine Bienen vor. Die häufigsten Wirtsbienenarten waren *Osmia bicornis*, welche 46 % der Nester belegten und *Heriades truncorum*, welche 16 % der Nester belegten. *Osmia cornuta* und *Hylaeus communis* belegten jeweils etwa 8 % der Nester, alle weiteren Arten belegten weniger als 5 % der Nester.
+Der häufigste natürliche Gegenspieler war die Taufliege *Cacoxenus indagator*, welche 17 % aller Nester parasitierte. Arten der Überfamilie der Erzwespen (Chalcidoidea) parasitierten 150 Nester, also 3 % aller Nester, wobei vermutlich die Art *Melittobia acasta* den Großteil davon ausmachte. Die Kuckuckswespe *Sapygina decemguttata* kam mit einer Parasitierungsrate von knapp unter 3 % vor. Alle weiteren natürlichen Gegenspieler kamen nur in weniger als 100 Nestern und somit in unter 2% aller Nester vor.
 
 ## Die Arten in den Nisthilfen
-Im Rahmen des Schulinsektenhaus-Projektes konnten in den 276 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*), neun Wespenarten (Apocrita) nachgewiesen werden. Weitere Parasitoide wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. In Tabelle \ref{Artenliste} sind alle nachgewiesenen Arten aufgeführt sowie ihre Parasitoide. Da einige Parasitoide das gesamte Nest ihres Wirtes eingenommen haben konnten die Wirtsarten nur anhand der Nestmorphologie bestimmt werden - diese sind in der dritten Spalte der Tabelle aufgeführt.
+Im Rahmen des Schulinsektenhaus-Projektes konnten in den 259 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*) und neun Wespenarten (Apocrita) nachgewiesen werden. Weitere Parasitoide wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. In Tabelle \ref{Artenliste} sind alle nachgewiesenen Arten aufgeführt sowie ihre Parasitoide. Da einige Parasitoide das gesamte Nest ihres Wirtes eingenommen haben konnten die Wirtsarten nur anhand der Nestmorphologie bestimmt werden - diese sind in der dritten Spalte der Tabelle aufgeführt.
 
 Im Vergleich zu @tscharntke1998 wurden sieben weitere Arten identifiziert: 
 
@@ -593,8 +623,8 @@ Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Land
 Das Modell, welches den Einfluss von vorhandenen Insektenhäusern auf die Artenzahl der Wildbienen beschreibt zeigt einen schwach signifikanten Einfluss der Insektenhäuser auf. Die Artenzahl in den Nisthilfen in der Nähe eines Insektenhauses ist demnach höher als in Nisthilfen ohne Insektenhaus. Dieses Modell kann durch die Erweiterung um die Prädiktoren des mittleren Versiegelungsgrades als linearer sowie quadratischer Term nicht verbessert werden. Dies gilt für alle Radien für den der mittlere Versiegelungsgrad berechnet wurde. Umgekehrt verbessert der Parameter "Insektenhaus" das Modell mit den Prädiktoren "Versiegelungsgrad" und "Versiegelungsgrad im Quadrat" ebensowenig.  
 In Tabelle \ref{summaryIH} ist der Einfluss den vorhandenen Insektenhäusern auf die Artenzahl in der linken Hälfte abgebildet. Es ist jeweils auch das um die Prädiktoren des Versiegelungsgrades im 250m-Radius erweiterte Modell abgebildet. Das um den Versiegelungsgrad im 250m-Radius erweiterte Modell der Artenzahl weist einen geringfügig höheren $R^2$-Wert auf, der Versiegelungsgrad sowie vorhandene Insektenhäuser haben keinen signifikanten Effekt. Der $R^2$-Wert beider Modelle  ist kleiner $0.1$, was bedeutet, dass die verwendeten Prädiktoren nur einen geringen Teil der Varianz der Artenzahl erklären.  
 
-Der Einfluss von vorhandenen Insektenhäusern auf die Abundanz der Wildbienen zeigt weder im Modell mit den zusätzlichen Prädiktoren des mittleren Versiegelungsgrades im 250m-Radius als linearen und quadratischen Therm einen signifikanten Zusammenhang, noch im Modell ohne diesen Prädiktor (siehe Tab. \ref{summaryIH}). Bei beiden Modellen der Abundanz wurde der Einfluss der Nullen ("Zeroinflation") mitmodelliert. Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius der einzige Radius des Versiegelungsgrades (aus den berechneten Radien von 100m,250m,500m,1000m,2000m), welcher das Modell der vorhandenen Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell mit dem Prädiktor Versiegelungsgrad verbessert werden.
-Ein Effekt-Plot des um den Parameter des 250m-Versiegelungsgrades erweiterten Modells ist in Abbilung \ref{effektplotIH} auf der rechten Seite dargestellt. Das Modells zeigt einen signifikanten linearen Zusammenhang zwischen dem mittleren Versiegelungsgrad im 250m-Radius und der Abundanz (siehe Tab. \ref{summaryIH}).
+Der Einfluss von vorhandenen Insektenhäusern auf die Abundanz der Wildbienen zeigt weder im Modell mit den zusätzlichen Prädiktoren des mittleren Versiegelungsgrades im 250m-Radius als linearen und quadratischen Therm einen signifikanten Zusammenhang, noch im Modell ohne diesen Prädiktor (siehe Tab. \ref{summaryIH}). Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius der einzige Radius des Versiegelungsgrades (aus den berechneten Radien von 100m,250m,500m,1000m,2000m), welcher das Modell der vorhandenen Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell mit dem Prädiktor Versiegelungsgrad verbessert werden.
+Ein Effekt-Plot des um den Parameter des 250m-Versiegelungsgrades erweiterten Modells ist in Abbilung \ref{effektplotIH} auf der rechten Seite dargestellt. Das Modells zeigt einen negativen signifikanten linearen Zusammenhang zwischen dem mittleren Versiegelungsgrad im 250m-Radius und der Abundanz (siehe Tab. \ref{summaryIH}).
 
 Für beide Variablen Artenzahl und Abundanz kann mit dem Datensatz von 129 Punkten nur eine Tendenz eines positiven Einflusses von vorhandenen Insektenhäusern beobachtet werden, wobei dieser Einfluss auf die Artenzahl deutlicher zu sehen ist als auf die Abundanz. 
 
@@ -618,7 +648,6 @@ jtools::effect_plot(modelIH, pred = Insektenhaus, interval = TRUE, plot.points =
 model_IH5_zi <- readRDS("Modelle/model_IH5_zi.rds")
 model_IH2_250_zi <- readRDS("Modelle/model_IH2_250_zi.rds")
 
-
 # jtools::effect_plot(model_IH5_zi, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
 #                     jitter = .2) +
 #   ylab("Abundanz")
@@ -630,7 +659,6 @@ labeltext <- list("Die Werte des skalierten",
                          "Versiegelunsgrades -1, 0, 1", 
                   "entsprechen den prozentualen", 
                          paste0("Werten von ", werte))
-
 
 sjPlot::plot_model(model_IH2_250_zi, type = "pred", 
                    terms = c("Insektenhaus", "imp250"), 
@@ -1274,7 +1302,7 @@ kableExtra::kbl(model_Artenzahl_par[-c(1,2),1:10], booktabs =T, caption = "Model
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 
-kableExtra::kbl(model_Artenzahl_par[-c(1,2),c(1, 11:22)], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par1} " ) %>% 
+kableExtra::kbl(model_Artenzahl_par[-c(1,2),c(1, 11:22)], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par2} " ) %>% 
   kableExtra::add_header_above(
     c(" ", "imp500"=3,"imp500"=3,"imp1000"=3, "imp2000" = 3) 
   ) %>%
@@ -1345,6 +1373,8 @@ ggplot(data = pred_2000, aes(imp, pred_mean)) +
 ```
 
 ## Die Abundanz von Osmia bicornis
+Die Rostrote Mauerbiene (*Osmia bicornis*) kam in 148 der 259 Nisthilfen vor.
+
 Die Abundanz von Osmia bicornis wurde durch die Anzahl angelegter Nester pro Trapnest berechnet. Es wurde nicht die Anzahl an Brutzellen verwendet, da sich diese schlechter an eine Verteilung fitten lies als die Anzahl angelegter Nester. Da beide Maße stark korrelieren, ist davon auszugehen, dass der Effekt der verschiedenen Prädiktoren auf die Anzahl angelegter Nester sich auch in der Anzahl der Brutzellen zeigt.
 
 Das vorhandensein eines Insektenhauses hat keinen signifikanten Einfluss auf die Abundanz von Osmia bicornis (siehe Tabelle \ref{summary_Abundanz_IH_ob}). Der mittlere Versiegelungrad im 250m Radius um den Nisthilfenstandort verbessert das Modell welches den Einfluss des Insektenhauses auf die Abundanz von *O. bicornis* beschreibt. Der mittlere Versiegelungsgrad anderer Radien verbessert das Modell nicht. Der Parameter Insektenhaus kann keines der Modelle mit den Prädiktoren des Versiegelungsgrades der verschiedenen Radien verbessern. 
@@ -1495,6 +1525,52 @@ rows <- seq_len(nrow(land_species) %/% 2)
 
 <!--  In the changing environment, wild bees adapt to new habitats. The knowledge about wild bees species hotspots, especially in urban areas, is important to design appropriate measures to promote diversity.  -->
 
+## Netzwerkanalyse
+Die Netzwerkanalyse der Kategorie "Land", welche 107 Nisthilfenstandorte beinhaltet und der Kategorie "Stadt" welche 110 Nisthilfenstandorte beinhaltest, ergibt für beide Kategorieen mit dem Index H2 einen mittleren Spezialisierungsgrad von 0.60 bzw. 0.61. Alle Werte der Generalisierung der natürlichen Gegenspieler als auch der Vulnerabilität der Wirtsbienenarten beider Gruppen liegen zwischen $2.0$ und $2.5$. Somit sind keine deutlichen Unterschiede der Wirt-Parasit-Beziehungen zwischen ländlichen Nisthilfenstandorten und urbanen Nisthilfenstandorten zu erkennen. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+Praedi_groups <- Praedis %>% 
+  #filter(Praedis$ID %in% Artenzahl$location) %>% 
+  mutate(
+    group = ifelse(
+      imp500 > quantile(Praedis$imp500, probs = 0.66),
+      "stadt",
+      ifelse(
+        imp500 <= quantile(Praedis$imp500, probs = 0.33),
+        "land",
+        "medium"
+      )
+    )
+  ) %>% 
+  mutate(group = as.factor(group)) %>% 
+  mutate(Ackerland = as.factor(case_when(Arable > 0  ~ "arable",
+                                         Arable == 0 ~ "non_arable")))
+
+library(bipartite) 
+
+table(Praedi_groups[,c("group")])
+nw <- Artenzahl %>% 
+  dplyr::select(id, location, species_type, Art) %>% 
+  group_by(species_type, id) %>%
+  mutate(row = row_number()) %>%
+  tidyr::pivot_wider(names_from = species_type, values_from = Art) %>%
+  dplyr::select(-row) %>% 
+  left_join(dplyr::select(Praedi_groups, ID, group, Ackerland), by = c("location"= "ID")) %>% 
+  filter(!is.na(Parasitoid)) %>% 
+  filter(!is.na(Host))
+  
+nw_frame <-  frame2webs(nw, varnames = c("Host", "Parasitoid", "group"))
+
+plotweb(nw_frame[[1]])
+plotweb(nw_frame[[3]])
+
+visweb(nw_frame[[1]])
+visweb(nw_frame[[3]])
+
+# round(networklevel(nw_frame[[1]], index = c("generality", "H2", "links per species", "nestedness", "connectance" )),2)
+# round(networklevel(nw_frame[[3]], index = c("generality", "H2", "links per species", "nestedness", "connectance" )),2)
+```
 
 
 <!-- invasive arten? -->
@@ -1512,6 +1588,7 @@ Die in dieser Arbeit erfassten Daten beschreiben alle Wildbienen und Parasiten, 
 
 <!-- @shochat2006 empfehlen große Relikte natürlicher Habitate innerhalb der städtischen Kerngebiete in zukünftige Forschungen mit einzubeziehen. -->
 
+Abundanz von Osmia bicornis ist durch die Art der Anbringung der Nisthilfe beeinflusst und die Anzahl verfügbarer Nistplätze  [@everaars2011]  
 <!-- cornuta bicornis konkurrieren andere Arten aus nach einigen jahren da sie sehr früh die Nester belegen. Also vielleicht vor allem in den Häusern wo viele Nester sind weil in der nähe altes Bienenhaus.   -->
 
 <!-- Artenvorkommen kann auch von einer ehemalige Landnutzung kommen [@do2014]. -->
