@@ -1,18 +1,21 @@
 # Diskussion 
 
-Die Parameter der Landschaftstruktur zeigten keinerlei Effekt auf die untersuchten Variablen der Nisthilfen. Es ist davon auszugehen, dass die Berechnung der Parameter aus Satelittendaten insbesondere im Siedlungsbereich nicht die Genauigkeit bietet um für Wildbienen und ihre Gegenspieler relevante Habitateigenschaften abzubilden. 
-Denn in anderen Studien ... wurde der Effekt der Landschaftstruktur bereits aufgezeigt.
+Die Parameter der Landschaftstruktur zeigten keinerlei Effekt auf die untersuchten Variablen der Nisthilfen. Es ist davon auszugehen, dass die Berechnung der Parameter aus Satelittendaten insbesondere im Siedlungsbereich nicht die Genauigkeit bietet um für Wildbienen und ihre Gegenspieler relevante Habitateigenschaften abzubilden.
+<!-- Denn in anderen Studien ... wurde der Effekt der Landschaftstruktur bereits aufgezeigt. -->
 
-Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
+Der mittlere Versiegelungsgrad der Radien 250m und 500m hatte in den Modellierungen dieser Arbeit einen negativen linearen Einfluss auf die Artenzahl der Bienen, auf die Abundanz, auf die Artenzahl der natürlichen Gegenspieler sowie auch auf die Abundanz der Rostroten Mauerbiene (*Osmia bicornis*) . Bei der Artenzahl dier Bienen sowie der Artenzahl der natürlichen Gegenspieler zeigte sich dieser Zusammenhang auch zum Versiegelungsgrad im 100m-Radius.   
+Der Versiegelungsgrad der Radien 1000m und 2000m hat dagegen einen negativen quadratischen Einfluss auf die vier bereits genannten Variablen. Diese Beobachtung lässt sich dadurch erklären, dass Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m den Versiegelungsgrad im Bereich des Flugradius der Bienen beschreibt, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Ein hoher Versiegelungsgrad im Flugradius entspricht somit einer Ressourcenknappheit, was sich durch allgemein geringe Artenzahlen und Abundanzen von Wildbienen und ihren natürlichen Gegenspielern in Nisthilfen äußert. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar. Der in den Modellen beobachtete quadratische Zusammenhang mit einem Maximum der Artenzahlen bzw. Abundanzen im Bereich von 20-30% Versiegelung bestätigt die Hypothesen mit der Annahme von jeweils maximalen Artenzahlen bzw. Abundanzen am Stadtrandbereich mit mittlerem Versiegelungsgrad.
 
-Die in dieser Arbeit erfassten Daten beschreiben alle Wildbienen und Parasiten, die im Jahr 2019 eine Nisthilfe des Schulinsektenhausprojektes besiedelt haben. Es wurde bereits in verschiedenen Studien aufgezeit, dass es bei Bestäubern eine hohe Variabilität zwischen verschiedenen Jahren gibt. <!-- vielleicht @burkle2011 -->
+
+
+<!-- Die in dieser Arbeit erfassten Daten beschreiben alle Wildbienen und Parasiten, die im Jahr 2019 eine Nisthilfe des Schulinsektenhausprojektes besiedelt haben. Es wurde bereits in verschiedenen Studien aufgezeit, dass es bei Bestäubern eine hohe Variabilität zwischen verschiedenen Jahren gibt. <!-- vielleicht @burkle2011 --> -->
 <!-- Wenn das Ökosystem (top-down und bottom-up Interaktionen) aus dem Gleichgewicht geraten kommt es zu saisonal sehr variablen Artenvorkommen- und Häufigkeit. - Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig -->
 
 <!-- Da ländliche Gebiete jedoch auch intensiv genutzte Landwirtschaftliche Flächen beinhalten, was @warren2018 am Konzept des Stadt-Land Gradienten bemängelt haben, wird in dieser Arbeit auch der Anteil an Landwirtschaftlichen Flächen mit einbezogen. -->
 
 <!-- @shochat2006 empfehlen große Relikte natürlicher Habitate innerhalb der städtischen Kerngebiete in zukünftige Forschungen mit einzubeziehen. -->
 
-Abundanz von Osmia bicornis ist durch die Art der Anbringung der Nisthilfe beeinflusst und die Anzahl verfügbarer Nistplätze  [@everaars2011]  
+<!-- Abundanz von Osmia bicornis ist durch die Art der Anbringung der Nisthilfe beeinflusst und die Anzahl verfügbarer Nistplätze  [@everaars2011]   -->
 <!-- cornuta bicornis konkurrieren andere Arten aus nach einigen jahren da sie sehr früh die Nester belegen. Also vielleicht vor allem in den Häusern wo viele Nester sind weil in der nähe altes Bienenhaus.   -->
 
 <!-- Artenvorkommen kann auch von einer ehemalige Landnutzung kommen [@do2014]. -->
