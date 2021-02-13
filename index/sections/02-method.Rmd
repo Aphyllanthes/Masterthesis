@@ -5,8 +5,8 @@ Das Richten der Nisthilfen und Versenden an die Schulen in Deutschland wurde dur
 Die Nisthilfen wurden dann im Kühlhaus bei .. Grad gelagert um zu verhindern, dass die Insekten vorzeitig schlüpfen. Aus allen Nisthilfen wurden die besetzen Nester folgendermaßen bearbeitet:
 Alle Schilfröhrchen die durch das hineinleuchten mit einer Taschenlampe als potentielle Nester erkannt wurden, wurden geöffnet. Von jedem Nest wurden Länge, Durchmesser, Anzahl der Brutzellen und das Nest-Verschlussmaterial notiert, sowie falls zu erkennen auch Anzahl der Puppen bzw. Larven, Anzahl der toten Zellen, Anzahl der parasitierten Zellen, ob Biene oder Wespe, Futterquelle, der Morphotyp der Art sowie der Morphotyp der Parasiten. Alle Nester wurden, nach Morphospezies sortiert, aufbewahrt, sodass sich die Arten zum adulten Tier entwickeln konnten um daraufhin auf Artebene bestimmt zu werden.
 Von den ca 7000 Nestern  aus 259 Nisthilfen habe ich 1400 Nester geöffnet. Die übrigen Nester wurden durch Schüler des UWC, HiWis sowie zwei Bachelorstudenten und einer weiteren Masterstudentin geöffnet. Zur Datenerfassung wurde eine google-docs-Tabelle verwendet, da diese zeitgleiches Bearbeiten von verschiedenen bearbeitenden Personen ermöglicht.
-Aus den nach Morphospezies sortierten Nestern schlüpften im Frühjahr und Sommer Bienen, Wespen und ihre Parasitoide, welche zunächst aus den Nestern geholt, das Geschlecht erfasst und eingefroren wurden. Hierbei bearbeitete ich 1100 Nester. Die eingefrorenen Bienen wurden dann genadelt und bestimmt, wobei *Osmia bicornis* und *O. cornuta* größtenteils durch Hiwis genadelt wurde. Alle weiteren Bienen und ihre Parasiten nadelte und bestimmte ich.  
-Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @amiet1999,...] sowie zusätzlich für Arten der Gattung *Hylaeus* der Schlüssel von @dathe2016a. Für die Bestimmung der parasitoiden Keulenwespen (Sapygidae) wurde der Schlüssel Vespoidea von @amiet2008 verwendet. Die Arten der Familie der Schlupfwespen (Ichneumonidae) wurden durch Vergleich der in @tscharntke1998 aufgeführten Arten anhand des Morphotyps identifiziert. 
+Aus den nach Morphospezies sortierten Nestern schlüpften im Frühjahr und Sommer Bienen, Wespen und ihre Parasitoide, welche zunächst aus den Nestern geholt, das Geschlecht erfasst und eingefroren wurden. Hierbei bearbeitete ich 1100 Nester. Die eingefrorenen Bienen wurden dann genadelt und bestimmt, wobei Osmia bicornis und O. cornuta größtenteils durch Hiwis genadelt wurde. Alle weiteren Bienen und ihre Parasiten nadelte und bestimmte ich.  
+Als Bestimmungsliteratur dienten die Bände der Insecta Helvetica [@amiet1996, @amiet1999,...] sowie zusätzlich für Arten der Gattung Hylaeus der Schlüssel von @dathe2016a. Für die Bestimmung der parasitoiden Keulenwespen (Sapygidae) wurde der Schlüssel Vespoidea von @amiet2008 verwendet. Die Arten der Familie der Schlupfwespen (Ichneumonidae) wurden durch Vergleich der in @tscharntke1998 aufgeführten Arten anhand des Morphotyps identifiziert. 
 
 <!-- - Mitarbeit beim Öffnen der Nester und Bestimmen der Bienen - Schlüpfen lassen, jeweils ein Individuum nadeln und bestimmen. -->
 
@@ -48,7 +48,7 @@ kableExtra::kbl(clc2000legend_IH,longtable =T,booktabs =T, caption = "Die in die
   kableExtra::column_spec(3, width = "6em")
 ```
 
-Um die Daten zur Landnutzung schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank mit der PostGIS-Erweiterung erstellt. In die Datenbank wurden auch die Standortdaten der Nisthilfen eingebunden. Die Datenbank wurde dann direkt von R aus abgerufen, wo die Daten mithilfe des Paketes DBI [@dbi] direkt miteinander verschnitten werden konnten. Aus den Landnutzungs- und Versiegelungsdaten wurden folgende Variablen berechnet:
+Um die Daten zur Landnutzung schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank mit der PostGIS-Erweiterung erstellt. In die Datenbank wurden auch die Standortdaten der Nisthilfen eingebunden. Die Datenbank wurde dann direkt von R aus abgerufen, wo die Daten mithilfe des Paketes (@dbi) direkt miteinander verschnitten werden konnten. Aus den Landnutzungs- und Versiegelungsdaten wurden folgende Variablen berechnet:
 
 - Index für den Urbanisierungsgrad: der mittlere Versiegelungsgrad im Radius von 100m, 250m, 500m, 1000m sowie 2000m um die Nisthilfenstandorte. Die kleineren Radien wurden gewählt um den Flugradius zur Nahrungssuche der Wildbienen, welcher meist unter 1km liegt  [@garibaldi2011;@gathmann2002], abzubilden. Dies entwpricht auch der Empfehlung von @geslin2016 zur Verwendung multivariater Gradienten für zukünftige Studien zum Einfluss von Urbanisierung auf die Bienengemeinschaft. Die Radien 1000m und 2000m werden verwendet um das größere Umfeld um den Standort zu kategorisieren. Ist der Standort im größeren Umfeld von einen großen Anteil versiegelter Fläche umgeben, so kann dies als Indikator für die Habitatvernetzung und die Lage des Nisthilfenstandortes innerhalb des städtischen Bereich dienen.
 
@@ -74,23 +74,22 @@ Die Daten zu Klima und Höhenlage wurden mir vom Bachelorstudent Max Mundt zur V
 
 <!-- Random forest mit Metadaten um zu sehen ob Standorteigenschaften die Landnutzungseffekte überwiegen. -->
 ### Statistische Auswertung
-Zur Beschreibung der vier Antwortvariablen Artenzahl der Wirtsbienen pro Nisthilfe, der Abundanz (Gesamtanzahl der Brutzellen pro Nisthilfe), der Artenzahl der Gegenspieler pro Nisthilfe sowie der Abundanz von *Osmia bicornis* wurden jeweils generalisierte lineare Modelle (glm) gefittet. Alle Prädiktoren der Modelle wurden zunächst skaliert, sodass alle Prädiktoren im Modell unabhängig ihres eigentlichen Wertebereiches gleichermaßen gewichtet werden.
-Die Abundanz von *Osmia bicornis* wurde durch die Anzahl angelegter Nester pro Trapnest berechnet. Es wurde nicht die Anzahl an Brutzellen verwendet, da sich diese schlechter an eine Verteilung fitten lies als die Anzahl angelegter Nester. Da beide Maße stark korrelieren, ist davon auszugehen, dass der Effekt der verschiedenen Prädiktoren auf die Anzahl angelegter Nester sich auch in der Anzahl der Brutzellen zeigt.
+Zur Beschreibung der vier Antwortvariablen Artenzahl der Wirtsbienen pro Nisthilfe, der Abundanz (Gesamtanzahl der Brutzellen pro Nisthilfe), der Artenzahl der Gegenspieler pro Nisthilfe sowie der Abundanz von Osmia bicornis (Anzahl angelegte Nester pro Nisthilfe) wurden jeweils generalisierte lineare Modelle (glm) gefittet. Alle Prädiktoren der Modelle wurden zunächst skaliert, sodass alle Prädiktoren im Modell unabhängig ihres eigentlichen Wertebereiches gleichermaßen gewichtet werden.
 
 Bei allen Modellen wurde die Verteilung, welche die Antwortvariable (Artenzahl bzw. Abundanz) am besten beschreibt, mithilfe der Funktion *fitdistr()*  aus dem Paket "fitdistrplus" ermittelt. Diese Funktion fittet univariate Verteilungen an die Antwortvariablen. Anhand des AIC wurden die besten zwei Verteilungen ausgewählt um die Daten zu modellieren. Für alle Parameter stellte die Negativebinomialverteilung den besten fit dar. Des weiteren wurde jeweils noch die Poissonverteilung untersucht, welche jedoch in anschließenden der Modellselektion jeweils schlecht abschnitt.
 
 
 <!-- - Methodeneffekte ausschließen: Position und Ausrichtung der Nester können einen Einfluss haben [@martins2012], ebenso nahegelegene alte Insektenhotels. -->
 
-Zunchächst wurde der Einfluss von vorhandenen Insektenhäusern am Nisthilfenstandort analysiert. Da die Information über Insektenhäuser am Nisthilfenstandort nur für einen Teil (129 von 259) der Nisthilfen zur Verfügung stand, wurden mit diesem Parameter mit reduziertem Datensatz folgende Modelle gefittet: 
+Zunchächst wurde der Einfluss von vorhandenen Insektenhotels am Nisthilfenstandort analysiert. Da die Information über Insektenhotels am Nisthilfenstandort nur für einen Teil (129 von 259) der Nisthilfen zur Verfügung stand, wurden mit diesem Parameter mit reduziertem Datensatz folgende Modelle gefittet: 
 
 \begin{align}
- y \sim Insektenhaus \label{eqIH1} \\
- y \sim Insektenhaus + imp_r + imp_r^2 \label{eqIH2} \\
+ y \sim Insektenhotel \label{eqIH1} \\
+ y \sim Insektenhotel + imp_r + imp_r^2 \label{eqIH2} \\
  y \sim imp_r + imp_r^2 \label{eqIH3}
 \end{align}
 
-wobei $y$ die jeweilige Antwortvariable beschreibt, $Insektenhaus$ das Vorhandensein von Insektenhäusern am Nisthilfenstandort und $imp_r$ den Versiegelungsgrad im Radius r. Die gefitteten Modelle wurden daraufhin mittels Anova verglichen. So konnte bewertet werden ob der Versiegelungsgrad das Modell mit dem Insektenhaus als alleinigen Prädiktor verbessern kann und andersherum ob das Insektenhaus das Modell mit dem Versiegelungsgrad als Prädiktor verbessern kann. Dies dient dem Vergleich mit den Modellierungen des gesamten Datensatz, welche den Prädiktor $Insektenhaus$ nicht beinhalten.
+wobei $y$ die jeweilige Antwortvariable beschreibt, $Insektenhotel$ das Vorhandensein von Insektenhotels am Nisthilfenstandort und $imp_r$ den Versiegelungsgrad im Radius r. Die gefitteten Modelle wurden daraufhin mittels Anova verglichen. So konnte bewertet werden ob der Versiegelungsgrad das Modell mit dem Insektenhotel als alleinigen Prädiktor verbessern kann und andersherum ob das Insektenhotel das Modell mit dem Versiegelungsgrad als Prädiktor verbessern kann. Dies dient dem Vergleich mit den Modellierungen des gesamten Datensatz, welche den Prädiktor $Insektenhaus$ nicht beinhalten.
 Diese Analyse wurde für die Radien, für die der mittlere Versiegelungsgrad berechnet wurde, 100m, 250m, 500m, 1000m und 2000m, durchgeführt. Die Modellierung der verschiedenen Radien, welche auch für alle folgenden Modelle durchgeführt wird, dient der Fragestellung in welcher Entfernung der Versiegelungsgrad den stärksten Einfluss auf die Wildbienen hat. <!-- Anova beschreiben!!! -->
 
 <!-- Ich habe den Versiegelungsgrad für verschiedene Radien berechnet, da mich der Einfluss der Versiegelung verschiedener Maßstäbe interessiert. Ich möchte somit alle Maßstäbe mit ins Modell nehmen obwohl diese Prädiktoren logischerweise korrelieren. Daher verwende ich im Modell lineare Kombinationen der Prädiktoren wie in @zuur2009 [p. 475] beschrieben -->
@@ -116,7 +115,7 @@ Die Prädiktoren, welche für das erste Modell mit allen Prädiktoren verwendet 
 
 Modellselektion erfolgte anhand AIC und Anova. Modelle mit um 10 Einheiten höherem AIC im Vergleich zum niedrigsten AIC aller Modelle wurden ausgeschlossen [@burnham2002h]. Zeigt die Anova signifikante Unterschiede zwischen zwei Modellen, wird das komplexere Modell (mit größerer Anzahl an Prädiktoren) ausgewählt. Andernfalls wird das einfachere Modell verwendet. Das somit ausgewählte Modell wird anhand der Residuendiagnostik nach @DHARMa evaluiert.
 
-Für alle ausgewählten Modelle wird eine Residuendiagnostik nach [@DHARMa] mit dem R-Paket "DHARMa" durchgeführt. Dabei werden zunächst die Residuen des Modells berechnet. Mit den Residuen werden dann folgende Tests durchgeführt: 
+Für alle ausgewählten Modelle wird eine Residuendiagnostik nach @DHARMa mit dem R-Paket "DHARMa" durchgeführt. Dabei werden zunächst die Residuen des Modells berechnet. Mit den Residuen werden dann folgende Tests durchgeführt: 
 
  - testUniformity: Testet ob die Verteilung den Erwartungen entspricht
  - testOutliers: testet ob es mehr simulierte Ausreißer gibt als erwartet
@@ -166,18 +165,20 @@ Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben i
 <!--   - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten. -->
 
 Die Artengemeinschaft in den Nisthilfen wurde mithilfe der R-Paketes "vegan" durchgeführt. Zunächst wurden dafür alle Arten aus den zu analysierenden Daten entfernt, die nur in einer einzigen Nisthilfe vorkamen.  
-Des Datensatz wurde in die drei Gruppen "Land", "Übergang" und "Stadt" unterteilt. Die Unterteilung erfolgte Anhand der $33\%$ und $66\%$ Quantile des mittleren Versiegelungsgrades im 500m-Radius der Nisthilfenstandorte. 
-Eine weitere Einteilung in "Ackerland" und "Kein-Ackerland" wurde anhand der Ackerlandfläche im 500m-Radius unternommen.  
-
+Des Datensatz wurde in die drei Gruppen "Land", "Übergang" und "Stadt" unterteilt. Die Unterteilung erfolgte Anhand der $33%$ und $66%$ Quantile des mittleren Versiegelungsgrades im 500m-Radius der Nisthilfenstandorte. 
+Eine weitere Einteilung in "Ackerland" und "Kein-Ackerland" wurde anhand der Ackerlandfläche im 500m-Radius unternommen.
 Zunächst wird eine Distanzmatrix der Bray-Curtis Dissimilarity, einem Maß für die Unähnlichkeit der Artenzusammensetzung, zwischen allen Nisthilfen mit der Funktion $vegdist()$ berechnet. Als Datengrundlage dient hierfür die Nestzahl jeder Art pro Nisthilfe. Um zu analysieren ob die Artenzusammensetzung in den Städten homogener ist als auf dem Land wird mithilfe der Funktion $betadisper()$ die Dispersion (Streuung) der Dissimilarity beider Gruppen berechnet. Anhand anova wird daraufhin auf signifikante Unterschiede getestet und anhand des TukeyHSD-test (Tukey's Honest Significant Difference) die Unterschiede zwischen den spezifischen Gruppen analysiert.
 Des weiteren wird mit der Funktion adonis() getestet ob sich die Artenzusammensetzung zwischen den Gruppen 'Stadt' und 'Land' unterscheidet.  
-Der Einfluss von Strukturparametern sowie dem Versiegelungsgrad aller Radien wurde separat mit der Funktion $envfit()$ modelliert. Da durch diese Modelle keine Effekte von Versiegelungsgrad und Strukturparametern aufgezeigt werden konnten, folgte eine deskriptive Analyse des Artvorkommens in den drei Gruppen "Land", "Übergang" und "Stadt". 
+
+Der Einfluss von Strukturparametern sowie dem Versiegelungsgrad aller Radien wurde separat mit der Funktion $envfit()$ modelliert.
+Zusätzlich erfolgte eine Deskriptive Analyse des Vorkommens auf Artebene. 
 <!-- Analyse der Varianzen (z.B.: Adonis) , -->
 
-Die Netzwerkanalyse der Wirt-Parasit-Beziehungen wurde mit den zwei Gruppen der Nisthilfenstandorte "Land" und "Stadt", welche auch für die Analyse der Artengemeinschaft verwendet wurden (siehe Absatz oben), durchgeführt. 
-Mithilfe des Paketes 'bipartite' [@bipartite] wurden die Wirt-Parasit-Beziehungen dargestellt und die das Netzwerk beschreibenden Indizes "H2", "generality" und "vulneratbility" mithilfe der Funktion $networklevel()$  berechnet. Die Indizes dienen zum Vergleich des Grades der Spezialisierung der natürlichen Gegenspieler und Wirtsbienen zwischen Land und Stadt.
-Der Index H2 ist ein standardisierter Shannon-Diversity-Index [@dormann2009] und dient der quantitativen Beschreibung des Spezialisierungsgrades des Netzwerkes. Der Wertebereich des Index reicht von 0 (keine Spezialisierung) bis 1 (perfekte Spezialisierung für alle gegebenen Interaktionen). 
-Laut @bluthgen2006 ist der Index H2 unabhängig von Netwerkgröße und Probenanzahl und eignet sich daher für den Vergleich der Spezialisierung zwischen verschiedenen Netzwerken. Die Generalisierung der Insekten ist definiert, als die gewichtete mittlere effektive Anzahl an Wirten pro Parasitoid. Der Wert 1 beschreibt damit die perfekte Spezialisierung und hohe Werte beschreiben abhängig von der Netzwerkgröße und Anzahl an Interaktionen ein generalistisches Wirt-Parasitoid-Netzwerk. Die Vulnerabilität der Wirte beschreibt das Gegenteil, nämlich die mittlere effektive Anzahl der natürlichen Gegenspielern pro Wirtsbienenart.
+Die Netzwerkanalyse der Wirt-Parasit-Beziehungen wurde mit den zwei Gruppen der Nisthilfenstandorte "Land" und "Stadt", welche auch für die Analyse der Artengemeinschaft verwendet wurden (siehe Absatz oben). 
+Mithilfe des Paketes @bipartite wurden die Wirt-Parasit-Beziehungen dargestellt und die das Netzwerk beschreibenden Indizes "H2", "generality" und "vulneratbility" berechnet.
+Um den Grad der Spezialisierung bzw. Generalisierung der natürlichen Gegenspieler und der Wirtsbienen auf dem Land mit der Stadt zu vergleichen wurden der quantitative Index H2, sowie die qualitiativen Indizes Generalisierung der natürlichen Gegenspieler und Vulnerabilität der Wirtsbienen berechnet (R-Funktion networklevel(), ebenso aus dem Paket bipartite).
+Der Index H2 ist ein standardisierter Shannon-Diversity-Index [@dormann2009]. Der Wertebereich des Index reicht von 0 (keine Spezialisierung) bis 1 (perfekte Spezialisierung für alle gegebenen Interaktionen). 
+Laut @bluthgen2006 ist der Index H2 unabhängig von Netwerkgröße und Probenanzahl und eignet sich daher für den Vergleich der Spezialisierung zwischen verschiedenen Netzwerken. Die Generalisierung der Insekten (später generality.HL genannt) ist definiert, als die gewichtete mittlere effektive Anzahl an Wirten (LL: lower level) pro Parasitoid (HL: higer level). Der Wert 1 beschreibt damit die perfekte Spezialisierung und hohe Werte beschreiben abhängig von der Netzwerkgröße und Anzahl an Interaktionen ein generalistisches Wirt-Parasitoid-Netzwerk. Die Vulnerabilität der Wirte beschreibt das Gegenteil, nämlich die mittlere effektive Anzahl der natürlichen Gegenspielern pro Wirtsbienenart.
 
 <!-- Separate Analyse des Vorkommens von Teilgruppen erfolgte Deskriptiv:  O. cornuta und Chelostoma florisomnis  -->
 
