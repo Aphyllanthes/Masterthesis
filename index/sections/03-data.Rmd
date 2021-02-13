@@ -11,7 +11,7 @@ Alle weiteren Ergebnisse beziehen sich ausschließlich auf die Biennennester. In
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
 #source("datenschau.R")
-load("../my_work_space.RData")
+load("../../my_work_space.RData")
 ```
 
 
@@ -95,10 +95,13 @@ Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Land
 
 
 ## Der Einfluss von vorhandenen Insektenhäusern auf Artenzahl und Abundanz der Wildbienen
-Das Modell, welches den Einfluss von vorhandenen Insektenhäusern auf die Artenzahl der Wildbienen beschreibt, zeigt einen schwach signifikanten Einfluss der Insektenhäuser auf. Die Artenzahl in den Nisthilfen in der Nähe eines Insektenhauses ist demnach höher als in Nisthilfen ohne Insektenhaus. Dieses Modell kann durch die Erweiterung um die Prädiktoren des mittleren Versiegelungsgrades als linearer sowie quadratischer Term nicht verbessert werden. Dies gilt für alle Radien für den der mittlere Versiegelungsgrad berechnet wurde. Umgekehrt verbessert der Parameter "Insektenhaus" das Modell mit den Prädiktoren "Versiegelungsgrad" und "Versiegelungsgrad im Quadrat" ebensowenig.  
-In Tabelle \ref{summaryIH} ist der Einfluss den vorhandenen Insektenhäusern auf die Artenzahl in der linken Hälfte abgebildet. Es ist jeweils auch das um die Prädiktoren des Versiegelungsgrades im 250m-Radius erweiterte Modell abgebildet. Das um den Versiegelungsgrad im 250m-Radius erweiterte Modell der Artenzahl weist einen geringfügig höheren $R^2$-Wert auf, der Versiegelungsgrad sowie vorhandene Insektenhäuser haben keinen signifikanten Effekt. Der $R^2$-Wert beider Modelle  ist kleiner $0.1$, was bedeutet, dass die verwendeten Prädiktoren nur einen geringen Teil der Varianz der Artenzahl erklären.  
+Die Artenzahl in den Nisthilfen in der Nähe eines Insektenhauses ist  höher als in Nisthilfen in deren Umfeld kein Insektenhaus vokommt. Der Effekt, im Modell welches den Einfluss von vorhandenen Insektenhäusern auf die Artenzahl der Wildbienen beschreibt, ist schwach signifikant.  
+Dieses Modell kann durch die Erweiterung um die Prädiktoren des mittleren Versiegelungsgrades als linearer sowie quadratischer Term nicht verbessert werden. Dies gilt für alle Radien, für den der mittlere Versiegelungsgrad berechnet wurde. Der AIC dieser Modelle im Vergleich zum einfacheren Modell ohne den Versiegelungsgrad als Prädiktor ist jeweils nicht mehr als 2 Einheiten unterschiedlich.    
+Umgekehrt verbessert der Parameter "Insektenhaus" das Modell mit den Prädiktoren "Versiegelungsgrad" und "Versiegelungsgrad im Quadrat" ebensowenig.  
+In Tabelle \ref{summaryIH} ist der Einfluss den vorhandenen Insektenhäusern auf die Artenzahl abgebildet. Das Modell erklärt nur $2.9 \%$ der Varianz der Artenzahl.   
+<!-- with(summary(modelIH), (null.deviance-deviance)/null.deviance) -->
 
-Der Einfluss von vorhandenen Insektenhäusern auf die Abundanz der Wildbienen zeigt weder im Modell mit den zusätzlichen Prädiktoren des mittleren Versiegelungsgrades im 250m-Radius als linearen und quadratischen Therm einen signifikanten Zusammenhang, noch im Modell ohne diesen Prädiktor (siehe Tab. \ref{summaryIH}). Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius der einzige Radius des Versiegelungsgrades (aus den berechneten Radien von 100m,250m,500m,1000m,2000m), welcher das Modell der vorhandenen Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell mit dem Prädiktor Versiegelungsgrad verbessert werden.
+Der Einfluss von vorhandenen Insektenhäusern auf die Abundanz der Wildbienen zeigt im Modell mit den zusätzlichen Prädiktoren des mittleren Versiegelungsgrades im 250m-Radius als linearen und quadratischen Term keinen signifikanten Zusammenhang (siehe Tab. \ref{summaryIH}). Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius der einzige Radius des Versiegelungsgrades (aus den berechneten Radien von 100m,250m,500m,1000m,2000m), welcher das Modell der vorhandenen Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell mit dem Prädiktor Versiegelungsgrad verbessert werden.  
 Ein Effekt-Plot des um den Parameter des 250m-Versiegelungsgrades erweiterten Modells ist in Abbilung \ref{effektplotIH} auf der rechten Seite dargestellt. Das Modells zeigt einen negativen signifikanten linearen Zusammenhang zwischen dem mittleren Versiegelungsgrad im 250m-Radius und der Abundanz (siehe Tab. \ref{summaryIH}).
 
 Für beide Variablen Artenzahl und Abundanz kann mit dem Datensatz von 129 Punkten nur eine Tendenz eines positiven Einflusses von vorhandenen Insektenhäusern beobachtet werden, wobei dieser Einfluss auf die Artenzahl deutlicher zu sehen ist als auf die Abundanz. 
@@ -109,7 +112,8 @@ library(MASS)
 
 sub_IH <- A1_IH_factor %>% 
   filter(!is.na(Insektenhaus)) %>% 
-  mutate_at(vars(imp100:test3), scale)
+  mutate_at(vars(imp100:test3), scale) %>% 
+  mutate(null_imp = mean(imp250))
 ## einfluss von Insektenhaus auf artenzahl:
 modelIH <- glm.nb(Artenanzahl_det ~ Insektenhaus, data = sub_IH) ## signifikant
 
@@ -151,45 +155,35 @@ gridExtra::grid.arrange(p1ep, p2pm, ncol = 2, heights = unit(4, c("in")))
 ```{r echo=FALSE}
 
 detach("package:MASS")
-#test <- sjPlot::tab_model(modelIH,  dv.labels = c("Artenzahl"), file = "modelIH.html", transform = NULL) 
+# test <- sjPlot::tab_model(modelIH,  dv.labels = c("Artenzahl"), file = "modelIH.html", transform = NULL) 
 
-tables <- rlist::list.clean(XML::readHTMLTable("../modelIH.html"), fun = is.null, recursive = FALSE)
+tables <- rlist::list.clean(XML::readHTMLTable("../Modelle/modelIH.html"), fun = is.null, recursive = FALSE)
 tables2 <- tables[[1]] %>% 
   janitor::row_to_names(row_number = 1) %>% 
   as.matrix() %>% as_tibble()
 
-#model_IH2a,
-#test <- sjPlot::tab_model(model_IH2a,  dv.labels = c("Abundanz"), file = "model_IH2a.html", transform = NULL) 
-
-tables3 <- rlist::list.clean(XML::readHTMLTable("../model_IH2a.html"), fun = is.null, recursive = FALSE)
-tables4 <- tables3[[1]] %>% 
-  janitor::row_to_names(row_number = 1) %>% 
-  as.matrix() %>% as_tibble()
-
-table_1 <- tables4 %>%  left_join(tables2, by = "Predictors", suffix = c("", " "))
-table_1[is.na(table_1)] <- ""
+tables2[is.na(tables2)] <- ""
 
 ## Abundanz: 
 
-#test <- sjPlot::tab_model(model_IH5_zi,  dv.labels = c("Artenzahl"), file = "model_IH5_zi.html", transform = NULL) 
+# test <- sjPlot::tab_model(model_IH5_zi,  dv.labels = c("Artenzahl"), file = "../Modelle/model_IH5_zi.html", transform = NULL) 
 
-tables5 <- rlist::list.clean(XML::readHTMLTable("../model_IH5_zi.html"), fun = is.null, recursive = FALSE)
+tables5 <- rlist::list.clean(XML::readHTMLTable("../Modelle/model_IH5_zi.html"), fun = is.null, recursive = FALSE)
 tables6 <- tables5[[1]] %>% 
   janitor::row_to_names(row_number = 1) %>% 
   as.matrix() %>% as_tibble() %>% 
   mutate(Predictors = janitor::make_clean_names(Predictors) )
 
 #model_IH2a,
-#test <- sjPlot::tab_model(model_IH2_250_zi,  dv.labels = c("Abundanz"), file = "model_IH2_250_zi.html", transform = NULL) 
+# test <- sjPlot::tab_model(model_IH2_250_zi,  dv.labels = c("Abundanz"), file = "../Modelle/model_IH2_250_zi.html", transform = NULL) 
 
-tables7 <- rlist::list.clean(XML::readHTMLTable("../model_IH2_250_zi.html"), fun = is.null, recursive = FALSE)
+tables7 <- rlist::list.clean(XML::readHTMLTable("../Modelle/model_IH2_250_zi.html"), fun = is.null, recursive = FALSE)
 tables8 <- tables7[[1]] %>% 
   janitor::row_to_names(row_number = 1) %>% 
   as.matrix() %>% as_tibble() %>% 
   mutate(Predictors = janitor::make_clean_names(Predictors) )
   
-
-table_2 <- tables8 %>%  left_join(tables6, by = "Predictors", suffix = c("", " "))
+table_2 <- tables8
 table_2[is.na(table_2)] <- ""
 table_2$Predictors <- c("count_model", "(Intercept)", "imp250", "imp250^2", "Insektenhaus [1]", "Intercept_2", "zero_inflated_model", "Intercept_3", "Observations")
 
@@ -203,21 +197,20 @@ table_2$Predictors <- c("count_model", "(Intercept)", "imp250", "imp250^2", "Ins
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 #htmltools::includeHTML("test.html")
-table_a <- table_1 %>% 
+table_a <- tables2 %>% 
   full_join(table_2, by = "Predictors", suffix = c(".","..")) %>% 
   filter(!Predictors %in% c("zero_inflated_model", "count_model"))
 table_a[is.na(table_a)] <- ""
 table_a[table_a$Predictors == "Intercept_2",1] <- "count_model: Intercept"
 table_a[table_a$Predictors == "Intercept_3",1] <- "zero_inflated_model: Intercept"
+table_a <- table_a[-c(3,4),]
 
-kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der der Modelle zum Einfluss von vorhandenen Insektenhäusern auf Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " ) %>% #caption = "" 
+kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Modelle zum Einfluss von vorhandenen Insektenhäusern auf Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz (129 Beobachtungen) aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " ) %>% #caption = "" 
   kable_styling(latex_options =c("striped", "hold_position")) %>% 
-  kableExtra::add_header_above(c(" ","Artenzahl"=6,"Abundanz"=6)) %>%
+  kableExtra::add_header_above(c(" ","Artenzahl"=3,"Abundanz"=3)) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
   kableExtra::column_spec(4,bold = (as.numeric(table_a$p.)<0.05 | table_a$p. == "<0.001")  & table_a$p. != "" )%>% 
-  kableExtra::column_spec(7,bold = (as.numeric(table_a$`p .`)<0.05 | table_a$`p .` == "<0.001") & table_a$`p .` != "") %>% 
-  kableExtra::column_spec(10,bold = (as.numeric(table_a$p..)<0.05 | table_a$p.. == "<0.001") & table_a$p.. != "") %>% 
-  kableExtra::column_spec(13,bold = (as.numeric(table_a$`p ..`)<0.05 | table_a$`p ..` == "<0.001") & table_a$`p ..` != "") 
+  kableExtra::column_spec(7,bold = (as.numeric(table_a$p..)<0.05 | table_a$p.. == "<0.001") & table_a$p.. != "") 
 
 ```
 
@@ -231,78 +224,12 @@ kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der der M
  
 
 <!-- (Null_deviance - Residual_deviance)/Null_deviance -->
+Der Versiegelungsgrad aller Radien eignet sich zur Beschreibung der Artenzahl der Wildbienen. Dies zeigte im Vergleich der Modelle  mit verschiedenen Radien des Versiegelungsgrades als beschreibende Variable, da sich die AIC-Werte der Modelle mit jeweils dem besten Fit, um weniger als zwei Einheiten unterschieden. 
 
+Die Modelle mit dem besten Fit, welche den Versiegelungsgrad der Radien 100m, 250m und 500m beinhalten, beschreiben einen signifikanten linearen Zusammenhang ($p < 0.01$) des Versiegelungsgrades mit der Artenzahl. Mit zunehmendem Versiegelungsgrad nimmt die Artenzahl ab. Die Modelle mit dem besten Fit, welche den Versiegelungsgrad der Radien 1000m und 2000m beinhalten, beschreiben einen quadratischen Zusammenhang des Versiegelungsgrades mit der Artenzahl. Bei einem Versiegelungsgrad von ca. $30 %$ ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts). 
+Alle ausgewählten Modelle beinhalten die weiteren Prädiktoren $Jahresniederschlag$ und $Jahresmitteltemperatur$. Der Jahresniederschlag zeigt jeweils einen schwach signifikaten negativen Einfluss auf die Artenzahl, die Jahresmitteltemperatur einen schwach signifikanten positiven Einfluss auf die Artenzahl.
 
-
-
-Zur Analyse des Einflusses des Versiegelungsgrades verschiedener Radien auf die Artenzahl wurde für jeden Radius das beste Modell anhand von AIC, anova und Residuendiagnostik ausgewählt. Die Modellzusammenfassung ist in Tabelle \ref{summary_Artenzahl} dargestellt. Die Modellformeln sind im folgenden aufgeführt, wobei $imp_r$ den Versiegelungsgrad im Radius $r$ beschreibt, $Jahresmitteltemp$ beschreibt die mittlere jährliche Temperatur in grad Celsius, $Jahresniederschlag$ den jährlichen Niederschlag in mm und $H\ddot{ö}henlage$ die Lage des Nisthilfenstandortes in Meter über NN:
-
-\begin{align}
-Artenanzahl \sim imp_{100} + Jahresmitteltemp. + Jahresniederschlag + H\ddot{ö}henlage \label{Az_1} \\
-Artenanzahl \sim imp_{250} + Jahresmitteltemp. + Jahresniederschlag \label{Az_2} \\
- Artenanzahl \sim imp_{500} + Jahresmitteltemp. + Jahresniederschlag \label{Az_3} \\
- Artenanzahl \sim imp_{1000}^2 \label{Az_4} \\
-Artenanzahl \sim imp_{2000}^2 \label{Az_5}
-\end{align}
-
-Modelle mit dem Prädiktor der Radien 100m, 250m und 500m des Versigelungsgrades können durch das Erweitern der Prädiktoren um die Klimavariablen "mittlere Jahrestemperatur" sowie "Jahresniederschlag" verbessert werden. Im 100m-Radius verbessert zusätzlich die Höhenlage des Nisthilfenstandortes das Modell. In den Modellen mit den Radien des Versiegelungsgrades von 1000m und 2000m beschreibt der quadratische Term des Versiegelungsgrades als einzelner Prädiktor die Artenzahl der Wildbienen am besten. Der $R^2$-Wert all dieser Modelle liegt unter dem Wert von $0.1$, somit erklären all diese Modelle die Varianz der Daten nur minimal.
-
-Der Versiegelungsgrad hat im 100m, 250m und 500m-Radius einen negativen signifikanten linearen Einfluss auf die Artenzahl der Bienen. Mit zunehmender Versiegelung nimmt die Artenzahl ab.
-Zusätzlich beschreibt die Höhenlage des Nisthilfenstandortes im Modell mit dem Versiegelungsgrad im 100m-Radius einen postitiven signifikanten Zusammenhang. Der mittlere Versiegelungsgrad im 1000m und 2000m-Radius hat einen signifikanten quadratischen Einfluss auf die Artenzahl der Wildbienen. Bei einem Versiegelungsgrad von ca. $30 \%$ ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts).   
-
-
- 
-
-
-```{r impsubs, include=FALSE}
-## imp100:
-
-A1_100 <- A1 %>% 
-  dplyr::select(-imp250, -imp500, -imp1000, -imp2000) %>% 
-  dplyr::select(-DistInsektenhaus, -Isnsektenhaus)
-
-names(A1_100)[4] <- "imp"
-A1_100 <- A1_100 %>% 
-  dplyr::select(-Urban) %>% 
-  mutate_at(vars(imp:test3), scale)
-
-## imp250:
-A1_250 <- A1 %>% 
-  dplyr::select(-imp100, -imp500, -imp1000, -imp2000) %>% 
-  dplyr::select(-DistInsektenhaus, -Isnsektenhaus)
-
-A1_250 <- A1_250 %>% 
-  dplyr::select(-Urban)%>% 
-  rename(imp = imp250) %>% 
-  mutate_at(vars(imp:test3), scale)
-
-## imp500:
-A1_500 <- A1 %>% 
-  dplyr::select(-imp100, -imp250, -imp1000, -imp2000) %>% 
-  dplyr::select(-DistInsektenhaus, -Isnsektenhaus)
-names(A1_500)[4] <- "imp"
-A1_500 <- A1_500 %>% 
-  dplyr::select(-Urban, -len)%>% 
-  mutate_at(vars(imp:test3), scale)
-
-## imp1000:
-A1_1000 <- A1 %>% 
-  dplyr::select(-imp100, -imp250, -imp500, -imp2000) %>% 
-  dplyr::select(-DistInsektenhaus, -Isnsektenhaus)
-names(A1_1000)[4] <- "imp"
-A1_1000 <- A1_1000 %>% 
-  dplyr::select(-Urban, -len)%>% 
-  mutate_at(vars(imp:test3), scale)
-
-## imp2000:
-A1_2000 <- A1 %>% 
-  dplyr::select(-imp100, -imp250, -imp500, -imp1000) %>% 
-  dplyr::select(-DistInsektenhaus, -Isnsektenhaus)
-names(A1_2000)[4] <- "imp"
-A1_2000 <- A1_2000 %>% 
-  dplyr::select(-Urban)%>% 
-  mutate_at(vars(imp:test3), scale)
-```
+Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
 
 
 <!-- Zwischen der Artenzahl und dem Versiegelungsgrad besteht kein signifikanter Zusammenhang.   -->
@@ -310,24 +237,23 @@ A1_2000 <- A1_2000 %>%
 
 ```{r Artenzahl, include=FALSE}
 ## selected models::
-# model0 <- MASS::glm.nb(Artenanzahl_det ~ . + I(imp^2), data = A1_100[,-c(1,3)]) ##
-# model0_step <- MASS::stepAIC(model0)
 
-#model0_step <- readRDS("../../Modelle/Artenzahl_100_step.rds")
+model1a_step <- readRDS("Modelle/Artenzahl_100_step.rds")
+model2a_step <- readRDS("Modelle/Artenzahl_250_step.rds")
+model3a_step <- readRDS("Modelle/Artenzahl_500_step.rds")
+model4a_step <- readRDS("Modelle/Artenzahl_1000_step.rds")
+model5a_step <- readRDS("Modelle/Artenzahl_2000_step.rds")
 
-#model4c <- MASS::glm.nb(Artenanzahl_det ~ I(imp^2), data = A1_1000) #
-
-# test <- sjPlot::tab_model(model0_step, model2a_step, model3a_step,model4c,model5c,
+# sjPlot::tab_model(model1a_step, model2a_step, model3a_step, model4a_step, model5a_step,
 #                   dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),
-#                   file = "model_Artenzahl.html", transform = NULL)
+#                   file = "../Modelle/model_Artenzahl.html", transform = NULL)
 ## transform html via excel to .csv-file
 library(readr)
-model_Artenzahl <- read_delim("../model_Artenzahl.csv", 
+model_Artenzahl <- read_delim("../Modelle/model_Artenzahl.csv", 
     ";", escape_double = FALSE, col_names = FALSE, 
     trim_ws = TRUE) 
 names(model_Artenzahl) <- model_Artenzahl[2,]
 model_Artenzahl[is.na(model_Artenzahl)] <- ""
-
 
 ```
 
@@ -347,16 +273,13 @@ p_sig <- function(x){
 kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle des gesamten Datensatz der Artenzahl der Bienen. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Artenzahl} " ) %>% 
   kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
-    c(" ", "imp100"=3,"imp250"=3,"imp500"=3,"imp1000"=3, "imp2000" = 3)
+    c(" ", "imp100"=3,"imp1000"=3)
   ) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_Artenzahl[-c(1,2),4])) %>% 
-  kableExtra::column_spec(7,bold = p_sig(model_Artenzahl[-c(1,2),7])) %>% 
-  kableExtra::column_spec(10,bold = p_sig(model_Artenzahl[-c(1,2),10])) %>% 
-  kableExtra::column_spec(13,bold = p_sig(model_Artenzahl[-c(1,2),13])) %>% 
-  kableExtra::column_spec(16,bold = p_sig(model_Artenzahl[-c(1,2),16])) %>% 
+  kableExtra::column_spec(7,bold = p_sig(model_Artenzahl[-c(1,2),13])) %>% 
   kableExtra::row_spec(6, hline_after = T)
 
 # summary(model0_step)
@@ -381,32 +304,42 @@ unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scale
 }
 # model0_step, model2a_step, model3a_step,model4c,model5c,
 
-model2a_step <- readRDS("../Modelle/Artenzahl_250_step.rds")
+A1_100 <- A1 %>% 
+  dplyr::select(-imp250, -imp500, -imp1000, -imp2000) %>% 
+  #select(- Artenanzahl_det, - Abundanz) %>% 
+  dplyr::select(-DistInsektenhaus, -Isnsektenhaus)%>% 
+  rename(imp = imp100) %>% 
+  mutate_at(vars(imp:test3), scale)%>% 
+  dplyr::select(-Urban)
 
-newdata <- A1_250 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
-  left_join(A1_250[,c("annual_precipitation_mm", "mean_annual_temp_celsius")])
-pred_250 <- predict(model2a_step, newdata = newdata, type = "response", se.fit = T) 
+#imp + mean_annual_temp_celsius + annual_precipitation_mm + altitude_town_m
+newdata <- A1_100 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
+  left_join(A1_100[,c("annual_precipitation_mm", "mean_annual_temp_celsius", "altitude_town_m")])
+pred_100 <- predict(model1a_step, newdata = newdata, type = "response", se.fit = T) 
 
-pred_250 <- data.frame(pred = pred_250$fit, pred.se = pred_250$se.fit, 
+pred_100 <- data.frame(pred = pred_100$fit, pred.se = pred_100$se.fit, 
                    imp = newdata$imp) %>% 
   group_by(imp) %>% 
   summarise(mean = mean(pred),
             min = min(pred),
             max = max(pred),
             quant95 = quantile(pred, 0.95),
-            quant05 = quantile(pred, 0.05)) 
-
-pred_250 <- pred_250 %>% 
-  mutate(imp = unscale(pred_250[,"imp"], center = attr(A1_250$imp, "scaled:center"), scale = attr(A1_250$imp, "scaled:scale"))$imp)
-
+            quant05 = quantile(pred, 0.05))
+pred_100 <- pred_100 %>% 
+  mutate(imp = unscale(pred_100[,"imp"], center = attr(A1_100$imp, "scaled:center"), scale = attr(A1_100$imp, "scaled:scale"))$imp)
 #   ylab("Abundanz der Wirtsbienen") 
 
-model4c <- readRDS("../Modelle/Artenzahl_1000_step.rds")
-
+A1_1000 <- A1 %>% 
+  dplyr::select(-imp100, -imp250, -imp500, -imp2000) %>% 
+  #select(- Artenanzahl_det, - Abundanz) %>% 
+  dplyr::select(-DistInsektenhaus, -Isnsektenhaus)%>% 
+  rename(imp = imp1000) %>% 
+  mutate_at(vars(imp:test3), scale) %>% 
+  dplyr::select(-Urban, -len)
 #
 newdata <- A1_1000 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
-  left_join(A1_1000[,c("annual_precipitation_mm", "mean_annual_temp_celsius")])
-pred_1000 <- predict(model4c, newdata = newdata, type = "response", se.fit = T) 
+  left_join(A1_1000[,c("annual_precipitation_mm", "mean_annual_temp_celsius", 'altitude_town_m', 'Pastures')])
+pred_1000 <- predict(model4a_step, newdata = newdata, type = "response", se.fit = T) 
 
 pred_1000 <- data.frame(pred = pred_1000$fit, pred.se = pred_1000$se.fit, 
                    imp = newdata$imp) %>% 
@@ -420,16 +353,15 @@ pred_1000 <- pred_1000 %>%
   mutate(imp = unscale(pred_1000[,"imp"], center = attr(A1_1000$imp, "scaled:center"), scale = attr(A1_1000$imp, "scaled:scale"))$imp)
 
 
-#
 
-p1 <- ggplot(data = pred_250, aes(imp, mean)) +
+p1 <- ggplot(data = pred_100, aes(imp, mean)) +
   geom_line() +
   geom_ribbon(aes(ymin = quant05, ymax  =quant95), alpha = 0.2, fill = "blue") +
-  geom_line(data = pred_250, aes(imp, mean), col = "darkblue") +
-  geom_point(data = A1_250, aes(unscale(imp), Artenanzahl_det), alpha = 0.5)  +
+  geom_line(data = pred_100, aes(imp, mean), col = "darkblue") +
+  geom_point(data = A1_100, aes(unscale(imp), Artenanzahl_det), alpha = 0.5)  +
   theme_bw() +
   ylab("Artenanzahl") +
-  xlab("mittlerer Versiegelungsgrad [%] im 250m-Radius")
+  xlab("mittlerer Versiegelungsgrad [%] im 100m-Radius")
 
 
 p2 <- ggplot(data = pred_1000, aes(imp, mean)) +
@@ -442,6 +374,7 @@ p2 <- ggplot(data = pred_1000, aes(imp, mean)) +
   xlab("mittlerer Versiegelungsgrad [%] im 1000m-Radius")
 
 gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(4, c("in")))
+
 
 ```
 
@@ -462,6 +395,8 @@ Für alle Radien des Versiegelungsgrades von 500m und größer wurde anhand AIC 
 
 Der Versiegelungsgrad hat im  250m und 500m-Radius einen negativen signifikanten linearen Einfluss auf die Abundanz der Bienen (siehe Abbildung \ref{plot_modelle_abundanz} links). Mit zunehmender Versiegelung nimmt die Abundanz ab. Der Anteil des Ackerfläche sowie der Anteil an Wald haben im Modell mit dem Versiegelungsgrad im 250m-Radius einen negativen signifikanten Einfluss auf die Abundanz. 
 Für die Radien von 500m, 1000m und 2000m hat der mittlere Versiegelungsgrad jeweils einen signifikanten quadratischen Einfluss auf die Abundanz der Wildbienen, wovon der signifikanzwert von $p=0.001$ im Modell des 2000m-Radius die höchste Signifikanz aufweist. Bei einem Versiegelungsgrad von ca. $25 \%$ ist die Abundanz maximal (Abbildung \ref{plot_modelle_abundanz} rechts). 
+Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
+
 
 
 
@@ -474,7 +409,7 @@ model3b_zi <- readRDS("../Modelle/model3b_zi.rds")
 model4b_zi <- readRDS("../Modelle/model4b_zi.rds")
 model5b_zi <- readRDS("../Modelle/model5b_zi.rds")
 
-model_abundanz <- read.csv("../model_abundanz.csv") %>% 
+model_abundanz <- read.csv("../Modelle/model_abundanz.csv") %>% 
   dplyr::select(-component.250b, -statistic.250b, -statistic.500)
 
 model_abundanz_a <- model_abundanz[-6,-c(11:19)] %>% 
@@ -620,10 +555,10 @@ ggplot(data = pred_2000, aes(imp, pred_mean)) +
 
 ## Artenzahl der natürlichen Gegenspieler
 Das Vorhandensein eines Insektenhauses im Umfeld des Nisthilfenstandortes hat einen positiven signifikanten Einfluss auf die Artenzahl der natürlichen Gegenspieler. Die Modellzusammenfassung des Modells mit dem Parameter zum Insektenhaus sowie mit der Erweiterung um die Parameter des Versiegelungsgrades im 250m-Radius ist in Tabelle \ref{summaryIH_par} dargestellt. Der Effektplot von zweiterem ist in Abbildung \ref{effektplotIH_par} abgebildet.
-Das Modell mit der Information über vorhandene Insektenhäuser als unabhängiger Variable kann durch die Erweiterung um die Variablen des mittleren Versiegelungsgrades im 100m-Radius als linearer sowie quadratischer Term verbessert werden. Gleiches gilt für den mittleren Versiegelungsgrad im 250m- und 500m-Radius. Andersherum verbessert der Term des vorhandenen Insektenhauses die Modelle mit dem mittleren Versiegelungsgrad aller Radien.  
+Das Modell mit der Information über vorhandene Insektenhäuser als unabhängiger Variable kann durch die Erweiterung um die Variablen des mittleren Versiegelungsgrades im 100m-Radius als linearer sowie quadratischer Term verbessert werden. Gleiches gilt für den mittleren Versiegelungsgrad im 250m- und 500m-Radius. Andersherum verbessert der Term des vorhandenen Insektenhauses die Modelle mit dem mittleren Versiegelungsgrad aller Radien.
 
 ```{r}
-model_par <- rlist::list.clean(XML::readHTMLTable("../model_par_IH.html"), fun = is.null, recursive = FALSE)[[1]]
+model_par <- rlist::list.clean(XML::readHTMLTable("../Modelle/model_par_IH.html"), fun = is.null, recursive = FALSE)[[1]]
 parnames <-  model_par[1,]
 model_par[6:7,5] <- model_par[6:7,3] 
 model_par[6:7,3] <- NA
@@ -685,7 +620,7 @@ sjPlot::plot_model(model_IH2_250, type = "pred",
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
-model_Artenzahl_par <- read_delim("../model_Artenzahl_par.csv", 
+model_Artenzahl_par <- read_delim("../Modelle/model_Artenzahl_par.csv", 
     ";", escape_double = FALSE, col_names = FALSE, 
     trim_ws = TRUE) 
 names(model_Artenzahl_par) <- model_Artenzahl_par[2,]
@@ -800,6 +735,7 @@ Die Rostrote Mauerbiene (*Osmia bicornis*) kam in 148 der 259 Nisthilfen vor.
 
 Das Vorhandensein eines Insektenhauses in der Nähe der Nisthilfe hat keinen signifikanten Einfluss auf die Abundanz von *Osmia bicornis* (siehe Tabelle \ref{summary_Abundanz_IH_ob}). Der mittlere Versiegelungrad im 250m Radius um den Nisthilfenstandort verbessert das Modell welches den Einfluss des Insektenhauses auf die Abundanz von *O. bicornis* beschreibt. Der mittlere Versiegelungsgrad anderer Radien verbessert das Modell nicht. Der Parameter Insektenhaus kann keines der Modelle mit den Prädiktoren des Versiegelungsgrades der verschiedenen Radien verbessern.   
 
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 model_IH_ob <- read_delim("../Modelle/model_IH_Ob.csv", 
     ";", escape_double = FALSE, col_names = FALSE, 
@@ -825,15 +761,15 @@ Das zweite Modell für den jeweiligen Versiegelungsgrad jedes Radius, von dem di
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results = 'asis'}
 Ob_models_list <- readRDS(file = "../Modelle/Ob_models_list_new.rds")
 
-test <- sjPlot::tab_model(Ob_models_list[[1]], Ob_models_list[[3]], Ob_models_list[[5]],
-                  Ob_models_list[[7]], Ob_models_list[[9]],  
-                  dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),
-                  file = "Modelle/model_Ob1.html", transform = NULL) 
+# test <- sjPlot::tab_model(Ob_models_list[[1]], Ob_models_list[[3]], Ob_models_list[[5]],
+#                   Ob_models_list[[7]], Ob_models_list[[9]],  
+#                   dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),
+#                   file = "Modelle/model_Ob1.html", transform = NULL) 
 
-test <- sjPlot::tab_model(Ob_models_list[[2]], Ob_models_list[[4]], Ob_models_list[[6]], 
-                  Ob_models_list[[8]], Ob_models_list[[10]],  
-                  dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),
-                  file = "Modelle/model_Ob2.html", transform = NULL) 
+# test <- sjPlot::tab_model(Ob_models_list[[2]], Ob_models_list[[4]], Ob_models_list[[6]], 
+#                   Ob_models_list[[8]], Ob_models_list[[10]],  
+#                   dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),
+#                   file = "Modelle/model_Ob2.html", transform = NULL) 
 
 
 library(readr)
@@ -944,6 +880,8 @@ land_species %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
   column_spec(5, color = "white",
               background =spec_color(land_species$Anteil_stadt, end = 1))
+
+
 
 ```
 
