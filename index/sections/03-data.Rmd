@@ -210,7 +210,7 @@ table_a[is.na(table_a)] <- ""
 table_a[table_a$Predictors == "Intercept_2",1] <- "count_model: Intercept"
 table_a[table_a$Predictors == "Intercept_3",1] <- "zero_inflated_model: Intercept"
 
-kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Modellvariablen Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " ) %>% #caption = "" 
+kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der der Modelle zum Einfluss von vorhandenen Insektenhäusern auf Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " ) %>% #caption = "" 
   kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(c(" ","Artenzahl"=6,"Abundanz"=6)) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down")) %>% 
@@ -344,7 +344,7 @@ p_sig <- function(x){
   return(bold)
 }
 
-kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Artenzahl. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Artenzahl} " ) %>% 
+kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle des gesamten Datensatz der Artenzahl der Bienen. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Artenzahl} " ) %>% 
   kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp250"=3,"imp500"=3,"imp1000"=3, "imp2000" = 3)
@@ -368,7 +368,7 @@ kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusamme
 ```
 
 
-```{r echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Modelle zur Artenanzahl \\label{plot_modelle_artenzahl}"}
+```{r echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Der Einfluss des Versiegelungsgrades im 250m-Radius (links) sowie im 1000m-Radius (rechts) auf die Artenzahl der Bienen. Die Punkte stellen die Werte der einzelnen Nisthilfen dar, die Kurve mit blau hinterlegtem Bereich das jeweilige Modell mit Standartabweichung. \\label{plot_modelle_artenzahl}"}
 unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scaled:scale")) {
   if(!is.null(scale))  z <- sweep(z, 2, scale, `*`)
   if(!is.null(center)) z <- sweep(z, 2, center, `+`)
@@ -499,7 +499,7 @@ model_abundanz_b <- model_abundanz[-c(4,5),-c(2:10)] %>%
   replace(is.na(.), "")
 names(model_abundanz_b) <- c("term" ,"component", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value" )
 
-kableExtra::kbl(model_abundanz_a, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_a} " ) %>% 
+kableExtra::kbl(model_abundanz_a, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz für die Radien des Versiegelungsgrades 100m und 250m. Für den 250m-Radius sind zwei Modelle ausgewählt. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_a} " ) %>% 
   #kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
     c(" " = 2, "imp100"=3,"imp250"=3,"imp250"=3)
@@ -519,7 +519,7 @@ kableExtra::kbl(model_abundanz_a, booktabs =T, caption = "Modellzusammenfassung 
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-kableExtra::kbl(model_abundanz_b, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_b} " ) %>% 
+kableExtra::kbl(model_abundanz_b, booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz für die Radien des Versiegelungsgrades 500m, 1000m und 2000m. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_b} " ) %>% 
   kableExtra::add_header_above(
     c(" " = 2, "imp500"=3,"imp1000"=3,"imp2000"=3)
   ) %>%
@@ -535,7 +535,7 @@ kableExtra::kbl(model_abundanz_b, booktabs =T, caption = "Modellzusammenfassung 
 
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width=c('45%', '45%'), fig.cap="Die Modelle des mittleren Versiegelungsgrades im 250m-Radius (links) sowie 2000m-Radius (rechts), welche den Einfluss der Nullen (Zeroinflation) brücksichtigen. Die Linie beschreibt den Mittelwert der simulierten Daten, der violett gezeichnete Bereich beschreibt Bereich bis zum 95 \\% Quantil der Simulierten Daten, die Punkte sind die realen Messwerte. \\label{plot_modelle_abundanz}"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.show='hold', out.width=c('45%', '45%'), fig.cap="Die Modelle des mittleren Versiegelungsgrades im 250m-Radius (links) sowie 2000m-Radius (rechts), welche den Einfluss der Nullen (Zeroinflation) brücksichtigen. Die Linie beschreibt den Mittelwert der mittels der R-Funktion simulate() simulierten Daten, der violett gezeichnete Bereich beschreibt Bereich bis zum 95 \\% Quantil der Simulierten Daten, die Punkte sind die realen Messwerte. \\label{plot_modelle_abundanz}"}
 
 #
 
@@ -633,7 +633,7 @@ model_par1 <- model_par %>%
   filter(V1 != "Predictors")
 names(model_par1) <- parnames
 
-kableExtra::kbl(model_par1,booktabs =T, caption = "Modellzusammenfassung der Modelle der Artenzahl der Parasitoide. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH_par} " ) %>% #caption = "" 
+kableExtra::kbl(model_par1,booktabs =T, caption = "Modellzusammenfassung der Modelle die den Einfluss von vorhandenen Insektenhäusern auf die Artenzahl der Parasitoide beschreiben. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH_par} " ) %>% #caption = "" 
   kableExtra::add_header_above(c(" ","Model 1"=3,"Model 2"=3)) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped", "hold_position")) %>% 
   kableExtra::column_spec(4,bold = (as.numeric(model_par1[,4])<0.05 | model_par1[,4] == "<0.001")  & model_par1[,4] != "" )%>% 
@@ -708,7 +708,7 @@ p_sig <- function(x){
   return(bold)
 }
 
-kableExtra::kbl(model_Artenzahl_par[-c(1,2),1:10], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par1} " ) %>% 
+kableExtra::kbl(model_Artenzahl_par[-c(1,2),1:10], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler für die Radien des Versiegelungsgrades 100m und 250m. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par1} " ) %>% 
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp250"=3,"imp250"=3) 
   ) %>%
@@ -725,7 +725,7 @@ kableExtra::kbl(model_Artenzahl_par[-c(1,2),1:10], booktabs =T, caption = "Model
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
 
-kableExtra::kbl(model_Artenzahl_par[-c(1,2),c(1, 11:22)], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par2} " ) %>% 
+kableExtra::kbl(model_Artenzahl_par[-c(1,2),c(1, 11:22)], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Gegenspieler für die Radien des Versiegelungsgrades 500m, 1000m und 2000m. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Artenzahl_par2} " ) %>% 
   kableExtra::add_header_above(
     c(" ", "imp500"=3,"imp500"=3,"imp1000"=3, "imp2000" = 3) 
   ) %>%
@@ -858,7 +858,7 @@ model_ob2[is.na(model_ob2)] <- ""
 #   purrr::map(kable_styling) %>%
 #   purrr::walk(print)
 
-kableExtra::kbl(model_ob1[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Abundanz von Osmia bicornis. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Abundanz_ob} " ) %>% 
+kableExtra::kbl(model_ob1[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der Modelle die den quadratischen Einfluss des Versiegelungsgrades sowie bis auf den 500m-Radius auch den Einfluss des Breitengrades (lat) auf die Abundanz von Osmia bicornis beschreiben. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Abundanz_ob} " ) %>% 
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp250"=3,"imp500"=3, "imp1000"=3, "imp2000"=3) 
   ) %>%
