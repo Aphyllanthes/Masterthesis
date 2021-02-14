@@ -50,8 +50,6 @@ kableExtra::kbl(clc2000legend_IH,longtable =T,booktabs =T, caption = "Die in die
 
 Um die Daten zur Landnutzung schnell und reproduzierbar abrufen zu können wurde aufgrund der Größe des Datensatzes eine postegreSQL-Datenbank mit der PostGIS-Erweiterung erstellt. In die Datenbank wurden auch die Standortdaten der Nisthilfen eingebunden. Die Datenbank wurde dann direkt von R aus abgerufen, wo die Daten mithilfe des Paketes DBI [@dbi] direkt miteinander verschnitten werden konnten. Aus den Landnutzungs- und Versiegelungsdaten wurden folgende Variablen berechnet: 
 
-test
-
 - Index für den Urbanisierungsgrad: der mittlere Versiegelungsgrad im Radius von 100m, 250m, 500m, 1000m sowie 2000m um die Nisthilfenstandorte. Die kleineren Radien wurden gewählt um den Flugradius zur Nahrungssuche der Wildbienen, welcher meist unter 1km liegt  [@garibaldi2011;@gathmann2002], abzubilden. Dies entwpricht auch der Empfehlung von @geslin2016 zur Verwendung multivariater Gradienten für zukünftige Studien zum Einfluss von Urbanisierung auf die Bienengemeinschaft. Die Radien 1000m und 2000m werden verwendet um das größere Umfeld um den Standort zu kategorisieren. Ist der Standort im größeren Umfeld von einen großen Anteil versiegelter Fläche umgeben, so kann dies als Indikator für die Habitatvernetzung und die Lage des Nisthilfenstandortes innerhalb des städtischen Bereich dienen.
 
  <!-- Die Berechnung des Versiegelungsgrades auch im 2km Radius, da dieser Auskunft gibt über die Lage in der Stadt (z.B. findet man 80% Versiegelung im 2km Radius nur im innerstädtischen Bereich von großen Städten)  und über eventuell fehlende Habitatvernetzung. -->
@@ -102,14 +100,14 @@ Diese Analyse wurde für die Radien, für die der mittlere Versiegelungsgrad ber
 
 Der Einfluss von Urbanisierung und Landschaftskomplexität auf die oben genannten drei Antwortvariablen wurde mit dem gesamten Datensatz von 259 Nisthilfen analysiert. Hierzu wurden für die verschiedenen Radien des Versiegelungsgrades jeweils vier Modelle gefittet. Als erstes Modell (siehe Gleichung \ref{eq1}) wurden zusätzlich zum Versiegelungsgrad, dem Versiegelungsgrad als quadratischen Therm und den Parametern der Landschaftskomplexität auch Klimainformationen, Höhenlage sowie die Anteile verschiedener Landnutzungsklassen als Prädiktoren mit ins Modell genommen. Dass diese Parameter im Modell als unabhänige Variablen verwendet werden ist in Gleichung \ref{eq1} durch den Punkt (".") dargestellt.  
 Der Einfluss von Versiegelungsgrad und Landschaftskomplexität sowie der quadratische Einfluss des Versiegelungsgrades ist in den Hypothesen beschrieben. Zusätzlich werden noch weitere Parameter, dessen Einfluss auf Wildbienen bereits in anderen Studien aufgezeigt wurde,  zum Klima, Höhenlage und verschiedenen Landnutzungsformen mit ins Modell genommen <!-- shuepp2011 : altitude, local temperature and humidity (Ewers and Didham 2006) -->. Diese Parameter können den Fit der Modelle verbessern und somit Auskunft über deren Bedeutung im Vergleich zu Versiegelungsgrad und Landschaftskomplexität geben. 
-Das zweite Modell (siehe Gleichung \ref{eq2}) entsteht durch schrittweise Modellselektion des ersten Modells anhand des AIC. Hierzu wird die Formel $stepAIC()$  aus dem Paket $MASS$ verwendet.
-Im drittes Modell (siehe Gleichung \ref{eq3}) wird der Versiegelungsgrad als quadratischer sowie als linearer Term implementiert, im vierten Modell (siehe Gleichung \ref{eq4}) ist der Versiegelungsgrad im quadrat der einzige Prädiktor. Die vier Modelle werden jeweils anhand AIC und anova verglichen. <!-- AIC erklären -->
+Das zweite Modell (siehe Gleichung \ref{eq2}) entsteht durch schrittweise rückwärtsgerichtete Modellselektion des ersten Modells anhand des AIC. Hierzu wird die Formel $stepAIC()$  aus dem Paket $MASS$ verwendet.
+Im drittes Modell (siehe Gleichung \ref{eq3}) wird der Versiegelungsgrad als quadratischer sowie als linearer Term implementiert, im vierten Modell (siehe Gleichung \ref{eq4}) ist der Versiegelungsgrad der einzige Prädiktor. Die vier Modelle werden jeweils anhand AIC und anova verglichen. <!-- AIC erklären -->
 
 \begin{align}
 y \sim  . + imp^2 \label{eq1} \\
 step( y \sim  . + imp_{r}^2) \label{eq2} \\
- y \sim  imp_{r} + imp_{r}^2 + len + class\_nr \label{eq3} \\
-y \sim imp_{r}^2 \label{eq4}
+ y \sim  imp_{r} + imp_{r}^2 \label{eq3} \\
+y \sim imp_{r} \label{eq4}
 \end{align}
 
 
@@ -118,6 +116,26 @@ Die Prädiktoren, welche für das erste Modell mit allen Prädiktoren verwendet 
 
 Modellselektion erfolgte anhand AIC und Anova. Modelle mit um 10 Einheiten höherem AIC im Vergleich zum niedrigsten AIC aller Modelle wurden ausgeschlossen [@burnham2002h]. Zeigt die Anova signifikante Unterschiede zwischen zwei Modellen, wird das komplexere Modell (mit größerer Anzahl an Prädiktoren) ausgewählt. Andernfalls wird das einfachere Modell verwendet. Das somit ausgewählte Modell wird anhand der Residuendiagnostik nach @DHARMa evaluiert.
 
+#### Modellselektion Artenzahl
+Zur Analyse des Einflusses des Versiegelungsgrades verschiedener Radien auf die Artenzahl wurde für jeden Radius das beste Modell anhand von AIC, anova und Residuendiagnostik ausgewählt. Für alle Radien des Versiegelungsgrades zeigte das durch die schrittweise Modellselektion (siehe Gleichung \ref{eq2}) erzeugte Modell den besten Fit. Die Modellzusammenfassung ist in Tabelle \ref{summary_Artenzahl} dargestellt. Die Modellformeln sind im folgenden aufgeführt, wobei "imp_r" den Versiegelungsgrad im Radius r beschreibt, "annual_precipitation_mm" den Jahresniederschlag in mm, "mean_annual_temp_celsius" die mittlere Jahrestemperatur in grad Celsius und "altitude_town_m" die Höhenlage über NN:
+
+\begin{align}
+Artenanzahl \sim imp_{100} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm + Höhenlage\_m \label{Az_1} \\
+Artenanzahl \sim imp_{250} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm + Höhenlage\_m \label{Az_2} \\
+ Artenanzahl \sim imp_{500} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm \label{Az_3} \\
+ Artenanzahl \sim imp_{1000}^2 + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm + Höhenlage\_m + Weidflächen \label{Az_4} \\
+Artenanzahl \sim imp_{2000}^2 + Jahresniederschlag\_mm +  Anzahl\_Landnutzungsklassen\label{Az_5}
+\end{align}
+
+Der $R^2$-Wert all dieser Modelle liegt unter dem Wert von $0.1$, somit erklären all diese Modelle die Varianz der Daten nur minimal.
+
+
+#### Modelle Abundanz
+Um den Einfluss des Versiegelungsgrades verschiedener Radien auf die Abundanz (Anzahl Brutzellen pro Nisthilfe) zu bewerten wurde für die Radien 100m, 500m, 1000m und 2000m jeweils das Modell mit der Gleichung \ref{eq3} ausgewählt. Für den Versiegelungsgrad im 250m-Radius wurde das durch die schrittweise Modellselektion berechnete Modell ausgewählt. Es entält neben dem Versiegelungsgrad noch die weiteren Prädiktorn der Landschaftstruktur, Kantenlänge und Anzahl an Landnutzungsklassen sowie den Anteil an Waldfläche im 500m-Radius.
+
+Die Modellzusammenfassung aller Modelle sind in den Tabellen \ref{summary_Abundanz_a} und \ref{summary_Abundanz_b} dargestellt. 
+
+#### DHARMa
 Für alle ausgewählten Modelle wird eine Residuendiagnostik nach @DHARMa mit dem R-Paket "DHARMa" durchgeführt. Dabei werden zunächst die Residuen des Modells berechnet. Mit den Residuen werden dann folgende Tests durchgeführt: 
 
  - testUniformity: Testet ob die Verteilung den Erwartungen entspricht
@@ -130,17 +148,9 @@ Für alle ausgewählten Modelle wird eine Residuendiagnostik nach @DHARMa mit de
 
 Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben in dieser Arbeit keine Tests signifikante Ergebnisse ($p<0.05$). Der Einfluss der Nullen spielte bei der Abundanz der Wildbienen eine Rolle, sodass hierfür mithilfe der Funktion $glmmTMB()$ aus dem gleichnamigen Paket ein Modell gefittet wurde, welches den Einfluss der Nullen ('Zeroinflation') berücksichtigt. Dass die Verteilung der Abundanz der Wildbienen durch den Einfluss der Nullen charakterisiert ist, lässt sich folgendermaßen erklären: die Abundanz der Wildbienen (Anzahl an Brutzellen) hat dann den Wert Null, wenn in einer Nisthilfe kein einziges Nest von Wildbienen angelegt wurde. Wo jedoch mindestens ein Nest angelegt ist, kommen tendenziell gleich mehrere Brutzellen vor.
 
-<!-- Zur Analyse des Einflusses des Versiegelungsgrades verschiedener Radien auf die Artenzahl wurde für jeden Radius das beste Modell anhand von AIC, anova und Residuendiagnostik ausgewählt. Die Modellzusammenfassung ist in Tabelle \ref{summary_Artenzahl} dargestellt. Die Modellformeln sind im folgenden aufgeführt, wobei "imp_r" den Versiegelungsgrad im Radius r beschreibt, "annual_precipitation_mm" den Jahresniederschlag in mm, "mean_annual_temp_celsius" die mittlere Jahrestemperatur in grad Celsius und "altitude_town_m" die Höhenlage über NN: -->
+Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar. Da sich die ausgewählten Modelle mit den Prädiktoren des Versiegelungsgrades im Radius 100m, 250m und 500m bezüglich AIC ($\Delta AIC < 10$) als auch dem Einfluss der Prädiktoren glichen, wurde zu jeder Antwortvariable nur ein Modell aus den drei Radien des Versiegelungsgrades zur Darstellung ausgewählt. Gleiches galt für die Modelle, die den mittleren Versiegelungsgrad des Radius 1000m sowie des Radius 2000m beinhalten.
 
-<!-- \begin{align} -->
-<!-- Artenanzahl \sim imp_{100} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm + Höhenlage\_m \label{Az_1} \\ -->
-<!-- Artenanzahl \sim imp_{250} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm \label{Az_2} \\ -->
-<!--  Artenanzahl \sim imp_{500} + Jahresmitteltemp.\_celsius + Jahresniederschlag\_mm \label{Az_3} \\ -->
-<!--  Artenanzahl \sim imp_{1000}^2 \label{Az_4} \\ -->
-<!-- Artenanzahl \sim imp_{2000}^2 \label{Az_5} -->
-<!-- \end{align} -->
 
-<!-- Modelle mit dem Prädiktor der Radien 100m, 250m und 500m des Versigelungsgrades können durch das Erweitern der Prädiktoren um die Klimavariablen "mittlere Jahrestemperatur" sowie "Jahresniederschlag" verbessert werden. Im 100m-Radius verbessert zusätzlich die Höhenlage des Nisthilfenstandortes das Modell. In den Modellen mit den Radien des Versiegelungsgrades von 1000m und 2000m beschreibt der quadratische Term des Versiegelungsgrades als einzelner Prädiktor die Artenzahl der Wildbienen am besten. Der $R^2$-Wert all dieser Modelle liegt unter dem Wert von $0.1$, somit erklären all diese Modelle die Varianz der Daten nur minimal. -->
 
 
  <!-- Neben einem einfachen Modell (siehe Formel nr. 1) mit der Information zum Insektenhaus als einzigen Prädiktor wurden auch Modelle mit den Parametern zur Fragestellung der Urbanisierung und Landschaftskomplexität gefittet. -->
@@ -166,7 +176,7 @@ Bis auf den Test über den Einfluss der Nullen und den Ausreißer-Test ergaben i
 <!-- - Modellierung der Artenzusammensetzung:  -->
 <!--   - der Einfluss von oben genannten Prädiktoren auf die Artenzusammensetzung der Wildbienen und ihre Parasiten. Dazu zunächst Berechnung eines Random-Forest-Modells mit allen oben genannten Prädiktoren sowie zusätzlich der Höhenlage über NN. der Standorte, ihrer Koordinaten (Nord-Süd- bzw. Ost-West-Gradient), den Landnutzungsformen (den Flächenanteil jeder Landnutzungsform im Umkreis) und weiteren Metadaten der Trap-nest-Standorte, um wichtige Prädiktoren zu erkennen. -->
 <!--   - Modellierung von Artenanzahl der Bienen und Artenanzahl der Parasiten. -->
-
+#### Artengemeinschaft
 Die Artengemeinschaft in den Nisthilfen wurde mithilfe der R-Paketes "vegan" durchgeführt. Zunächst wurden dafür alle Arten aus den zu analysierenden Daten entfernt, die nur in einer einzigen Nisthilfe vorkamen.  
 Des Datensatz wurde in die drei Gruppen "Land", "Übergang" und "Stadt" unterteilt. Die Unterteilung erfolgte Anhand der $33\%$ und $66\%$ Quantile des mittleren Versiegelungsgrades im 500m-Radius der Nisthilfenstandorte.   
 Eine weitere Einteilung in "Ackerland" und "Kein-Ackerland" wurde anhand der Ackerlandfläche im 500m-Radius unternommen.

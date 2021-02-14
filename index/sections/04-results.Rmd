@@ -1,5 +1,7 @@
 # Diskussion 
 
+<!-- Methodenkritik: rauschen in den Daten - anbringung der Nisthilfen - citizen science , stepAIC ist ein kack-->
+
 Die Parameter der Landschaftstruktur zeigten keinerlei Effekt auf die untersuchten Variablen der Nisthilfen. Es ist davon auszugehen, dass die Berechnung der Parameter aus Satelittendaten insbesondere im Siedlungsbereich nicht die Genauigkeit bietet um für Wildbienen und ihre Gegenspieler relevante Habitateigenschaften abzubilden.
 <!-- Denn in anderen Studien ... wurde der Effekt der Landschaftstruktur bereits aufgezeigt. -->
 

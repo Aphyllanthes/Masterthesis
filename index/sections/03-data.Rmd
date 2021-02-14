@@ -11,7 +11,7 @@ Alle weiteren Ergebnisse beziehen sich ausschließlich auf die Biennennester. In
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
 #source("datenschau.R")
-load("../../my_work_space.RData")
+load("../my_work_space.RData")
 ```
 
 
@@ -226,7 +226,7 @@ kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Model
 <!-- (Null_deviance - Residual_deviance)/Null_deviance -->
 Der Versiegelungsgrad aller Radien eignet sich zur Beschreibung der Artenzahl der Wildbienen. Dies zeigte im Vergleich der Modelle  mit verschiedenen Radien des Versiegelungsgrades als beschreibende Variable, da sich die AIC-Werte der Modelle mit jeweils dem besten Fit, um weniger als zwei Einheiten unterschieden. 
 
-Die Modelle mit dem besten Fit, welche den Versiegelungsgrad der Radien 100m, 250m und 500m beinhalten, beschreiben einen signifikanten linearen Zusammenhang ($p < 0.01$) des Versiegelungsgrades mit der Artenzahl. Mit zunehmendem Versiegelungsgrad nimmt die Artenzahl ab. Die Modelle mit dem besten Fit, welche den Versiegelungsgrad der Radien 1000m und 2000m beinhalten, beschreiben einen quadratischen Zusammenhang des Versiegelungsgrades mit der Artenzahl. Bei einem Versiegelungsgrad von ca. $30 %$ ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts). 
+Die Modelle mit dem besten Fit, welche den Versiegelungsgrad der Radien 100m, 250m und 500m beinhalten, beschreiben einen signifikanten linearen Zusammenhang ($p < 0.01$) des Versiegelungsgrades mit der Artenzahl. Mit zunehmendem Versiegelungsgrad nimmt die Artenzahl ab. Die Modelle mit dem besten Fit, welche den Versiegelungsgrad der Radien 1000m und 2000m beinhalten, beschreiben einen signifikanten quadratischen Zusammenhang des Versiegelungsgrades mit der Artenzahl. Bei einem Versiegelungsgrad von ca. $30 %$ ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts). 
 Alle ausgewählten Modelle beinhalten die weiteren Prädiktoren $Jahresniederschlag$ und $Jahresmitteltemperatur$. Der Jahresniederschlag zeigt jeweils einen schwach signifikaten negativen Einfluss auf die Artenzahl, die Jahresmitteltemperatur einen schwach signifikanten positiven Einfluss auf die Artenzahl.
 
 Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
@@ -238,11 +238,11 @@ Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt de
 ```{r Artenzahl, include=FALSE}
 ## selected models::
 
-model1a_step <- readRDS("Modelle/Artenzahl_100_step.rds")
-model2a_step <- readRDS("Modelle/Artenzahl_250_step.rds")
-model3a_step <- readRDS("Modelle/Artenzahl_500_step.rds")
-model4a_step <- readRDS("Modelle/Artenzahl_1000_step.rds")
-model5a_step <- readRDS("Modelle/Artenzahl_2000_step.rds")
+model1a_step <- readRDS("../Modelle/Artenzahl_100_step.rds")
+model2a_step <- readRDS("../Modelle/Artenzahl_250_step.rds")
+model3a_step <- readRDS("../Modelle/Artenzahl_500_step.rds")
+model4a_step <- readRDS("../Modelle/Artenzahl_1000_step.rds")
+model5a_step <- readRDS("../Modelle/Artenzahl_2000_step.rds")
 
 # sjPlot::tab_model(model1a_step, model2a_step, model3a_step, model4a_step, model5a_step,
 #                   dv.labels = c("imp100", "imp250", "imp500", "imp1000", "imp2000"),
@@ -270,7 +270,7 @@ p_sig <- function(x){
   return(bold)
 }
 
-kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle des gesamten Datensatz der Artenzahl der Bienen. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Artenzahl} " ) %>% 
+kableExtra::kbl(model_Artenzahl[-c(1,2),c(1:4,11:13)], booktabs =T, caption = "Modellzusammenfassung der ausgewählten Modelle der Artenzahl der Wildbiene, die den Versiegelungsgrades (imp) der Radien 100m und 1000m beinhalten. \\label{summary_Artenzahl} " ) %>% 
   kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp1000"=3)
@@ -280,7 +280,7 @@ kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusamme
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_Artenzahl[-c(1,2),4])) %>% 
   kableExtra::column_spec(7,bold = p_sig(model_Artenzahl[-c(1,2),13])) %>% 
-  kableExtra::row_spec(6, hline_after = T)
+  kableExtra::row_spec(8, hline_after = T)
 
 # summary(model0_step)
 # summary(model2a_step)
@@ -291,7 +291,7 @@ kableExtra::kbl(model_Artenzahl[-c(1,2),], booktabs =T, caption = "Modellzusamme
 ```
 
 
-```{r echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Der Einfluss des Versiegelungsgrades im 250m-Radius (links) sowie im 1000m-Radius (rechts) auf die Artenzahl der Bienen. Die Punkte stellen die Werte der einzelnen Nisthilfen dar, die Kurve mit blau hinterlegtem Bereich das jeweilige Modell mit Standartabweichung. \\label{plot_modelle_artenzahl}"}
+```{r echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Der Einfluss des Versiegelungsgrades im 100m-Radius (links) sowie im 1000m-Radius (rechts) auf die Artenzahl der Bienen. Die Punkte stellen die Werte der einzelnen Nisthilfen dar, die Kurve mit blau hinterlegtem Bereich die jeweilige Modellvorhersage mit Standartabweichung. \\label{plot_modelle_artenzahl}"}
 unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scaled:scale")) {
   if(!is.null(scale))  z <- sweep(z, 2, scale, `*`)
   if(!is.null(center)) z <- sweep(z, 2, center, `+`)
@@ -379,25 +379,8 @@ gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(4, c("in")))
 ```
 
 
-Um den Einfluss des Versiegelungsgrades verschiedener Radien auf die Abundanz (Anzahl Brutzellen pro Nisthilfe) zu bewerten wurden folgende Modelle unter der Annahme negativbinomialverteilter Daten sowie unter Einbezug des Einflusses der Nullen (Zeroinflation) ausgewählt:
-
-\begin{align}
-Abundanz \sim imp_{100}  \label{Ab_1} \\
-Abundanz \sim imp_{250}  + Ackerland + Wald \label{Ab_2} \\
-Abundanz \sim imp_{250} \label{Ab_2b} \\
- Abundanz \sim imp_{500} + imp_{500}^2 \label{Ab_3} \\
- Abundanz \sim imp_{1000} + imp_{1000}^2 \label{Ab_4} \\
-Abundanz \sim imp_{2000} + imp_{2000}^2 \label{Ab_5}
-\end{align}
-
-In den Modellformeln bezeichnet $imp_r$ den Versiegelungsgrad im Radius r, $Ackerland$ den Flächenanteil an Ackerland im 500m-Radius sowie $Wald$ den Flächenanteil an Wald im 500m-Radius. Für die Modellierung der Abundanz anhand des Versiegelungsgrades der Radien 100m und 250m wird dieser als linearer Term im Modlel implementiert. Das Modell mit dem Versiegelungsgrad im 250m-Radius kann durch die Erweiterung um die Prädiktoren des Flächenanteils von Ackerland sowie von Wald verbessert werden.
-Für alle Radien des Versiegelungsgrades von 500m und größer wurde anhand AIC und anova das Modell mit dem Versiegelungsgrad als linearen sowie quadratischen Term ausgewählt.  Die Modellzusammenfassung aller Modelle sind in den Tabellen \ref{summary_Abundanz_a} und \ref{summary_Abundanz_b} dargestellt. 
-
-Der Versiegelungsgrad hat im  250m und 500m-Radius einen negativen signifikanten linearen Einfluss auf die Abundanz der Bienen (siehe Abbildung \ref{plot_modelle_abundanz} links). Mit zunehmender Versiegelung nimmt die Abundanz ab. Der Anteil des Ackerfläche sowie der Anteil an Wald haben im Modell mit dem Versiegelungsgrad im 250m-Radius einen negativen signifikanten Einfluss auf die Abundanz. 
-Für die Radien von 500m, 1000m und 2000m hat der mittlere Versiegelungsgrad jeweils einen signifikanten quadratischen Einfluss auf die Abundanz der Wildbienen, wovon der signifikanzwert von $p=0.001$ im Modell des 2000m-Radius die höchste Signifikanz aufweist. Bei einem Versiegelungsgrad von ca. $25 \%$ ist die Abundanz maximal (Abbildung \ref{plot_modelle_abundanz} rechts). 
-Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
-
-
+Der mittlere Versiegelungsgrad der Radien 100m ($p= 0.003$), 250m ($p < 0.0001$)und 500m ($p= 0.016$) hat einen negativen linearen Einfluss auf die Abundanz (siehe Abbildung \ref{plot_modelle_abundanz} links). Einen signifikanten quadratischen Einfluss auf die Abunanz hat der mittlere Versiegelungsgrad der Radien 500m ($p= 0.013$), 1000m ($p= 0.011$) und 2000m ($p=0.005$). Bei einem Versiegelungsgrad von ca. $25 \%$ ist die Abundanz maximal (Abbildung \ref{plot_modelle_abundanz} rechts). 
+Das Modell, welches den Versiegelungsgrad im 250m-Radius als Prädiktor enthält, zeigt einen negativen signifikanten Einfluss der Kantenlänge der Landnutzungsklassen auf die Abundanz, sowie einen schwach signifikanten positiven Einfluss der Anzahl an Landnutzungsklassen.
 
 
 ```{r Abundanz, echo=FALSE, message=FALSE, warning=FALSE}
