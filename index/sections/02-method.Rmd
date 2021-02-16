@@ -135,6 +135,21 @@ Um den Einfluss des Versiegelungsgrades verschiedener Radien auf die Abundanz (A
 
 Die Modellzusammenfassung aller Modelle sind in den Tabellen \ref{summary_Abundanz_a} und \ref{summary_Abundanz_b} dargestellt. 
 
+
+#### Modelle Gegenspieler
+Alle Modelle der Artenzahl der natürlichen Gegenspieler enthalten als zusätzlichen Prädiktor die Artenzahl ihrer Wirte, der Wildbienen. Denn die Artenzahl der Parasiten hängt von ihrer Ressource, den Wirten ab. Durch das einbeziehen der Artenzahl der Wirte in die Modelle kann ein zusätzlicher Effekt von zusätzlichem vorhandenen Insektenhaus, Versiegelungsgrad und Landschaftsstruktur auf die Artenzahl der Parasiten untersucht werden. 
+Die Modellselektion der Modelle mit dem Reduzierten Datensatz, welcher die Information über vorhandene Insektenhäuser in der Nähe des Nisthilfenstandortes enthält, zeigt für das Modell mit der Formel
+$Artenzahl \ der \ Gegenspieler \sim imp_{250} + imp_{250}^2 + Insektenhaus + Artenzahl\ der\ Wirte$ 
+den besten Fit.  
+Die Residuendiagnostik erkennt für aller Modelle, die den Einfluss des Versiegelungsgrades untersuchen, Abweichungen der Quantile. Dies bedeutet, dass die Modellannahmen nicht eingehalten werden und kann bedeuten, dass die Daten durch eine zusätzliche unbekannte Variable beschrieben werden. Des weiteren sind in den durch rückwärtsgerichtete Modellselektion berechneten Modellen auch die uniformverteilten Zufalls-Testdaten als Prädiktor enthalten. Eine anova der einzelnen Modelle zeigt, dass durch den Prädiktor $Artenzahl der Wirtsbienen$ der Großteil der Varianz erklärt wird ($>30 \%$), während alle anderen Prädiktoren im Vergleich einen Bruchteil der Vairanz erklären ($<1 \%$).
+Daraufhin wurde das einfachste Modell mit der Formel $Artenzahl \ der \ Gegenspieler \sim Artenzahl\ der\ Wirte$ berechet. Dieses Modell verletzt keine Modellannahmen und erklärt $66\%$ der Varianz der Daten.
+
+<!-- Die Modellselektion anhand AIC und anova der Modelle  -->
+<!-- Den besten Fit der Modelle mit den verschiedenen Radien des Versiegelungsgrades hat jeweils das durch die schrittweise Modellselektion berechnete Modell.  -->
+
+#### Modelle Osmia bicornis
+Bei der Modellierung der Abundanz von Osmia bicornis die Residuendiagnostik nach DHARMa wurde eine Räumliche Autokorrelation erkannt. Die Erweiterung aller Modelle um den Breitengrad als weiteren Prädiktor beseitigte die Autokorrelation. Für den Versiegelungsgrad im Radius von  100m und 250m zeigte jeweils das durch schrittweise Modellselektion berechnete Modell (Gleichung \ref{eq2}) den besten Fit, wobei in ersterem Modell der Versiegelungsgrad nicht mehr enthalten ist sondern nur der Breitengrad. Das Modell welches den Versiegelungsgrad im 250m-Radius enthält, enthält zusätzlich noch die Prädiktoren Versigelungsgrad, als linearer sowie quadratischer Term, Jahresmitteltemperatur, Höhenlage, Anteil an Ackerland im 500m-Radius und den Längengrad. Für die Radien 500m, 1000m und 2000m zeigte das Modell mit der Formel $y ~ imp_r + imp_r^2 + lat$ den jeweils besten Fit.
+
 #### DHARMa
 Für alle ausgewählten Modelle wird eine Residuendiagnostik nach @DHARMa mit dem R-Paket "DHARMa" durchgeführt. Dabei werden zunächst die Residuen des Modells berechnet. Mit den Residuen werden dann folgende Tests durchgeführt: 
 
