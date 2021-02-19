@@ -58,6 +58,8 @@ header-includes:
 - \usepackage{xcolor}
 - \usepackage[utf8]{inputenc}
 - \usepackage{placeins}
+- \usepackage[ngerman]{babel}
+- \selectlanguage{ngerman}
 - \DeclareUnicodeCharacter{00A0}{~}
 ---
 

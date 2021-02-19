@@ -238,6 +238,7 @@ Zur Analyse des Stadt-Land-Gradienten werden Flächenversiegelungsdaten verwende
 
 - Welche Arten von Bienen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Die Zusammenfassung verschiedener Artenlisten von Gathmann & Tscharntke 1999 ergaben 33 Wirts-Bienenarten und zusätzliche Kuckucksbienenarten. Für ein Monitoring, dass sich über ganz DE erstreckt erwarten wir diese Arten ebenfalls zu finden und potenziell neue Arten zu erfassen. Insbesondere da für Stadtrandbereiche eine hohe Bienen- und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturanteil verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
 
+- Das vorhandensein eines Insektenhauses in der Nähe der Nisthilfen hat einen positiven Effekt auf Artenzahl sowie Abundanz von Wildbienen, deren natürliche Gegenspieler. 
 
 - Die Anzahl der Bienenarten:
   - ist bei mittlerem Versiegelungsgrad am höchsten, denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am Vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten (rural Taxa) ebenso wie an städtische Gebiete angepasste Arten (urban Taxa) vorkommen können [@mcintyre2000].
@@ -252,6 +253,7 @@ Zur Analyse des Stadt-Land-Gradienten werden Flächenversiegelungsdaten verwende
 
 - Die Abundanz von Osmia bicornis:
   - ist bei mittlerem Versiegelungsgrad am höchsten, da Bereiche des mittleren Versiegelungsgrad die Stadtrandbereiche mit vielfältigen kleinräumigen Strukturen darstellen, welche vielfältige Nahrungsressourcen für Bienen der Art *Osmia biconis* bieten.
+  - wird positiv durch vorhandene Insektenhäuser an den Nisthilfenstandorten beeinflusst.
 
 <!-- red mason bee is ubiquitous in urban area but clearly profits from nearby floral resources. -->
   
