@@ -1,0 +1,9 @@
+﻿;model 1;;;model 2
+Predictors;Log-Mean;CI;p;
+(Intercept);2.28;1.77 – 2.85;<0.001;
+imp250;-0.53;-0.85 – -0.22;0.001;
+imp250^2;-0.30;-0.57 – -0.00;0.030;
+Insektenhaus [1];0.08;-0.54 – 0.69;0.799;
+lat;0.73;0.36 – 1.10;<0.001;
+Observations;129;;;
+R2 Nagelkerke;0.271;;;
