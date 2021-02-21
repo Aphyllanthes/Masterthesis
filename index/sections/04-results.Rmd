@@ -1,16 +1,25 @@
 # Diskussion 
 
-<!-- Methodenkritik: rauschen in den Daten - anbringung der Nisthilfen - citizen science , stepAIC ist ein kack-->
+<!-- Methodenkritik: rauschen in den Daten - anbringung der Nisthilfen - citizen science , stepAIC ist ein kack, ungenauigkeit der Satellitendaten vs. Artenzahl der Wirte bei Parasitoiden (Host ist nicht uniformverteilt- man müsste ihn transformieren)-->
 
 Die Parameter der Landschaftstruktur zeigten keinerlei Effekt auf die untersuchten Variablen der Nisthilfen. Es ist davon auszugehen, dass die Berechnung der Parameter aus Satelittendaten insbesondere im Siedlungsbereich nicht die Genauigkeit bietet um für Wildbienen und ihre Gegenspieler relevante Habitateigenschaften abzubilden.
 <!-- Denn in anderen Studien ... wurde der Effekt der Landschaftstruktur bereits aufgezeigt. -->
 
+<!-- Stadtlandbereiche per se heterogen - eine heterogene Landnutzungsform -->
+<!-- gewählte Kategorien für Struktur: vielleicht wäre die clc-Kategorieen besser gewesen? -->
+
+uncertainty of data: @guisan2017: p 103: guisan and Hofer 2003
+
+uncertainty in species distribution, spacial uncertainty (angegebene Koordinaten der Schulen)
+
+Modellselektion: kritisch mit stepAIC, AIC und anova suchen das beste aus, da jedoch in den geodaten eine potentiell große Unsicherheit besteht, könnte für weitere untersuchungen auch eine andere Methode in Betracht gezogen werden, wie zum Beispiel "enseble modeling" [@burnham2002h; @guisan2017 p. 225]. Hierdurch kann wiederum auf die (räumliche) Genauigkeit der Daten rückgeschlossen werden.
+
 Der mittlere Versiegelungsgrad der Radien 250m und 500m hatte in den Modellierungen dieser Arbeit einen negativen linearen Einfluss auf die Artenzahl der Bienen, auf die Abundanz, auf die Artenzahl der natürlichen Gegenspieler sowie auch auf die Abundanz der Rostroten Mauerbiene (*Osmia bicornis*) . Bei der Artenzahl dier Bienen sowie der Artenzahl der natürlichen Gegenspieler zeigte sich dieser Zusammenhang auch zum Versiegelungsgrad im 100m-Radius.   
 Der Versiegelungsgrad der Radien 1000m und 2000m hat dagegen einen negativen quadratischen Einfluss auf die vier bereits genannten Variablen. Diese Beobachtung lässt sich dadurch erklären, dass Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m den Versiegelungsgrad im Bereich des Flugradius der Bienen beschreibt, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Ein hoher Versiegelungsgrad im Flugradius entspricht somit einer Ressourcenknappheit, was sich durch allgemein geringe Artenzahlen und Abundanzen von Wildbienen und ihren natürlichen Gegenspielern in Nisthilfen äußert. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar. Der in den Modellen beobachtete quadratische Zusammenhang mit einem Maximum der Artenzahlen bzw. Abundanzen im Bereich von 20-30% Versiegelung bestätigt die Hypothesen mit der Annahme von jeweils maximalen Artenzahlen bzw. Abundanzen am Stadtrandbereich mit mittlerem Versiegelungsgrad.
 
+Mit der Netzwerkanalyse der Wirt-Parasitoid-Beziehungen in dieser Arbeit konnte kein Effekt der Urbanisierung aufgezeigt werden. Der Spezialisierungsgrad der Netzwerke lag unabhängig der Lage des Nisthilfenstandortes bei einem Index H2' von $0.6$. In der Arbeit von  @pereira-peixoto2016 wurden ebenfalls Wirt-Parasitoid-Beziehungen im Stadt-Land-Kontext untersucht und ein allgemeiner Spezialisierungsgrad von $H2' = 0.62$ erfasst. Allerdings konnten hier signifikante Unterschiede zwischen Isolierten Habitaten (Land und Stadt) und aneinandergrenzenden Habitaten verschiedener Landschaftstypen (Stadtrandbereich) aufgezeigt werden. Das Forschungsdesign der Studie von  @pereira-peixoto2016 mit der gezielten Auswahl der Standorte in der Landschaft ist genauer an die Fragestellung angepasst, als die in dieser Arbeit verwendete Methodik. Die in dieser Arbeit verwendeten Daten des Versiegelungsgrades im 500m-Radius, als auch die nicht im Bezug auf die Fragestellung ausgewählten Standorte der Nisthilfen sind zur Beantwortung der Fragestellung nicht zielführend. Es ist zu vermuten, das die Daten eine zu hohe Ungenauigkeit haben, als auch, dass sie die Effekte weiterer unbekannter Variablen abbilden.
 
-
-<!-- Die in dieser Arbeit erfassten Daten beschreiben alle Wildbienen und Parasiten, die im Jahr 2019 eine Nisthilfe des Schulinsektenhausprojektes besiedelt haben. Es wurde bereits in verschiedenen Studien aufgezeit, dass es bei Bestäubern eine hohe Variabilität zwischen verschiedenen Jahren gibt. <!-- vielleicht @burkle2011 --> -->
+<!-- Die in dieser Arbeit erfassten Daten beschreiben alle Wildbienen und Parasiten, die im Jahr 2019 eine Nisthilfe des Schulinsektenhausprojektes besiedelt haben. Es wurde bereits in verschiedenen Studien aufgezeit, dass es bei Bestäubern eine hohe Variabilität zwischen verschiedenen Jahren gibt. <!-- vielleicht @burkle2011 -->
 <!-- Wenn das Ökosystem (top-down und bottom-up Interaktionen) aus dem Gleichgewicht geraten kommt es zu saisonal sehr variablen Artenvorkommen- und Häufigkeit. - Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig -->
 
 <!-- Da ländliche Gebiete jedoch auch intensiv genutzte Landwirtschaftliche Flächen beinhalten, was @warren2018 am Konzept des Stadt-Land Gradienten bemängelt haben, wird in dieser Arbeit auch der Anteil an Landwirtschaftlichen Flächen mit einbezogen. -->

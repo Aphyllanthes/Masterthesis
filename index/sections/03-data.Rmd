@@ -76,10 +76,10 @@ Artliste_IH19 <- readxl::read_excel("../../Daten/Artliste_IH19.xls") %>%
 kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller nachgewiesenen Bienenarten und ihrer natürlichen Gegenspieler im Schulinsektenhausprojekt 2019. Alle Arten die in der Arbeit von Tscharntke et al. (1998) nicht beschrieben wurden bzw. bei den Gegenspielern nicht bei dem entsprechenden Wirt beschrieben wurden, sind mit einem '*' versehen.  \\label{Artenliste} ",
                 caption.short = "Liste aller nachgewiesenen Bienenarten und ihrer natürlichen Gegenspieler") %>% 
   kableExtra::kable_paper(full_width = F) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header"), repeat_header_text = "Fortsetzung") %>% 
-  kableExtra::column_spec(1) %>%
-  kableExtra::column_spec(2, width = "15em") %>%
-  kableExtra::column_spec(3, width = "15em")
+  kableExtra::kable_styling(latex_options =c("repeat_header"), repeat_header_text = "(ref:continued)") %>% 
+  kableExtra::column_spec(1, italic = T) %>%
+  kableExtra::column_spec(2, width = "15em", italic = T) %>%
+  kableExtra::column_spec(3, width = "15em", italic = T)
 ```
 
 
@@ -88,9 +88,8 @@ kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller n
 
 <!-- - ephialtes: @horstmann -->
 
-## Der Einfluss der Landschaftstruktur 
-Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Landnutzungsklassen, und allen Modellierten Antwortvariablen konnte kein Zusammenhang aufgezeigt werden. 
-
+## Der Einfluss der Landschaftstruktur {#landnutzung}
+Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Landnutzungsklassen, und allen Modellierten Antwortvariablen zeigte sich ausschließlich ein Effekt auf die Abundanz. Die Kantenlänge hat dabei einen signifikanten negativen Einfluss und die Anzahl an Landnuzungsklassen einen positiven schwach signifikanten Einfluss auf die Abundanz (siehe Tabelle \ref{summary_Abundanz_a}).
 
 <!-- Zwischen den Sturkturreichtum bescheibenden Parametern Kantendichte und Anzahl der Landnutzungsklassen und der Abundanz der Bienen kann kein Zusammenhang aufgezeigt werden. Ebenso wird kein Zusammenhang der den Strukturreichtum beschreibenden Parametern und der Artenzahl der Bienen beschrieben.  -->
 
@@ -196,7 +195,7 @@ table_a <- table_a[-c(3,4),]
 kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Modelle zum Einfluss von vorhandenen Insektenhäusern auf Artenzahl und Abundanz. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz (129 Beobachtungen) aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH} " , caption.short = "Modellzusammenfassung: Einfluss von vorhandenen Insektenhäusern auf Artenzahl und Abundanz" ) %>% #caption = "" 
   kable_styling(latex_options =c("striped")) %>% 
   kableExtra::add_header_above(c(" ","Artenzahl"=3,"Abundanz"=3)) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down"), repeat_header_text = "Fortsetzung") %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down"), repeat_header_text = "(ref:continued)") %>% 
   kableExtra::column_spec(4,bold = (as.numeric(table_a$p.)<0.05 | table_a$p. == "<0.001")  & table_a$p. != "" )%>% 
   kableExtra::column_spec(7,bold = (as.numeric(table_a$p..)<0.05 | table_a$p.. == "<0.001") & table_a$p.. != "") 
 
@@ -212,18 +211,16 @@ kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Model
  
 
 <!-- (Null_deviance - Residual_deviance)/Null_deviance -->
-Der Versiegelungsgrad aller Radien eignet sich zur Beschreibung der Artenzahl der Wildbienen. Dies zeigte im Vergleich der Modelle  mit verschiedenen Radien des Versiegelungsgrades als beschreibende Variable, da sich die AIC-Werte der Modelle mit jeweils dem besten Fit, um weniger als zwei Einheiten unterschieden. 
-
-Die Modelle mit dem besten Fit, welche den Versiegelungsgrad der Radien 100m, 250m und 500m beinhalten, beschreiben einen signifikanten linearen Zusammenhang ($p < 0.01$) des Versiegelungsgrades mit der Artenzahl. Mit zunehmendem Versiegelungsgrad nimmt die Artenzahl ab. Die Modelle mit dem besten Fit, welche den Versiegelungsgrad der Radien 1000m und 2000m beinhalten, beschreiben einen signifikanten quadratischen Zusammenhang des Versiegelungsgrades mit der Artenzahl. Bei einem Versiegelungsgrad von ca. $30 %$ ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts). 
+Der Versiegelungsgrad aller Radien eignet sich zur Beschreibung der Artenzahl der Wildbienen. Dies zeigte im Vergleich der Modelle  mit verschiedenen Radien des Versiegelungsgrades als beschreibende Variable, da sich die AIC-Werte der Modelle mit jeweils dem besten Fit, um weniger als zwei Einheiten unterschieden. Den niedrigsten AIC weisen das Modell welches den Versiegelungsgrad im 100m-Radius beinhaltet sowie das Modell welches den Versiegelungsgrad im 1000m-Radius beinhaltet auf.
+Der Versiegelungsgrad im 100m-Radius hat einen signifikanten linearen Einfluss auf die Artenzahl ($p = 0,003$). Mit zunehmendem Versiegelungsgrad nimmt die Artenzahl ab (siehe Abbildung \ref{plot_modelle_artenzahl} sowie Tabelle \ref{summary_Artenzahl}). Dieser Zusammenhang wird mit p-Werten von $0,01$ und $0,007$ auch durch die Modelle des Versiegelungsgrades im 250m-Radius sowie im 500m-Radius beschrieben. 
+Für die Versiegelung in größerer Entfernung um den Nisthilfenstandort, welche vielmehr den generellen Grad der Urbanisierung wiederspiegelt, als die direkte Ressourcenverfügbarkeit für die Bienen, zeigt einen signifikanten quadratischen Einfluss auf die Artenzahl ($p = 0.006$). Bei einem Versiegelungsgrad von ca. $30 %$ im 1000m-Radius ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts) und nimmt bis zur maximalen Versiegelung ab, wo die Artenzahl den niedrigsten Wert aufweist. Dieser Effekt zeigt sich auch durch den Einfluss des Versiegelungsgrad im 2000m-Radius auf die Artenzahl ($p = 0.006$).   
 Alle ausgewählten Modelle beinhalten die weiteren Prädiktoren $Jahresniederschlag$ und $Jahresmitteltemperatur$. Der Jahresniederschlag zeigt jeweils einen schwach signifikaten negativen Einfluss auf die Artenzahl, die Jahresmitteltemperatur einen schwach signifikanten positiven Einfluss auf die Artenzahl.
-
-Der Versiegelungsgrad der kleineren Radien von 100m, 250m und 500m beschreibt den Versiegelungsgrad im Bereich des Flugradius der Bienen, weshalb diese Parameter zur Beschreibung den Einfluss von direkt verfügbaren Ressourcen für die Bienen dienen. Der Versiegelungsgrad der größeren Radien von 1000m und 2000m stellt dagegen einen Indikator für den Grad der Urbanisierung und den Grad der Habitatvernetzung dar.
 
 
 <!-- Zwischen der Artenzahl und dem Versiegelungsgrad besteht kein signifikanter Zusammenhang.   -->
 <!-- Zwischen Abundanz und dem mittleren Versiegelungsgrad im 1000m-Radius besteht ein signifikanter quadratischer Zusammenhang. Für den mittleren Versiegelungsgrad geringerer Radien besteht kein Zusammenhang. -->
 
-```{r Artenzahl, include=FALSE}
+```{r Artenzahl, message=FALSE, warning=FALSE, include=FALSE}
 ## selected models::
 
 model1a_step <- readRDS("../Modelle/Artenzahl_100_step.rds")
@@ -245,6 +242,8 @@ model_Artenzahl[is.na(model_Artenzahl)] <- ""
 ```
 
 
+(ref:continued) **(Fortsetzung)**
+
 
 ```{r echo=FALSE}
 
@@ -262,7 +261,7 @@ kableExtra::kbl(model_Artenzahl[-c(1,2,10),c(1:4,11:13)], booktabs =T, caption =
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp1000"=3)
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down"), repeat_header_text = "Fortsetzung") %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down"), repeat_header_text = "(ref:continued)") %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_Artenzahl[-c(1,2,10),4])) %>% 
@@ -287,77 +286,85 @@ unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scale
 
 A1_100 <- A1 %>% 
   dplyr::select(-imp250, -imp500, -imp1000, -imp2000) %>% 
-  #select(- Artenanzahl_det, - Abundanz) %>% 
   dplyr::select(-DistInsektenhaus, -Isnsektenhaus)%>% 
   rename(imp = imp100) %>% 
-  mutate_at(vars(imp:test3), scale)%>% 
+  mutate_at(vars(imp:Forest), scale)%>% 
   dplyr::select(-Urban)
 
-#imp + mean_annual_temp_celsius + annual_precipitation_mm + altitude_town_m
-newdata <- A1_100 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
-  left_join(A1_100[,c("annual_precipitation_mm", "mean_annual_temp_celsius", "altitude_town_m")])
-pred_100 <- predict(model1a_step, newdata = newdata, type = "response", se.fit = T) 
+pred_100 <- simulate(model1a_step, nsim = 10000)
+pred_100 <- data.frame(pred_mean = rowMeans(pred_100),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_100), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_100), probs = 0.05),
+                       imp = unscale(A1_100$imp))
 
-pred_100 <- data.frame(pred = pred_100$fit, pred.se = pred_100$se.fit, 
-                   imp = newdata$imp) %>% 
-  group_by(imp) %>% 
-  summarise(mean = mean(pred),
-            min = min(pred),
-            max = max(pred),
-            quant95 = quantile(pred, 0.95),
-            quant05 = quantile(pred, 0.05))
-pred_100 <- pred_100 %>% 
-  mutate(imp = unscale(pred_100[,"imp"], center = attr(A1_100$imp, "scaled:center"), scale = attr(A1_100$imp, "scaled:scale"))$imp)
-#   ylab("Abundanz der Wirtsbienen") 
 
 A1_1000 <- A1 %>% 
   dplyr::select(-imp100, -imp250, -imp500, -imp2000) %>% 
-  #select(- Artenanzahl_det, - Abundanz) %>% 
   dplyr::select(-DistInsektenhaus, -Isnsektenhaus)%>% 
   rename(imp = imp1000) %>% 
-  mutate_at(vars(imp:test3), scale) %>% 
+  mutate_at(vars(imp:Forest), scale) %>% 
   dplyr::select(-Urban, -len)
-#
-newdata <- A1_1000 %>% tidyr::expand(imp, mean_annual_temp_celsius) %>% 
-  left_join(A1_1000[,c("annual_precipitation_mm", "mean_annual_temp_celsius", 'altitude_town_m', 'Pastures')])
-pred_1000 <- predict(model4a_step, newdata = newdata, type = "response", se.fit = T) 
 
-pred_1000 <- data.frame(pred = pred_1000$fit, pred.se = pred_1000$se.fit, 
-                   imp = newdata$imp) %>% 
-  group_by(imp) %>% 
-  summarise(mean = mean(pred),
-            min = mean(pred) - min(pred.se),
-            max = mean(pred) + max(pred.se),
-            quant95 = quantile(pred, 0.95),
-            quant05 = quantile(pred, 0.05))
-pred_1000 <- pred_1000 %>% 
-  mutate(imp = unscale(pred_1000[,"imp"], center = attr(A1_1000$imp, "scaled:center"), scale = attr(A1_1000$imp, "scaled:scale"))$imp)
+pred_1000 <- simulate(model4a_step, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
+pred_1000 <- data.frame(pred_mean = rowMeans(pred_1000),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_1000), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_1000), probs = 0.05),
+                       imp = unscale(A1_1000$imp))
 
-p1 <- ggplot(data = pred_100, aes(imp, mean)) +
-  geom_line() +
-  geom_ribbon(aes(ymin = quant05, ymax  =quant95), alpha = 0.2, fill = "blue") +
-  geom_line(data = pred_100, aes(imp, mean), col = "darkblue") +
-  geom_point(data = A1_100, aes(unscale(imp), Artenanzahl_det), alpha = 0.5)  +
-  theme_bw() +
-  ylab("Artenanzahl") +
-  xlab("mittlerer Versiegelungsgrad [%] im 100m-Radius")
 
-p2 <- ggplot(data = pred_1000, aes(imp, mean)) +
-  geom_line() +
-  geom_ribbon(aes(ymin = min, ymax  =max), alpha = 0.2, fill = "blue") +
-  geom_line(data = pred_1000, aes(imp, mean), col = "darkblue") +
-  geom_point(data = A1_1000, aes(unscale(imp), Artenanzahl_det), alpha = 0.5) +
+###
+g1 <- ggplot(data = pred_100) + 
+  stat_smooth(aes(x = imp, y = pred_min, colour = "min"), method = "loess", se = FALSE, n = 259) +
+  stat_smooth(aes(x = imp, y = pred_max, colour = "max"), method = "loess", se = FALSE, n = 259)
+
+# build plot object for rendering 
+gg1 <- ggplot_build(g1)
+
+# extract data for the loess lines from the 'data' slot
+df2 <- data.frame(imp = gg1$data[[1]]$x,
+                  pred_min = gg1$data[[1]]$y,
+                  pred_max = gg1$data[[2]]$y) 
+
+###
+p1a <- ggplot(data = pred_100) +
+  stat_smooth(aes(imp, pred_mean), se = FALSE) +
+  geom_ribbon(data = df2, aes(x = imp, ymin = pred_min, ymax  =pred_max), alpha = 0.2, fill = "blue") +
+  geom_point(data = A1_100, aes(unscale(imp), Artenanzahl_det), alpha = 0.5) +
   theme_bw()+
-  ylab("Artenanzahl") +
-  xlab("mittlerer Versiegelungsgrad [%] im 1000m-Radius")
+  xlab("mittlerer Versiegelungsgrad [%] im 100m-Radius") +
+  ylab("Artenzahl der Wildbienen")
 
-gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(4, c("in")))
+
+###
+h1 <- ggplot(data = pred_1000) + 
+  stat_smooth(aes(x = imp, y = pred_min, colour = "min"), method = "loess", se = FALSE, n = 259) +
+  stat_smooth(aes(x = imp, y = pred_max, colour = "max"), method = "loess", se = FALSE, n = 259)
+
+# build plot object for rendering 
+hh1 <- ggplot_build(h1)
+
+# extract data for the loess lines from the 'data' slot
+df3 <- data.frame(imp = hh1$data[[1]]$x,
+                  pred_min = hh1$data[[1]]$y,
+                  pred_max = hh1$data[[2]]$y) 
+
+
+p2a <- ggplot(data = pred_1000) +
+  stat_smooth( aes(imp, pred_mean), n = 259, se = FALSE) +
+  geom_ribbon(data = df3, aes(x = imp, ymin = pred_min, ymax  =pred_max), alpha = 0.2, fill = "blue") +
+  geom_point(data = A1_1000, aes(unscale(imp), Artenanzahl_det), alpha = 0.5) +
+  theme_bw() +
+  xlab("mittlerer Versiegelungsgrad [%] im 1000m-Radius") +
+  ylab("Artenzahl der Wildbienen")
+
+gridExtra::grid.arrange(p1a, p2a, ncol = 2, heights = unit(3.5, c("in")))
+
+
 
 ```
 
-
-Der mittlere Versiegelungsgrad der Radien 100m ($p= 0.003$), 250m ($p < 0.0001$)und 500m ($p= 0.016$) hat einen negativen linearen Einfluss auf die Abundanz (siehe Abbildung \ref{plot_modelle_abundanz} links). Einen signifikanten quadratischen Einfluss auf die Abunanz hat der mittlere Versiegelungsgrad der Radien 500m ($p= 0.013$), 1000m ($p= 0.011$) und 2000m ($p=0.005$). Bei einem Versiegelungsgrad von ca. $25 \%$ ist die Abundanz maximal (Abbildung \ref{plot_modelle_abundanz} rechts). 
-Das Modell, welches den Versiegelungsgrad im 250m-Radius als Prädiktor enthält, zeigt einen negativen signifikanten Einfluss der Kantenlänge der Landnutzungsklassen auf die Abundanz, sowie einen schwach signifikanten positiven Einfluss der Anzahl an Landnutzungsklassen.
+Der Einfluss des Versiegelungsgrades auf die Abundanz der Wildbienen in den Nishilfen ist, wie auch der Einfluss auf die Artenzahl, für den Versiegelungsgrad geringer Radien (100m, 250, 500m) linear und für den Versiegelungsgrad großer Radien (500m, 1000m, 2000m) um die Nisthilfen quadratisch. Im Vergleich zur Artenzahl eignen sich zur Beschreibung der Abundanz jedoch nicht alle Radien des Versiegelungsgrades gleichermaßen. Die Modelle des Versiegelungsgrades im 250m-Radius ($AIC = 2573.81$), sowie im 500m-Radius ($AIC = 2575.67$) zeigen den besten fit. Die Modellzusammenfassung der beiden Modelle ist in Tabelle \ref{summary_Abundanz_a} dargestellt.  
+Der mittlere Versiegelungsgrad im 250m-Radius hat mit einem p-Wert von $0,00003$ einen hochsignifikanten linearen Einfluss auf die Abundanz (siehe Abbildung \ref{plot_modelle_abundanz}). Das Modell zeigt auch einen signifikanten positiven Effekt der Anzahl an Landnutzungklassen auf, sowie einen signifikanten negativen Effekt der Kantenlänge, welcher bereits in Abschnitt \@ref(landnutzung) dargestellt wurde. Der quadratische Einfluss des Versiegelungsgrades auf die Abundanz, welcher vom Versiegelungsgrad des 500m-Radius beschrieben wird, zeigt das Maximum der Abundanz bei etwa $25%$ (siehe Abbildung \ref{plot_modelle_abundanz}).
 
 
 ```{r AbundanzA, message=FALSE, warning=FALSE, include=FALSE}
@@ -372,7 +379,7 @@ model_abundanz <- read.csv("../Modelle/model_abundanz.csv") %>%
   janitor::clean_names()
 
 library(tidyr)
-model_abundanz_a <- model_abundanz[,-c(11:16)] %>% 
+model_abundanz_a <- model_abundanz[,c(1,5,6,7,8,9,10, 17)] %>% 
   #dplyr::arrange(component) %>% 
   dplyr::relocate(component, .after = term) %>% 
    mutate(across(where(is.numeric), round, 3)) %>% 
@@ -381,80 +388,43 @@ model_abundanz_a <- model_abundanz[,-c(11:16)] %>%
                            . >= 0.001 ~ as.character(.))
             )) %>% 
   replace(is.na(.), "")
-names(model_abundanz_a) <- c("term" ,"component", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value" )
+names(model_abundanz_a) <- c("term" ,"component", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value")
 
-model_abundanz_b <- model_abundanz[,-c(2:10)] %>% 
-  arrange(component)%>% 
-  relocate(component, .after = term) %>% 
-   mutate(across(where(is.numeric), round, 3)) %>% 
-  mutate_at(vars(contains('value')), 
-            funs(case_when(. < 0.001~ "<0.001",
-                           . >= 0.001 ~ as.character(.))
-            )) %>% 
-  replace(is.na(.), "")
-names(model_abundanz_b) <- c("term" ,"component", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value")
 
 kableExtra::kbl(model_abundanz_a, booktabs =T, 
-                caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz für die Radien des Versiegelungsgrades 100m, 250m und 500m. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_a} ",
-                caption.short="Modellzusammenfassung zur Abundanz der Wildbienen, 100m, 250m, 500m") %>% 
+                caption = "Modellzusammenfassung der ausgewählten Modelle der Abundanz für die Radien des Versiegelungsgrades 250m und 500m. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_a} ",
+                caption.short="Modellzusammenfassung zur Abundanz der Wildbienen, 250m und 500m") %>% 
   #kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
-    c(" " = 2, "imp100"=3,"imp250"=3,"imp500"=3)
+    c(" " = 2, "imp250"=3,"imp500"=3)
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped"), repeat_header_text = "Fortsetzung") %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped"), repeat_header_text = "(ref:continued)") %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(5,bold = p_sig(model_abundanz_a[,5])) %>% 
-  kableExtra::column_spec(8,bold = p_sig(model_abundanz_a[,8])) %>% 
-  kableExtra::column_spec(11,bold = p_sig(model_abundanz_a[,11])) 
+  kableExtra::column_spec(8,bold = p_sig(model_abundanz_a[,8]))
 
 ```
 
 
-
-```{r AbundanzB, message=FALSE, warning=FALSE, include=FALSE}
-
-kableExtra::kbl(model_abundanz_b[-c(4,5,6),], booktabs =T, caption = "Modellzusammenfassung der ausgewählten modelle der Abundanz für die Radien des Versiegelungsgrades 1000m und 2000m. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_b} ", 
-                row.names = FALSE ,
-                caption.short= "Modellzusammenfassung zur Abundanz der Wildbienen, 1000m, 2000m") %>% 
-  kableExtra::add_header_above(
-    c(" " = 2, "imp1000"=3,"imp2000"=3)
-  ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "striped"), repeat_header_text = "Fortsetzung") %>% 
-  # kableExtra::column_spec(c(4,7,10, 13,16),
-  #                         bold = p_sig(.)) %>% 
-  kableExtra::column_spec(5,bold = p_sig(model_abundanz_b[-c(4,5,6),5])) %>% 
-  kableExtra::column_spec(8,bold = p_sig(model_abundanz_b[-c(4,5,6),8])) #%>% 
-  #kableExtra::row_spec(3, hline_after = T)
-
-```
 
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Die Modelle des mittleren Versiegelungsgrades im 250m-Radius (links) sowie 2000m-Radius (rechts), welche den Einfluss der Nullen (Zeroinflation) brücksichtigen. Die Linie beschreibt den Mittelwert der mittels der R-Funktion simulate() simulierten Daten, der violett gezeichnete Bereich beschreibt Bereich bis zum 95 \\% Quantil der Simulierten Daten, die Punkte sind die realen Messwerte. \\label{plot_modelle_abundanz}"}
 
 
-## prediction erzeugt merkwürdige werte...?
-A1_100_sub <- A1_100 
-pred_100 <- simulate(model1b_zi, nsim = 1000) # newdata = A1_100, type = "link", se.fit = T 
-pred_100 <- data.frame(pred_mean = rowMeans(pred_100),
-                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_100), probs = 0.95),
-                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_100), probs = 0.05),
-                       imp = unscale(A1_100_sub$imp))
-
 A1_250 <- A1 %>% 
   dplyr::select(-imp100, -imp500, -imp1000, -imp2000) %>% 
   dplyr::select(-DistInsektenhaus, -Isnsektenhaus)%>% 
   rename(imp = imp250) %>% #filter(Abundanz < 500) %>% 
-  mutate_at(vars(imp:test3), scale) %>% 
+  mutate_at(vars(imp:Forest), scale) %>% 
   dplyr::select(-Urban)
 
-A1_250_sub <- A1_250 
 pred_250 <- simulate(model2a_step_zi, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
 pred_250 <- data.frame(pred_mean = rowMeans(pred_250),
                        pred_max = matrixStats::rowQuantiles(as.matrix(pred_250), probs = 0.95),
                        pred_min = matrixStats::rowQuantiles(as.matrix(pred_250), probs = 0.05),
-                       imp = unscale(A1_250_sub$imp))
+                       imp = unscale(A1_250$imp))
 
 ###
 g1 <- ggplot(data = pred_250) + 
@@ -471,9 +441,9 @@ df2 <- data.frame(imp = gg1$data[[1]]$x,
 
 ###
 p1a <- ggplot(data = pred_250) +
-  stat_smooth(aes(imp, pred_mean)) +
+  stat_smooth(aes(imp, pred_mean), se = FALSE) +
   geom_ribbon(data = df2, aes(x = imp, ymin = pred_min, ymax  =pred_max), alpha = 0.2, fill = "blue") +
-  geom_point(data = A1_250_sub, aes(unscale(imp), Abundanz), alpha = 0.5) +
+  geom_point(data = A1_250, aes(unscale(imp), Abundanz), alpha = 0.5) +
   theme_bw()+
   xlab("mittlerer Versiegelungsgrad [%] im 250m-Radius") +
   ylab("Abundanz (Anzahl der Brutzellen)")
@@ -481,23 +451,22 @@ p1a <- ggplot(data = pred_250) +
 
 
 #
-A1_2000 <- A1 %>% 
-  dplyr::select(-imp100, -imp250, -imp500, -imp1000) %>% 
+A1_500 <- A1 %>% 
+  dplyr::select(-imp100, -imp250, -imp1000, -imp2000) %>% 
   dplyr::select(-DistInsektenhaus, -Isnsektenhaus)%>% 
-  rename(imp = imp2000)  %>%# filter(Abundanz < 500) %>% 
-  mutate_at(vars(imp:test3), scale) %>% 
+  rename(imp = imp500)  %>%# filter(Abundanz < 500) %>% 
+  mutate_at(vars(imp:Forest), scale) %>% 
   dplyr::select(-Urban)
-A1_2000_sub <- A1_2000
 
-pred_2000 <- simulate(model5b_zi, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
-pred_2000 <- data.frame(pred_mean = rowMeans(pred_2000),
-                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_2000), probs = 0.95),
-                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_2000), probs = 0.05),
-                       imp = unscale(A1_2000_sub$imp))
+pred_500 <- simulate(model3b_zi, nsim = 10000) # newdata = A1_100, type = "link", se.fit = T 
+pred_500 <- data.frame(pred_mean = rowMeans(pred_500),
+                       pred_max = matrixStats::rowQuantiles(as.matrix(pred_500), probs = 0.95),
+                       pred_min = matrixStats::rowQuantiles(as.matrix(pred_500), probs = 0.05),
+                       imp = unscale(A1_500$imp))
 
 
 ###
-h1 <- ggplot(data = pred_2000) + 
+h1 <- ggplot(data = pred_500) + 
   stat_smooth(aes(x = imp, y = pred_min, colour = "min"), method = "loess", se = FALSE, n = 259) +
   stat_smooth(aes(x = imp, y = pred_max, colour = "max"), method = "loess", se = FALSE, n = 259)
 
@@ -510,12 +479,12 @@ df3 <- data.frame(imp = hh1$data[[1]]$x,
                   pred_max = hh1$data[[2]]$y) 
 
 
-p2a <- ggplot(data = pred_2000) +
-  stat_smooth( aes(imp, pred_mean), n = 259) +
+p2a <- ggplot(data = pred_500) +
+  stat_smooth( aes(imp, pred_mean), n = 259, se = FALSE) +
   geom_ribbon(data = df3, aes(x = imp, ymin = pred_min, ymax  =pred_max), alpha = 0.2, fill = "blue") +
-  geom_point(data = A1_2000_sub, aes(unscale(imp), Abundanz), alpha = 0.5) +
+  geom_point(data = A1_500, aes(unscale(imp), Abundanz), alpha = 0.5) +
   theme_bw() +
-  xlab("mittlerer Versiegelungsgrad [%] im 2000m-Radius") +
+  xlab("mittlerer Versiegelungsgrad [%] im 500m-Radius") +
   ylab("Abundanz (anzahl Brutzellen)")
 
 gridExtra::grid.arrange(p1a, p2a, ncol = 2, heights = unit(3.5, c("in")))
@@ -526,79 +495,19 @@ gridExtra::grid.arrange(p1a, p2a, ncol = 2, heights = unit(3.5, c("in")))
 
 
 ## Artenzahl der natürlichen Gegenspieler
-Das Vorhandensein eines Insektenhauses im Umfeld des Nisthilfenstandortes hat einen positiven signifikanten Einfluss auf die Artenzahl der natürlichen Gegenspieler. Die Modellzusammenfassung des Modells mit dem Parameter zum Insektenhaus sowie mit der Erweiterung um die Parameter des Versiegelungsgrades im 250m-Radius ist in Tabelle \ref{summaryIH_par} dargestellt. Der Effektplot von zweiterem ist in Abbildung \ref{effektplotIH_par} abgebildet.
-Das Modell mit der Information über vorhandene Insektenhäuser als unabhängiger Variable kann durch die Erweiterung um die Variablen des mittleren Versiegelungsgrades im 100m-Radius als linearer sowie quadratischer Term verbessert werden. Gleiches gilt für den mittleren Versiegelungsgrad im 250m- und 500m-Radius. Andersherum verbessert der Term des vorhandenen Insektenhauses die Modelle mit dem mittleren Versiegelungsgrad aller Radien.
+Der Einfluss der Artenzahl der Wirte auf die Artenzahl der natürlichen Gegenspieler ist hochsignifikant ($p<2e-16$). Ein zusätzlicher Einfluss von Versiegelungsgrad und vorhandenen Insektenhäusern am Nisthilfenstandort auf die Artenzahl der natürlichen Gegenspieler kann in dieser Arbeit nicht aufgezeigt werden.   Die Modellannahmen der Modelle, welche den Einfluss des Versiegelungsgrades auf die Artenzahl der natürlichen Gegenspieler beschreiben, sind durch die Devianz der Quantile verletzt. 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-model_par <- rlist::list.clean(XML::readHTMLTable("../Modelle/model_par_IH_new.html"), fun = is.null, recursive = FALSE)[[1]]
-parnames <-  model_par[1,]
-model_par[is.na(model_par)] <- ""
-#names(model_par) <- model_par[1,]
-model_par1 <- model_par %>% 
-  filter(V1 != "Predictors")
-names(model_par1) <- parnames
-
-kableExtra::kbl(model_par1,booktabs =T, caption = "Modellzusammenfassung des Modell welches den Einfluss von vorhandenen Insektenhäusern auf die Artenzahl der Gegenspieler beschreibt. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen an den reduzierten Datensatz aller Nisthilfen mit Information zum vorhandensein eines Insektenhauses gefittet.  \\label{summaryIH_par} " ,
-                caption.short= "Modellzusammenfassung Artenzahl der Gegenspieler: Einfluss Insektenhaus") %>% #caption = "" 
-  #kableExtra::add_header_above(c(" ","Model 1"=3)) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "striped"), repeat_header_text = "Fortsetzung") %>% 
-  kableExtra::column_spec(4,bold = (as.numeric(model_par1[,4])<0.05 | model_par1[,4] == "<0.001")  & model_par1[,4] != "" )
-```
-
-
-
-```{r echo=FALSE,  message=FALSE, warning=FALSE, fig.cap= "Einfluss vom mittleren Versiegelungsgrad im 250m-Radius auf die Artenanzahl der natürlichen Gegenspieler. Mittelwert und Standartabweichung der Modellvorhersage sind durch die Kurven und den farbig hinterlegten Bereichen dargestellt. Der Effektplot des Modells zeigt eine Abnahme der Artenzahl der natürlichen Gegenspieler mit zunehmendem Versiegelungsgrad. Die Artenzahl ist dabei bei vorhandensein eines Insektenhauses in der Nähe des Nisthilfenstandortes (Insektenhaus = 1) höher als bei dem Fehlen eines Insektenhauses in der Nähe des Nisthilfenstandortes (Insektenhaus = 0). Die Punkte stellen die Artenzahlen der natürlichen Gegenspieler je Nisthilfe dar. \\label{effektplotIH_par}", fig.scap="Artenanzahl der natürlichen Gegenspieler: Einfluss Versiegelungsgrad, 250m Radius" }
-library(MASS)
-
-sub_IH_scl <- A2 %>% 
-  rename(Insektenhaus = Isnsektenhaus) %>% 
-  filter(!is.na(Insektenhaus)) %>% 
-  dplyr::mutate(Insektenhaus = as.factor(Insektenhaus)) %>% 
-  mutate_at(vars(imp100:Forest), scale) %>% 
-  mutate_at(vars(Host), scale) %>% 
-  mutate_at(vars(test1:test3), scale)
-  
-sub_IH <- sub_IH_scl %>% 
-  mutate_at(vars(imp100:Forest), as.numeric) %>% 
-  mutate_at(vars(Host), as.numeric) %>% 
-  mutate_at(vars(test1:test3), as.numeric)
-
-
-## einfluss von Insektenhaus auf artenzahl:
-model_IH2_250 <- MASS::glm.nb(Parasitoid ~ imp250 + I(imp250^2) + Insektenhaus + Host, data = sub_IH)
-
-
-# jtools::effect_plot(model_IH2_250, pred = Insektenhaus, interval = TRUE, plot.points = TRUE,
-#                     jitter = .2) + 
-#   ylab("Artenzahl der Wirtsbienen")
-tranlabels <- function(x = sub_IH$imp250) attr(sub_IH_scl$imp250, "scaled:center") + attr(sub_IH_scl$imp250, "scaled:scale")*x
-
-ticks_x <- scale(c(0, 10, 20, 30, 40, 50, 60, 70, 80), 
-      center =  attr(sub_IH_scl$imp250, "scaled:center"),
-      scale = attr(sub_IH_scl$imp250, "scaled:scale"))
-
-sjPlot::plot_model(model_IH2_250, type = "pred", 
-                   terms = c( "imp250","Insektenhaus"),
-                   show.p = T, show.data = T, jitter = T)+
-  scale_x_continuous(breaks = ticks_x , 
-                     labels = as.numeric(tranlabels(ticks_x))) +
-  theme_bw()
-
-
-```
-
-
-Zwischen der Artenzahl der Wirte und der natürlichen Gegenspieler besteht ein hochsignifikanter Zusammenhang ($p<2e-16$). Der Einfluss des Versiegelungsgrades auf die Abundanz kann in den Modellen des gesamten Datensatz ohne die Information zu vorhandenen Insektenhäusern nicht aufgezeigt werden. Die Modellannahmen der Modelle, welche den Einfluss des Versiegelungsgrades mit dem gesamten Datensatz beschreiben, sind durch die Devianz der Quantile verletzt. 
+<!-- kann es sein dass durch das Rauschen der Daten von Versiegelungsgrad und Insektehaus viel größer ist als das der Artenzahl der wirtsbienen und daher alle Modelle quantile deviations aufzeigen? -->
 
 
 
 ## Die Abundanz von Osmia bicornis
-Die Rostrote Mauerbiene (*Osmia bicornis*) kam in 148 der 259 Nisthilfen vor.
+Die Rostrote Mauerbiene (*Osmia bicornis*) kam in 148 der 259 Nisthilfen vor. Im Mittel befanden sich 84 Nester in einer Nisthilfe, der Median lag bei 2 belegten Nestern pro Nisthilfe. Die Maximale Anzahl an Nestern in einer Nisthilfe betrug 115 Nester.
 
 Das Vorhandensein eines Insektenhauses in der Nähe der Nisthilfe hat keinen signifikanten Einfluss auf die Abundanz von *Osmia bicornis* (siehe Tabelle \ref{summary_Abundanz_IH_ob}). Der mittlere Versiegelungrad im 250m Radius um den Nisthilfenstandort verbessert das Modell welches den Einfluss des Insektenhauses auf die Abundanz von *O. bicornis* beschreibt. Der mittlere Versiegelungsgrad anderer Radien verbessert das Modell nicht. Der Parameter Insektenhaus kann keines der Modelle mit den Prädiktoren des Versiegelungsgrades der verschiedenen Radien verbessern.  
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r OBIH, message=FALSE, warning=FALSE, include=FALSE}
 model_IH_ob <- read_delim("../Modelle/model_IH_Ob_lat.csv", 
     ";", escape_double = FALSE, col_names = FALSE, 
     trim_ws = TRUE) 
@@ -608,7 +517,7 @@ model_IH_ob[is.na(model_IH_ob)] <- ""
 kableExtra::kbl(model_IH_ob[-c(1,2),1:4], booktabs =T, caption = "Modellzusammenfassung des ausgewählten Modelles des Einflusses von vorhandenen Insektenhäusern auf die Abundanz von Osmia bicornis. Das Modell wurde unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Abundanz_IH_ob} ",
                 caption.short = "Modellzusammenfassung: Einfluss von Insektenhäusern auf Abundanz von Osmia bicornis") %>% 
 
-  kableExtra::kable_styling(latex_options =c("repeat_header", "striped"), repeat_header_text = "Fortsetzung") %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "striped"), repeat_header_text = "(ref:continued)") %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_IH_ob[-c(1,2),4])) %>% 
@@ -618,7 +527,7 @@ kableExtra::kbl(model_IH_ob[-c(1,2),1:4], booktabs =T, caption = "Modellzusammen
 
 
 ```{r modelOb1, message=FALSE, warning=FALSE, include=FALSE}
-Ob_models_list <- readRDS(file = "../Modelle/Ob_models_list_new2.rds")
+Ob_models_list <- readRDS(file = "../Modelle/Ob_models_list.rds")
 
 # test <- sjPlot::tab_model(Ob_models_list[[1]], Ob_models_list[[2]], Ob_models_list[[3]],
 #                   Ob_models_list[[4]], Ob_models_list[[5]],
@@ -639,7 +548,7 @@ kableExtra::kbl(model_ob1[-c(1,2),], booktabs =T, caption = "Modellzusammenfassu
   kableExtra::add_header_above(
     c(" ", "imp100"=3,"imp250"=3,"imp500"=3, "imp1000"=3, "imp2000"=3) 
   ) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped"), repeat_header_text = "Fortsetzung") %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped"), repeat_header_text = "(ref:continued)") %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
   kableExtra::column_spec(4,bold = p_sig(model_ob1[-c(1,2),4])) %>% 
@@ -651,8 +560,7 @@ kableExtra::kbl(model_ob1[-c(1,2),], booktabs =T, caption = "Modellzusammenfassu
 
 ```
 
-Die Abundanz von Osmia bicornis ist bei einem Versiegelungsgrad von 35 % maximal und nimmt innerhalb Deutschlands von Norden nach Süden ab (siehe Abbildung \ref{effektplotOb}. Der mittlere Versiegelungsgrad im Radius von 500m um den Nisthilfenstandort eignet sich am besten zur Beschreibung der Abundanz von Osmia bicornis.
-
+Die Abundanz von *Osmia bicornis* ist bei einem Versiegelungsgrad von 35 % maximal und nimmt innerhalb Deutschlands von Norden nach Süden ab. Abbildung \ref{effektplotOb} zeigt diesen Effekt anhand der Modellierung der Abundanz mit dem Versiegelungsgrad im 500m-Radius und dem Breitengrad. Dieses Modell zeigt mit einem AIC von $1403.6$ im Vergleich zu den Modellen mit dem Versiegelungsgrad anderer Radien den besten Fit. Neben diesem Modell eignet sich auch das Modell, welches den Versiegelungsgrad im 250m-Radius beinhaltet ($AIC = 1404.7$) zur Beschreibung der Abundanz von *Osmia bicornis*.
 
 (ref:obEffects) Einfluss vom mittleren Versiegelungsgrad im 500m-Radius auf die Abundanz (Anzahl angelegter Nester)  von *Osmia bicornis*. Mittelwert und Standartabweichung der Modellvorhersage sind durch die Kurven und den farbig hinterlegten Bereichen dargestellt. Die Farben stellen den Längengrad dar. Die skalierten Werte des Breitengrades -1, 0 und 1 sind das 1. Quantil, Median und 3. Quantil des Datensatzes.  Der Wert -1 entspricht dem Breitengrad bei Stuttgart, der Wert 0 entspricht dem Breitengrad bei Fulda und der Wert -1 dem Breitengrad bei Hildesheim. Die Punkte stellen die Abundanz von Osmia bicornis pro Nisthilfe dar. \label{effektplotOb}
 
@@ -689,12 +597,9 @@ sjPlot::plot_model(Ob_models_list[[3]], type = "pred",
 
 
 ## Artengemeinschaft
-Die Analyse der Artengemeinschaft entlang des Stadt-Land-Gradienten zeigte, dass weder Strukturparameter noch Versiegelungsgrad verschiedener Radien einen signifikanten Einfluss auf die Zusammensetzung der Arten in den Trapnestern hat. Auch der Vergleich der Artenzusammensetzung der Nisthilfen-Gruppen "Land" und "Stadt" zeigte keinen signifikanten Unterschied.
-
-Die Artengemeinschaft von Standorten, bei denen im 500m-Radius Ackerland vorkommt unterscheidet sich nicht von der Artengemeinschaft, bei der im 500m-Radius kein Ackerland vorkomt.
-<!-- -envfit Versiegelungsgrad und Strukturreichtum -->
-<!-- - Adonis zwei Gruppen 50 versiegeltste STandorte und 50 unversiegelste Standorte (ländlich) -->
-
+Die Analyse der Artengemeinschaft entlang des Stadt-Land-Gradienten zeigte, dass weder Strukturparameter noch Versiegelungsgrad verschiedener Radien einen signifikanten Einfluss auf die Zusammensetzung der Arten in den Trapnestern hat. Auch der Vergleich der Artenzusammensetzung der Nisthilfen-Gruppen "Land", "Stadtrand" und "Stadt" zeigte keinen signifikanten Unterschied.  
+Die Artengemeinschaft von Standorten, bei denen im 500m-Radius Ackerland vorkommt unterscheidet sich nicht von der Artengemeinschaft, bei der im 500m-Radius kein Ackerland vorkomt.  
+Durch die Betrachtung des Versiegelungsgrades der Standorte der einzelnen Arten können Unterschiede aufgezeigt werden.
 
 (ref:lonelytab) Auflistung der Arten, welche nur in einer Nisthilfe vorkamen, mit der Information wiviele Nester in der Nisthilfe belegt waren ('Nests') und dem mittleren Versiegelungsgrad in % im 500m-Radius der besiedelten Nisthilfe. \label{lonely_species} 
 
@@ -702,54 +607,57 @@ Die Artengemeinschaft von Standorten, bei denen im 500m-Radius Ackerland vorkomm
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Arten die nur in einem Nest vorkamen:
 lonely_species <- read.csv("../summaryTabellen/lonely_species_summary.csv") %>% 
-  mutate(imp500 = round(imp500,2))
+  mutate(imp500 = round(imp500,2)) %>% 
+  mutate(Art.x = stringr::str_to_sentence(Art.x)) %>% 
+  rename(Art = Art.x)
 
 lonely_species %>%
   kable(booktabs = T, linesep = "",  caption = "(ref:lonelytab)",
         caption.short = "Auflistung der Arten, welche nur in einer Nisthilfe vorkamen") %>%
   kable_paper(full_width = F) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header"), repeat_header_text = "Fortsetzung") %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header"), repeat_header_text = "(ref:continued)") %>% 
   column_spec(3, color = "white",
-              background =spec_color(lonely_species$imp500, end = 0.50))
+              background =spec_color(lonely_species$imp500)) %>% 
+  column_spec(1, italic = T)
 
 
 ```
 
 
-Es kamen elf Arten in nur einer Nisthilfe vor. Die Arten sind in Tabelle \ref{lonely_species} inklusive dem Versiegelungsgrad im 500m-Radius der Nisthilfe aufgeführt. Neun der elf Arten kamen in relativ gering versiegeltem Umfeld vor (Versiegelungsgrad im 500m-Radius < 25%). 
-In Tabelle \ref{multiple_species} sind alle Arten aufgeführt, die in mehr als einer Nisthilfe vorkamen, sowie die Info in welcher Kategorie des Versiegelungsgrades die Nisthilfe vorkam. Dabei fällt auf, das die beiden Arten der parasitischen Gattung *Gasteruption* besonders häufig im Urbanen Gebiet mit hohem Versiegelungsgrad vorkamen. Die Gartenwollbiene, *Anthidium manicatum* kam in nur 2 Nisthilfen vor, davon keine aus der Kategorie "Land" mit geringem Versiegelungsgrad. Alle anderen Arten kamen auch in Nisthilfen der Kategorie "Land" vor. Dagegen kamen sieben Arten nicht in Nisthilfen der Kategorie "Stadt", mit hohem Versiegelungsgrad vor. Darunter die Gegenspieler *Chrysis radians*, *Sapyga clavicornis* und *Sapyga quinquepunctat*.
+Es kamen elf Arten in nur einer Nisthilfe vor. Die Arten sind in Tabelle \ref{lonely_species} inklusive dem Versiegelungsgrad im 500m-Radius der Nisthilfe aufgeführt. Neun der elf Arten kamen in relativ gering versiegeltem Umfeld vor (Versiegelungsgrad im 500m-Radius < 25%).   
+In Tabelle \ref{multiple_species} sind alle Arten aufgeführt, die in mehr als einer Nisthilfe vorkamen, sowie die Info in welcher Kategorie des Versiegelungsgrades die Nisthilfe vorkam. Dabei fällt auf, das die beiden Arten der parasitischen Gattung *Gasteruption* besonders häufig im Urbanen Gebiet mit hohem Versiegelungsgrad vorkamen. Die Gartenwollbiene, *Anthidium manicatum* kam in nur 2 Nisthilfen vor, davon keine aus der Kategorie "Land" mit geringem Versiegelungsgrad. Alle anderen Arten kamen auch in Nisthilfen der Kategorie "Land" vor. Dagegen kamen sieben Arten nicht in Nisthilfen der Kategorie "Stadt", mit hohem Versiegelungsgrad vor. Darunter die Gegenspieler *Chrysis radians*, *Sapyga clavicornis* und *Sapyga quinquepunctata*.
 
 
 
-(ref:landspec) Auflistung der Arten, welche in mehr als einer Nisthilfe vorkamen. Die Nisthilfen wurden Anhand der 33% und 66%-Quantile des Versiegelungsgrades im 500m-Radius in die Kategorien 'Land' (<33%), 'Übergang' (>33% und <66%) und 'Stadt'(>66%)  unterteilt. In der Tabelle ist die Anzahl an besidelten Nisthilfen der jeweiligen Kategorie dargestellt und nach dem Antei der Nisthilfen in der Kategorie Stadt angeordnet. In der Spalte "meanImp" steht der Mittelwert des mittleren Versiegelungsgrad im 500m Radius um die Nisthilfen  aller Nisthilfen, in denen die jeweilige Art vorkam. \label{multiple_species}
+(ref:landspec) Auflistung der Arten, welche in mehr als einer Nisthilfe vorkamen. Die Nisthilfen wurden Anhand der 33% und 66%-Quantile des Versiegelungsgrades im 500m-Radius in die Kategorien 'Land' (<33%), 'Stadtrand' (>33% und <66%) und 'Stadt'(>66%)  unterteilt. In der Tabelle ist die Anzahl an besidelten Nisthilfen der jeweiligen Kategorie dargestellt und nach dem Antei der Nisthilfen in der Kategorie Stadt angeordnet. In der Spalte "mittl. Versiegelungsgrad" steht der Mittelwert des mittleren Versiegelungsgrad im 500m Radius um die Nisthilfen  aller Nisthilfen, in denen die jeweilige Art vorkam. \label{multiple_species}
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Arten nd wo sie vorkamen:
 land_species <- read.csv("../summaryTabellen/Arten_Stad_Land.csv")
-land_species <- land_species %>% arrange(Anteil_stadt)
+land_species <- land_species %>% 
+  arrange(Anteil_stadt) %>% 
+  mutate(meanImp = round(meanImp, 2))
 
-
-rows <- seq_len(nrow(land_species) %/% 2)
-
-# list(land_species[rows,],  
-#            matrix(numeric(), nrow=0, ncol=1),
-#            land_species[-rows, ])
-
+names(land_species) <- c("Art", "Land", "Stadtrand", "Stadt", "mittl. Versiegelungsgrad", "Anteil_Stadt")
 
 land_species[,1:5] %>% 
   kable(booktabs = T, linesep = "", longtable =T, 
         caption = "(ref:landspec)",
-        digits = 2,
         caption.short = "Auflistung der Arten, welche in mehr als einer Nisthilfe vorkamen." ) %>% #
   kable_paper(full_width = F) %>%
-  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down"), repeat_header_text = "Fortsetzung") %>% 
+  kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down"), repeat_header_text = "(ref:continued)") %>% 
   column_spec(5, color = "white",
-              background =spec_color(land_species$meanImp, end = 1))
+              background =spec_color(land_species$`mittl. Versiegelungsgrad`))
 
 
 
 ```
+
+
+
+<!-- -envfit Versiegelungsgrad und Strukturreichtum -->
+<!-- - Adonis zwei Gruppen 50 versiegeltste STandorte und 50 unversiegelste Standorte (ländlich) -->
 
 
 <!-- ## Thema -->
@@ -759,9 +667,10 @@ land_species[,1:5] %>%
 <!--  In the changing environment, wild bees adapt to new habitats. The knowledge about wild bees species hotspots, especially in urban areas, is important to design appropriate measures to promote diversity.  -->
 
 ## Netzwerkanalyse
-Die Netzwerkanalyse der Kategorie "Land", welche 107 Nisthilfenstandorte beinhaltet und der Kategorie "Stadt" welche 110 Nisthilfenstandorte beinhaltest, ergibt für beide Kategorieen mit dem Index H2 einen mittleren Spezialisierungsgrad von 0.60 bzw. 0.61. Alle Werte der Generalisierung der natürlichen Gegenspieler als auch der Vulnerabilität der Wirtsbienenarten beider Gruppen liegen zwischen $2.0$ und $2.5$. Somit sind keine deutlichen Unterschiede der Wirt-Parasit-Beziehungen zwischen ländlichen Nisthilfenstandorten und urbanen Nisthilfenstandorten zu erkennen. In Abbildung \ref{networkland} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Land" dargestellt, in Abbildung \ref{networkstadt} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Stadt" dargestellt.
+Die Netzwerkanalyse der Kategorie "Land", welche 107 Nisthilfenstandorte beinhaltet und der Kategorie "Stadt" welche 110 Nisthilfenstandorte beinhaltest, ergibt für beide Kategorieen mit dem Index H2 einen mittleren Spezialisierungsgrad von $0.60$ bzw. $0.61$. Alle Werte der Generalisierung der natürlichen Gegenspieler als auch der Vulnerabilität der Wirtsbienenarten beider Gruppen liegen zwischen $2.0$ und $2.5$. Somit sind keine deutlichen Unterschiede der Wirt-Parasit-Beziehungen zwischen ländlichen Nisthilfenstandorten und urbanen Nisthilfenstandorten zu erkennen. In Abbildung \ref{networkland} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Land" dargestellt, in Abbildung \ref{networkstadt} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Stadt" dargestellt. Die Netzwerkdarstellung der Kategorie "Land" wirkt komplexer als die Netzwerkdarstellung der Kategorie "Stadt". Dies bedeutet jedoch nicht, dass sich der Spezialisierungsgrad unterscheidet, sondern lediglich, dass es insgesamt mehr Arten und somit auch mehr Interaktionen gibt.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Das Interaktionsnetzwerk der Nisthilfen der Kategorie Land. Die Kategorie beinhaltet alle Nisthilfen mit einem mittleren Versiegelungsgrad im 500m-Radius von weniger als 24\\% versiegelter Fläche. \\label{networkland}" }
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Das bipartite Interaktionsnetzwerk der Nisthilfen der Kategorie Land. Die Kategorie beinhaltet alle Nisthilfen mit einem mittleren Versiegelungsgrad im 500m-Radius von weniger als 24\\% versiegelter Fläche. Die oberen Balken stellen die natürlichen Gegenspieler dar, die unteren Balken deren Wirte. Die Interaktionen sind durch die verbindung der oberen und unteren Balken dargestellt. Die Balkendicke stellt die Häufigkeit der Interaktionen dar, wobei diese pro Nest gezählt wurden.  \\label{networkland}", fig.scap="Netzwerkdarstellung der Nisthilfen der Kategorie Land" }
 
 Praedi_groups <- Praedis %>% 
   #filter(Praedis$ID %in% Artenzahl$location) %>% 
@@ -807,7 +716,7 @@ plotweb(nw_frame[[1]])
 
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Das Interaktionsnetzwerk der Nisthilfen der Kategorie Stadt. Die Kategorie beinhaltet alle Nisthilfen mit einem mittleren Versiegelungsgrad im 500m-Radius von mehr als 44\\% versiegelter Fläche. \\label{networkstadt}"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Das bipartite Interaktionsnetzwerk der Nisthilfen der Kategorie Stadt. Die Kategorie beinhaltet alle Nisthilfen mit einem mittleren Versiegelungsgrad im 500m-Radius von weniger als 44\\% versiegelter Fläche. Die oberen Balken stellen die natürlichen Gegenspieler dar, die unteren Balken deren Wirte. Die Interaktionen sind durch die Verbindung der oberen und unteren Balken dargestellt. Die Balkendicke stellt die Häufigkeit der Interaktionen dar, wobei diese pro Nest gezählt wurden. \\label{networkstadt}", fig.scap="Netzwerkdarstellung der Nisthilfen der Kategorie Stadt"}
 plotweb(nw_frame[[3]])
 ```
 
