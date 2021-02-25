@@ -43,6 +43,15 @@ Der häufigste natürliche Gegenspieler war die Taufliege *Cacoxenus indagator*,
 ## Die Arten in den Nisthilfen
 Im Rahmen des Schulinsektenhaus-Projektes konnten in den 259 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*) und neun parasitische Wespenarten (Apocrita) nachgewiesen werden. Weitere Gegenspieler wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. In Tabelle \ref{Artenliste} sind alle nachgewiesenen Arten sowie ihre Gegenspieler aufgeführt. Da einige Parasitoide das gesamte Nest ihres Wirtes eingenommen haben konnten die Wirtsarten nur anhand der Nestmorphologie bestimmt werden - diese sind in der dritten Spalte der Tabelle aufgeführt.
 
+In der Tabelle sind von *Chaetodactylus* befallene Arten nicht dargestellt, da diese nicht einheitlich erfasst wurden, da der Befall zum Großteil durch die Lagerung in der Uni Freiburg stattfand. Identifiziert werden konnten dennoch folgende von *Chaetodactylus* befallene Arten:
+
+  - *Anthidium nanum*
+  - *Chelostoma florisomne*, *C. rapunculi* 
+  - *Heriades crenulatus*, *H. truncorum* 
+  - *Hylaeus communis*, *H. difformis*
+  - *Megachile ericetorum*, *M. centuncularis*, *M. rotundata*
+  - *Osmia adunca*, *O. bicornis*, *O. caerulescens*, *O. leaiana*
+
 Im Vergleich zu @tscharntke1998 wurden sieben weitere Arten identifiziert: 
 
   - *Anthidium manicatum*
@@ -56,14 +65,7 @@ Dagegen führen @tscharntke1998 in ihrer Arbeit zwölf Arten auf, die in dieser 
  - *Megachile alpicola*, *M. versicolor*
  - *Osmia claviventris*, *O. gallarum*, *O. leucomelana*, *O. parietina*
  
-Ein weiterer Parasit der in den Nestern dieser Arbeit vorkam, sind Milben der Gattung *Chaetodactylus*. Diese sind in der Tabelle \ref{Artenliste} nicht aufgeführt, da sie während der Lagerung in der Uni Freiburg in weitere Nester "übergelaufen" sind. Daher und durch zu späte Kenntnissnahme der bearbeitenden Personen wurden wahrscheinlich viele befallene Nester nicht als solche identifiziert. Es wurden ca. 100 Nester als von Chaetodactylus befallen identifiziert. Es kann aber davon ausgegangen werden, dass etwa das dreifache an Nestern befallen war. Leider konnten so aus sehr vielen Nestern keine Arten bestimmt werden - besonders groß war der Anteil an Nestern der Gattung *Megachile*. Identifiziert werden konnten dennoch folgende von Chaetodactylus befallene Arten:
 
-  - *Anthidium nanum*
-  - *Chelostoma florisomne*, *C. rapunculi* 
-  - *Heriades crenulatus*, *H. truncorum* 
-  - *Hylaeus communis*, *H. difformis*
-  - *Megachile ericetorum*, *M. centuncularis*, *M. rotundata*
-  - *Osmia adunca*, *O. bicornis*, *O. caerulescens*, *O. leaiana*
  
 <!-- Welche Parasiten bei tscharntke vorkamen und bei uns nicht: Stelis punctulatissima bei Anthidium nanum, ... -->
 
@@ -213,7 +215,7 @@ kableExtra::kbl(table_a, booktabs =T, caption = "Modellzusammenfassung der Model
 <!-- (Null_deviance - Residual_deviance)/Null_deviance -->
 Der Versiegelungsgrad aller Radien eignet sich zur Beschreibung der Artenzahl der Wildbienen. Dies zeigte im Vergleich der Modelle  mit verschiedenen Radien des Versiegelungsgrades als beschreibende Variable, da sich die AIC-Werte der Modelle mit jeweils dem besten Fit, um weniger als zwei Einheiten unterschieden. Den niedrigsten AIC weisen das Modell welches den Versiegelungsgrad im 100m-Radius beinhaltet sowie das Modell welches den Versiegelungsgrad im 1000m-Radius beinhaltet auf.
 Der Versiegelungsgrad im 100m-Radius hat einen signifikanten linearen Einfluss auf die Artenzahl ($p = 0,003$). Mit zunehmendem Versiegelungsgrad nimmt die Artenzahl ab (siehe Abbildung \ref{plot_modelle_artenzahl} sowie Tabelle \ref{summary_Artenzahl}). Dieser Zusammenhang wird mit p-Werten von $0,01$ und $0,007$ auch durch die Modelle des Versiegelungsgrades im 250m-Radius sowie im 500m-Radius beschrieben. 
-Für die Versiegelung in größerer Entfernung um den Nisthilfenstandort, welche vielmehr den generellen Grad der Urbanisierung wiederspiegelt, als die direkte Ressourcenverfügbarkeit für die Bienen, zeigt einen signifikanten quadratischen Einfluss auf die Artenzahl ($p = 0.006$). Bei einem Versiegelungsgrad von ca. $30 %$ im 1000m-Radius ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts) und nimmt bis zur maximalen Versiegelung ab, wo die Artenzahl den niedrigsten Wert aufweist. Dieser Effekt zeigt sich auch durch den Einfluss des Versiegelungsgrad im 2000m-Radius auf die Artenzahl ($p = 0.006$).   
+Für die Versiegelung in größerer Entfernung um den Nisthilfenstandort, welche vielmehr den generellen Grad der Urbanisierung wiederspiegelt, als die direkte Ressourcenverfügbarkeit für die Bienen, zeigt einen signifikanten quadratischen Einfluss auf die Artenzahl ($p = 0.006$). Bei einem Versiegelungsgrad von ca. $30 \%$ im 1000m-Radius ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts) und nimmt bis zur maximalen Versiegelung ab, wo die Artenzahl den niedrigsten Wert aufweist. Dieser Effekt zeigt sich auch durch den Einfluss des Versiegelungsgrad im 2000m-Radius auf die Artenzahl ($p = 0.006$).   
 Alle ausgewählten Modelle beinhalten die weiteren Prädiktoren $Jahresniederschlag$ und $Jahresmitteltemperatur$. Der Jahresniederschlag zeigt jeweils einen schwach signifikaten negativen Einfluss auf die Artenzahl, die Jahresmitteltemperatur einen schwach signifikanten positiven Einfluss auf die Artenzahl.
 
 
@@ -364,7 +366,7 @@ gridExtra::grid.arrange(p1a, p2a, ncol = 2, heights = unit(3.5, c("in")))
 ```
 
 Der Einfluss des Versiegelungsgrades auf die Abundanz der Wildbienen in den Nishilfen ist, wie auch der Einfluss auf die Artenzahl, für den Versiegelungsgrad geringer Radien (100m, 250, 500m) linear und für den Versiegelungsgrad großer Radien (500m, 1000m, 2000m) um die Nisthilfen quadratisch. Im Vergleich zur Artenzahl eignen sich zur Beschreibung der Abundanz jedoch nicht alle Radien des Versiegelungsgrades gleichermaßen. Die Modelle des Versiegelungsgrades im 250m-Radius ($AIC = 2573.81$), sowie im 500m-Radius ($AIC = 2575.67$) zeigen den besten fit. Die Modellzusammenfassung der beiden Modelle ist in Tabelle \ref{summary_Abundanz_a} dargestellt.  
-Der mittlere Versiegelungsgrad im 250m-Radius hat mit einem p-Wert von $0,00003$ einen hochsignifikanten linearen Einfluss auf die Abundanz (siehe Abbildung \ref{plot_modelle_abundanz}). Das Modell zeigt auch einen signifikanten positiven Effekt der Anzahl an Landnutzungklassen auf, sowie einen signifikanten negativen Effekt der Kantenlänge, welcher bereits in Abschnitt \@ref(landnutzung) dargestellt wurde. Der quadratische Einfluss des Versiegelungsgrades auf die Abundanz, welcher vom Versiegelungsgrad des 500m-Radius beschrieben wird, zeigt das Maximum der Abundanz bei etwa $25%$ (siehe Abbildung \ref{plot_modelle_abundanz}).
+Der mittlere Versiegelungsgrad im 250m-Radius hat mit einem p-Wert von $0,00003$ einen hochsignifikanten linearen Einfluss auf die Abundanz (siehe Abbildung \ref{plot_modelle_abundanz}). Das Modell zeigt auch einen signifikanten positiven Effekt der Anzahl an Landnutzungklassen auf, sowie einen signifikanten negativen Effekt der Kantenlänge, welcher bereits in Abschnitt \@ref(landnutzung) dargestellt wurde. Der quadratische Einfluss des Versiegelungsgrades auf die Abundanz, welcher vom Versiegelungsgrad des 500m-Radius beschrieben wird, zeigt das Maximum der Abundanz bei etwa $25\%$ (siehe Abbildung \ref{plot_modelle_abundanz}).
 
 
 ```{r AbundanzA, message=FALSE, warning=FALSE, include=FALSE}
@@ -560,7 +562,7 @@ kableExtra::kbl(model_ob1[-c(1,2),], booktabs =T, caption = "Modellzusammenfassu
 
 ```
 
-Die Abundanz von *Osmia bicornis* ist bei einem Versiegelungsgrad von 35 % maximal und nimmt innerhalb Deutschlands von Norden nach Süden ab. Abbildung \ref{effektplotOb} zeigt diesen Effekt anhand der Modellierung der Abundanz mit dem Versiegelungsgrad im 500m-Radius und dem Breitengrad. Dieses Modell zeigt mit einem AIC von $1403.6$ im Vergleich zu den Modellen mit dem Versiegelungsgrad anderer Radien den besten Fit. Neben diesem Modell eignet sich auch das Modell, welches den Versiegelungsgrad im 250m-Radius beinhaltet ($AIC = 1404.7$) zur Beschreibung der Abundanz von *Osmia bicornis*.
+Die Abundanz von *Osmia bicornis* ist bei einem Versiegelungsgrad von 35 % maximal und nimmt innerhalb Deutschlands von Norden nach Süden ab. Abbildung \ref{effektplotOb} zeigt diesen Effekt anhand der Modellierung der Abundanz mit dem Versiegelungsgrad im 500m-Radius und dem Breitengrad. Dieses Modell zeigt mit einem AIC von $1403.6$ im Vergleich zu den Modellen mit dem Versiegelungsgrad anderer Radien den besten Fit. Neben diesem Modell eignet sich auch das Modell, welches den Versiegelungsgrad im 250m-Radius beinhaltet ($AIC = 1404.7$) zur Beschreibung der Abundanz von *Osmia bicornis* (siehe Tab. \ref{summary_Abundanz_ob}). In dem Modell zeigt zusätzlich der Anteil an Ackerland einen negativen signifikanten Einfluss auf die Abundanz der Mauerbienenart und der Längengrad einen signifikanten positiven Einfluss.
 
 (ref:obEffects) Einfluss vom mittleren Versiegelungsgrad im 500m-Radius auf die Abundanz (Anzahl angelegter Nester)  von *Osmia bicornis*. Mittelwert und Standartabweichung der Modellvorhersage sind durch die Kurven und den farbig hinterlegten Bereichen dargestellt. Die Farben stellen den Längengrad dar. Die skalierten Werte des Breitengrades -1, 0 und 1 sind das 1. Quantil, Median und 3. Quantil des Datensatzes.  Der Wert -1 entspricht dem Breitengrad bei Stuttgart, der Wert 0 entspricht dem Breitengrad bei Fulda und der Wert -1 dem Breitengrad bei Hildesheim. Die Punkte stellen die Abundanz von Osmia bicornis pro Nisthilfe dar. \label{effektplotOb}
 
