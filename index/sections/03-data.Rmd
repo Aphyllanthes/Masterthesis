@@ -7,7 +7,8 @@ options(scipen=999)
 
 # Ergebnisse
 In den Nisthilfen des Schulinsektenhaus-Projektes welche im Jahr 2019 ausgehängt waren wurden 4716 Bienennester sowie 2147 Wespennester aufgefunden. Somit machen die in dieser Arbeit behandelten Nester etwa 70 % der vorgefundenen Nester aus. Die Wespennester werden in dieser Arbeit nicht behandelt.
-Alle weiteren Ergebnisse beziehen sich ausschließlich auf die Biennennester. In Abbildung \ref{deskriptiv} sind die Histogramme der Artenanzahl und Abundanz dargestellt.
+Alle weiteren Ergebnisse beziehen sich ausschließlich auf die Biennennester. 
+<!-- In Abbildung \ref{deskriptiv} sind die Histogramme der Artenanzahl und Abundanz dargestellt. -->
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, cache=TRUE}
 #source("datenschau.R")
@@ -19,21 +20,6 @@ load("my_work_space.RData")
 <!-- Anzahl Brutzellen pro Nisthilfe | -->
 <!-- | Überlebensrate | Anzahl der lebenden Puppen dividiert durch die Gesamtanzahl der Zellen | -->
 <!-- | Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen | -->
-
-```{r datendeskriptiv, echo=FALSE, fig.cap="Histogramme der Anzahl der Wirts-Bienenarten pro Nisthilfe (links) und Anzahl der von Bienen angelegten Brutzellen (=Abundanz) pro Nisthilfe (rechts) \\label{deskriptiv}"}
-p1 <- ggplot(A1, aes(Artenanzahl_det)) + geom_histogram(bins = 8) +
-  theme_bw() + labs(x = "Artenzahl der Wirte")
-p2 <- ggplot(A1, aes(Abundanz)) + geom_histogram(breaks=c(seq(0, 14, by = 1),seq(15, 100, by = 5), seq(110, 240, by = 10), seq(250, 850, by = 20))) + theme_bw() 
-
-gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(4, c("in")))
-
-# sum(nests$nb_cells, na.rm = T) # Anzahl der Zellen gesamt: 18757
-# sum(nests$nb_pupa_larva, na.rm = T) # Anzahl Puppen/Larven: 11376
-# sum(nests$nb_pupa_larva, na.rm = T) / sum(nests$nb_cells, na.rm = T)
-# sum(nests$parasitized_cells, na.rm = T) # Anzahl Parasitierter Zellen
-# sum(nests$parasitized_cells, na.rm = T) / sum(nests$nb_cells, na.rm = T)
-```
-
 
 Von den insgesamt `r round(sum(nests$nb_cells, na.rm = T),0)` angelegten Zellen entwickelten sich in etwa 60 % (`r round(sum(nests$nb_pupa_larva, na.rm = T),0)` Brutzellen) Puppen bzw. Larven. Etwa 13 % der Angelegten Zellen wurde Parasitiert (`r sum(nests$parasitized_cells, na.rm = T)` Brutzellen).  
 
@@ -273,7 +259,7 @@ kableExtra::kbl(model_Artenzahl[-c(1,2,10),c(1:4,11:13)], booktabs =T, caption =
 ```
 
 
-```{r echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Der Einfluss des Versiegelungsgrades im 100m-Radius (links) sowie im 1000m-Radius (rechts) auf die Artenzahl der Bienen. Die Punkte stellen die Werte der einzelnen Nisthilfen dar, die Kurve mit blau hinterlegtem Bereich die jeweilige Modellvorhersage mit Standartabweichung. \\label{plot_modelle_artenzahl}"}
+```{r echo=FALSE, warning=FALSE, message=FALSE, fig.cap="Der Einfluss des Versiegelungsgrades im 100m-Radius (links) sowie im 1000m-Radius (rechts) auf die Artenzahl der Bienen. Die Punkte stellen die Werte der einzelnen Nisthilfen dar, die Kurve mit blau hinterlegtem Bereich die Modellsimulation und ihr 95\\%-Konfidenzintervall. \\label{plot_modelle_artenzahl}", fig.scap="Einfluss des Versiegelungsgrad auf die Artenzahl der Bienen"}
 unscale <- function(z, center = attr(z, "scaled:center"), scale = attr(z, "scaled:scale")) {
   if(!is.null(scale))  z <- sweep(z, 2, scale, `*`)
   if(!is.null(center)) z <- sweep(z, 2, center, `+`)
@@ -381,30 +367,31 @@ model_abundanz <- read.csv("../Modelle/model_abundanz.csv") %>%
   janitor::clean_names()
 
 library(tidyr)
-model_abundanz_a <- model_abundanz[,c(1,5,6,7,8,9,10, 17)] %>% 
+model_abundanz_a <- model_abundanz[,c(1,5,6,7,8,9,10)] %>% 
   #dplyr::arrange(component) %>% 
-  dplyr::relocate(component, .after = term) %>% 
+  #dplyr::relocate(component, .after = term) %>% 
    mutate(across(where(is.numeric), round, 3)) %>% 
   mutate_at(vars(contains('value')), 
             funs(case_when(. < 0.001~ "<0.001",
                            . >= 0.001 ~ as.character(.))
             )) %>% 
   replace(is.na(.), "")
-names(model_abundanz_a) <- c("term" ,"component", "estimate", "std.error", "p.value", "estimate", "std.error", "p.value")
+names(model_abundanz_a) <- c("Term" , "Schätzer", "std.fehler", "p.wert", "Schätzer", "std.fehler", "p.wert")
+model_abundanz_a$Term <- c("Achsenabschnitt", "Imp", "Imp2^2", "Kantenlänge", "Anzahl Landnutzungsklassen", "Wald", "Achsenabschnitt_zi")
 
 
 kableExtra::kbl(model_abundanz_a, booktabs =T, 
-                caption = "Modellzusammenfassung der ausgewählten Modelle der Abundanz für die Radien des Versiegelungsgrades 250m und 500m. Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet.  \\label{summary_Abundanz_a} ",
+                caption = "Modellzusammenfassung der ausgewählten Modelle der Abundanz für die Radien  250m und 500m des Versiegelungsgrades (Imp). Die Modelle wurden jeweils unter der Annahme der Negativbinomialverteilung der Antwortvariablen gefittet. Der Einfluss der Nullen (zi) wurde im Modell miteinbezogen.   \\label{summary_Abundanz_a} ",
                 caption.short="Modellzusammenfassung zur Abundanz der Wildbienen, 250m und 500m") %>% 
   #kable_styling(latex_options =c("striped", "hold_position")) %>% 
   kableExtra::add_header_above(
-    c(" " = 2, "imp250"=3,"imp500"=3)
+    c(" " = 1, "Imp 250"=3,"Imp 500"=3)
   ) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down", "striped"), repeat_header_text = "(ref:continued)") %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
   #                         bold = p_sig(.)) %>% 
-  kableExtra::column_spec(5,bold = p_sig(model_abundanz_a[,5])) %>% 
-  kableExtra::column_spec(8,bold = p_sig(model_abundanz_a[,8]))
+  kableExtra::column_spec(4,bold = p_sig(model_abundanz_a[,4])) %>% 
+  kableExtra::column_spec(7,bold = p_sig(model_abundanz_a[,7]))
 
 ```
 
@@ -412,7 +399,7 @@ kableExtra::kbl(model_abundanz_a, booktabs =T,
 
 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Die Modelle des mittleren Versiegelungsgrades im 250m-Radius (links) sowie 2000m-Radius (rechts), welche den Einfluss der Nullen (Zeroinflation) brücksichtigen. Die Linie beschreibt den Mittelwert der mittels der R-Funktion simulate() simulierten Daten, der violett gezeichnete Bereich beschreibt Bereich bis zum 95 \\% Quantil der Simulierten Daten, die Punkte sind die realen Messwerte. \\label{plot_modelle_abundanz}"}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Die Modelle des mittleren Versiegelungsgrades im 250m-Radius (links) sowie 2000m-Radius (rechts), welche den Einfluss der Nullen (Zeroinflation) brücksichtigen. Die Linie beschreibt den Mittelwert der mittels der R-Funktion simulate() simulierten Daten, der violett gezeichnete Bereich beschreibt Bereich bis zum 95 \\% Quantil der Simulierten Daten, die Punkte sind die realen Messwerte. \\label{plot_modelle_abundanz}", fig.scap="Einfluss des Versiegelungsgrad auf die Abundanz der Bienen"}
 
 
 A1_250 <- A1 %>% 
@@ -638,6 +625,7 @@ In Tabelle \ref{multiple_species} sind alle Arten aufgeführt, die in mehr als e
 # Arten nd wo sie vorkamen:
 land_species <- read.csv("../summaryTabellen/Arten_Stad_Land.csv")
 land_species <- land_species %>% 
+    mutate(Art.x = stringr::str_to_sentence(Art.x)) %>% 
   arrange(Anteil_stadt) %>% 
   mutate(meanImp = round(meanImp, 2))
 
@@ -650,7 +638,8 @@ land_species[,1:5] %>%
   kable_paper(full_width = F) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "scale_down"), repeat_header_text = "(ref:continued)") %>% 
   column_spec(5, color = "white",
-              background =spec_color(land_species$`mittl. Versiegelungsgrad`))
+              background =spec_color(land_species$`mittl. Versiegelungsgrad`)) %>% 
+  column_spec(1, italic = T)
 
 
 
@@ -724,4 +713,4 @@ plotweb(nw_frame[[3]])
 
 
 <!-- invasive arten? -->
-
+\FloatBarrier

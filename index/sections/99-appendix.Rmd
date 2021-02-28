@@ -15,7 +15,7 @@ clc2000legend_IH <- read_excel("~/Documents/Uni/Master/Masterarbeit/Daten/clc200
   summarize(clc_categories = paste0(clc_category, collapse = ", "),
             clc_codes = paste0(CLC_CODE, collapse = ", "))
 
-kableExtra::kbl(clc2000legend_IH,longtable =T,booktabs =T, caption = "Die in dieser Arbeit verwendeten Landnutzungskategorien (spalte IH\\_category) sind eine Zusammenfassung der Landnutzungklassen der CLC-Daten des Copernicus-Programmes (Kageogrien des clc-Datensatzes in der Spalte clc\\_categories, sowie deren Kodierung in der Spalte clc\\_codes.  \\label{clc_cat} ") %>% 
+kableExtra::kbl(clc2000legend_IH,longtable =T,booktabs =T, caption = "Die in dieser Arbeit verwendeten Landnutzungskategorien (spalte IH\\_category) sind eine Zusammenfassung der Landnutzungklassen der CLC-Daten des Copernicus-Programmes (Kageogrien des clc-Datensatzes in der Spalte clc\\_categories, sowie deren Kodierung in der Spalte clc\\_codes.  \\label{clc_cat} ", caption.short = "Landnutzungskategorien") %>% 
   kableExtra::kable_paper(full_width = F) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header", "striped", "hold_position", "scale_down"),  repeat_header_text = "(ref:continued)") %>% 
   kableExtra::column_spec(1,  width = "14em") %>%
@@ -24,14 +24,26 @@ kableExtra::kbl(clc2000legend_IH,longtable =T,booktabs =T, caption = "Die in die
 ```
 
 
-# Anhang zum Ergebnissteil
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, ref.label="AbundanzA"}
+```{r datendeskriptiv, echo=FALSE, fig.cap="Histogramme der Anzahl der Wirts-Bienenarten pro Nisthilfe (links) und Anzahl der von Bienen angelegten Brutzellen (=Abundanz) pro Nisthilfe (rechts) \\label{deskriptiv}"}
+p1 <- ggplot(A1, aes(Artenanzahl_det)) + geom_histogram(bins = 8) +
+  theme_bw() + labs(x = "Artenzahl der Wirte")
+p2 <- ggplot(A1, aes(Abundanz)) + geom_histogram(bins = 70) + theme_bw() 
 
+gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(3, c("in")))
+
+# sum(nests$nb_cells, na.rm = T) # Anzahl der Zellen gesamt: 18757
+# sum(nests$nb_pupa_larva, na.rm = T) # Anzahl Puppen/Larven: 11376
+# sum(nests$nb_pupa_larva, na.rm = T) / sum(nests$nb_cells, na.rm = T)
+# sum(nests$parasitized_cells, na.rm = T) # Anzahl Parasitierter Zellen
+# sum(nests$parasitized_cells, na.rm = T) / sum(nests$nb_cells, na.rm = T)
 ```
 
 
-```{r echo=FALSE, ref.label="AbundanzB", message=FALSE, warning=FALSE}
+
+# Anhang zum Ergebnissteil
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, ref.label="AbundanzA"}
 
 ```
 
