@@ -56,7 +56,7 @@ Dagegen führen @tscharntke1998 in ihrer Arbeit zwölf Arten auf, die in dieser 
 <!-- Welche Parasiten bei tscharntke vorkamen und bei uns nicht: Stelis punctulatissima bei Anthidium nanum, ... -->
 
  
-```{r Artenliste, echo=FALSE, message=FALSE, warning=FALSE}
+```{r tabArtenliste, echo=FALSE, message=FALSE, warning=FALSE}
 library(dplyr)
 Artliste_IH19 <- readxl::read_excel("../../Daten/Artliste_IH19.xls") %>% 
   replace(is.na(.), "")
@@ -491,7 +491,7 @@ Der Einfluss der Artenzahl der Wirte auf die Artenzahl der natürlichen Gegenspi
 
 
 ## Die Abundanz von Osmia bicornis
-Die Rostrote Mauerbiene (*Osmia bicornis*) kam in 148 der 259 Nisthilfen vor. Im Mittel befanden sich 84 Nester in einer Nisthilfe, der Median lag bei 2 belegten Nestern pro Nisthilfe. Die Maximale Anzahl an Nestern in einer Nisthilfe betrug 115 Nester.
+Die Rostrote Mauerbiene (*Osmia bicornis*) kam in 148 der 259 Nisthilfen vor. Im Mittel befanden sich 8,4 Nester in einer Nisthilfe, der Median lag bei 2 belegten Nestern pro Nisthilfe. Die Maximale Anzahl an Nestern in einer Nisthilfe betrug 115 Nester.
 
 Das Vorhandensein eines Insektenhauses in der Nähe der Nisthilfe hat keinen signifikanten Einfluss auf die Abundanz von *Osmia bicornis* (siehe Tabelle \ref{summary_Abundanz_IH_ob}). Der mittlere Versiegelungrad im 250m Radius um den Nisthilfenstandort verbessert das Modell welches den Einfluss des Insektenhauses auf die Abundanz von *O. bicornis* beschreibt. Der mittlere Versiegelungsgrad anderer Radien verbessert das Modell nicht. Der Parameter Insektenhaus kann keines der Modelle mit den Prädiktoren des Versiegelungsgrades der verschiedenen Radien verbessern.  
 

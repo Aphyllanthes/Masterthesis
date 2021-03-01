@@ -1,3 +1,8 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
 # Einleitung
 Bienen haben durch ihre Vielfalt spezifischer Anpassungen und Interaktionen mit ihrer Umwelt schon seit Jahrhunderten fasziniert. Die Bedeutung dieser Insektengruppe in der Umwelt im Zusammenhang mit der Kenntnis über deren Artenrückgang, welcher in der Öffentlichkeit auch als "Insektensterben" bzw. "Bienensterben" bezeichnet wird, hat das Interesse an der Erforschung in den letzten Jahrzehnten noch gesteigert [@kearns1998]. 
 
@@ -61,7 +66,7 @@ Das Projekt beinhaltet so zum einen den Bildunsaspekt, um bei Schüler\*innen un
 Die in dieser Arbeit analysierten Nisthilfen waren im gesamten Jahr 2019 im Rahmen des Schulinsektenhausprojekt an den knapp 300 in Abbildnung \ref{standorte} dargestellten Standorten aufgestellt.
 
 ```{r standorte, fig.cap="Standorte der Nisthilfen des Schulinsektenhausprojekt 2019 in Deutschland \\label{standorte}", cache=TRUE, fig.scap="Nisthilfenstandorte"}
-
+setwd("../")
 library(dplyr)
 #library(tidyr)
 library(sf)
