@@ -61,6 +61,7 @@ library(dplyr)
 Artliste_IH19 <- readxl::read_excel("../../Daten/Artliste_IH19.xls") %>% 
   replace(is.na(.), "")
 
+names(Artliste_IH19) <- c("Wirtsbienen", "natürliche Gegenspieler", "natürliche Gegenspieler - Zuordnung zu Wirt anhand Morphotyp des Wirtes")
 kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller nachgewiesenen Bienenarten und ihrer natürlichen Gegenspieler im Schulinsektenhausprojekt 2019. Alle Arten die in der Arbeit von Tscharntke et al. (1998) nicht beschrieben wurden bzw. bei den Gegenspielern nicht bei dem entsprechenden Wirt beschrieben wurden, sind mit einem '*' versehen.  \\label{Artenliste} ",
                 caption.short = "Liste aller nachgewiesenen Bienenarten und ihrer natürlichen Gegenspieler") %>% 
   kableExtra::kable_paper(full_width = F) %>%
@@ -490,8 +491,8 @@ Der Einfluss der Artenzahl der Wirte auf die Artenzahl der natürlichen Gegenspi
 
 
 
-## Die Abundanz von Osmia bicornis
-Die Rostrote Mauerbiene (*Osmia bicornis*) kam in 148 der 259 Nisthilfen vor. Im Mittel befanden sich 8,4 Nester in einer Nisthilfe, der Median lag bei 2 belegten Nestern pro Nisthilfe. Die Maximale Anzahl an Nestern in einer Nisthilfe betrug 115 Nester.
+## Die Abundanz von *Osmia bicornis*
+Die Rostrote Mauerbiene (*Osmia bicornis*) kam in 148 der 259 Nisthilfen vor. Im Mittel befanden sich 8,4 Nester in einer Nisthilfe, der Median lag bei 2 belegten Nestern pro Nisthilfe. Die Maximale Anzahl an Nestern in einer Nisthilfe betrug 115 Nester. Die Brutzellen von *O. bicornis* machen 40% der gesamten Brutzellen (Abundanz der Wildbienen) aus.
 
 Das Vorhandensein eines Insektenhauses in der Nähe der Nisthilfe hat keinen signifikanten Einfluss auf die Abundanz von *Osmia bicornis* (siehe Tabelle \ref{summary_Abundanz_IH_ob}). Der mittlere Versiegelungrad im 250m Radius um den Nisthilfenstandort verbessert das Modell welches den Einfluss des Insektenhauses auf die Abundanz von *O. bicornis* beschreibt. Der mittlere Versiegelungsgrad anderer Radien verbessert das Modell nicht. Der Parameter Insektenhaus kann keines der Modelle mit den Prädiktoren des Versiegelungsgrades der verschiedenen Radien verbessern.  
 
@@ -504,7 +505,7 @@ names(model_IH_ob) <- model_IH_ob[2,]
 model_IH_ob[is.na(model_IH_ob)] <- ""
 
 kableExtra::kbl(model_IH_ob[-c(1,2),1:4], booktabs =T, caption = "Modellzusammenfassung des ausgewählten Modelles des Einflusses von vorhandenen Insektenhäusern auf die Abundanz von Osmia bicornis. Das Modell wurde unter der Annahme der Negativbinomialverteilung gefittet.  \\label{summary_Abundanz_IH_ob} ",
-                caption.short = "Modellzusammenfassung: Einfluss von Insektenhäusern auf Abundanz von Osmia bicornis") %>% 
+                caption.short = "Modellzusammenfassung: Einfluss von Insektenhäusern auf Abundanz von *Osmia bicornis*") %>% 
 
   kableExtra::kable_styling(latex_options =c("repeat_header", "striped"), repeat_header_text = "(ref:continued)") %>% 
   # kableExtra::column_spec(c(4,7,10, 13,16),
@@ -657,8 +658,8 @@ land_species[,1:5] %>%
 
 <!--  In the changing environment, wild bees adapt to new habitats. The knowledge about wild bees species hotspots, especially in urban areas, is important to design appropriate measures to promote diversity.  -->
 
-## Netzwerkanalyse
-Die Netzwerkanalyse der Kategorie "Land", welche 107 Nisthilfenstandorte beinhaltet und der Kategorie "Stadt" welche 110 Nisthilfenstandorte beinhaltest, ergibt für beide Kategorieen mit dem Index H2 einen mittleren Spezialisierungsgrad von $0.60$ bzw. $0.61$. Alle Werte der Generalisierung der natürlichen Gegenspieler als auch der Vulnerabilität der Wirtsbienenarten beider Gruppen liegen zwischen $2.0$ und $2.5$. Somit sind keine deutlichen Unterschiede der Wirt-Parasit-Beziehungen zwischen ländlichen Nisthilfenstandorten und urbanen Nisthilfenstandorten zu erkennen. In Abbildung \ref{networkland} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Land" dargestellt, in Abbildung \ref{networkstadt} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Stadt" dargestellt. Die Netzwerkdarstellung der Kategorie "Land" wirkt komplexer als die Netzwerkdarstellung der Kategorie "Stadt". Dies bedeutet jedoch nicht, dass sich der Spezialisierungsgrad unterscheidet, sondern lediglich, dass es insgesamt mehr Arten und somit auch mehr Interaktionen gibt.
+## Analyse der Wirt-Parasitoid-Beziehungen
+Die Netzwerkanalyse der Wirt-Parasitoid-Beziehungen der Kategorie "Land", welche 107 Nisthilfenstandorte beinhaltet und der Kategorie "Stadt" welche 110 Nisthilfenstandorte beinhaltest, ergibt für beide Kategorieen mit dem Index H2 einen mittleren Spezialisierungsgrad von $0.60$ bzw. $0.61$. Alle Werte der Generalisierung der natürlichen Gegenspieler als auch der Vulnerabilität der Wirtsbienenarten beider Gruppen liegen zwischen $2.0$ und $2.5$. Somit sind keine deutlichen Unterschiede der Wirt-Parasit-Beziehungen zwischen ländlichen Nisthilfenstandorten und urbanen Nisthilfenstandorten zu erkennen. In Abbildung \ref{networkland} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Land" dargestellt, in Abbildung \ref{networkstadt} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Stadt" dargestellt. Die Netzwerkdarstellung der Kategorie "Land" wirkt komplexer als die Netzwerkdarstellung der Kategorie "Stadt". Dies bedeutet jedoch nicht, dass sich der Spezialisierungsgrad unterscheidet, sondern lediglich, dass es insgesamt mehr Arten und somit auch mehr Interaktionen gibt.
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Das bipartite Interaktionsnetzwerk der Nisthilfen der Kategorie Land. Die Kategorie beinhaltet alle Nisthilfen mit einem mittleren Versiegelungsgrad im 500m-Radius von weniger als 24\\% versiegelter Fläche. Die oberen Balken stellen die natürlichen Gegenspieler dar, die unteren Balken deren Wirte. Die Interaktionen sind durch die verbindung der oberen und unteren Balken dargestellt. Die Balkendicke stellt die Häufigkeit der Interaktionen dar, wobei diese pro Nest gezählt wurden.  \\label{networkland}", fig.scap="Netzwerkdarstellung der Nisthilfen der Kategorie Land" }

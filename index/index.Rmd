@@ -31,6 +31,7 @@ abbreviations: |
 lot: true                              # list of tables
 lof: true                              # list of figures
 link-citations: true
+lang: de
 bibliography: ../Masterarbeit.bib       # bibliography file
 #
 # Rendering Options -----------------------------------------------------------
