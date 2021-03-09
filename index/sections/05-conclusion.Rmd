@@ -1,9 +1,13 @@
 # Schlussfolgerungen
+In dieser Arbeit konnte der Status von hohlraumnistenden Bienen und ihren Gegenspielern in Siedlungsgebieten erfasst werden. Die deutschlandweite Erfassung der Wildbienen hebt diese Studie durch ihren großen räumlichen Umfang gegenüber anderen Studien hervor und stellt eine Erweiterung der Erkenntnisse bisherhiger Studien zu hohlraumnistenden Bienen im Siedlungsbereich dar.      
 
-- Absatz dazu noch schreiben: Schlussfolgernde Bewertung der Habitatqualität im Siedlungsbereich
+Die Ergebnisse zeigen, dass sich Stadtrandbereiche als Lebensraum für hohlraumnistende Wildbienen und deren natürliche Gegenspieler eignen. Daraus kann gefolgert werden, dass sie geeignete Habitate bieten, wobei die Habitatqualität jedoch mit zunehmendem Urbanisierungsgrad abnimmt. Durch Flächen mit niedrigem Versiegelungrad in Kombination mit der Bereitstellung von Nistmöglichkeiten für Wildbienen können diese im Siedlungbereich gefördert werden. Allerdings ist nicht auszuschließen, dass es Arten gibt die im städtischen Umfeld nicht bestehen können, denn in dieser Arbeit wurden insbesondere die selteneren Arten im Umfeld geringer Versiegelung, welche als Index für ländliche Gebiete dient, erfasst.  
+Ein Einfluss von Landnutzung und Urbanisierung auf die Artengemeinschaft und Wirt-Parasitoid-Interaktionen in Nisthilfen konnte in dieser Arbeit statistisch nicht nachgewiesen werden. Es kann angenommen werden, dass sich ein deutlicheres Bild der Zusammenhänge von Artengemeinschaft sowie Interaktionen durch die Fortführung des Projektes und anschließende Analyse der Daten mehrerer Jahre, abzeichnen wird.
+Anhand der Ergebnisse dieser Arbeit, welche Schwächen der verwendeten Indizes für Landnutzung und Urbanisierung benennen, kann zusätzlich auch die Verwendung von anderen Indizes zur eindeutigen Erfassung von Zusammenhängen beitragen. 
 
-  - Die in dieser Arbeit erfassten Daten beschreiben alle Wildbienen und Parasiten, die im Jahr 2019 eine Nisthilfe des Schulinsektenhausprojektes besiedelt haben. Es wurde bereits in verschiedenen Studien aufgezeit, dass es bei Bestäubern eine hohe Variabilität zwischen verschiedenen Jahren gibt. (vielleicht @burkle2011)
-  - Wenn das Ökosystem (top-down und bottom-up Interaktionen) aus dem Gleichgewicht geraten kommt es zu saisonal sehr variablen Artenvorkommen- und Häufigkeit. - Durch zeitliche Variabilität der Populationen ist langjähriges Monitoring nötig
+
+
+
 
 
 <!-- * Give a short summary of what has been done and what has been found. -->
