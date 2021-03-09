@@ -288,29 +288,28 @@ Die folgenden Fragestellungen und Hypothesen werden im Verlauf dieser Arbeit beh
 
 - Welche Arten von Bienen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Die Zusammenfassung verschiedener Artenlisten von @tscharntke1998 ergaben 33 Wirts-Bienenarten und zusätzliche Kuckucksbienenarten. Für ein Monitoring, das sich über ganz Deutschland erstreckt erwarte ich diese Arten ebenfalls zu finden und potenziell neue Arten zu erfassen. Dies begründet sich auf der Tatsache, dass für Stadtrandbereiche eine hohe Bienen- und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturreichtum verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
 
-- Das Vorhandensein eines Insektenhauses in der Nähe der für diese Studie ausgebrachten Nisthilfen hat einen positiven Effekt auf Artenzahl sowie Abundanz von Wildbienen, da Nistmöglichkeiten insbesondere im Siedlungsbereich eine limitierte Ressource darstellen.
+- Die Artengemeinschaft der Wildbienen (inkl. Parasitenarten):
+  - ist bei hohem Versiegelungsgrad homogener als bei mittlerem oder geringem Versiegelungsgrad, da sich Strukturen in Städten gleichen und überregional den selben Arten als Lebensraum dienen.
 
-- Die Anzahl der Bienenarten:
-  - ist bei mittlerem Versiegelungsgrad am höchsten, denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten (rural Taxa) ebenso wie an städtische Gebiete angepasste Arten (urban Taxa) vorkommen können [@mcintyre2000].
-  - nimmt mit der Landschaftskomplexität sowie mit dem Strukturreichtum zu, da mehr Strukturen und verschiedene Landnutzungsformen in größerem Umfang Futterressourcen sowie Nistmöglichkeiten für viele verschiedene Bienenarten bieten. 
-  
-- Die Abundanz der Bienen (Gesamtanzahl angelegter Brutzellen):
-  - verhält sich wie die Anzahl der Bienenarten, da auch die Abundanz von der Verfügbarkeit der Nahrungsressourcen und Nistressourcen abhängt [@roulston2011; @gathmann1999].
-  
-- Die Artenzahl der natürlichen Gegenspieler:
-  - ist bei mittlerem Versiegelungsgrad am höchsten, da die parasitischen Arten von der Artengemeinschaft ihrer Wirte abhängen [@fortel2014; @sheffield2013]. Der Effekt des Versiegelungsgrades auf die Parasitoide ist stärker als auf die Artenzahl der Wirte, da Arten höherer trophischer Ebenen anspruchsvoller an ihren Lebensraum sind als Arten niedrigerer trophischer Ebenen und somit auf Umweltveränderungen stärker reagieren [@davies2000; @albrecht2007; @steffan-dewenter2003a]. 
-  - nimmt mit Landschaftskomplexität und Strukturreichtum zu, da die Vielfalt an Ressourcen vielen verschiedenen Lebensraumansprüchen gerecht wird [@pereira-peixoto2016].
+- Der Anzahl der Bienenarten, die Abundanz der Bienen, die Abundanz von *Osmia bicornis* und die Anzahl der natürlichen Gegenspiler ist bei mittlerem Versiegelungsgrad am höchsten:
+  - Denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten (rural Taxa) ebenso wie an städtische Gebiete angepasste Arten (urban Taxa) vorkommen können [@mcintyre2000] was zu einer hohen Artenzahl der Bienen führt.
+  - Auch die Abundanz (Gesamtanzahl angelegter Brutzellen) hängt von der Verfügbarkeit der Nahrungsressourcen und Nistressourcen ab [@roulston2011; @gathmann1999].
+  - Die Artenzahl der natürlichen Gegenspieler ist bei mittlerem Versiegelungsgrad am höchsten, da die parasitischen Arten von der Artengemeinschaft ihrer Wirte abhängen [@fortel2014; @sheffield2013]. Der Effekt des Versiegelungsgrades auf die Parasitoide ist stärker als auf die Artenzahl der Wirte, da Arten höherer trophischer Ebenen anspruchsvoller an ihren Lebensraum sind als Arten niedrigerer trophischer Ebenen und somit auf Umweltveränderungen stärker reagieren [@davies2000; @albrecht2007; @steffan-dewenter2003a].
+  - Bereiche des mittleren Versiegelungsgrad stellen die Stadtrandbereiche mit vielfältigen kleinräumigen Strukturen dar, welche vielfältige Nahrungsressourcen für Bienen der Art *Osmia biconis* bieten was sich positiv aus deren Abundanz auswirkt.
 
+- Die Anzahl der Bienenarten, die Abundanz der Bienen und die Anzahl der natürlichen Gegenspiler nimmt mit der Landschaftskomplexität sowie mit dem Strukturreichtum zu: 
+  - Mehr Strukturen und verschiedene Landnutzungsformen bieten in größerem Umfang Futterressourcen sowie Nistmöglichkeiten für viele verschiedene Bienenarten.
+  - Auch die Abundanz (Gesamtanzahl angelegter Brutzellen) hängt von der Verfügbarkeit der Nahrungsressourcen und Nistressourcen ab [@roulston2011; @gathmann1999].
+  - Die Artenzahl der natürlichen Gegenspieler nimmt mit Landschaftskomplexität und Strukturreichtum zu, da die Vielfalt an Ressourcen vielen verschiedenen Lebensraumansprüchen gerecht wird [@pereira-peixoto2016].
+  
+
+- Das Vorhandensein eines Insektenhauses in der Nähe der für diese Studie ausgebrachten Nisthilfen hat einen positiven Effekt auf Artenzahl und Abundanz von Wildbienen als auch auf die Abundanz von *Osmia bicornis*, da Nistmöglichkeiten insbesondere im Siedlungsbereich eine limitierte Ressource darstellen.
   <!-- parasiten und Insektenhaus?? und deren natürliche Gegenspieler -->
 
-- Die Abundanz von *Osmia bicornis*:
-  - ist bei mittlerem Versiegelungsgrad am höchsten, da Bereiche des mittleren Versiegelungsgrad die Stadtrandbereiche mit vielfältigen kleinräumigen Strukturen darstellen, welche vielfältige Nahrungsressourcen für Bienen der Art *Osmia biconis* bieten. 
-  - wird positiv durch vorhandene Insektenhäuser an den Nisthilfenstandorten beeinflusst.
 
 <!-- red mason bee is ubiquitous in urban area but clearly profits from nearby floral resources. -->
   
-- Die Artengemeinschaft der Wildbienen (inkl. Parasitenarten):
-  - ist bei hohem Versiegelungsgrad homogener als bei mittlerem oder geringem Versiegelungsgrad, da sich Strukturen in Städten gleichen und überregional den selben Arten als Lebensraum dienen.
+
   
 <!-- - Die Parasitierungsrate (Anteil an parasitierten Zellen):  -->
 <!--   - nimmt mit Versiegelungsgrad ... -->
