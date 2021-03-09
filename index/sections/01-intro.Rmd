@@ -173,7 +173,7 @@ Neben den nicht parasitischen Wildbienen, werden auch die natürlichen Gegenspie
 <!-- @darocha-filho2020 heterogeneous  landscapes  in  urban  areas  can  harbour  species-rich communities of cavity-nesting bees, wasps, and their natural enemies even when compared  to  areas  with  diverse  native  vegetation  with  similar  original  ecosystems -->
 
 
-## Der Einfluss von Landschaftsstruktur und Komplexität auf Wildbienen
+## Der Einfluss von Landschaftsstruktur und -Komplexität auf Wildbienen
 Der Einfluss des Menschen auf die Landschaft äußert sich in vielerlei Hinsicht. Eine Möglichkeit der Beschreibung der Landschaft besteht in der Klassifizierung anhand der Landnutzung in Landnutzungsklassen. Aus den Landnutzungklassen, die jeweils eine Landnutzungsform beschreiben, können Landschaftsstruktur und -komplexität ermittelt werden. Diese haben ökologische Eigenschaften welche die Verfügbarkeit und Kombination von verschiedenen Ressourcen beschreiben, und somit Wildbienenhabitate unterschiedlicher Qualtität bilden. Denn jede Landnutzungsform bietet spezifische Ressourcen und somit Habitate bzw. Habitatfragmente. Aneinandergrenzende Landnutzungsformen können durch die Kombination von verschiedenen Ressourcen zusätzliche Habitate für Wildbienen bieten [@westrich1996]. So hat die Größe und Form (Landschaftsstruktur) der Flächen einer Landnutzungsform sowie Anzahl verschiedener Landnutzungsformen (Landschaftskomplexität) einen Einfluss auf vorkommende Bienenarten [@steffan-dewenter2003a].
 Ein weiteres Maß für die Landschaftskomplexität ist die Kantendichte, welche als Index für das Habitatnetzwerk dient. Denn die Gesamtmenge an Kanten zwischen Landnutzungsklassen in einer Landschaft steht in direktem Zusammenhang zur räumlichen Heterogenität der Landschaft [@mcgarigal1995]. 
 Der Kantentyp, also welche zwei Landnutzungsklassen aneinandergrenzen, kann dabei einen Einfluss auf die Alpha-, Beta- und Gammadiversität haben, wie es @ma2013 für Pflanzen beschrieben haben.
@@ -279,9 +279,11 @@ Der Fokus dieser Arbeit liegt nicht auf dem Einfluss abiotischer Faktoren auf di
 ## Fragestellung und Hypothesen:
 <!-- @guisan2017 -->
 
-In dieser Arbeit soll Fragestellungen zu den Nisthilfen-besiedelnden Bienenarten und ihren natürlichen Gegenspielern im Bezug auf die Landschaftskomplexität und den Stadt-Land-Gradienten nachgegangen werden. Als Indizes für die Landschaftskomplexität werden die Anzahl verschiedener Landnutzungsklassen, sowie der Strukturreichtum der Landschaft (Kantendichte/Edge-Density) der Landnutzungsklassen herangezogen.  
+In dieser Arbeit soll Fragestellungen zu den Nisthilfen-besiedelnden Bienenarten und ihren natürlichen Gegenspielern im Bezug auf den Stadt-Land-Gradienten und die Landschaftskomplexität nachgegangen werden. 
+Zur Analyse des Stadt-Land-Gradienten werden Flächenversiegelungsdaten verwendet, unter der Annahme, dass der Versiegelungsgrad vom Stadtzentrum zum Land hin abnimmt [@salvati2014].
+Als Indizes für die Landschaftskomplexität werden die Anzahl verschiedener Landnutzungsklassen, sowie der Strukturreichtum der Landschaft (Kantendichte/Edge-Density) der Landnutzungsklassen herangezogen.      
 <!-- Zusätzlich wird der Anteil natürlicher Habitate sowie der Anteil an Landwirtschaftlichen Flächen gesondert betrachtet. -->
-Zur Analyse des Stadt-Land-Gradienten werden Flächenversiegelungsdaten verwendet, unter der Annahme, dass der Versiegelungsgrad vom Stadtzentrum zum Land hin abnimmt [@salvati2014].  
+
 Die folgenden Fragestellungen und Hypothesen werden im Verlauf dieser Arbeit behandelt:
 
 - Welche Arten von Bienen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Die Zusammenfassung verschiedener Artenlisten von @tscharntke1998 ergaben 33 Wirts-Bienenarten und zusätzliche Kuckucksbienenarten. Für ein Monitoring, das sich über ganz Deutschland erstreckt erwarte ich diese Arten ebenfalls zu finden und potenziell neue Arten zu erfassen. Dies begründet sich auf der Tatsache, dass für Stadtrandbereiche eine hohe Bienen- und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturreichtum verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
