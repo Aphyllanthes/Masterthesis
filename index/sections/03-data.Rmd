@@ -22,15 +22,15 @@ load("my_work_space.RData")
 <!-- | Parasitierungsrate | Anzahl der parasitierten Zellen dividiert durch die Gesamtanzahl der Zellen | -->
 
 Von den insgesamt `r round(sum(nests$nb_cells, na.rm = T),0)` angelegten Zellen entwickelten sich in etwa 60 % (`r round(sum(nests$nb_pupa_larva, na.rm = T),0)` Brutzellen) Puppen bzw. Larven. Etwa 13 % der Angelegten Zellen wurde Parasitiert (`r sum(nests$parasitized_cells, na.rm = T)` Brutzellen).  
-
-Die häufigste Art in den Nisthilfen war die Rostrote Mauerbiene (*Osmia bicornis*). Sie kam in 148 der 259 Nisthilfen vor. Im Mittel befanden sich 8,4 Nester in einer Nisthilfe, der Median lag bei 2 belegten Nestern pro Nisthilfe. Die Maximale Anzahl an Nestern in einer Nisthilfe betrug 115 Nester. Die Brutzellen von *O. bicornis* machen 40% der gesamten Brutzellen (Abundanz der Wildbienen) aus.  
-In 45 der 259 Nisthilfen kamen keine Bienen vor. Die häufigsten Wirtsbienenarten waren *Osmia bicornis*, welche 46 % der Nester belegten und *Heriades truncorum*, welche 16 % der Nester belegten. *Osmia cornuta* und *Hylaeus communis* belegten jeweils etwa 8 % der Nester, alle weiteren Arten belegten jeweils weniger als 5 % der Nester.
+In 45 der 259 Nisthilfen kamen keine Bienen vor.  
+Die häufigste Art in den Nisthilfen war die Rostrote Mauerbiene (*Osmia bicornis*). Sie kam in 148 der 259 Nisthilfen vor. Im Mittel befanden sich 8,4 Nester in einer Nisthilfe, der Median lag bei 2 belegten Nestern pro Nisthilfe. Die Maximale Anzahl an Nestern in einer Nisthilfe betrug 115 Nester. Die Brutzellen von *O. bicornis* machen 40% der gesamten Brutzellen (Abundanz der Wildbienen) aus und die Nester der Art machten 46 % aller belegten Nester aus.  
+ Die zweithäufigste Wirtsbienenart war die Gewöhnliche Löcherbiene (*Heriades truncorum*), welche 16 % der Nester belegte. *Osmia cornuta* und *Hylaeus communis* belegten jeweils etwa 8 % der Nester, alle weiteren Arten belegten jeweils weniger als 5 % der Nester.
 Der häufigste natürliche Gegenspieler war die Taufliege *Cacoxenus indagator*, welche 17 % aller Nester parasitierte. Arten der Überfamilie der Erzwespen (Chalcidoidea) parasitierten 150 Nester, also 3 % aller Nester, wobei vermutlich die Art *Melittobia acasta* den Großteil davon ausmachte. Die Kuckuckswespe *Sapygina decemguttata* kam mit einer Parasitierungsrate von knapp unter 3 % vor. Alle weiteren natürlichen Gegenspieler kamen je nur in weniger als 100 Nestern und somit in unter 2% aller Nester vor.
 
 
 
 ## Die Arten in den Nisthilfen
-Im Rahmen des Schulinsektenhaus-Projektes konnten in den 259 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*) und neun parasitische Wespenarten (Apocrita) nachgewiesen werden. Weitere Gegenspieler wie verschiedene Diptera, Käfer (Coleoptera), Milben (*Chaetodacylus*) und Eulophidae kamen vor, wurden jedoch nicht genauer bestimmt. In Tabelle \ref{Artenliste} sind alle nachgewiesenen Arten sowie ihre Gegenspieler aufgeführt. Da einige Parasitoide das gesamte Nest ihres Wirtes eingenommen haben konnten die Wirtsarten nur anhand der Nestmorphologie bestimmt werden - diese sind in der dritten Spalte der Tabelle aufgeführt.
+Im Rahmen des Schulinsektenhaus-Projektes konnten in den 259 Nisthilfen insgesammt 27 Wirts-Bienenarten sowie als Parasitoide fünf Kuckucksbienenarten (*Stelis* und *Coelioxys*) und neun parasitische Wespenarten (Apocrita) nachgewiesen werden. Weitere Gegenspieler wie verschiedene Zweiflügler (Diptera), Käfer (Coleoptera), Milben (*Chaetodacylus*) und Erzwespen (Chalcidoidea) kamen vor, wurden jedoch nicht genauer bestimmt. In Tabelle \ref{Artenliste} sind alle nachgewiesenen Arten sowie ihre Gegenspieler aufgeführt. Da einige Parasitoide das gesamte Nest ihres Wirtes eingenommen haben konnten die Wirtsarten nur anhand der Nestmorphologie bestimmt werden - diese sind in der dritten Spalte der Tabelle aufgeführt.
 
 In der Tabelle sind von *Chaetodactylus* befallene Arten nicht dargestellt, da diese nicht einheitlich erfasst wurden, da der Befall zum Großteil durch die Lagerung in der Uni Freiburg stattfand. Identifiziert werden konnten dennoch folgende von *Chaetodactylus* befallene Arten:
 
@@ -41,7 +41,7 @@ In der Tabelle sind von *Chaetodactylus* befallene Arten nicht dargestellt, da d
   - *Megachile ericetorum*, *M. centuncularis*, *M. rotundata*
   - *Osmia adunca*, *O. bicornis*, *O. caerulescens*, *O. leaiana*
 
-Im Vergleich zu @tscharntke1998 wurden sieben weitere Arten identifiziert: 
+Im Vergleich zu @tscharntke1998 wurden in dieser Arbeit sieben weitere Arten identifiziert: 
 
   - *Anthidium manicatum*
   - *Hylaeus graciliformis*, *H. hyalinatus*, *H. leptocephalus*, *H. taeniolatus*
@@ -64,7 +64,7 @@ library(dplyr)
 Artliste_IH19 <- readxl::read_excel("../../Daten/Artliste_IH19.xls") %>% 
   replace(is.na(.), "")
 
-names(Artliste_IH19) <- c("Wirtsbienen", "natürliche Gegenspieler", "natürliche Gegenspieler - Zuordnung zu Wirt anhand Morphotyp des Wirtes")
+names(Artliste_IH19) <- c("Wirtsbienen", "natürliche Gegenspieler", "natürliche Gegenspieler - Wirtszuordnung anhand Morphotyp des Wirtes")
 kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller nachgewiesenen Bienenarten und ihrer natürlichen Gegenspieler im Schulinsektenhausprojekt 2019. Alle Arten die in der Arbeit von Tscharntke et al. (1998) nicht beschrieben wurden bzw. bei den Gegenspielern nicht bei dem entsprechenden Wirt beschrieben wurden, sind mit einem '*' versehen.  \\label{Artenliste} ",
                 caption.short = "Liste aller nachgewiesenen Bienenarten und ihrer natürlichen Gegenspieler") %>% 
   kableExtra::kable_paper(full_width = F) %>%
@@ -76,8 +76,8 @@ kableExtra::kbl(Artliste_IH19,longtable =T,booktabs =T, caption = "Liste aller n
 
 ## Artengemeinschaft
 Die Analyse der Artengemeinschaft entlang des Stadt-Land-Gradienten zeigte, dass weder Strukturparameter noch Versiegelungsgrad verschiedener Radien einen signifikanten Einfluss auf die Zusammensetzung der Arten in den Trapnestern hat. Auch der Vergleich der Artenzusammensetzung der Nisthilfen-Gruppen "Land", "Stadtrand" und "Stadt" zeigte keinen signifikanten Unterschied.  
-Die Artengemeinschaft von Standorten, bei denen im 500m-Radius Ackerland vorkommt unterscheidet sich nicht von der Artengemeinschaft, bei der im 500m-Radius kein Ackerland vorkomt.  
-Durch die Betrachtung des Versiegelungsgrades der Standorte der einzelnen Arten können Unterschiede aufgezeigt werden.
+Die Artengemeinschaft von Standorten, bei denen im 500m-Radius Ackerland vorkommt unterscheidet sich nicht von der Artengemeinschaft, bei der im 500m-Radius kein Ackerland vorkomt.    
+
 
 (ref:lonelytab) Auflistung der Arten, welche nur in einer Nisthilfe vorkamen, mit der Information wiviele Nester in der Nisthilfe belegt waren ('Nests') und dem mittleren Versiegelungsgrad in % im 500m-Radius der besiedelten Nisthilfe. \label{lonely_species} 
 
@@ -90,7 +90,8 @@ lonely_species <- read.csv("../summaryTabellen/lonely_species_summary.csv") %>%
   rename(Art = Art.x)
 
 lonely_species %>%
-  kable(booktabs = T, linesep = "",  caption = "(ref:lonelytab)",
+  kable(booktabs = T, linesep = "", longtable =T, 
+        caption = "(ref:lonelytab)",
         caption.short = "Auflistung der Arten, welche nur in einer Nisthilfe vorkamen") %>%
   kable_paper(full_width = F) %>%
   kableExtra::kable_styling(latex_options =c("repeat_header"), repeat_header_text = "(ref:continued)") %>% 
@@ -101,7 +102,7 @@ lonely_species %>%
 
 ```
 
-
+Unterschiede bezüglich des Versiegelungsgrades können anhand der Betrachtung der einzelnen Arten aufgezeigt werden.
 Es kamen elf Arten in nur einer Nisthilfe vor. Die Arten sind in Tabelle \ref{lonely_species} inklusive dem Versiegelungsgrad im 500m-Radius der Nisthilfe aufgeführt. Neun der elf Arten kamen in relativ gering versiegeltem Umfeld vor (Versiegelungsgrad im 500m-Radius < 25%).   
 In Tabelle \ref{multiple_species} sind alle Arten aufgeführt, die in mehr als einer Nisthilfe vorkamen, sowie die Info in welcher Kategorie des Versiegelungsgrades die Nisthilfe vorkam. Dabei fällt auf, das die beiden Arten der parasitischen Gattung *Gasteruption* besonders häufig im Urbanen Gebiet mit hohem Versiegelungsgrad vorkamen. Die Gartenwollbiene, *Anthidium manicatum* kam in nur 2 Nisthilfen vor, davon keine aus der Kategorie "Land" mit geringem Versiegelungsgrad. Alle anderen Arten kamen auch in Nisthilfen der Kategorie "Land" vor. Dagegen kamen sieben Arten nicht in Nisthilfen der Kategorie "Stadt", mit hohem Versiegelungsgrad vor. Darunter die Gegenspieler *Chrysis radians*, *Sapyga clavicornis* und *Sapyga quinquepunctata*.
 
@@ -153,15 +154,17 @@ land_species[,1:5] %>%
 
 
 
-## Der Einfluss des Versiegelungsgrades
+## Der Versiegelungsgrad
   
 
 <!-- Anhand AIC und Residuendiagnostik wurden für beide Variablen, Artenzahl sowie Abundanz, negativ-binomiale GLM mit folgender Formel ausgewählt: $y = imp1000 + imp1000^2 + Insektenhaus$ (imp1000 ist der mittlere Versiegelungsgrad im 1000m Radius um den Nisthilfenstandort) -->
 <!-- Die Datenpunkte sowie die Modellvorhersage als marginaler Effektplot sind in Abbildung \ref{effektplotIH} dargestellt. Das Modell der Artenzahl beschreibt einen signifikanten Einfluss des Parameters Insektenhaus (siehe Tab. \ref{summaryIH}). Im Modell der Abundanz ist eine Tendenz einer Zunahme der Abundanz bei Vorhandensein eines Insektenhauses zu erkennen, welche jedoch nicht signifikant ist. In beiden Modellen hat der Versiegelungsgrad im 1000m Umkreis keinen signifikanten Einfluss. -->
  
-####  Artenzahl der Bienen in Abhängigkeit des Versiegelungsgrades
+####  Die Artenzahl der Bienen in Abhängigkeit des Versiegelungsgrades:
 <!-- (Null_deviance - Residual_deviance)/Null_deviance -->
-Der Versiegelungsgrad aller Radien eignet sich zur Beschreibung der Artenzahl der Wildbienen. Dies zeigte im Vergleich der Modelle  mit verschiedenen Radien des Versiegelungsgrades als beschreibende Variable, da sich die AIC-Werte der Modelle mit jeweils dem besten Fit, um weniger als zwei Einheiten unterschieden. Den niedrigsten AIC weisen das Modell welches den Versiegelungsgrad im 100m-Radius beinhaltet sowie das Modell welches den Versiegelungsgrad im 1000m-Radius beinhaltet auf.
+Der Versiegelungsgrad aller Radien eignet sich zur Beschreibung der Artenzahl der Wildbienen. 
+Dies zeigte der Vergleich der Modelle die den mittleren Versiegelungsgrad als beschreibende Variable von jeweils verschiedenen Radien enthielten. Der AIC-Wert des für jeden Radius anhand des besten Fit ausgewählte Modells war von den Modellen der anderen Radien jeweils um weniger als zwei Einheiten unterschiedlich.   
+Den niedrigsten AIC weisen das Modell welches den Versiegelungsgrad im 100m-Radius beinhaltet sowie das Modell welches den Versiegelungsgrad im 1000m-Radius beinhaltet auf.
 Der Versiegelungsgrad im 100m-Radius hat einen signifikanten linearen Einfluss auf die Artenzahl ($p = 0,003$). Mit zunehmendem Versiegelungsgrad nimmt die Artenzahl ab (siehe Abbildung \ref{plot_modelle_artenzahl} sowie Tabelle \ref{summary_Artenzahl}). Dieser Zusammenhang wird mit p-Werten von $0,01$ und $0,007$ auch durch die Modelle des Versiegelungsgrades im 250m-Radius sowie im 500m-Radius beschrieben. 
 Für die Versiegelung in größerer Entfernung um den Nisthilfenstandort, welche vielmehr den generellen Grad der Urbanisierung wiederspiegelt, als die direkte Ressourcenverfügbarkeit für die Bienen, zeigt einen signifikanten quadratischen Einfluss auf die Artenzahl ($p = 0.006$). Bei einem Versiegelungsgrad von ca. $30 \%$ im 1000m-Radius ist die Artenzahl maximal (Abbildung \ref{plot_modelle_artenzahl} rechts) und nimmt bis zur maximalen Versiegelung ab, wo die Artenzahl den niedrigsten Wert aufweist. Dieser Effekt zeigt sich auch durch den Einfluss des Versiegelungsgrad im 2000m-Radius auf die Artenzahl ($p = 0.006$).   
 Alle ausgewählten Modelle beinhalten die weiteren Prädiktoren $Jahresniederschlag$ und $Jahresmitteltemperatur$. Der Jahresniederschlag zeigt jeweils einen schwach signifikaten negativen Einfluss auf die Artenzahl, die Jahresmitteltemperatur einen schwach signifikanten positiven Einfluss auf die Artenzahl.
@@ -315,7 +318,7 @@ gridExtra::grid.arrange(p1a, p2a, ncol = 2, heights = unit(3.5, c("in")))
 
 #### Abundanz der Bienen in Abhängigkeit des Versiegelungsgrades
 Der Einfluss des Versiegelungsgrades auf die Abundanz der Wildbienen in den Nishilfen ist, wie auch der Einfluss auf die Artenzahl, für den Versiegelungsgrad geringer Radien (100m, 250, 500m) linear und für den Versiegelungsgrad großer Radien (500m, 1000m, 2000m) um die Nisthilfen quadratisch. Im Vergleich zur Artenzahl eignen sich zur Beschreibung der Abundanz jedoch nicht alle Radien des Versiegelungsgrades gleichermaßen. Die Modelle des Versiegelungsgrades im 250m-Radius ($AIC = 2573.81$), sowie im 500m-Radius ($AIC = 2575.67$) zeigen den besten fit. Die Modellzusammenfassung der beiden Modelle ist in Tabelle \ref{summary_Abundanz_a} dargestellt.  
-Der mittlere Versiegelungsgrad im 250m-Radius hat mit einem p-Wert von $0,00003$ einen hochsignifikanten linearen Einfluss auf die Abundanz (siehe Abbildung \ref{plot_modelle_abundanz}). Das Modell zeigt auch einen signifikanten positiven Effekt der Anzahl an Landnutzungklassen auf, sowie einen signifikanten negativen Effekt der Kantenlänge, welcher bereits in Abschnitt \@ref(landnutzung) dargestellt wurde. Der quadratische Einfluss des Versiegelungsgrades auf die Abundanz, welcher vom Versiegelungsgrad des 500m-Radius beschrieben wird, zeigt das Maximum der Abundanz bei etwa $25\%$ (siehe Abbildung \ref{plot_modelle_abundanz}).
+Der mittlere Versiegelungsgrad im 250m-Radius hat mit einem p-Wert von $0,00003$ einen hochsignifikanten linearen Einfluss auf die Abundanz (siehe Abbildung \ref{plot_modelle_abundanz}). Das Modell zeigt auch einen signifikanten positiven Effekt der Anzahl an Landnutzungklassen auf, sowie einen signifikanten negativen Effekt der Kantenlänge, welcher in Abschnitt \@ref(landnutzung) dargestellt wird. Der quadratische Einfluss des Versiegelungsgrades auf die Abundanz, welcher vom Versiegelungsgrad des 500m-Radius beschrieben wird, zeigt das Maximum der Abundanz bei etwa $25\%$ (siehe Abbildung \ref{plot_modelle_abundanz}).
 
 
 ```{r AbundanzA, message=FALSE, warning=FALSE, include=FALSE}
@@ -545,6 +548,8 @@ Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Land
 
 
 ## Der Einfluss von vorhandenen Insektenhäusern
+Für die Artenzahl der Bienen kann mit dem Datensatz von 129 Punkten ein positiver Einfluss von bestehenden Insektenhäusern beobachtet werden. Abundanz der Bienen und Abundanz von *Osmia bicornis* zeigen anhand ihrer Mittelwerte die Tendenz zu einem positiven Effekt von bestehenden Insektenhäusern, welche sich statistisch allerdings nicht nachweisen lässt.
+
 #### Artenzahl der Wildbienen in Abhängigkeit vorhandenen Insektenhäusern:
 Der Mittelwert der Artenzahl in Nisthilfen, die in der Nähe eines Insektenhauses aufgestellt waren, liegt bei 2,44 Arten, während er in Nisthilfen, in deren Umfeld kein Insektenhaus steht, bei 1,84 Arten liegt. Das Modell, welches den Zusammenhang von vorhandenen Insektenhäusern auf die Artenzahl beschreibt, erklärt $3.1 \%$ der Varianz der Artenzahl. Die Modellzusammenfassung ist in Tabelle \ref{summaryIH} abgebildet, der Effektplot des Modells ist in Abbildung \ref{effektplotIH} links zu sehen. 
 Das Ergebnis der Modellierung zeigt einen schwach signifikanten Effekt ($p-Wert =0.03$) der vorhandenen Insektenhäuser auf die Artenzahl in den Nisthilfen auf und bestätigt die Hypothese, dass die Artenzahl in den Nisthilfen in der Nähe eines Insektenhauses höher ist als in Nisthilfen in deren Umfeld kein Insektenhaus vokommt.  
@@ -554,21 +559,22 @@ Umgekehrt verbessert der Parameter "Insektenhaus" das Modell mit den Prädiktore
 <!-- with(summary(modelIH), (null.deviance-deviance)/null.deviance) -->
 Aus den beiden erklärenden Variablen, der Information zum vorhandensein eines Insektenhauses in der Nähe des Nisthilfenstandortes und dem Versiegelungsgrad, sticht somit keine Variable hervor, welche die Artenzahl der Wildbienen mit dem Datensatz von 129 Punkten, in besonderem Maße beschreibt.    
 
-#### Abundanz der Wildbienen in Abhängigkeit vorhandenen Insektenhäusern:
+#### Abundanz der Wildbienen in Abhängigkeit bestehenden Insektenhäusern:
 Der Mittelwert der Abundanz der Wildbienen in den Nisthilfen liegt bei 89,7 Brutzellen pro Nisthilfe, sofern im Umfeld der Nisthilfe ein Insektenhaus vorhanden war, und bei 66,4 Brutzellen pro Nisthilfe, sofern kein Insektenhotel in der Nähe der Nisthilfe vorhanden war. Die Modellierung der Abundanz anhand der Information von vorhandenen Insektenhäusern zeigt jedoch keinen signifikanten Einfluss ($p-Wert = 0.45$) des Insektenhauses auf die Abundanz auf (siehe Tab. \ref{summaryIH}). Das Modell entählt zusätzlich den mittleren Versiegelungsgrad im 250m-Radius als linearen und quadratischen Term.  
-Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius der einzige Radius des Versiegelungsgrades (aus den berechneten Radien von 100m, 250m, 500m, 1000m, 2000m), welcher das Modell der vorhandenen Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell welches den Einfluss des Versiegelungsgrad der verschiedenen Radien beschreibt verbessert werden. 
+Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius ist der einzige Radius des Versiegelungsgrades (aus den berechneten Radien von 100m, 250m, 500m, 1000m, 2000m), welcher das Modell der bestehenden Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell welches den Einfluss des Versiegelungsgrad der verschiedenen Radien beschreibt verbessert werden. 
 Ein Effekt-Plot des um den Parameter des 250m-Versiegelungsgrades erweiterten Modells ist in Abbilung \ref{effektplotIH} auf der rechten Seite dargestellt. Das Modells zeigt einen negativen signifikanten linearen Zusammenhang zwischen dem mittleren Versiegelungsgrad im 250m-Radius und der Abundanz (siehe Tab. \ref{summaryIH}).
 
-Für beide Variablen Artenzahl und Abundanz kann mit dem Datensatz von 129 Punkten nur eine Tendenz eines positiven Einflusses von vorhandenen Insektenhäusern beobachtet werden, wobei dieser Einfluss auf die Artenzahl deutlicher ist als auf die Abundanz. 
 
 
 #### Abundanz von *Osmia bicornis* in Abhängigkeit vorhandenen Insektenhäusern:
+Der Mittelwert der Abundanz von *Osmia bicornis* in Nisthilfen, die in der Nähe eines Insektenhauses aufgestellt waren, liegt bei 11,2 Nestern, während er in Nisthilfen, in deren Umfeld kein Insektenhaus steht, bei 9,57 Arten liegt.
 Das Vorhandensein eines Insektenhauses in der Nähe der Nisthilfe hat keinen signifikanten Einfluss auf die Abundanz von *Osmia bicornis* (siehe Tabelle \ref{summary_Abundanz_IH_ob}). Der mittlere Versiegelungrad im 250m Radius um den Nisthilfenstandort verbessert das Modell welches den Einfluss des Insektenhauses auf die Abundanz von *O. bicornis* beschreibt. Der mittlere Versiegelungsgrad anderer Radien verbessert das Modell nicht. Der Parameter Insektenhaus kann keines der Modelle mit den Prädiktoren des Versiegelungsgrades der verschiedenen Radien verbessern.
 
-(ref:effektIH) Einfluss von vorhandenem Insektenhaus auf Artenanzahl (links) und Abundanz (rechts) der Bienen. Die Fehlerbalken sind 'marginal effect-plots', welche die Vorhersage der Modelle (Mittelwert und Standartabweichung). Der Effektplot der Abundanz beinhaltet den skalierten Versiegelungsgrad des 250m-Radius ("imp 250"). Dargestellt ist der mittlere Versiegelungsgrad von 39.08% (skalierter Wert = 0) und der mittlere Versiegelungsgrad +- Standartabweichung 18,37% (skalierter Wert = -1) und 59,8% (skalierter Wert = 1). Die Punkte stellen die Abundanz der einzelnen Nishilfen dar. \label{effektplotIH}
+(ref:effektIH) Einfluss von vorhandenem Insektenhaus auf Artenanzahl der Bienen (oben), Abundanz der Bienen (links unten) und Abundanz von *Osmia bicornis* (recht unten) . Die Fehlerbalken sind 'marginal effect-plots', welche die Vorhersage der Modelle (Mittelwert und Standartabweichung). Die Effektplots der Abundanzen beinhalten den skalierten Versiegelungsgrad im 250m-Radius ("imp 250"). Dargestellt ist der mittlere Versiegelungsgrad von 39.08% (skalierter Wert = 0) und der mittlere Versiegelungsgrad +- Standartabweichung 18,37% (skalierter Wert = -1) und 59,8% (skalierter Wert = 1). Die Punkte stellen die Abundanz der einzelnen Nishilfen dar. \label{effektplotIH}
 
+(ref:effektIH2) Einfluss von vorhandenem Insektenhaus auf Artenanzahl und Abundanz der Wildbienen und Abundanz von *Osmia bicornis*
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap= "(ref:effektIH)", fig.scap="Einfluss von vorhandenem Insektenhaus auf Artenanzahl und Abundanz der Wildbienen" }
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap= "(ref:effektIH)", fig.scap="(ref:effektIH2)" }
 library(MASS)
 
 sub_IH <- A1_IH_factor %>% 
@@ -595,11 +601,41 @@ labeltext <- list("Die Werte des skalierten",
 p2pm <- sjPlot::plot_model(model_IH2_250_zi, type = "pred", 
                    terms = c("Insektenhaus", "imp250"), 
                    show.p = T, show.data = T, jitter = T,
-                   title = "")+
+                   title = "") + 
+  ylab("Abundanz der Wirtsbienen")+
   theme_bw() 
 
-gridExtra::grid.arrange(p1ep, p2pm, ncol = 2, heights = unit(4, c("in")),
-                        widths = c(3/7, 4/7))
+###
+## O.bicornis:
+sub_Ob_IH <- Osmia_bicornis %>% 
+  filter(!is.na(Insektenhaus))  %>% 
+  dplyr::select(-DistInsektenhaus) %>% 
+  mutate_at(vars(imp100:Forest), scale)%>%
+  left_join(Artenzahl_autocor[,c(1,23,24)], by = "location") %>% 
+  mutate_at(vars(lon:lat), scale)
+
+model_IH_250_Ob<- readRDS("../Modelle/model_IH_Ob_250.rds")
+
+tranlabels <- function(x) attr(sub_Ob_IH$imp250, "scaled:center") + attr(sub_Ob_IH$imp250, "scaled:scale")*x
+werte <- paste(round(tranlabels(c(-1, 0, 1)),2), collapse = ", ")
+
+labeltext <- list("Die Werte des skalierten", 
+                         "Versiegelunsgrades -1, 0, 1", 
+                  "entsprechen den prozentualen", 
+                         paste0("Werten von ", werte))
+
+p3pm <- sjPlot::plot_model(model_IH_250_Ob, type = "pred", 
+                   terms = c("Insektenhaus", "imp250"), 
+                   show.p = T, show.data = T, jitter = T,
+                   title = "")+ 
+  ylab("Abundanz von Osmia bicornis")+
+  theme_bw() 
+###
+hmat <- rbind(c(NA, NA, NA,NA,1,1,1,1,1,1,NA,NA,NA,NA),
+              c(2,2,2,2,2,2,2, 3, 3,3,3,3,3,3))
+gridExtra::grid.arrange(p1ep, p2pm, p3pm,
+                        heights=unit(4, "in"),
+                        layout_matrix = hmat)
 
 ```
 

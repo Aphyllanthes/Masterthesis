@@ -82,7 +82,7 @@ Es ist anzunehmen, dass sich die Ergebnisse zum Einfluss von Landnutzung und Urb
 <!--   - uncertainty of data: @guisan2017: p 103: guisan and Hofer 2003 -->
 <!--   - uncertainty in species distribution, spacial uncertainty (angegebene Koordinaten der Schulen) -->
 <!--   - Modellselektion: kritisch mit stepAIC, AIC und anova suchen das beste aus, da jedoch in den geodaten eine potentiell große Unsicherheit besteht, könnte für weitere untersuchungen auch eine andere Methode in Betracht gezogen werden, wie zum Beispiel "enseble modeling" [@burnham2002h; @guisan2017 p. 225]. Hierdurch kann wiederum auf die (räumliche) Genauigkeit der Daten rückgeschlossen werden. -->
-<!-- <!-- Methodenkritik: rauschen in den Daten - anbringung der Nisthilfen - citizen science , stepAIC ist ein kack, ungenauigkeit der Satellitendaten vs. Artenzahl der Wirte bei Parasitoiden (Host ist nicht uniformverteilt- man müsste ihn transformieren)--> -->
+<!-- <!-- Methodenkritik: rauschen in den Daten - anbringung der Nisthilfen - citizen science , stepAIC ist ein kack, ungenauigkeit der Satellitendaten vs. Artenzahl der Wirte bei Parasitoiden (Host ist nicht uniformverteilt- man müsste ihn transformieren)--> 
 <!--   - Die in dieser Arbeit verwendeten Daten des Versiegelungsgrades im 500m-Radius, als auch die nicht im Bezug auf die Fragestellung ausgewählten Standorte der Nisthilfen sind zur Beantwortung der Fragestellung nicht zielführend. Es ist zu vermuten, das die Daten eine zu hohe Ungenauigkeit haben, als auch, dass sie die Effekte weiterer unbekannter Variablen abbilden. -->
 
 

@@ -1,7 +1,7 @@
 
 # (APPENDIX) Appendix {-}
 
-# Anhang zum Methodenteil
+# Anhang zum Methodenteil {#app1}
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(readxl)
@@ -41,7 +41,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(3, c("in")))
 
 
 
-# Anhang zum Ergebnissteil
+# Anhang zum Ergebnissteil {#app2}
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, ref.label="AbundanzA"}
 
