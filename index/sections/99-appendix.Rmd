@@ -43,14 +43,16 @@ gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(3, c("in")))
 
 # Anhang zum Ergebnissteil {#app2}
 
+```{r echo=FALSE, message=FALSE, warning=FALSE, ref.label="ArtenzahlA"}
+
+```
+
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE, ref.label="AbundanzA"}
 
 ```
 
 
-```{r echo=FALSE, ref.label="OBIH", message=FALSE, warning=FALSE}
-
-```
 
 
 ```{r echo=FALSE, ref.label="modelOb1", message=FALSE, warning=FALSE}
