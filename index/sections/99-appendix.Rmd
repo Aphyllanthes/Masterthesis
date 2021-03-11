@@ -57,6 +57,50 @@ gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(3, c("in")))
 
 ```
 
+
+```{r, fig.cap='Artenzahl der natürlichen Gegenspieler in Abhängigkeit der Artenzahl der Wirte. Links ist mit jedem Punkt die Artenzahl der Gegenspieler und Wirte einer Nisthilfe dargestellt und mit der Kurve die Modellvorhersage. Rechts ist die Modellzusammenfassung dargestellt. Das Modell wurde unter der Annahme der Negativbinomialverteilung gefittet. \\label{tabGegenspieler}', echo = F, fig.scap='Artenzahl der natürlichen Gegenspieler in Abhängigkeit der Artenzahl der Wirte.',   out.width = '.48\\linewidth', fig.subcap= c('Modellvorhersage und Daten', 'Modellzusammenfassung'), message=FALSE, warning=FALSE, fig.align='center', fig.height=6}
+library(gridExtra)
+library(grid)
+
+library(ggplot2)
+ggplot(A2, aes(Host, Parasitoid)) +
+  geom_jitter(width = 0.1, height = 0.2, alpha = 0.5) +
+  geom_smooth(method = MASS::glm.nb, se = T, formula = y ~  x) +
+  theme_bw() +
+  ylab("Artenzahl Gegenspieler") +
+  xlab("Artenzahl Wirte")
+# plot(A2$Host, A2$Parasitoid)
+
+
+
+
+###
+nullmodel_par <- read_delim("../Modelle/nullmodel_par.csv", 
+    ";", escape_double = FALSE, col_names = FALSE, 
+    trim_ws = TRUE) 
+names(nullmodel_par) <- nullmodel_par[2,]
+nullmodel_par[is.na(nullmodel_par)] <- ""
+
+# nullpar_tab <-kableExtra::kbl(nullmodel_par[-c(1,2),], booktabs =T) %>%
+#   kableExtra::kable_styling(latex_options =c("repeat_header", "striped"), repeat_header_text = "(ref:continued)") %>%
+#   # kableExtra::column_spec(c(4,7,10, 13,16),
+#   #                         bold = p_sig(.)) %>%
+#   kableExtra::column_spec(4,bold = p_sig(nullmodel_par[-c(1,2),4])) %>%
+#   #kableExtra::column_spec(7,bold = p_sig(model_IH_ob[-c(1,2),7])) %>%
+#   kableExtra::row_spec(2, hline_after = T)
+# ###
+# gridExtra::grid.arrange(nullpar_plot, nullpar_tab, ncol = 2, heights = unit(3.5, c("in")))
+grid.newpage()
+grid.table(nullmodel_par[-c(1,2),], theme = ttheme_default(), rows = NULL)
+
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+```
+
 <!-- ## Figures {-} -->
 
 <!-- ```{r graph2, echo=FALSE, out.extra = "", fig.cap="Estimated residuals (2) from model XXX. ...", out.width = "50%"} -->
