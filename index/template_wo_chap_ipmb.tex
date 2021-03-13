@@ -51,7 +51,7 @@ $endif$       % For being able to set `echo = TRUE` in code chunk options, and t
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 $if(space_between_paragraphs)$
-  \usepackage[parfill]{parskip}
+\usepackage[parfill]{parskip}
 $endif$
 
 % define line spacing = 1.5
@@ -70,14 +70,14 @@ $endif$
 
 % define tightlist to work with newer versions of pandoc
 \providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % change spacing
 \setlength {\parskip}{1em}
 
 % Additional LaTeX parameters added in the YAML header of index.Rmd
 $for(header-includes)$
-  $header-includes$
+$header-includes$
 $endfor$
 
 $if(list-of-publications)$
@@ -113,184 +113,184 @@ $endif$
 % --------------------------------------
 
 \begin{document}
-% -------------------------------
-% --- frontmatter: Title page ---
-% -------------------------------
-\thispagestyle{empty}
-
-\raggedright
-
-\begin{center}
-
-\begin{minipage}{0.8\textwidth}%
-	%
-		{\large{ \begin{flushleft}Albert-Ludwigs-Universität Freiburg \\
-				Fakultät für Umwelt und Natürliche Ressourcen \\
-				Masterstudiengang Umweltwissenschaften \\% mit der Profillinie Umweltmodellierung und GIS
-			\end{flushleft}
+	% -------------------------------
+	% --- frontmatter: Title page ---
+	% -------------------------------
+	\thispagestyle{empty}
+	
+	\raggedright
+	
+	\begin{center}
+		
+		\begin{minipage}{0.8\textwidth}%
+			%
+			{\large{ \begin{flushleft}Albert-Ludwigs-Universität Freiburg \\
+						Fakultät für Umwelt und Natürliche Ressourcen \\
+						Masterstudiengang Umweltwissenschaften \\% mit der Profillinie Umweltmodellierung und GIS
+					\end{flushleft}
+				}
 			}
-	}
-\end{minipage}%
-\hspace{0.5cm}
-\begin{minipage}{0.15\textwidth}%
-	\includegraphics[width = 0.9\textwidth]{figures/Uni_Logo.pdf}
-\end{minipage} \\ \vspace*{\fill}
-
-
- 
-  \Large{$title$} \\ \vspace*{\fill}
-  
-  \includegraphics[width=0.8\textwidth]{figures/Schulinsektenhaus}
-  
-
-  \large{\thesistype{}} \\ \vspace*{\fill}
-  
-  
-  \large{$author$, Matrikelnummer: 3548205} \\
-  \large{Abgabetermin: $examdate$}
-
-\end{center}
-\newpage\null\thispagestyle{empty}\newpage
-
-% -------------------------------------------------
-% --- frontmatter: declaration of authorship ------
-% -------------------------------------------------
-
-\newpage
-\thispagestyle{empty}
-
-\begin{scriptsize}
-	Titelbild: Alle Bilder entstanden im Jahr 2019. Alle drei Bilder mittig und unten links wurden mir freundlicherweise von Felix Fornoff bereitgestellt. Alle anderen Bilder entstanden im Rahmen dieser Masterarbeit. Von links nach rechts:\\
-	1. Reihe: Ein Kasten mit genadelten \textit{Heriades truncorum}, eine Nisthilfe mit vielen Nestern, eine mit \textit{Chaetodatctylus} befallene Biene der Gattung \textit{Hylaeus}\\
-	2. Reihe: Genadelte Parasitoidie der Familie der Schlupfwespen, eine Kiste mit bereits geöffneten Nestern des Morphotyp \textit{Osmia}, genadelte Blattschneiderbienen: \textit{Megachile rotundata}\\
-	3. Reihe: Eine genadelte Goldwespe, eine Nisthilfe mit vielen Nestern, ein Nest der Gartenwollbiene: \textit{Anthidium manicatum} (rechts oben), genadelte Blattschneiderbienen: \textit{Megachile ligniseca} (rechts unten)\\
-	4. Reihe: Nest mit sich entwickelnden Larven von \textit{Osmia bicornis}, eine Goldwespe durchs Binokular fotographiert.\\
-\end{scriptsize}
- 
-
-\vspace*{\fill}
-
-
-Die vorliegende \thesistype{} wurde im $institute$ $instituteshort$ an der Professur für Naturschutz und Landschaftsökologie angefertigt. 
-
-
-
-
-\vspace{3cm}
-
-\begin{tabular}{ c c }
-Gutachter der Arbeit:       &  $referee1$ \\
-                            &  Professur für Naturschutz und Landschaftsökologie    \\
-Zweitgutachter der Arbeit:  &  $referee2$ \\
-                            &  Abteilung für Biometrie und Umweltsystemanalyse \\
-\end{tabular}
-
-
-
-\newpage
-
-% ------------------------------------
-% --- frontmatter: Secound Page ------
-% ------------------------------------
-
-\pagebreak
-\thispagestyle{empty}
-\null
-\newpage
-
-% --------------------------------------------
-% --------------- Dedication -----------------
-% --------------------------------------------
-$if(dedication)$
-\null
-\vspace{5cm}
-\begin{center}
-\textit{$dedication$}
-\end{center}
-\newpage\null\thispagestyle{empty}\newpage
-$endif$
-
-% ------------------------------------
-% --- frontmatter: Acknowledgement ---
-% ------------------------------------
-
-$if(acknowledge)$
-\newpage
-$acknowledge$
-$endif$
-\pagestyle{plain}
-\pagenumbering{roman}   % define page number in roman style
-\setcounter{page}{1}    % start page numbering
-\newpage\null\thispagestyle{empty}\newpage
-
-% --------------------------------------------
-% ---------- List of publications ------------
-% --------------------------------------------
-
-$if(list-of-publications)$
-$list-of-publications$
-\newpage\null\thispagestyle{empty}\newpage
-$endif$
-
-% -------------------------------------
-% --- frontmatter: Zusammendfassung ---
-% -------------------------------------
-
-$zusammenfassung$
-\newpage\null\thispagestyle{empty}\newpage
-
-% -----------------------------
-% --- frontmatter: Abstract ---
-% -----------------------------
-
-$abstract$
-\newpage\null\thispagestyle{empty}\newpage
-
-% -----------------------------
-% --- frontmatter: Contents ---
-% -----------------------------
-\newpage
-\tableofcontents
-\clearpage
-
-% ----------------------------------------------------------
-% --- frontmatter: List of Abbreviations (not mandatory) ---
-% ----------------------------------------------------------
-$if(abbreviations)$
-\newpage
-$abbreviations$
-%$endif$
-
-% ----------------------------------------------------
-% --- frontmatter: List of Figures (not mandatory) ---
-% ----------------------------------------------------
-$if(lof)$
-%\newpage
-\listoffigures
-\addcontentsline{toc}{section}{Abbildungsverzeichnis}
-$endif$
-
-% ---------------------------------------------------
-% --- frontmatter: List of Tables (not mandatory) ---
-% ---------------------------------------------------
-$if(lot)$
-\newpage
-\listoftables
-\addcontentsline{toc}{section}{Tabellenverzeichnis}
-$endif$
-
-% -------------------------------
-% --- main body of the thesis ---
-% -------------------------------
-\newpage
-\pagestyle{plain}
-\setcounter{page}{1}    % start page numbering anew
-\pagenumbering{arabic}  % page numbers in arabic style
-
-$body$
-
-\newpage
-Hiermit versichere ich, die vorliegende Arbeit selbständig verfasst zu haben. Ich habe keine anderen als die angegebenen Quellen und Hilfsmittel benutzt und alle wörtlich oder sinngemäß aus   anderen   Werken   übernommenen   Inhalte   als   solche   kenntlich   gemacht.   Die   eingereichte Masterarbeit  war  oder  ist  weder  vollständig  noch  in  wesentlichen  Teilen  Gegenstand  eines  anderen Prüfungsverfahrens.  Die  elektronische  Version  der  eingereichten  Masterarbeit  stimmt  in  Inhalt  und Formatierung mit den auf Papier ausgedruckten Exemplaren überein.
-
-
+		\end{minipage}%
+		\hspace{0.5cm}
+		\begin{minipage}{0.15\textwidth}%
+			\includegraphics[width = 0.9\textwidth]{figures/Uni_Logo.pdf}
+		\end{minipage} \\ \vspace*{\fill}
+		
+		
+		
+		\Large{$title$} \\ \vspace*{\fill}
+		
+		\includegraphics[width=0.8\textwidth]{figures/Schulinsektenhaus}
+		
+		
+		\large{\thesistype{}} \\ \vspace*{\fill}
+		
+		
+		\large{$author$, Matrikelnummer: 3548205} \\
+		\large{Abgabetermin: $examdate$}
+		
+	\end{center}
+	\newpage\null\thispagestyle{empty}\newpage
+	
+	% -------------------------------------------------
+	% --- frontmatter: declaration of authorship ------
+	% -------------------------------------------------
+	
+	\newpage
+	\thispagestyle{empty}
+	
+	\begin{scriptsize}
+		Titelbild: Alle Bilder entstanden im Jahr 2019. Alle drei Bilder mittig und unten links wurden mir freundlicherweise von Felix Fornoff bereitgestellt. Alle anderen Bilder entstanden im Rahmen dieser Masterarbeit. Von links nach rechts:\\
+		1. Reihe: Ein Kasten mit genadelten \textit{Heriades truncorum}, eine Nisthilfe mit vielen Nestern, eine mit \textit{Chaetodatctylus} befallene Biene der Gattung \textit{Hylaeus}\\
+		2. Reihe: Genadelte Parasitoidie der Familie der Schlupfwespen, eine Kiste mit bereits geöffneten Nestern des Morphotyp \textit{Osmia}, genadelte Blattschneiderbienen: \textit{Megachile rotundata}\\
+		3. Reihe: Eine genadelte Goldwespe, eine Nisthilfe mit vielen Nestern, ein Nest der Gartenwollbiene: \textit{Anthidium manicatum} (rechts oben), genadelte Blattschneiderbienen: \textit{Megachile ligniseca} (rechts unten)\\
+		4. Reihe: Nest mit sich entwickelnden Larven von \textit{Osmia bicornis}, eine Goldwespe durchs Binokular fotographiert.\\
+	\end{scriptsize}
+	
+	
+	\vspace*{\fill}
+	
+	
+	Die vorliegende \thesistype{} wurde im $institute$ $instituteshort$ an der Professur für Naturschutz und Landschaftsökologie angefertigt. 
+	
+	
+	
+	
+	\vspace{3cm}
+	
+	\begin{tabular}{ c c }
+		Gutachter der Arbeit:       &  $referee1$ \\
+		&  Professur für Naturschutz und Landschaftsökologie    \\
+		Zweitgutachter der Arbeit:  &  $referee2$ \\
+		&  Abteilung für Biometrie und Umweltsystemanalyse \\
+	\end{tabular}
+	
+	
+	
+	\newpage
+	
+	% ------------------------------------
+	% --- frontmatter: Secound Page ------
+	% ------------------------------------
+	
+	\pagebreak
+	\thispagestyle{empty}
+	\null
+	\newpage
+	
+	% --------------------------------------------
+	% --------------- Dedication -----------------
+	% --------------------------------------------
+	$if(dedication)$
+	\null
+	\vspace{5cm}
+	\begin{center}
+		\textit{$dedication$}
+	\end{center}
+	\newpage\null\thispagestyle{empty}\newpage
+	$endif$
+	
+	% ------------------------------------
+	% --- frontmatter: Acknowledgement ---
+	% ------------------------------------
+	
+	$if(acknowledge)$
+	\newpage
+	$acknowledge$
+	$endif$
+	\pagestyle{plain}
+	\pagenumbering{roman}   % define page number in roman style
+	\setcounter{page}{1}    % start page numbering
+	\newpage\null\thispagestyle{empty}\newpage
+	
+	% --------------------------------------------
+	% ---------- List of publications ------------
+	% --------------------------------------------
+	
+	$if(list-of-publications)$
+	$list-of-publications$
+	\newpage\null\thispagestyle{empty}\newpage
+	$endif$
+	
+	% -------------------------------------
+	% --- frontmatter: Zusammendfassung ---
+	% -------------------------------------
+	
+	$zusammenfassung$
+	\newpage\null\thispagestyle{empty}\newpage
+	
+	% -----------------------------
+	% --- frontmatter: Abstract ---
+	% -----------------------------
+	
+	$abstract$
+	\newpage\null\thispagestyle{empty}\newpage
+	
+	% -----------------------------
+	% --- frontmatter: Contents ---
+	% -----------------------------
+	\newpage
+	\tableofcontents
+	\clearpage
+	
+	% ----------------------------------------------------------
+	% --- frontmatter: List of Abbreviations (not mandatory) ---
+	% ----------------------------------------------------------
+	$if(abbreviations)$
+	\newpage
+	$abbreviations$
+	%$endif$
+	
+	% ----------------------------------------------------
+	% --- frontmatter: List of Figures (not mandatory) ---
+	% ----------------------------------------------------
+	$if(lof)$
+	%\newpage
+	\listoffigures
+	\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+	$endif$
+	
+	% ---------------------------------------------------
+	% --- frontmatter: List of Tables (not mandatory) ---
+	% ---------------------------------------------------
+	$if(lot)$
+	\newpage
+	\listoftables
+	\addcontentsline{toc}{section}{Tabellenverzeichnis}
+	$endif$
+	
+	% -------------------------------
+	% --- main body of the thesis ---
+	% -------------------------------
+	\newpage
+	\pagestyle{plain}
+	\setcounter{page}{1}    % start page numbering anew
+	\pagenumbering{arabic}  % page numbers in arabic style
+	
+	$body$
+	
+	\newpage
+	Hiermit versichere ich, die vorliegende Arbeit selbständig verfasst zu haben. Ich habe keine anderen als die angegebenen Quellen und Hilfsmittel benutzt und alle wörtlich oder sinngemäß aus   anderen   Werken   übernommenen   Inhalte   als   solche   kenntlich   gemacht.   Die   eingereichte Masterarbeit  war  oder  ist  weder  vollständig  noch  in  wesentlichen  Teilen  Gegenstand  eines  anderen Prüfungsverfahrens.  Die  elektronische  Version  der  eingereichten  Masterarbeit  stimmt  in  Inhalt  und Formatierung mit den auf Papier ausgedruckten Exemplaren überein.
+	
+	
 \end{document}
