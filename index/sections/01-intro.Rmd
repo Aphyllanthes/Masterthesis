@@ -95,14 +95,14 @@ ggplot()  + geom_sf(data = germany) + geom_sf(data = mypoint)
 ```
 
 
-## Der Einfluss der Landnutzung auf Wildbienen 
+## Einflussfaktoren auf Wildbienen 
 <!-- Allgemeines aus @roulston2011 -->
 
 <!-- Studien im Landwirtschaftlichen Kontext und im Bereich natürlicher Habitate wurde bereits intensiv untersucht. Der Anteil natürlicher Habitate in der Landschaft nimmt im Gegensatz zum Siedlungsbereich ab. -->
 <!-- - Einfluss von Landwirtschaft auf Wildbienen -->
 <!-- - Einfluss von natürlichen Habitaten auf Wildbienen -->
 
-
+### Landnutzung
 Natürliche Habitate bieten Wildbienen Nahrungsressourcen und Nistplätze, welche durch die Verdrängung von Landschaftselementen wie Baumgruppen, Hecken oder extensiv bewirtschafteten Wiesen verloren gehen [@banaszak-cibicka2012]. Somit wird die Zerstörung und Zerstückelung von Habitaten im Zuge des Landschaftswandels als Hauptursache für die Abnahme der Bienendiversität gesehen [@wagner2020; @brown2009; @winfree2009]. In Deutschland sind natürliche Habitate wie Hecken oder Waldinseln durch die Zerstörung bedroht, oder bereits zu großen Teilen aus dem Landschaftsbild verschwunden, unter anderem durch die Flurbereinigung [@haber1998; @hotes2010]. Diese Entwicklung der Landschaft mit einer Intensivierung der Landwirtschaft und einer zunehmenden Urbanisierung zulasten der natürlichen Habitate wird weltweit beobachtet.
 <!-- vlt noch kulturlandschaft wo mit unsere heutige Insektenwelt herkommt erwähnen. Davor war hier nur wald und sicher eine ganz andere Insektenzusammensetzung. -->
 Neben natürlichen Habitaten sind für die komplexen Lebensraumansprüche von Wildbienen verschiedene Landnutzungsformen wie landwirtschaftliche Flächen und der städtische Bereich in unterschiedlichem Maße geeignet.  
@@ -110,7 +110,7 @@ Viele Studien wurden bereits im Kontext der Agrarlandschaft durchgeführt, um di
 Einen Aspekt, der den negativen Einfluss der Agrarlandschaft beschreibt zeigt die Studie von @tscharntke1998, welche aufzeigt, dass Bienen auf natürlich bewachsenen Flächen sehr viel weniger Zeit benötigen, um ihre Pollenvorräte anzulegen, als auf einheitlich besäten Flächen.  
 In der Landwirtschaft ist die Nähe zu natürlichen Habitaten wichtig, um die Bestäubungsleistung durch Wildbienen zu gewährleisten [@garibaldi2011; @ricketts2008; @lefeon2010]. Dies zeigt der Anteil von semi-natürlichen Habitaten in der Landschaft, welcher einen positiven Einfluss auf die Artenzahl der Wildbienen sowie ihrer Parasiten hat [@steffan-dewenter2002]. Auch die Ergebnisse der Studie von @holzschuh2010, die den Anteil von Nicht-Ackerland-Habitaten in der Landschaft untersucht haben, beschreiben diesen Zusammenhang. Der Anteil von Nicht-Ackerland-Habitaten in der Landschaft hat sowohl einen positiven Effekt auf Artenzahl sowie Abundanz von Bienen in Nisthilfen, als auch auf die Abundanz der in Deutschland in den Nisthilfen häufigsten Bienenart *Osmia bicornis*.
 
-### Der Einfluss von Urbanisierung auf Wildbienen
+### Urbanisierung 
 Neben Agrarlandschaft und natürlichen Habitaten, bleibt noch der durch seine starke Strukturheterogenität charakterisierte urbane (städtische) Raum, den Wildbienen besiedeln. Die Lebensbedingungen und Zusammenhänge in einem "urbanen Ökosystem" zu verstehen, ist aufgrund der Heterogenität vieler Strukturen und Prozesse in Städten eine besondere Herausforderung. 
 Gerade weil sich die ökologischen Zusammenhänge in Städten stark von denen in der natürlichen Umwelt unterscheiden, können die Reaktionen auf Urbanisierung wie bei herbivoren Arthropoden [@raupp2010] taxonspezifisch sein. Das Vorkommen von bestimmten Arten in Städten hängt von vielen Faktoren wie der Verfügbarkeit von Nahrungsressourcen, der Vernetzung von Habitaten und von dem Vorhandensein "ökologischer Fallen", z.B. Reflexionen von beleuchteten Asphaltflächen die fälschlicherweise als Wasserfläche wahrgenommen werden, ab [@new2015].  
 
@@ -118,10 +118,9 @@ Gerade weil sich die ökologischen Zusammenhänge in Städten stark von denen in
 Die Bedeutung der urbanen Biodiversität ist aufgrund des weltweit hohen Flächenanteils von Städten nicht zu unterschätzen. Denn es kommen auch im städtischen Bereich seltene oder vom Aussterben bedrohte Arten vor, die es zu schützen bedarf. Des weiteren gibt es in Städten Korridore zur Vernetzung von Populationen, die geschaffen bzw. erhalten werden sollten. Darüber hinaus wird das Interesse an Umweltwandel und Umweltbildung durch die urbane Diversität gefördert [@dearborn2010]. Diese Gründe für Erhalt, Schutz und Förderung der urbanen Diversität zeigen auf, wie wichtig eine genauere Kenntnis der ökologischen Prozesse und Zusammenhänge im städtischen Kontext sind. Denn erst durch die Kenntnis über das Potential des heterogenen urbanen Raums, diverse Bienengemeinschaften zu beherbergen, wird ein aktiver Schutz der Biodiversität ermöglicht.
  
 <!-- Um die Ursachen des Insektensterbens besser bewerten zu können bedarf es noch Forschungsarbeit insbesondere zu ökologischen Gradienten [@wagner2020]. -->
-Das Verständnis der Wildbienen im urbanen Raum kann durch die Analyse der Arten entlang des Stadt-Land-Gradienten verbessert werden. Durch die Analyse entlang des Gradienten lassen sich Rückschlüsse über die Resilienz der Arten sowie die Reaktionen der untersuchten Arten auf Veränderungen entlang des Gradienten, ziehen [@new2015].    
+Das Verständnis der Wildbienen im urbanen Raum kann durch die Analyse der Arten entlang des Stadt-Land-Gradienten verbessert werden. Durch die Analyse lassen sich Rückschlüsse über die Resilienz der Arten entlang des Gradienten ziehen [@new2015].    
 Der Stadt-Land-Gradient beschreibt die räumliche Komponente der Urbanisierung, wobei auch gesagt werden kann, dass die Standorte entlang des Gradienten für unterschiedliche Punkte im zeitlichen Verlauf der Verstädterung stehen. Der Gradient zeigt somit auch einen zeitlichen Trend der fortschreitenden Urbanisierung.    
 Das Konzept des Stadt-Land-Gradienten basiert auf der Annahme, dass die Landnutzungsintensität von schwach entwickelten ländlichen Gebieten über die Vorstadt hin zum Stadtkern zunimmt [@warren2018] und die Habitatqualität abnimmt. Der Stadt-Land Gradient wird häufig durch die Proxy-Variable Versiegelungsgrad beschrieben. Versiegelung bezeichnet Flächen die durch Menschliche Bedeckung des Bodens, beispielsweise durch Bauwerke oder Asphaltflächen, wasserundurchlässig sind. Der Anteil versiegelter Fläche ist durch seinen Einfluss auf Habitatverluste und Habitatzerstückelung laut @geslin2016 ein Hauptfaktor zur Beschreibung der Bestäuber im städtischen Bereich. Des Weiteren steht der Versiegelungsgrad auch im Zusammenhang mit der Umgebungstemperatur, Bodenverdichtung und Luftverschmutzung [@mckinney2002], welche zusätzliche potentielle Einflüsse auf Bestäuber darsellen. <!-- impervious surfaces often implies joint modifications of the ecosystems at landscape and local scales (in addition to habitat loss in terms of floral resources and nesting sites) such as an increase in the ambient temperature, a soil compaction, and also soil and air pollution (McKinney 2002)  ; (Ahrne et al. 2009; Banaszak-Cibicka and Z_mihorski 2012; Geslin et al. 2013). -->
-Durch die antropogen beeinflussten Habitateigenschaften, Ressourcenverfügbarkeiten und Interaktionen der Arten bei einem mittleren Urbanisierungsniveau erklären @shochat2006 diesen als Höhepunkt der Diversiät.
 
 
 <!-- In dieser Arbeit werden die Nisthilfen-besiedelnden Bienen im Kontext des Stadt-Land-Gradienten und der Landschaftskomplexität analysiert.  -->
@@ -141,11 +140,11 @@ Auch laut @fetridge2008 haben daher suburbane Landschaften das Potential diverse
 
 <!-- 2) Artengemeinschaft (Dissimilarity) in Städten -->
 Neben der Beschreibung von Artenzahlen und Abundanzen in Städten zeigt die Analyse der Zusammensetzung der Artengemeinschaft weitere Zusammenhänge auf. Entlang des Stadt-Land Gradienten können Arthropodenarten anhand ihrer Charakteristika in drei Kategorien eingeteilt werden: Taxa des ländlichen Raums (rural taxa / urbanophob), Stadt-Taxa (urban taxa / urbanophil) und Taxa sowohl der ländlichen als auch der städtischen Umwelt (adapters / moderate urbanophile) [@mcintyre2000; @mckinney2006].  
-Ein Beispiel für eine "moderate urbanophile" Art ist die häufigste in Mitteleuropa in Nisthilfen vorkommende Art, *Osmia bicornis*, die rostrote Mauerbiene. Die Art wurde von @everaars2011 in allen Bereichen der Stadt beobachtet. Dies lässt sich dadurch erklären, dass *Osmia bicornis* sowohl hinsichtlich der Art des Hohlraums, der als Nistplatz dient, als auch hinsichtlich der Futterpflanzen eine generalistische Art ist und in der Stadt ubiquitär vorkommt.
+Ein Beispiel für eine "moderate urbanophile" Art ist *Osmia bicornis*, die Rostrote Mauerbiene. Die Art wurde von @everaars2011 in allen Bereichen der Stadt beobachtet. Dies lässt sich dadurch erklären, dass *Osmia bicornis* sowohl hinsichtlich der Art des Hohlraums, der als Nistplatz dient, als auch hinsichtlich der Futterpflanzen eine generalistische Art ist und in der Stadt ubiquitär vorkommt.
   <!-- In dieser Arbeit wird Untersucht ob ... auch für Osmia bicornis zutrifft -->
 
 <!-- Species adapted to disturbance are even present in the centres of large cities (Corcos et al. 2019; Matteson et al. 2008). -->
-Auch ein Verlust der regionalen Einzigartigkeit der Artenzusammensetzung wird durch die Analyse der Artengemeinschaft in Städten deutlich. So ist die Arten-Diversität in Städten durchaus häufig hoch, jedoch überregional homogen [@mckinney2006]. Dies haben auch @banaszak-cibicka2020 in der polnischen Stadt Poznań für die Artengemeinschaft der Wildbienen beobachtet. Habitatzerstörung führt zu Homogenisierung der Artengemeinschaft  [@quintero2010]. @new2015 beschreibt dazu passend die Theorie, dass in Städten die Bedingungen an die Bedürfnisse des Menschen angepasst sind und sich somit überregional gleichen. So bietet das städtische Gefüge die Lebensgrundlage für viele, jedoch immer gleiche, Arten. Des Weiteren wurde die homogene urbane Bienengemeinschaft als eine Teilmenge der suburbanen und ländlichen Bienengemeinschaft beschrieben [@banaszak-cibicka2020].  
+Auch ein Verlust der regionalen Einzigartigkeit der Artenzusammensetzung wird durch die Analyse der Artengemeinschaft in Städten deutlich. So ist die Arten-Diversität in Städten durchaus häufig hoch, jedoch überregional homogen [@mckinney2006]. Dies haben auch @banaszak-cibicka2020 in der polnischen Stadt Poznań für die Artengemeinschaft der Wildbienen beobachtet. Habitatzerstörung führt zu Homogenisierung der Artengemeinschaft  [@quintero2010]. @new2015 beschreibt dazu passend die Theorie, dass in Städten die Bedingungen an die Bedürfnisse des Menschen angepasst sind und sich somit überregional gleichen. So bietet das städtische Gefüge die Lebensgrundlage für viele, jedoch immer gleiche, Arten. Die urbane Bienengemeinschaft wurde als eine Teilmenge der suburbanen und ländlichen Bienengemeinschaft beschrieben [@banaszak-cibicka2020].  
 In dieser Arbeit wird untersucht, inwiefern die Homogenisierung der Artengemeinschaft in Städten auch für Nishilfen-besiedelnde Wildbienen deutschlandweit in Städten zutrifft. <!-- Zum Anteil von soil-nesting species (Cane2005, Cane2006)- quellen von fetridge2008 -->
 
 <!-- 1.2) Parasitenartenzah in Städten -->
@@ -165,13 +164,14 @@ Neben den nicht parasitischen Wildbienen, werden auch die natürlichen Gegenspie
 <!-- @darocha-filho2020 heterogeneous  landscapes  in  urban  areas  can  harbour  species-rich communities of cavity-nesting bees, wasps, and their natural enemies even when compared  to  areas  with  diverse  native  vegetation  with  similar  original  ecosystems -->
 
 
-## Der Einfluss von Landschaftsstruktur und -Komplexität auf Wildbienen
-Der Einfluss des Menschen auf die Landschaft äußert sich in vielerlei Hinsicht. Eine Möglichkeit der Beschreibung der Landschaft besteht in der Klassifizierung anhand der Landnutzung in Landnutzungsklassen. Aus den Landnutzungklassen, die jeweils eine Landnutzungsform beschreiben, können Landschaftsstruktur und -komplexität ermittelt werden. Diese haben ökologische Eigenschaften welche die Verfügbarkeit und Kombination von verschiedenen Ressourcen beschreiben, und somit Wildbienenhabitate unterschiedlicher Qualtität bilden. Denn jede Landnutzungsform bietet spezifische Ressourcen und somit Habitate bzw. Habitatfragmente. Aneinandergrenzende Landnutzungsformen können durch die Kombination von verschiedenen Ressourcen zusätzliche Habitate für Wildbienen bieten [@westrich1996]. So hat die Größe und Form (Landschaftsstruktur) der Flächen einer Landnutzungsform sowie Anzahl verschiedener Landnutzungsformen (Landschaftskomplexität) einen Einfluss auf vorkommende Bienenarten [@steffan-dewenter2003a].
+### Landschaftsstruktur und -Komplexität
+Der Einfluss des Menschen auf die Landschaft äußert sich in vielerlei Hinsicht. Die Größe und Form (Landschaftsstruktur) der Flächen einer Landnutzungsklasse sowie Anzahl verschiedener Landnutzungsklassen (Landschaftskomplexität) hat einen Einfluss auf vorkommende Bienenarten [@steffan-dewenter2003a].
+ Eine Möglichkeit der Beschreibung der Landschaft besteht in der Klassifizierung anhand der Landnutzung in Landnutzungsklassen. Aus den Landnutzungklassen, können Landschaftsstruktur und -komplexität ermittelt werden. Jede Landnutzungsform bietet spezifische Ressourcen und somit Habitate bzw. Habitatfragmente. Aneinandergrenzende Landnutzungsformen können durch die Kombination von verschiedenen Ressourcen zusätzliche Habitate für Wildbienen bieten [@westrich1996].  
 Ein weiteres Maß für die Landschaftskomplexität ist die Kantendichte, welche als Index für das Habitatnetzwerk dient. Denn die Gesamtmenge an Kanten zwischen Landnutzungsklassen in einer Landschaft steht in direktem Zusammenhang zur räumlichen Heterogenität der Landschaft [@mcgarigal1995]. 
 Der Kantentyp, also welche zwei Landnutzungsklassen aneinandergrenzen, kann dabei einen Einfluss auf die Alpha-, Beta- und Gammadiversität haben, wie es @ma2013 für Pflanzen beschrieben haben.
 
 Verschiedene Studien, die den Einfluss der Landschaftsstruktur und -komplexität auf Wildbienen  im landwirtschaftlichen Kontext untersucht haben, kommen zu unterschiedlichen Ergebnissen. So haben @hopfenmuller2014 eine Abhängigkeit der Artenzahl von Bienen von der Landschaftskomplexität aufgezeigt. Im Gegensatz dazu hat die Landschaftstruktur sowie Habitatisolation von Gehölz- und Waldhabitaten im landwirtschaftlichen Kontext in der Studie von @schuepp2011 keinen Einfluss auf die Artenzahl der Bienen in Nisthilfen. Auch in der Arbeit von @steffan-dewenter2003a wurde kein Einfluss der Landschaftskomplexität auf Artenzahlen von Bienen und natürlichen Gegenspielern in Nisthilfen beobachtet, allerdings ein positiver Einfluss auf die Abundanz der Bienen. 
-Es wurde nach meinem Wissen noch nicht untersucht ob sich dieser Effekt auch durch die Beschreibung der Landschaftstruktur anhand einer satelitenbasierten Klassifikation der Landnutzungsformen zeigt, was in dieser Arbeit untersucht wird.
+Es wurde nach meinem Wissen noch nicht untersucht, ob sich dieser Effekt auch durch die Beschreibung der Landschaftstruktur anhand einer satelitenbasierten Klassifikation der Landnutzungsformen zeigt, was in dieser Arbeit untersucht wird.
 
 <!-- - Landschaftskomplexität und Parasiten -->
 <!-- - Landschaftskomplexität und *Osmia bicornis* -->
@@ -180,8 +180,8 @@ Es wurde nach meinem Wissen noch nicht untersucht ob sich dieser Effekt auch dur
 
 <!-- komplexität der landschaft: landschaftsmatrix, welche habitatfragmente sind vorhanden? (steffan-dewenter2002) -->
 
-## Der Einfluss von vorhandenen Insektenhäusern auf Wildbienen
-Der Einfluss des Versiegelungsgrades, als auch von Landschaftsstruktur- und -komplexität auf Wildbienen beinhaltet jeweils den Aspekt verfügbarer Nistmöglichkeiten. Da diese Ressource durch sogenannte Insektenhäuser künstlich bereitgestellt werden kann, muss der Einfluss von vorhandenen Nistmöglichkeiten in Insektenhäusern auf die Wildbienen  [@westrich1996] in der Analyse von Landschaftsparametern berücksichtigt werden.
+### Bestehende Insektenhäusern
+Der Einfluss des Versiegelungsgrades, als auch von Landschaftsstruktur- und -komplexität auf Wildbienen beinhaltet jeweils den Aspekt verfügbarer Nistmöglichkeiten. Da Nistmöglichkeiten durch Insektenhäuser künstlich bereitgestellt werden kann, muss dessen Einfluss auf die Wildbienen  [@westrich1996] in der Analyse zusätzlich berücksichtigt werden.
 Das Vorkommen von Wildbienen kann durch künstlichen Nisthilfen gefördert werden [@tscharntke1998; @gathmann1999]. So erhöhte sich die Abundanz der Nisthilfen-besiedelnden Arten in der Studie von @tscharntke1998  um das zweifache bei Verdreifachung der Nisthilfen. Der Einfluss der durch Nisthilfen gegebenen Nistressourcen auf die Artenzahl wurde in der Studie nicht explizit untersucht. Dennoch zeigen Flächen mit gleicher Vegetationsdeckung aber ungleicher Verfügbarkeit von Nistmöglichketeiten durch Obstbäume, eine höhere Artenzahl der Wildbienen bei Vorhandensein der Obstbäume als bei fehlen dieser.
 Auch @steffan-dewenter2008 kommen in ihrer Studie zur Rostroten Mauerbiene (*Osmia bicornis*) zu dem Schluss, das die Populationsdynamik hauptsächlich von verfügbaren Nistmöglichkeiten beeinflusst wird - welche in ihrer Studie durch Nisthilfen gegeben waren. 
 
@@ -195,9 +195,9 @@ Auch @steffan-dewenter2008 kommen in ihrer Studie zur Rostroten Mauerbiene (*Osm
 <!-- @vonkonigslow2019: With increasing environmental awareness among citizens, so-called ‘bee hotels’ or ‘insect hotels’ are installed in a growing number of gardens and public greenspaces to provide nesting resources for bees (Césard et al. 2014; MacIvor and Packer 2015). -->
 
 
-## Der Einfluss abiotischer Faktoren auf Wildbienen
+### Abiotische Faktoren 
 Die Artenzahlen von Wirtsbienen, ihren Gegenspielern und die Abundanzen von Wildbienen werden zusätzlich zum Einfluss der Landschaft auch von abiotischen Faktoren wie Temperatur, Niederschlag und Höhenlage beeinflusst. Temperatur und Niederschlag haben einen direkten physiologischen Einfluss auf Wildbienen. Hinzu kommt der indirekte Einfluss, da diese Parameter und auch die Höhenlage des Standortes die Nahrungsressourcen der Wildbienen beeinflussen. Die klimatischen Bedingungen steuern die zeitliche Verfügbarkeit der Nahrungsressourcen und auch ihre Quantität und sind unter anderem durch die Höhenlage geprägt [@mayr2020].  
-Der Fokus dieser Arbeit liegt nicht auf dem Einfluss abiotischer Faktoren auf die Wildbienen, dennoch werden sie in die Analyse miteinbezogen, insbesondere um ihren Einfluss vom Einfluss der Landschaftsparameter abgrenzen zu können.
+Der Fokus dieser Arbeit liegt nicht auf dem Effekt abiotischer Faktoren auf die Wildbienen, dennoch werden sie in die Analyse miteinbezogen. Insbesondere um ihren Einfluss vom dem der Landschaftsparameter abgrenzen zu können.
 
 <!-- Weil diese Parameter die Modelle zu Landnutzung und Struktur potentiell verbessern können -->
 
@@ -275,7 +275,7 @@ Zur Analyse des Stadt-Land-Gradienten werden Flächenversiegelungsdaten verwende
 Als Indizes für die Landschaftskomplexität werden die Anzahl verschiedener Landnutzungsklassen, sowie der Strukturreichtum der Landschaft (Kantendichte/Edge-Density) der Landnutzungsklassen herangezogen.      
 <!-- Zusätzlich wird der Anteil natürlicher Habitate sowie der Anteil an Landwirtschaftlichen Flächen gesondert betrachtet. -->
 
-Die folgenden Fragestellungen und Hypothesen werden im Verlauf dieser Arbeit behandelt:
+Den folgenden Fragestellungen und Hypothesen wird nachgegangen:
 
 - Welche Arten von Bienen und Gegenspielern kommen in Nisthilfen in siedlungsbereichen Deutschlands vor? Die Zusammenfassung verschiedener Artenlisten von @tscharntke1998 ergaben 33 Wirts-Bienenarten und zusätzliche Kuckucksbienenarten. Für ein Monitoring, das sich über ganz Deutschland erstreckt erwarte ich diese Arten ebenfalls zu finden und potenziell neue Arten zu erfassen. Dies begründet sich auf der Tatsache, dass für Stadtrandbereiche eine hohe Bienen- und Insektendiversität beschrieben ist [@pereira-peixoto2014; @fetridge2008; @goddard2010; @samnegard2011], da sie durch ihren hohen Strukturreichtum verschiedene Lebensräume bieten können und Nahrungsressourcen übers Jahr verteilt verfügbar sind. 
 
@@ -283,10 +283,10 @@ Die folgenden Fragestellungen und Hypothesen werden im Verlauf dieser Arbeit beh
   - ist bei hohem Versiegelungsgrad homogener als bei mittlerem oder geringem Versiegelungsgrad, da sich Strukturen in Städten gleichen und überregional den selben Arten als Lebensraum dienen.
 
 - Der Anzahl der Bienenarten, die Abundanz der Bienen, die Abundanz von *Osmia bicornis* und die Anzahl der natürlichen Gegenspiler ist bei mittlerem Versiegelungsgrad am höchsten:
-  - Denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten (rural Taxa) ebenso wie an städtische Gebiete angepasste Arten (urban Taxa) vorkommen können [@mcintyre2000] was zu einer hohen Artenzahl der Bienen führt.
+  - Denn im heterogenen Gefüge der Stadtrandbereiche, welche durch einen mittleren Versiegelungsgrad beschrieben werden, sind Nistmöglichkeiten und Futterressourcen am vielfältigsten [@fortel2014], sodass an ländliche Gebiete angepasste Arten ebenso wie an städtische Gebiete angepasste Arten vorkommen können [@mcintyre2000] was zu einer hohen Artenzahl der Bienen führt.
   - Auch die Abundanz (Gesamtanzahl angelegter Brutzellen) hängt von der Verfügbarkeit der Nahrungsressourcen und Nistressourcen ab [@roulston2011; @gathmann1999].
   - Die Artenzahl der natürlichen Gegenspieler ist bei mittlerem Versiegelungsgrad am höchsten, da die parasitischen Arten von der Artengemeinschaft ihrer Wirte abhängen [@fortel2014; @sheffield2013]. Der Effekt des Versiegelungsgrades auf die Parasitoide ist stärker als auf die Artenzahl der Wirte, da Arten höherer trophischer Ebenen anspruchsvoller an ihren Lebensraum sind als Arten niedrigerer trophischer Ebenen und somit auf Umweltveränderungen stärker reagieren [@davies2000; @albrecht2007; @steffan-dewenter2003a].
-  - Bereiche des mittleren Versiegelungsgrad stellen die Stadtrandbereiche mit vielfältigen kleinräumigen Strukturen dar, welche vielfältige Nahrungsressourcen für Bienen der Art *Osmia biconis* bieten was sich positiv aus deren Abundanz auswirkt.
+  - *Osmia bicornis* profitiert von vielfältigen kleinräumigen Strukturen der Stadtlandbereiche mit vielfältigen Nahrungsressourcen, welche durch den mittleren Versiegelungsgrad dargestellt werden.
 
 - Die Anzahl der Bienenarten, die Abundanz der Bienen und die Anzahl der natürlichen Gegenspiler nimmt mit der Landschaftskomplexität sowie mit dem Strukturreichtum zu: 
   - Mehr Strukturen und verschiedene Landnutzungsformen bieten in größerem Umfang Futterressourcen sowie Nistmöglichkeiten für viele verschiedene Bienenarten.
@@ -294,7 +294,7 @@ Die folgenden Fragestellungen und Hypothesen werden im Verlauf dieser Arbeit beh
   - Die Artenzahl der natürlichen Gegenspieler nimmt mit Landschaftskomplexität und Strukturreichtum zu, da die Vielfalt an Ressourcen vielen verschiedenen Lebensraumansprüchen gerecht wird [@pereira-peixoto2016].
   
 
-- Das Vorhandensein eines Insektenhauses in der Nähe der für diese Studie ausgebrachten Nisthilfen hat einen positiven Effekt auf Artenzahl und Abundanz von Wildbienen als auch auf die Abundanz von *Osmia bicornis*, da Nistmöglichkeiten insbesondere im Siedlungsbereich eine limitierte Ressource darstellen.
+- Das Vorhandensein eines Insektenhauses in der Nähe der Nisthilfen hat einen positiven Effekt auf Artenzahl und Abundanz von Wildbienen als auch auf die Abundanz von *Osmia bicornis*, da Nistmöglichkeiten insbesondere im Siedlungsbereich eine limitierte Ressource darstellen.
   <!-- parasiten und Insektenhaus?? und deren natürliche Gegenspieler -->
 
 

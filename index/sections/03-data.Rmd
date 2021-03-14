@@ -6,7 +6,7 @@ options(scipen=999)
 
 
 # Ergebnisse
-In den Nisthilfen des Schulinsektenhaus-Projektes welche im Jahr 2019 ausgehängt waren wurden 4716 Bienennester sowie 2147 Wespennester aufgefunden. Somit machen die in dieser Arbeit behandelten Nester etwa 70 % der vorgefundenen Nester aus. Die Wespennester werden in dieser Arbeit nicht behandelt.
+In den Nisthilfen des Schulinsektenhaus-Projektes welche im Jahr 2019 ausgehängt waren wurden 4716 Bienennester sowie 2147 Wespennester aufgefunden. Somit machen die in dieser Arbeit behandelten Nester etwa 70 % der vorgefundenen Nester aus. 
 Alle weiteren Ergebnisse beziehen sich ausschließlich auf die Biennennester. 
 <!-- In Abbildung \ref{deskriptiv} sind die Histogramme der Artenanzahl und Abundanz dargestellt. -->
 
@@ -23,7 +23,7 @@ load("my_work_space.RData")
 
 Von den insgesamt `r round(sum(nests$nb_cells, na.rm = T),0)` angelegten Zellen entwickelten sich in etwa 60 % (`r round(sum(nests$nb_pupa_larva, na.rm = T),0)` Brutzellen) Puppen bzw. Larven. Etwa 13 % der Angelegten Zellen wurde Parasitiert (`r sum(nests$parasitized_cells, na.rm = T)` Brutzellen).  
 In 45 der 259 Nisthilfen kamen keine Bienen vor.  
-Im mittel waren zwei Wirts-Bienenarten in einer Nisthilfe, die maximale Wirts-Artenzahl in einer Nisthilfe betrug sieben Arten. Der Mittelwert der Abundanz waren 72 Brutzellen pro Nisthilfe, 844 Brutzellen war das Maximum an Brutzellen in einer Nisthilfe. Histogramme von Artenzahl und Abundanz der Wildbienen sind im Anhang \@ref{app1} in Abbildung \ref{deskriptiv} dargestellt.
+Im mittel waren zwei Bienenarten in einer Nisthilfe, die maximale Bienenartenzahl in einer Nisthilfe betrug sieben Arten. Der Mittelwert der Abundanz waren 72 Brutzellen pro Nisthilfe, 844 Brutzellen war das Maximum an Brutzellen in einer Nisthilfe. Histogramme von Artenzahl und Abundanz der Wildbienen sind im Anhang \@ref(app1) in Abbildung \ref{deskriptiv} dargestellt.
 Die häufigste Art in den Nisthilfen war die Rostrote Mauerbiene (*Osmia bicornis*). Sie kam in 148 der 259 Nisthilfen vor. Im Mittel befanden sich 8,4 Nester in einer Nisthilfe, der Median lag bei 2 belegten Nestern pro Nisthilfe. Die Maximale Anzahl an Nestern in einer Nisthilfe betrug 115 Nester. Die Brutzellen von *O. bicornis* machen 40% der gesamten Brutzellen (Abundanz der Wildbienen) aus und die Nester der Art machten 46 % aller belegten Nester aus.  
  Die zweithäufigste Wirtsbienenart war die Gewöhnliche Löcherbiene (*Heriades truncorum*), welche 16 % der Nester belegte. *Osmia cornuta* und *Hylaeus communis* belegten jeweils etwa 8 % der Nester, alle weiteren Arten belegten jeweils weniger als 5 % der Nester.
 Der häufigste natürliche Gegenspieler war die Taufliege *Cacoxenus indagator*, welche 17 % aller Nester parasitierte. Arten der Überfamilie der Erzwespen (Chalcidoidea) parasitierten 150 Nester, also 3 % aller Nester, wobei vermutlich die Art *Melittobia acasta* den Großteil davon ausmachte. Die Kuckuckswespe *Sapygina decemguttata* kam mit einer Parasitierungsrate von knapp unter 3 % vor. Alle weiteren natürlichen Gegenspieler kamen je nur in weniger als 100 Nestern und somit in unter 2% aller Nester vor.
@@ -86,7 +86,7 @@ Die Artengemeinschaft von Standorten, bei denen im 500m-Radius Ackerland vorkomm
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Arten die nur in einem Nest vorkamen:
 lonely_species <- read.csv("../summaryTabellen/lonely_species_summary.csv") %>% 
-  mutate(imp500 = round(imp500,2)) %>% 
+  mutate(imp500 = round(imp500)) %>% 
   mutate(Art.x = stringr::str_to_sentence(Art.x)) %>% 
   rename(Art = Art.x)
 
@@ -109,7 +109,7 @@ In Tabelle \ref{multiple_species} sind alle Arten aufgeführt, die in mehr als e
 
 
 
-(ref:landspec) Auflistung der Arten, welche in mehr als einer Nisthilfe vorkamen. Die Nisthilfen wurden Anhand der 33% und 66%-Quantile des Versiegelungsgrades im 500m-Radius in die Kategorien 'Land' (<33%), 'Stadtrand' (>33% und <66%) und 'Stadt'(>66%)  unterteilt. In der Tabelle ist die Anzahl an besidelten Nisthilfen der jeweiligen Kategorie dargestellt und nach dem Antei der Nisthilfen in der Kategorie Stadt angeordnet. In der Spalte "mittl. Versiegelungsgrad" steht der Mittelwert des mittleren Versiegelungsgrad im 500m Radius um die Nisthilfen  aller Nisthilfen, in denen die jeweilige Art vorkam. \label{multiple_species}
+(ref:landspec) Auflistung der Arten, welche in mehr als einer Nisthilfe vorkamen. Die Nisthilfen wurden Anhand der 33% und 66%-Quantile des Versiegelungsgrades im 500m-Radius in die Kategorien 'Land' (<33%), 'Stadtrand' (>33% und <66%) und 'Stadt'(>66%)  unterteilt. In der Tabelle ist die Anzahl an besidelten Nisthilfen der jeweiligen Kategorie dargestellt und nach dem Anteil der Nisthilfen in der Kategorie Stadt angeordnet. In der Spalte "mittl. Versiegelungsgrad" steht der Mittelwert des mittleren Versiegelungsgrad im 500m Radius um die Nisthilfen  aller Nisthilfen, in denen die jeweilige Art vorkam. \label{multiple_species}
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -118,7 +118,7 @@ land_species <- read.csv("../summaryTabellen/Arten_Stad_Land.csv")
 land_species <- land_species %>% 
     mutate(Art.x = stringr::str_to_sentence(Art.x)) %>% 
   arrange(Anteil_stadt) %>% 
-  mutate(meanImp = round(meanImp, 2))
+  mutate(meanImp = round(meanImp))
 
 names(land_species) <- c("Art", "Land", "Stadtrand", "Stadt", "mittl. Versiegelungsgrad", "Anteil_Stadt")
 
@@ -405,7 +405,7 @@ p1a <- ggplot(data = pred_250) +
   stat_smooth(aes(imp, pred_mean), se = FALSE) +
   geom_ribbon(data = df2, aes(x = imp, ymin = pred_min, ymax  =pred_max), alpha = 0.2, fill = "blue") +
   geom_point(data = A1_250, aes(unscale(imp), Abundanz), alpha = 0.5) +
-  theme_bw()+
+  theme_bw(base_size = 9)+
   xlab("mittlerer Versiegelungsgrad [%] im 250m-Radius") +
   ylab("Abundanz (Anzahl der Brutzellen)")
 
@@ -444,7 +444,7 @@ p2a <- ggplot(data = pred_500) +
   stat_smooth( aes(imp, pred_mean), n = 259, se = FALSE) +
   geom_ribbon(data = df3, aes(x = imp, ymin = pred_min, ymax  =pred_max), alpha = 0.2, fill = "blue") +
   geom_point(data = A1_500, aes(unscale(imp), Abundanz), alpha = 0.5) +
-  theme_bw() +
+  theme_bw(base_size = 9) +
   xlab("mittlerer Versiegelungsgrad [%] im 500m-Radius") +
   ylab("Abundanz (anzahl Brutzellen)")
 
@@ -536,20 +536,23 @@ Zwischen den Parametern der Landschaftstruktur, Kantenlänge und Anzahl der Land
 
 
 ## Der Einfluss von bestehenden Insektenhäusern
-Für die Artenzahl der Bienen kann mit dem Datensatz von 129 Punkten ein positiver Einfluss von bestehenden Insektenhäusern beobachtet werden. Abundanz der Bienen und Abundanz von *Osmia bicornis* zeigen anhand ihrer Mittelwerte die Tendenz zu einem positiven Effekt von bestehenden Insektenhäusern, welche sich statistisch allerdings nicht nachweisen lässt.
+Für die Artenzahl der Bienen kann mit dem Subdatensatz von 129 Punkten ein positiver Einfluss von bestehenden Insektenhäusern beobachtet werden. Abundanz der Bienen und Abundanz von *Osmia bicornis* zeigen anhand ihrer Mittelwerte die Tendenz zu einem positiven Effekt von bestehenden Insektenhäusern, welche sich statistisch allerdings nicht nachweisen lässt.
 
 #### Artenzahl der Wildbienen in Abhängigkeit vorhandenen Insektenhäusern:
 Der Mittelwert der Artenzahl in Nisthilfen, die in der Nähe eines Insektenhauses aufgestellt waren, liegt bei 2,44 Arten, während er in Nisthilfen, in deren Umfeld kein Insektenhaus steht, bei 1,84 Arten liegt. Das Modell, welches den Zusammenhang von vorhandenen Insektenhäusern auf die Artenzahl beschreibt, erklärt $3.1 \%$ der Varianz der Artenzahl. Die Modellzusammenfassung ist in Tabelle \ref{summaryIH} abgebildet, der Effektplot des Modells ist in Abbildung \ref{effektplotIH} oben zu sehen. 
 Das Ergebnis der Modellierung zeigt einen schwach signifikanten Effekt ($p-Wert =0.03$) der vorhandenen Insektenhäuser auf die Artenzahl in den Nisthilfen auf und bestätigt die Hypothese, dass die Artenzahl in den Nisthilfen in der Nähe eines Insektenhauses höher ist als in Nisthilfen in deren Umfeld kein Insektenhaus vokommt.  
 
-Dieses Modell kann durch die Erweiterung um die Prädiktoren des mittleren Versiegelungsgrades als linearer sowie quadratischer Term nicht verbessert werden. Dies gilt für alle Radien, für den der mittlere Versiegelungsgrad berechnet wurde. Der AIC dieser Modelle im Vergleich zum einfacheren Modell ohne den Versiegelungsgrad als Prädiktor ist jeweils nicht mehr als 2 Einheiten unterschiedlich.    
-Umgekehrt verbessert der Parameter "Insektenhaus" das Modell mit den Prädiktoren "Versiegelungsgrad" und "Versiegelungsgrad im Quadrat" ebensowenig.  
+Dieses Modell kann durch die Erweiterung um die Prädiktoren des mittleren Versiegelungsgrades als linearen sowie quadratischen Term nicht verbessert werden. Dies gilt für alle Radien, für den der mittlere Versiegelungsgrad berechnet wurde. Der AIC dieser Modelle im Vergleich zum einfacheren Modell ohne den Versiegelungsgrad als Prädiktor ist jeweils nicht mehr als 2 Einheiten unterschiedlich.    
+Umgekehrt verbessert der Parameter Insektenhaus das Modell mit den Prädiktoren Versiegelungsgrad und Versiegelungsgrad im Quadrat ebensowenig.  
 <!-- with(summary(modelIH), (null.deviance-deviance)/null.deviance) -->
 Aus den beiden erklärenden Variablen, der Information zum vorhandensein eines Insektenhauses in der Nähe des Nisthilfenstandortes und dem Versiegelungsgrad, sticht somit keine Variable hervor, welche die Artenzahl der Wildbienen mit dem Datensatz von 129 Punkten, in besonderem Maße beschreibt.    
 
 #### Abundanz der Wildbienen in Abhängigkeit bestehenden Insektenhäusern:
 Der Mittelwert der Abundanz der Wildbienen in den Nisthilfen liegt bei 89,7 Brutzellen pro Nisthilfe, sofern im Umfeld der Nisthilfe ein Insektenhaus vorhanden war, und bei 66,4 Brutzellen pro Nisthilfe, sofern kein Insektenhotel in der Nähe der Nisthilfe vorhanden war. Die Modellierung der Abundanz anhand der Information von vorhandenen Insektenhäusern zeigt jedoch keinen signifikanten Einfluss ($p-Wert = 0.45$) des Insektenhauses auf die Abundanz auf (siehe Tab. \ref{summaryIH}). Das Modell entählt zusätzlich den mittleren Versiegelungsgrad im 250m-Radius als linearen und quadratischen Term.  
-Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius ist der einzige Radius des Versiegelungsgrades (aus den berechneten Radien von 100m, 250m, 500m, 1000m, 2000m), welcher das Modell der bestehenden Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell welches den Einfluss des Versiegelungsgrad der verschiedenen Radien beschreibt verbessert werden. 
+
+Nur der Versiegelungsgrad im 250 m Radius verbessert das Model. Behält man den Versiegelungsgrad im Modell, so verbessert das  das “Insektenhaus” das Modell nicht. Dies gilt für alle Radien.
+
+Die Erweiterung des Modells um den Versiegelungsgrad im 250m-Radius ist der einzige Radius des Versiegelungsgrades, welcher das Modell der bestehenden Insektenhäusern verbessert. Andersherum kann durch den Parameter "Insektenhaus" kein Modell welches den Einfluss des Versiegelungsgrad der verschiedenen Radien beschreibt verbessert werden. 
 Ein Effekt-Plot des um den Parameter des 250m-Versiegelungsgrades erweiterten Modells ist in Abbilung \ref{effektplotIH} unten links dargestellt. Das Modells zeigt einen negativen signifikanten linearen Zusammenhang zwischen dem mittleren Versiegelungsgrad im 250m-Radius und der Abundanz (siehe Tab. \ref{summaryIH}).
 
 
@@ -710,7 +713,8 @@ Die Modellzusammenfassung des Modells, welches den Einfluss der Artenzahl der Wi
 
 
 ## Analyse der Wirt-Parasitoid-Beziehungen
-Die Netzwerkanalyse der Wirt-Parasitoid-Beziehungen der Kategorie "Land", welche 107 Nisthilfenstandorte beinhaltet und der Kategorie "Stadt" welche 110 Nisthilfenstandorte beinhaltest, ergibt für beide Kategorieen mit dem Index H2' einen mittleren Spezialisierungsgrad von $0.60$ bzw. $0.61$. Alle Werte der Generalisierung der natürlichen Gegenspieler als auch der Vulnerabilität der Wirtsbienenarten beider Gruppen liegen zwischen $2.0$ und $2.5$. Somit sind keine deutlichen Unterschiede der Wirt-Parasit-Beziehungen zwischen ländlichen Nisthilfenstandorten und urbanen Nisthilfenstandorten zu erkennen. In Abbildung \ref{networkland} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Land" dargestellt, in Abbildung \ref{networkstadt} ist das Interaktionsnetzwerk der Nisthilfen der Kategorie "Stadt" dargestellt. Die Netzwerkdarstellung der Kategorie "Land" wirkt komplexer als die Netzwerkdarstellung der Kategorie "Stadt". Dies bedeutet jedoch nicht, dass sich der Spezialisierungsgrad unterscheidet, sondern lediglich, dass es insgesamt mehr Arten und somit auch mehr Interaktionen gibt.
+Die Netzwerkanalyse der Wirt-Parasitoid-Beziehungen der Kategorie "Land", welche 107 Nisthilfenstandorte beinhaltet und der Kategorie "Stadt" welche 110 Nisthilfenstandorte beinhaltest, ergibt für beide Kategorieen mit dem Index H2' einen mittleren Spezialisierungsgrad von $0.60$ bzw. $0.61$. Alle Werte der Generalisierung der natürlichen Gegenspieler als auch der Vulnerabilität der Wirtsbienenarten beider Gruppen liegen zwischen $2.0$ und $2.5$. Somit sind keine deutlichen Unterschiede der Wirt-Parasit-Beziehungen zwischen ländlichen Nisthilfenstandorten und urbanen Nisthilfenstandorten zu erkennen. 
+Die Netzwerkdarstellung der Kategorie "Land" (siehe Abbildung \ref{networkland}) wirkt komplexer als die Netzwerkdarstellung der Kategorie "Stadt" (siehe Abbildung \ref{networkstadt}). Dies bedeutet jedoch nicht, dass sich der Spezialisierungsgrad unterscheidet, sondern lediglich, dass es insgesamt mehr Arten und somit auch mehr Interaktionen gibt.
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Das bipartite Interaktionsnetzwerk der Nisthilfen der Kategorie Land. Die Kategorie beinhaltet alle Nisthilfen mit einem mittleren Versiegelungsgrad im 500m-Radius von weniger als 24\\% versiegelter Fläche. Die oberen Balken stellen die natürlichen Gegenspieler dar, die unteren Balken deren Wirte. Die Interaktionen sind durch die Verbindung der oberen und unteren Balken dargestellt. Die Balkendicke stellt die Häufigkeit der Interaktionen dar, wobei diese pro Nest gezählt wurden.  \\label{networkland}", fig.scap="Netzwerkdarstellung der Nisthilfen der Kategorie Land" }
@@ -747,7 +751,7 @@ nw <- Artenzahl %>%
   
 nw_frame <-  frame2webs(nw, varnames = c("Host", "Parasitoid", "group"))
 
-plotweb(nw_frame[[1]])
+plotweb(nw_frame[[1]], text.rot=90, y.lim = c(-3,5), ybig = 3)
 
 
 # visweb(nw_frame[[1]])
@@ -760,7 +764,7 @@ plotweb(nw_frame[[1]])
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Das bipartite Interaktionsnetzwerk der Nisthilfen der Kategorie Stadt. Die Kategorie beinhaltet alle Nisthilfen mit einem mittleren Versiegelungsgrad im 500m-Radius von mehr als 44\\% versiegelter Fläche. Die oberen Balken stellen die natürlichen Gegenspieler dar, die unteren Balken deren Wirte. Die Interaktionen sind durch die Verbindung der oberen und unteren Balken dargestellt. Die Balkendicke stellt die Häufigkeit der Interaktionen dar, wobei diese pro Nest gezählt wurden. \\label{networkstadt}", fig.scap="Netzwerkdarstellung der Nisthilfen der Kategorie Stadt"}
-plotweb(nw_frame[[3]])
+plotweb(nw_frame[[3]],  text.rot=90, y.lim = c(-3,5), ybig = 3)
 ```
 
 
