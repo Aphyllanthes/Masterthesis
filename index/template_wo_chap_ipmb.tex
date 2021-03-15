@@ -20,7 +20,7 @@
 \usepackage{footnotebackref}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-
+\usepackage{ragged2e}
 
 $if(highlighting-macros)$
 $highlighting-macros$
@@ -237,8 +237,15 @@ $endif$
 	% --- frontmatter: Zusammendfassung ---
 	% -------------------------------------
 	
-	$zusammenfassung$
-	\newpage\null\thispagestyle{empty}\newpage
+	\begin{justifying}
+		
+		
+		$zusammenfassung$
+	
+	\end{justifying}
+	
+	%\newpage\null\thispagestyle{empty}
+	\newpage
 	
 	% -----------------------------
 	% --- frontmatter: Abstract ---

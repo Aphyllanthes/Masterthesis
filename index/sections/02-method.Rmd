@@ -1,3 +1,8 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
 # Methoden
 In dieser Arbeit wurden Bienen und ihre Gegenspieler aus Nishilfen bestimmt, Daten zur Landschaftsstruktur und Urbanisierung anhnand von Satellitendaten ermittelt und Zusammenhänge des Bienenvorkommens mittels glm (generalisieren linearen Modellen) modelliert.
 <!-- package BAT, nlme -->
