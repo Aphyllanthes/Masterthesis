@@ -1,3 +1,8 @@
 # Danksagung {-}
 
-I want to thank a few people.
+Dank der umfangreichen Unterstützung durch meinen Betreuer Dr. Felix Fornoff bei der Themenfindung, der Arbeit im Labor, der Auswertung und der Interpretation der Ergebnisse konnte ich diese Arbeit bis zum Ende mit großer Motivation schreiben. Vielen Dank für die Beantwortung meiner vielen Fragen zu jeder Zeit!
+
+Des Weiteren bedanke ich mich bei Dr. Jochen Fründ, der mir als Zweitprüfer insbesondere Hilfestellungen zur Statistik gab, und bei Angela Gronert, die immer für Fragen zur Laborarbeit ansprechbar war! Allen fleißigen HiWis, Bachelor- und Masterstudenten, die ebenfalls an der Laborarbeit beteiligt waren, bedanke ich mich für die gegenseitige Unterstützung bei der Arbeit.
+
+Bei meiner Familie bedanke ich mich für die vielfältige Unterstützung. Mit motivierenden Worten, Lektorat und vor allem der Kinderbetreuung habt ihr es möglich gemacht! Und zuletzt noch ein großes Dankeschön an meine Freundinnen, die mir inhaltlich Feedback gegeben haben.
+
