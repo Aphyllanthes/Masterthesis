@@ -163,16 +163,16 @@ $endif$
 	\begin{scriptsize}
 		Titelbild: Alle Bilder entstanden im Jahr 2019. Alle drei Bilder mittig und unten links wurden mir freundlicherweise von Felix Fornoff bereitgestellt. Alle anderen Bilder entstanden im Rahmen dieser Masterarbeit. Von links nach rechts:\\
 		1. Reihe: Ein Kasten mit genadelten \textit{Heriades truncorum}, eine Nisthilfe mit vielen Nestern, eine mit \textit{Chaetodatctylus} befallene Biene der Gattung \textit{Hylaeus}\\
-		2. Reihe: Genadelte Parasitoidie der Familie der Schlupfwespen, eine Kiste mit bereits geöffneten Nestern des Morphotyp \textit{Osmia}, genadelte Blattschneiderbienen: \textit{Megachile rotundata}\\
+		2. Reihe: Genadelte Parasitoide der Familie der Schlupfwespen, eine Kiste mit bereits geöffneten Nestern des Morphotyp \textit{Osmia}, genadelte Blattschneiderbienen: \textit{Megachile rotundata}\\
 		3. Reihe: Eine genadelte Goldwespe, eine Nisthilfe mit vielen Nestern, ein Nest der Gartenwollbiene: \textit{Anthidium manicatum} (rechts oben), genadelte Blattschneiderbienen: \textit{Megachile ligniseca} (rechts unten)\\
-		4. Reihe: Nest mit sich entwickelnden Larven von \textit{Osmia bicornis}, eine Goldwespe durchs Binokular fotographiert.\\
+		4. Reihe: Nest mit sich entwickelnden Larven von \textit{Osmia bicornis}, eine Goldwespe durchs Binokular fotografiert.\\
 	\end{scriptsize}
 	
 	
 	\vspace*{\fill}
 	
 	
-	Die vorliegende \thesistype{} wurde im $institute$ $instituteshort$ an der Professur für Naturschutz und Landschaftsökologie angefertigt. 
+	Die vorliegende \thesistype{} wurde an der $institute$ $instituteshort$ an der Professur für Naturschutz und Landschaftsökologie angefertigt. 
 	
 	
 	
@@ -250,9 +250,11 @@ $endif$
 	% -----------------------------
 	% --- frontmatter: Abstract ---
 	% -----------------------------
-	
+	\begin{justifying}
 	$abstract$
-	\newpage\null\thispagestyle{empty}\newpage
+	\end{justifying}
+	%\newpage\null\thispagestyle{empty}
+	\newpage
 	
 	% -----------------------------
 	% --- frontmatter: Contents ---
@@ -282,7 +284,7 @@ $endif$
 	% --- frontmatter: List of Tables (not mandatory) ---
 	% ---------------------------------------------------
 	$if(lot)$
-	\newpage
+	%\newpage
 	\listoftables
 	\addcontentsline{toc}{section}{Tabellenverzeichnis}
 	$endif$
@@ -290,10 +292,12 @@ $endif$
 	% -------------------------------
 	% --- main body of the thesis ---
 	% -------------------------------
+	\newpage\null\thispagestyle{empty}
 	\newpage
 	\pagestyle{plain}
 	\setcounter{page}{1}    % start page numbering anew
 	\pagenumbering{arabic}  % page numbers in arabic style
+	\justifying
 	
 	$body$
 	

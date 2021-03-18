@@ -24,8 +24,9 @@ kableExtra::kbl(clc2000legend_IH,longtable =T,booktabs =T, caption = "Die in die
 ```
 
 
+# Anhang zum Ergebnisteil {#app2}
 
-```{r datendeskriptiv, echo=FALSE, fig.cap="Histogramme der Anzahl der Wirts-Bienenarten pro Nisthilfe (links) und Anzahl der von Bienen angelegten Brutzellen (=Abundanz) pro Nisthilfe (rechts) \\label{deskriptiv}"}
+```{r datendeskriptiv, echo=FALSE, fig.cap="Histogramme der Anzahl der Bienenarten pro Nisthilfe (links) und Anzahl der von Bienen angelegten Brutzellen (=Abundanz) pro Nisthilfe (rechts) \\label{deskriptiv}", fig.scap="Histogramme von Artenzahl und Abundanz der Wildbienen"}
 p1 <- ggplot(A1, aes(Artenanzahl_det)) + geom_histogram(bins = 8) +
   theme_bw() + labs(x = "Artenzahl der Wirte")
 p2 <- ggplot(A1, aes(Abundanz)) + geom_histogram(bins = 70) + theme_bw() 
@@ -41,7 +42,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(3, c("in")))
 
 
 
-# Anhang zum Ergebnissteil {#app2}
+
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, ref.label="ArtenzahlA"}
 
@@ -60,7 +61,7 @@ gridExtra::grid.arrange(p1, p2, ncol = 2, heights = unit(3, c("in")))
 ```
 
 
-```{r, fig.cap='Artenzahl der natürlichen Gegenspieler in Abhängigkeit der Artenzahl der Wirte. Links ist mit jedem Punkt die Artenzahl der Gegenspieler und Wirte einer Nisthilfe dargestellt und mit der Kurve die Modellvorhersage. Rechts ist die Modellzusammenfassung dargestellt. Das Modell wurde unter der Annahme der Negativbinomialverteilung gefittet. \\label{tabGegenspieler}', echo = F, fig.scap='Artenzahl der natürlichen Gegenspieler in Abhängigkeit der Artenzahl der Wirte.',   out.width = '.48\\linewidth', fig.subcap= c('Modellvorhersage und Daten', 'Modellzusammenfassung'), message=FALSE, warning=FALSE, fig.align='center', fig.height=6}
+```{r, fig.cap='Artenzahl der natürlichen Gegenspieler in Abhängigkeit der Artenzahl der Wildbienen. Links ist mit jedem Punkt die Artenzahl der Gegenspieler und Wirte einer Nisthilfe dargestellt und mit der Kurve die Modellvorhersage. Rechts ist die Modellzusammenfassung dargestellt. Das Modell wurde unter der Annahme der Negativbinomialverteilung gefittet. \\label{tabGegenspieler}', echo = F, fig.scap='Artenzahl der natürlichen Gegenspieler in Abhängigkeit der Artenzahl der Wildbienen.',   out.width = '.48\\linewidth', fig.subcap= c('Modellvorhersage und Daten', 'Modellzusammenfassung'), message=FALSE, warning=FALSE, fig.align='center', fig.height=6}
 library(gridExtra)
 library(grid)
 
@@ -70,7 +71,7 @@ ggplot(A2, aes(Host, Parasitoid)) +
   geom_smooth(method = MASS::glm.nb, se = T, formula = y ~  x) +
   theme_bw() +
   ylab("Artenzahl Gegenspieler") +
-  xlab("Artenzahl Wirte")
+  xlab("Artenzahl Wildbienen")
 # plot(A2$Host, A2$Parasitoid)
 
 
@@ -82,7 +83,7 @@ nullmodel_par <- read_delim("../Modelle/nullmodel_par.csv",
     trim_ws = TRUE) 
 names(nullmodel_par) <- nullmodel_par[2,]
 nullmodel_par[is.na(nullmodel_par)] <- ""
-
+nullmodel_par[,1] <- c("", "Prädiktoren", "(Interzept)", "Bienenartenzahl", "Beobachtungen", "R2 Nagelkerke")
 # nullpar_tab <-kableExtra::kbl(nullmodel_par[-c(1,2),], booktabs =T) %>%
 #   kableExtra::kable_styling(latex_options =c("repeat_header", "striped"), repeat_header_text = "(ref:continued)") %>%
 #   # kableExtra::column_spec(c(4,7,10, 13,16),
